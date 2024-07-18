@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const packageJson = require('./package.json');
 
 module.exports = {
-  appUrl: '/insights/connector',
+  appUrl: '/insights/connector/activation-keys',
   useProxy: process.env.PROXY === 'true',
   proxyVerbose: true,
   plugins: [
