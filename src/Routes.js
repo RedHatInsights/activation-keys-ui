@@ -6,10 +6,6 @@ import pckg from '../package.json';
 import ActivationKey from './Components/ActivationKey/ActivationKey';
 const { routes: paths } = pckg;
 
-const Dashboard = lazy(() =>
-  import(/* webpackChunkName: "Dashboard" */ './Routes/Dashboard')
-);
-
 const ActivationKeys = lazy(() => import('./Components/ActivationKeys'));
 
 const SuspenseWrapped = ({ children }) => (
@@ -40,14 +36,6 @@ const AppRoutes = () => {
         element={
           <SuspenseWrapped>
             <ActivationKeys />
-          </SuspenseWrapped>
-        }
-      />
-      <Route
-        path={paths.connector}
-        element={
-          <SuspenseWrapped>
-            <Dashboard />
           </SuspenseWrapped>
         }
       />
