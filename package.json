@@ -8,7 +8,7 @@
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint config src",
     "lint:js:fix": "eslint config src --fix",
-    "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json",
+    "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json --allow-empty-input",
     "nightly": "npm run deploy",
     "server:ctr": "node src/server/generateServerKey.js",
     "start": "PROXY=true fec dev",
