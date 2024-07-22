@@ -4,9 +4,9 @@
 # Export vars for helper scripts to use
 # --------------------------------------------
 # name of app-sre "application" folder this component lives in; needs to match for quay
-export COMPONENT="sed-frontend"
+export COMPONENT="rhsm-api-proxy"
 # IMAGE should match the quay repo set by app.yaml in app-interface
-export IMAGE="quay.io/cloudservices/sed-frontend"
+export IMAGE="quay.io/cloudservices/activation-keys-ui"
 export WORKSPACE=${WORKSPACE:-$APP_ROOT} # if running in jenkins, use the build's workspace
 export APP_ROOT=$(pwd)
 #16 is the default Node version. Change this to override it.

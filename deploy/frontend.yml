@@ -6,18 +6,18 @@ objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: Frontend
     metadata:
-      name: connector
+      name: activation-keys-ui
     spec:
       envName: ${ENV_NAME}
-      title: "Manage configuration"
+      title: "Manage Activation Keys"
       routePrefix: insights
-      deploymentRepo: https://github.com/RedHatInsights/sed-frontend
+      deploymentRepo: https://github.com/RedHatInsights/activation-keys-ui
       API:
         versions:
           - v1
       frontend:
         paths:
-          - /insights/connector
+          - /insights/connector/activation-keys-ui
       image: ${IMAGE}:${IMAGE_TAG}
       navItems:
         - title: Remote Host Configuration
@@ -29,18 +29,19 @@ objects:
             - appId: connector
               title: Activation Keys
               href: /insights/connector/activation-keys
-      module:
-        manifestLocation: /apps/connector/fed-mods.json
-        modules:
-          - id: connector
-            module: ./RootApp
-            routes:
-              - pathname: /insights/connector
-        moduleID: connector
+      # This isn't used currently
+      # module:
+      #   manifestLocation: /apps/connector/fed-mods.json
+      #   modules:
+      #     - id: connector
+      #       module: ./RootApp
+      #       routes:
+      #         - pathname: /insights/connector
+      #   moduleID: connector
 parameters:
   - name: ENV_NAME
     required: true
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: quay.io/cloudservices/sed-frontend
+    value: quay.io/cloudservices/activation-keys-ui
