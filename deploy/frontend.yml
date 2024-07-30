@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: connector
+  name: activation-keys
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: Frontend
@@ -29,15 +29,15 @@ objects:
             - appId: connector
               title: Activation Keys
               href: /insights/connector/activation-keys
-      # This isn't used currently
-      # module:
-      #   manifestLocation: /apps/connector/fed-mods.json
-      #   modules:
-      #     - id: connector
-      #       module: ./RootApp
-      #       routes:
-      #         - pathname: /insights/connector
-      #   moduleID: connector
+      This isn't used currently
+      module:
+        manifestLocation: /apps/activation-keys/fed-mods.json
+        modules:
+          - id: activation-keys
+            module: ./RootApp
+            routes:
+              - pathname: /insights/connector/activation-keys
+        moduleID: connector
 parameters:
   - name: ENV_NAME
     required: true
