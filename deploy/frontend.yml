@@ -29,7 +29,6 @@ objects:
             - appId: connector
               title: Activation Keys
               href: /insights/connector/activation-keys
-      This isn't used currently
       module:
         manifestLocation: /apps/activation-keys/fed-mods.json
         modules:
