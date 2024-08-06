@@ -6,7 +6,7 @@ objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: Frontend
     metadata:
-      name: activation-keys-ui
+      name: activation-keys
     spec:
       envName: ${ENV_NAME}
       title: "Manage Activation Keys"
@@ -17,7 +17,7 @@ objects:
           - v1
       frontend:
         paths:
-          - /insights/connector/activation-keys-ui
+          - /insights/connector/activation-keys
       image: ${IMAGE}:${IMAGE_TAG}
       navItems:
         - title: Remote Host Configuration
