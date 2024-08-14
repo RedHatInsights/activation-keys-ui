@@ -113,11 +113,8 @@
     "appname": "activation-keys"
   },
   "routes": {
-    "connector": "/*",
-    "connectSystemsModal": "/connect-systems",
-    "logModal": "log",
-    "activationKeys": "/activation-keys",
-    "activationKey": "/activation-keys/:id"
+    "activationKeys": "/",
+    "activationKey": "/:id"
   },
   "nyc": {
     "report-dir": "codecov-cypress",
