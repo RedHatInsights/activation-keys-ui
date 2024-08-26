@@ -36,7 +36,7 @@ const ActivationKey = () => {
   const user = queryClient.getQueryData(['user']);
   const { id } = useParams();
   const breadcrumbs = [
-    { title: 'Activation Keys', to: '../activation-keys' },
+    { title: 'Activation Keys', to: '..' },
     { title: id, isActive: true },
   ];
   const {
@@ -58,7 +58,7 @@ const ActivationKey = () => {
   const handleDeleteActivationKeyModalToggle = (keyDeleted) => {
     setIsDeleteActivationKeyModalOpen(!isDeleteActivationKeyModalOpen);
     if (keyDeleted === true) {
-      navigate('../activation-keys');
+      navigate('..');
     }
   };
 
