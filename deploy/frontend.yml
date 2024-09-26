@@ -26,7 +26,7 @@ objects:
             - appId: connector
               title: Manage configuration
               href: /insights/connector
-            - appId: connector
+            - appId: activation-keys
               title: Activation Keys
               href: /insights/connector/activation-keys
       module:
@@ -36,7 +36,7 @@ objects:
             module: ./RootApp
             routes:
               - pathname: /insights/connector/activation-keys
-        moduleID: connector
+        moduleID: activation-keys
 parameters:
   - name: ENV_NAME
     required: true
