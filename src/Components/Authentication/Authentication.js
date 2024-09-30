@@ -35,7 +35,7 @@ const Authentication = ({ children }) => {
   } else if (isLoading === true || isFetching === true) {
     return <Loading />;
   } else if (isSuccess === true && !hasAnyPermission) {
-    return <NotAuthorized serviceName="Remote Host Configuration" />;
+    return <NotAuthorized serviceName="Activation Keys" />;
   } else if (isSuccess === true) {
     return <>{children}</>;
   } else {

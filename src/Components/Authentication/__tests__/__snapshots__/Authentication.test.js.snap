@@ -34,7 +34,7 @@ exports[`Authentication when user has no permissions renders the NotAuthorized 1
           <h5
             class="pf-v5-c-empty-state__title-text"
           >
-            You do not have access to Remote Host Configuration
+            You do not have access to Activation Keys
           </h5>
         </div>
       </div>
