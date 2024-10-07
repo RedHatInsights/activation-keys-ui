@@ -61,7 +61,6 @@
     "redux": "^4.2.0",
     "redux-logger": "3.0.6",
     "redux-promise-middleware": "^6.2.0",
-    "typescript-language-server": "^4.3.3",
     "unleash-proxy-client": "^2.2.1",
     "uuid": "^9.0.1"
   },
