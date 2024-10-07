@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Button,
   Modal,
@@ -6,12 +6,12 @@ import {
   TextContent,
   Text,
   TextVariants,
-} from "@patternfly/react-core";
-import { ExclamationTriangleIcon } from "@patternfly/react-icons";
-import propTypes from "prop-types";
-import useNotifications from "../../hooks/useNotifications";
-import { useQueryClient } from "@tanstack/react-query";
-import useDeleteAdditionalRepositories from "../../hooks/useDeleteAdditionalRepositories";
+} from '@patternfly/react-core';
+import { ExclamationTriangleIcon } from '@patternfly/react-icons';
+import propTypes from 'prop-types';
+import useNotifications from '../../hooks/useNotifications';
+import { useQueryClient } from '@tanstack/react-query';
+import useDeleteAdditionalRepositories from '../../hooks/useDeleteAdditionalRepositories';
 
 const DeleteAdditionalRepositoriesModal = (props) => {
   const {
@@ -51,7 +51,7 @@ const DeleteAdditionalRepositoriesModal = (props) => {
           handleModalToggle();
         },
         onError: () => {
-          addErrorNotification("Something went wrong. Please try again");
+          addErrorNotification('Something went wrong. Please try again');
           handleModalToggle();
         },
       }
@@ -73,7 +73,7 @@ const DeleteAdditionalRepositoriesModal = (props) => {
       isDisabled={isLoading}
       spinnerAriaValueText="Removing repository"
     >
-      {isLoading ? "Removing repository" : "Remove repository"}
+      {isLoading ? 'Removing repository' : 'Remove repository'}
     </Button>,
     <Button
       key="cancel"

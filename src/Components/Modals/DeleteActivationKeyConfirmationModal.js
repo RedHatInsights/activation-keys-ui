@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Button,
   Modal,
@@ -6,13 +6,13 @@ import {
   TextContent,
   Text,
   TextVariants,
-} from "@patternfly/react-core";
-import { ExclamationTriangleIcon } from "@patternfly/react-icons";
-import propTypes from "prop-types";
-import useDeleteActivationKey from "../../hooks/useDeleteActivationKey";
-import useNotifications from "../../hooks/useNotifications";
-import Loading from "../LoadingState/Loading";
-import { useQueryClient } from "@tanstack/react-query";
+} from '@patternfly/react-core';
+import { ExclamationTriangleIcon } from '@patternfly/react-icons';
+import propTypes from 'prop-types';
+import useDeleteActivationKey from '../../hooks/useDeleteActivationKey';
+import useNotifications from '../../hooks/useNotifications';
+import Loading from '../LoadingState/Loading';
+import { useQueryClient } from '@tanstack/react-query';
 
 const DeleteActivationKeyConfirmationModal = (props) => {
   const { isOpen, handleModalToggle, name } = props;
@@ -23,14 +23,14 @@ const DeleteActivationKeyConfirmationModal = (props) => {
   const deleteActivationKey = (name) => {
     mutate(name, {
       onSuccess: (_data, name) => {
-        queryClient.setQueryData(["activation_keys"], (oldData) =>
+        queryClient.setQueryData(['activation_keys'], (oldData) =>
           oldData.filter((entry) => entry.name != name)
         );
         addSuccessNotification(`Activation key ${name} deleted`);
         handleModalToggle(true);
       },
       onError: () => {
-        addErrorNotification("Something went wrong. Please try again");
+        addErrorNotification('Something went wrong. Please try again');
         handleModalToggle();
       },
     });

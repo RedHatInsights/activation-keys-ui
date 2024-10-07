@@ -1,12 +1,12 @@
-import React, { Suspense, lazy } from "react";
-import PropTypes from "prop-types";
-import { Route, Routes } from "react-router-dom";
-import { Bullseye, Spinner } from "@patternfly/react-core";
-import pckg from "../package.json";
-import ActivationKey from "./Components/ActivationKey/ActivationKey";
+import React, { Suspense, lazy } from 'react';
+import PropTypes from 'prop-types';
+import { Route, Routes } from 'react-router-dom';
+import { Bullseye, Spinner } from '@patternfly/react-core';
+import pckg from '../package.json';
+import ActivationKey from './Components/ActivationKey/ActivationKey';
 const { routes: paths } = pckg;
 
-const ActivationKeys = lazy(() => import("./Components/ActivationKeys"));
+const ActivationKeys = lazy(() => import('./Components/ActivationKeys'));
 
 const SuspenseWrapped = ({ children }) => (
   <Suspense

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Title,
   Text,
@@ -7,9 +7,9 @@ import {
   FormSelectOption,
   FormSelect,
   Form,
-} from "@patternfly/react-core";
-import PropTypes from "prop-types";
-import Loading from "../LoadingState/Loading";
+} from '@patternfly/react-core';
+import PropTypes from 'prop-types';
+import Loading from '../LoadingState/Loading';
 
 const SetSystemPurposePage = ({
   role,

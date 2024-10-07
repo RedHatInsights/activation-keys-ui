@@ -1,14 +1,14 @@
-import { useAuthenticateUser } from "../platformServices";
-import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
-import { renderHook, waitFor } from "@testing-library/react";
-import { createQueryWrapper } from "../../utils/testHelpers";
+import { useAuthenticateUser } from '../platformServices';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { renderHook, waitFor } from '@testing-library/react';
+import { createQueryWrapper } from '../../utils/testHelpers';
 
-jest.mock("@redhat-cloud-services/frontend-components/useChrome", () =>
+jest.mock('@redhat-cloud-services/frontend-components/useChrome', () =>
   jest.fn()
 );
 
-describe("Authenticate User method", () => {
-  it("should return a promise with user data", async () => {
+describe('Authenticate User method', () => {
+  it('should return a promise with user data', async () => {
     useChrome.mockImplementation(() => ({
       auth: {
         getUser: () =>
@@ -39,17 +39,17 @@ describe("Authenticate User method", () => {
     });
   });
 
-  it("should throw an error if rejected", async () => {
+  it('should throw an error if rejected', async () => {
     useChrome.mockImplementation(() => ({
       auth: {
-        getUser: () => Promise.reject(new Error("Error getting user")),
+        getUser: () => Promise.reject(new Error('Error getting user')),
       },
     }));
 
     expect(() =>
       renderHook(() => useAuthenticateUser(), {
         wrapper: createQueryWrapper(),
-      }).toThrow(Error("Error getting user"))
+      }).toThrow(Error('Error getting user'))
     );
   });
 });

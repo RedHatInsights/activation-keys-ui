@@ -1,5 +1,5 @@
-import { applyReducerHash } from "@redhat-cloud-services/frontend-components-utilities/ReducerRegistry";
-import { GET_LOG } from "./actionTypes";
+import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
+import { GET_LOG } from './actionTypes';
 
 const initialState = {
   loaded: false,

@@ -1,2 +1,2 @@
-import AddAdditionalRepositoriesTable from "./AddAdditionalRepositoriesTable";
+import AddAdditionalRepositoriesTable from './AddAdditionalRepositoriesTable';
 export { AddAdditionalRepositoriesTable as default };

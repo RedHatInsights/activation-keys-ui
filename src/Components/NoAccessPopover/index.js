@@ -1,3 +1,3 @@
-import NoAccessPopover from "./NoAccessPopover";
+import NoAccessPopover from './NoAccessPopover';
 
 export default NoAccessPopover;

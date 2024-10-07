@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   ActionGroup,
   Text,
@@ -10,31 +10,31 @@ import {
   FlexItem,
   Split,
   SplitItem,
-} from "@patternfly/react-core";
-import { Main } from "@redhat-cloud-services/frontend-components/Main";
+} from '@patternfly/react-core';
+import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
   PageHeader,
   PageHeaderTitle,
-} from "@redhat-cloud-services/frontend-components/PageHeader";
-import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
-import ActivationKeysTable from "../ActivationKeysTable";
-import { useQueryClient } from "@tanstack/react-query";
-import NoActivationKeysFound from "../EmptyState";
-import EditActivationKeyModal from "../Modals/EditActivationKeyModal";
-import CreateActivationKeyWizard from "../Modals/CreateActivationKeyWizard";
-import useActivationKeys from "../../hooks/useActivationKeys";
-import Loading from "../LoadingState/Loading";
-import CreateActivationKeyButton from "./CreateActivationKeyButton";
-import DeleteActivationKeyConfirmationModal from "../Modals/DeleteActivationKeyConfirmationModal";
-import ActivationKeysDocsPopover from "../ActivationKeysDocsPopover";
+} from '@redhat-cloud-services/frontend-components/PageHeader';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import ActivationKeysTable from '../ActivationKeysTable';
+import { useQueryClient } from '@tanstack/react-query';
+import NoActivationKeysFound from '../EmptyState';
+import EditActivationKeyModal from '../Modals/EditActivationKeyModal';
+import CreateActivationKeyWizard from '../Modals/CreateActivationKeyWizard';
+import useActivationKeys from '../../hooks/useActivationKeys';
+import Loading from '../LoadingState/Loading';
+import CreateActivationKeyButton from './CreateActivationKeyButton';
+import DeleteActivationKeyConfirmationModal from '../Modals/DeleteActivationKeyConfirmationModal';
+import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
 const ActivationKeys = () => {
   const { updateDocumentTitle } = useChrome();
-  updateDocumentTitle?.("Activation Keys - System Configuration | RHEL", true);
+  updateDocumentTitle?.('Activation Keys - System Configuration | RHEL', true);
   const queryClient = useQueryClient();
-  const user = queryClient.getQueryData(["user"]);
+  const user = queryClient.getQueryData(['user']);
   const { isLoading, error, data } = useActivationKeys();
   const [isOpen, setisOpen] = useState(false);
-  const [currentKeyName, setCurrentKeyName] = useState("");
+  const [currentKeyName, setCurrentKeyName] = useState('');
 
   const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] =
     useState(false);
@@ -53,20 +53,20 @@ const ActivationKeys = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href={"https://console.redhat.com/insights/subscriptions/rhel"}
+          href={'https://console.redhat.com/insights/subscriptions/rhel'}
         >
           Subscription Watch.
         </a>
       </Text>
       <Text>
-        To register with an activation key, you will need your organization ID:{" "}
+        To register with an activation key, you will need your organization ID:{' '}
         <b>{user.orgId}</b>
       </Text>
     </TextContent>
   );
 
   const setKeyName = (modalOpen, name) => {
-    let currentName = modalOpen ? "" : name;
+    let currentName = modalOpen ? '' : name;
     setCurrentKeyName(currentName);
   };
 
@@ -86,7 +86,7 @@ const ActivationKeys = () => {
         <Split hasGutter className="page-title">
           <SplitItem isFilled>
             <Flex>
-              <FlexItem spacer={{ default: "spacerSm" }}>
+              <FlexItem spacer={{ default: 'spacerSm' }}>
                 <PageHeaderTitle title="Activation Keys" />
               </FlexItem>
               <FlexItem>

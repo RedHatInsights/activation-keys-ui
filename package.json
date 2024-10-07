@@ -9,7 +9,6 @@
     "lint:js": "eslint config src",
     "lint:js:fix": "eslint config src --fix",
     "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json --allow-empty-input",
-    "fmt": "prettier \"src/**/*.{js,tsx,html,scss}\" --write",
     "nightly": "npm run deploy",
     "server:ctr": "node src/server/generateServerKey.js",
     "start": "PROXY=true fec dev",

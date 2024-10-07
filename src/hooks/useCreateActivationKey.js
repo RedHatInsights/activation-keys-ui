@@ -1,5 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
-import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
+import { useMutation } from '@tanstack/react-query';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const activationKeyMutation = (token) => async (data) => {
   const {
@@ -25,11 +25,11 @@ const activationKeyMutation = (token) => async (data) => {
     );
   }
 
-  const response = await fetch("/api/rhsm/v2/activation_keys", {
-    method: "POST",
+  const response = await fetch('/api/rhsm/v2/activation_keys', {
+    method: 'POST',
     headers: {
       Authorization: `Bearer ${await token}`,
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(body),
   });

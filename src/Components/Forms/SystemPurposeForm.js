@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { ActionGroup, Button, Form } from "@patternfly/react-core";
-import useSystemPurposeAttributes from "../../hooks/useSystemPurposeAttributes";
-import ActivationKeysFormSelect from "./ActivationKeysFormSelect";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from 'react';
+import { ActionGroup, Button, Form } from '@patternfly/react-core';
+import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
+import ActivationKeysFormSelect from './ActivationKeysFormSelect';
+import PropTypes from 'prop-types';
 
 const SystemPurposeForm = (props) => {
   const { handleModalToggle, submitForm, activationKey } = props;
   const { isLoading, error, data } = useSystemPurposeAttributes();
-  const [role, setRole] = useState("");
-  const [serviceLevel, setServiceLevel] = useState("");
-  const [usage, setUsage] = useState("");
-  const [validated, setValidated] = useState("default");
-  const placeholderValue = "Not defined";
+  const [role, setRole] = useState('');
+  const [serviceLevel, setServiceLevel] = useState('');
+  const [usage, setUsage] = useState('');
+  const [validated, setValidated] = useState('default');
+  const placeholderValue = 'Not defined';
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (validated === "success" || activationKey) {
+    if (validated === 'success' || activationKey) {
       submitForm({ role: role, serviceLevel: serviceLevel, usage: usage });
     } else {
-      setValidated("error");
+      setValidated('error');
     }
   };
 
@@ -81,7 +81,7 @@ const SystemPurposeForm = (props) => {
           isDisabled={createButtonDisabled()}
           data-testid="activation-key-submit-button"
         >
-          {activationKey ? "Save changes" : "Create"}
+          {activationKey ? 'Save changes' : 'Create'}
         </Button>
 
         <Button

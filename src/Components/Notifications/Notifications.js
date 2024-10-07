@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import {
   Alert,
   AlertActionCloseButton,
   AlertGroup,
-} from "@patternfly/react-core";
-import useNotifications from "../../hooks/useNotifications";
+} from '@patternfly/react-core';
+import useNotifications from '../../hooks/useNotifications';
 
 const Notifications = () => {
   const { notifications, removeNotification } = useNotifications();

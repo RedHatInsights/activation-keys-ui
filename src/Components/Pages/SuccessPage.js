@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Bullseye,
   Button,
@@ -9,10 +9,10 @@ import {
   EmptyStateActions,
   EmptyStateHeader,
   EmptyStateFooter,
-} from "@patternfly/react-core";
-import { CheckCircleIcon } from "@patternfly/react-icons";
-import useInsightsNavigate from "@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate/useInsightsNavigate";
-import PropTypes from "prop-types";
+} from '@patternfly/react-core';
+import { CheckCircleIcon } from '@patternfly/react-icons';
+import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate/useInsightsNavigate';
+import PropTypes from 'prop-types';
 
 const SuccessPage = ({ isLoading, name, onClose }) => {
   const navigate = useInsightsNavigate();
@@ -27,7 +27,7 @@ const SuccessPage = ({ isLoading, name, onClose }) => {
         headingLevel="h4"
       />
       <EmptyStateBody>
-        <b>{name}</b> is now available for use. Click <b>View activation key</b>{" "}
+        <b>{name}</b> is now available for use. Click <b>View activation key</b>{' '}
         to edit settings or add repositories.
       </EmptyStateBody>
       <EmptyStateFooter>

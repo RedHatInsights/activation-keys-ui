@@ -1,21 +1,21 @@
-import React from "react";
-import { render, waitFor, screen } from "@testing-library/react";
-import ActivationKeys from "../index";
-import { Provider } from "react-redux";
-import Authentication from "../../../Components/Authentication";
-import { BrowserRouter as Router } from "react-router-dom";
-import { init } from "../../../store";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import useUser from "../../../hooks/useUser";
-import { get, def } from "bdd-lazy-var";
-import useActivationKeys from "../../../hooks/useActivationKeys";
-import "@testing-library/jest-dom";
-jest.mock("../../../hooks/useActivationKeys");
-jest.mock("../../../hooks/useUser");
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
+import React from 'react';
+import { render, waitFor, screen } from '@testing-library/react';
+import ActivationKeys from '../index';
+import { Provider } from 'react-redux';
+import Authentication from '../../../Components/Authentication';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { init } from '../../../store';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import useUser from '../../../hooks/useUser';
+import { get, def } from 'bdd-lazy-var';
+import useActivationKeys from '../../../hooks/useActivationKeys';
+import '@testing-library/jest-dom';
+jest.mock('../../../hooks/useActivationKeys');
+jest.mock('../../../hooks/useUser');
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
   useLocation: () => ({
-    pathname: "/",
+    pathname: '/',
   }),
 }));
 
@@ -35,8 +35,8 @@ const PageContainer = () => (
 
 const mockAuthenticateUser = (isLoading, isError, rbacPermissions) => {
   const user = {
-    accountNumber: "123",
-    orgId: "123",
+    accountNumber: '123',
+    orgId: '123',
     rbacPermissions: rbacPermissions,
   };
   useUser.mockReturnValue({
@@ -48,103 +48,103 @@ const mockAuthenticateUser = (isLoading, isError, rbacPermissions) => {
   });
 
   if (isError === false) {
-    queryClient.setQueryData(["user"], user);
+    queryClient.setQueryData(['user'], user);
   }
 };
 
 // eslint-disable-next-line react/display-name
-jest.mock("../../../Components/ActivationKeysTable", () => () => (
+jest.mock('../../../Components/ActivationKeysTable', () => () => (
   <div>Activation Keys Table</div>
 ));
 jest.mock(
-  "@redhat-cloud-services/frontend-components/NotAuthorized",
+  '@redhat-cloud-services/frontend-components/NotAuthorized',
   // eslint-disable-next-line react/display-name
   () => () => <div>Not Authorized</div>
 );
 
 jest.mock(
-  "@redhat-cloud-services/frontend-components/Unavailable",
+  '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
   () => () => <div>Unavailable</div>
 );
 
-describe("ActivationKeys", () => {
-  def("isLoading", () => false);
-  def("isError", () => false);
-  def("rbacPermissions", () => {
+describe('ActivationKeys', () => {
+  def('isLoading', () => false);
+  def('isError', () => false);
+  def('rbacPermissions', () => {
     return { canReadActivationKeys: true, canWriteActivationKeys: true };
   });
-  def("keysData", () => [
+  def('keysData', () => [
     {
-      name: "A",
-      role: "B",
-      serviceLevel: "C",
-      usage: "D",
+      name: 'A',
+      role: 'B',
+      serviceLevel: 'C',
+      usage: 'D',
     },
   ]);
 
   beforeEach(() => {
     jest.resetAllMocks();
     mockAuthenticateUser(
-      get("isLoading"),
-      get("isError"),
-      get("rbacPermissions")
+      get('isLoading'),
+      get('isError'),
+      get('rbacPermissions')
     );
     useActivationKeys.mockReturnValue({
       isLoading: false,
       isFetching: false,
       isError: false,
       isSuccess: true,
-      data: get("keysData"),
+      data: get('keysData'),
     });
   });
 
-  it("renders correctly", async () => {
+  it('renders correctly', async () => {
     const { container } = render(<PageContainer />);
     await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
     expect(container).toMatchSnapshot();
   });
 
-  describe("when the user call fails", () => {
-    def("isError", () => true);
+  describe('when the user call fails', () => {
+    def('isError', () => true);
 
-    it("renders an error message when user call fails", async () => {
+    it('renders an error message when user call fails', async () => {
       const { container } = render(<PageContainer />);
       await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
       expect(container).toMatchSnapshot();
     });
   });
 
-  describe("when the user does not have proper permissions", () => {
-    def("rbacPermissions", () => {
+  describe('when the user does not have proper permissions', () => {
+    def('rbacPermissions', () => {
       return { canReadActivationKeys: false };
     });
 
-    it("redirects to not authorized page", async () => {
+    it('redirects to not authorized page', async () => {
       const { container } = render(<PageContainer />);
       await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
       expect(container).toMatchSnapshot();
     });
   });
 
-  describe("when the user have only read permissions", () => {
-    def("rbacPermissions", () => {
+  describe('when the user have only read permissions', () => {
+    def('rbacPermissions', () => {
       return { canReadActivationKeys: true, canWriteActivationKeys: false };
     });
 
-    it("create activation key button is disabled", async () => {
+    it('create activation key button is disabled', async () => {
       render(<PageContainer />);
       await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
-      expect(screen.getByText("Create activation key")).toBeDisabled();
+      expect(screen.getByText('Create activation key')).toBeDisabled();
     });
   });
 
-  describe("show blank state when no activation keys", () => {
-    def("keysData", () => []);
+  describe('show blank state when no activation keys', () => {
+    def('keysData', () => []);
 
-    it("renders blank state", async () => {
+    it('renders blank state', async () => {
       render(<PageContainer />);
-      expect(screen.getByText("No activation keys")).toBeInTheDocument();
+      expect(screen.getByText('No activation keys')).toBeInTheDocument();
     });
   });
 });

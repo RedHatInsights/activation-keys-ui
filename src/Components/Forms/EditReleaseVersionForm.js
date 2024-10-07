@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   ActionGroup,
   Button,
@@ -6,11 +6,11 @@ import {
   FormGroup,
   FormSelect,
   FormSelectOption,
-} from "@patternfly/react-core";
-import useUpdateActivationKey from "../../hooks/useUpdateActivationKey";
-import { useQueryClient } from "@tanstack/react-query";
-import useNotifications from "../../hooks/useNotifications";
-import PropTypes from "prop-types";
+} from '@patternfly/react-core';
+import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
+import { useQueryClient } from '@tanstack/react-query';
+import useNotifications from '../../hooks/useNotifications';
+import PropTypes from 'prop-types';
 
 export const EditReleaseVersionForm = ({
   releaseVersions,
@@ -91,7 +91,7 @@ export const EditReleaseVersionForm = ({
           }
           isLoading={isLoading}
         >
-          {"Save changes"}
+          {'Save changes'}
         </Button>
       </ActionGroup>
     </Form>

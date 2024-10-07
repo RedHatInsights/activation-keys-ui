@@ -1,10 +1,10 @@
-import React from "react";
-import { EditReleaseVersionModal } from "../EditReleaseVersionModal";
-import { Provider } from "react-redux";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { init } from "../../../store";
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import React from 'react';
+import { EditReleaseVersionModal } from '../EditReleaseVersionModal';
+import { Provider } from 'react-redux';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { init } from '../../../store';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 const queryClient = new QueryClient();
 const registry = init();
@@ -12,19 +12,19 @@ const registry = init();
 const props = {
   isOpen: true,
   onClose: jest.fn(),
-  releaseVersions: ["1.1", "1.2"],
+  releaseVersions: ['1.1', '1.2'],
   areReleaseVersionsLoading: false,
   activationKey: {
-    name: "",
-    releaseVersion: "",
-    serviceLevel: "",
-    usage: "",
-    role: "",
+    name: '',
+    releaseVersion: '',
+    serviceLevel: '',
+    usage: '',
+    role: '',
   },
 };
 
-describe("Edit Release Version Modal", () => {
-  it("renders correctly", () => {
+describe('Edit Release Version Modal', () => {
+  it('renders correctly', () => {
     render(
       <Provider store={registry.getStore()}>
         <QueryClientProvider client={queryClient}>
@@ -33,7 +33,7 @@ describe("Edit Release Version Modal", () => {
       </Provider>
     );
 
-    expect(screen.getByText("Edit release version")).toBeInTheDocument();
-    expect(screen.getByText("Not defined")).toBeInTheDocument();
+    expect(screen.getByText('Edit release version')).toBeInTheDocument();
+    expect(screen.getByText('Not defined')).toBeInTheDocument();
   });
 });

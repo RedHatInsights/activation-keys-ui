@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
+import { useQuery } from '@tanstack/react-query';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const fetchSystemPurposeAttributes = (token) => async () => {
   const response = await fetch(
-    "/api/rhsm/v2/organization?include=system_purpose_attributes",
+    '/api/rhsm/v2/organization?include=system_purpose_attributes',
     {
       headers: { Authorization: `Bearer ${await token}` },
     }
@@ -23,7 +23,7 @@ const useSystemPurposeAttributes = () => {
   const chrome = useChrome();
 
   return useQuery(
-    ["organization_system_purpose_attributes"],
+    ['organization_system_purpose_attributes'],
     getSystemPurposeAttributes(chrome?.auth?.getToken())
   );
 };

@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import propTypes from "prop-types";
+import React from 'react';
+import { useState } from 'react';
+import propTypes from 'prop-types';
 import {
   Text,
   TextContent,
@@ -10,10 +10,10 @@ import {
   CardTitle,
   CardBody,
   Title,
-} from "@patternfly/react-core";
-import AdditionalRepositoriesTable from "../AdditionalRepositoriesTable";
-import AddAdditionalRepositoriesButton from "../ActivationKey/AddAdditionalRepositoriesButton";
-import AddAdditionalRepositoriesModal from "../Modals/AddAdditionalRepositoriesModal";
+} from '@patternfly/react-core';
+import AdditionalRepositoriesTable from '../AdditionalRepositoriesTable';
+import AddAdditionalRepositoriesButton from '../ActivationKey/AddAdditionalRepositoriesButton';
+import AddAdditionalRepositoriesModal from '../Modals/AddAdditionalRepositoriesModal';
 
 const AdditionalRepositoriesCard = (props) => {
   const { activationKey } = props;

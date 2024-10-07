@@ -1,13 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import { useRbacPermissions } from "./useRbacPermissions";
-import { useAuthenticateUser } from "../utils/platformServices";
+import { useQuery } from '@tanstack/react-query';
+import { useRbacPermissions } from './useRbacPermissions';
+import { useAuthenticateUser } from '../utils/platformServices';
 
 const useUser = () => {
   const rbacPermissions = useRbacPermissions();
   const authenticateUser = useAuthenticateUser();
 
   return useQuery(
-    ["user"],
+    ['user'],
     () =>
       Promise.all([authenticateUser, rbacPermissions]).then(
         ([userStatus, rbacPermissions]) => ({

@@ -1,14 +1,14 @@
-import { useConfigApi, useInventoryApi } from "../api";
+import { useConfigApi, useInventoryApi } from '../api';
 import {
   GET_CURR_STATE,
   GET_LOG,
   SET_CURR_STATE,
   GET_CONNECTED_HOSTS,
-} from "./actionTypes";
+} from './actionTypes';
 
 const fetchCurrState = (api) => () => ({
   type: GET_CURR_STATE,
-  payload: api.getProfile("current"),
+  payload: api.getProfile('current'),
 });
 
 const saveCurrState =

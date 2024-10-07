@@ -1,5 +1,5 @@
-import { useAxiosWithPlatformInterceptors } from "@redhat-cloud-services/frontend-components-utilities/interceptors";
-const INVENTORY_BASE = "/api/inventory/v1";
+import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+const INVENTORY_BASE = '/api/inventory/v1';
 
 const getConnectedHosts = (axios) => () =>
   axios.get(

@@ -1,20 +1,20 @@
-import { Button } from "@patternfly/react-core";
-import React from "react";
-import { useQueryClient } from "@tanstack/react-query";
-import PropTypes from "prop-types";
-import NoAccessPopover from "../NoAccessPopover";
-import { Tooltip } from "@patternfly/react-core";
+import { Button } from '@patternfly/react-core';
+import React from 'react';
+import { useQueryClient } from '@tanstack/react-query';
+import PropTypes from 'prop-types';
+import NoAccessPopover from '../NoAccessPopover';
+import { Tooltip } from '@patternfly/react-core';
 
 const WriteOnlyButton = (props) => {
   const {
     children,
     enabledTooltip,
-    disabledTooltip = "Disabled",
+    disabledTooltip = 'Disabled',
     ...buttonProps
   } = props;
 
   const queryClient = useQueryClient();
-  const user = queryClient.getQueryData(["user"]);
+  const user = queryClient.getQueryData(['user']);
   const isDisabled = !user?.rbacPermissions.canWriteActivationKeys;
 
   const showEnabledTooltip = enabledTooltip && !isDisabled;

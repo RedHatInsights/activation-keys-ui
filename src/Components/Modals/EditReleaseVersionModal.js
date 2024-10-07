@@ -1,11 +1,11 @@
-import { Modal, ModalVariant } from "@patternfly/react-core";
-import React from "react";
-import { EditReleaseVersionForm } from "../Forms/EditReleaseVersionForm";
-import Loading from "../LoadingState/Loading";
-import PropTypes from "prop-types";
+import { Modal, ModalVariant } from '@patternfly/react-core';
+import React from 'react';
+import { EditReleaseVersionForm } from '../Forms/EditReleaseVersionForm';
+import Loading from '../LoadingState/Loading';
+import PropTypes from 'prop-types';
 
 const description =
-  "A release version enables you to configure your system to use a specific minor release of Red Hat Enterprise Linux. Setting a release version is useful if you are using an extended release of software, such as Extended Update Support. Most users will not set a release version.";
+  'A release version enables you to configure your system to use a specific minor release of Red Hat Enterprise Linux. Setting a release version is useful if you are using an extended release of software, such as Extended Update Support. Most users will not set a release version.';
 
 export const EditReleaseVersionModal = ({
   isOpen,

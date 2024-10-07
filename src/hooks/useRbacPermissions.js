@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
+import { useQuery } from '@tanstack/react-query';
+import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const getUserRbacPermissions = (permissions) => {
   return permissions.then((rawRbacPermissions) => {
@@ -8,12 +8,12 @@ const getUserRbacPermissions = (permissions) => {
     );
     const rbacPermissions = {
       canReadActivationKeys:
-        permissions.includes("config-manager:activation_keys:read") ||
-        permissions.includes("config-manager:activation_keys:*"),
+        permissions.includes('config-manager:activation_keys:read') ||
+        permissions.includes('config-manager:activation_keys:*'),
       canWriteActivationKeys:
-        permissions.includes("config-manager:activation_keys:write") ||
-        permissions.includes("config-manager:activation_keys:*"),
-      canReadInventory: permissions.includes("inventory:hosts:read"),
+        permissions.includes('config-manager:activation_keys:write') ||
+        permissions.includes('config-manager:activation_keys:*'),
+      canReadInventory: permissions.includes('inventory:hosts:read'),
     };
 
     return rbacPermissions;
@@ -22,9 +22,9 @@ const getUserRbacPermissions = (permissions) => {
 
 const useRbacPermissions = () => {
   const chrome = useChrome();
-  const permissions = chrome.getUserPermissions("config-manager");
+  const permissions = chrome.getUserPermissions('config-manager');
 
-  return useQuery(["rbac_permissions"], () =>
+  return useQuery(['rbac_permissions'], () =>
     getUserRbacPermissions(permissions)
   );
 };

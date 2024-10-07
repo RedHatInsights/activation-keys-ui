@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Modal, ModalVariant, Button } from "@patternfly/react-core";
-import { Wizard } from "@patternfly/react-core/deprecated";
+import React, { useState } from 'react';
+import { Modal, ModalVariant, Button } from '@patternfly/react-core';
+import { Wizard } from '@patternfly/react-core/deprecated';
 
-import PropTypes from "prop-types";
-import useCreateActivationKey from "../../hooks/useCreateActivationKey";
-import useSystemPurposeAttributes from "../../hooks/useSystemPurposeAttributes";
-import useNotifications from "../../hooks/useNotifications";
-import { useQueryClient } from "@tanstack/react-query";
-import ReviewPage from "../Pages/ReviewPage";
-import SetNamePage from "../Pages/SetNamePage";
-import SetWorkloadPage from "../Pages/SetWorkLoadPage";
-import SetSystemPurposePage from "../Pages/SetSystemPurposePage";
-import SuccessPage from "../Pages/SuccessPage";
+import PropTypes from 'prop-types';
+import useCreateActivationKey from '../../hooks/useCreateActivationKey';
+import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
+import useNotifications from '../../hooks/useNotifications';
+import { useQueryClient } from '@tanstack/react-query';
+import ReviewPage from '../Pages/ReviewPage';
+import SetNamePage from '../Pages/SetNamePage';
+import SetWorkloadPage from '../Pages/SetWorkLoadPage';
+import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
+import SuccessPage from '../Pages/SuccessPage';
 
-const workloadOptions = ["Latest release", "Extended support releases"];
-const confirmCloseTitle = "Exit activation key creation?";
+const workloadOptions = ['Latest release', 'Extended support releases'];
+const confirmCloseTitle = 'Exit activation key creation?';
 const confirmCloseBody = <p>All inputs will be discarded.</p>;
 const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
   <>
@@ -39,15 +39,15 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
     data,
   } = useSystemPurposeAttributes();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [workload, setWorkload] = useState(workloadOptions[0]);
-  const [extendedReleaseProduct, setExtendedReleaseProduct] = useState("");
-  const [extendedReleaseVersion, setExtendedReleaseVersion] = useState("");
+  const [extendedReleaseProduct, setExtendedReleaseProduct] = useState('');
+  const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
   const [extendedReleaseRepositories, setExtendedReleaseRepositories] =
     useState([]);
-  const [role, setRole] = useState("");
-  const [sla, setSla] = useState("");
-  const [usage, setUsage] = useState("");
+  const [role, setRole] = useState('');
+  const [sla, setSla] = useState('');
+  const [usage, setUsage] = useState('');
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
@@ -55,7 +55,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
   const nameIsValid = nameValidator.test(name);
 
   const onClose = () => {
-    queryClient.invalidateQueries(["activation_keys"]);
+    queryClient.invalidateQueries(['activation_keys']);
     handleModalToggle();
   };
 
@@ -74,7 +74,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
   const steps = [
     {
       id: 0,
-      name: "Name",
+      name: 'Name',
       component: (
         <SetNamePage name={name} setName={setName} nameIsValid={nameIsValid} />
       ),
@@ -82,7 +82,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
     },
     {
       id: 1,
-      name: "Workload",
+      name: 'Workload',
       component: (
         <SetWorkloadPage
           workloadOptions={workloadOptions}
@@ -99,7 +99,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
     },
     {
       id: 2,
-      name: "System purpose",
+      name: 'System purpose',
       component: (
         <SetSystemPurposePage
           role={role}
@@ -117,7 +117,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
     },
     {
       id: 3,
-      name: "Review",
+      name: 'Review',
       component: (
         <ReviewPage
           name={name}
@@ -131,11 +131,11 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
         />
       ),
       isDisabled: !nameIsValid,
-      nextButtonText: "Create",
+      nextButtonText: 'Create',
     },
     {
       id: 4,
-      name: "Finish",
+      name: 'Finish',
       component: (
         <SuccessPage
           isLoading={createActivationKeyIsLoading}
@@ -153,7 +153,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
       isOpen={isOpen}
       showClose={isConfirmClose}
       title={isConfirmClose ? confirmCloseTitle : undefined}
-      titleIconVariant={isConfirmClose ? "warning" : undefined}
+      titleIconVariant={isConfirmClose ? 'warning' : undefined}
       footer={
         isConfirmClose ? (
           <ConfirmCloseFooter
@@ -183,7 +183,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
                   role,
                   serviceLevel: sla,
                   usage,
-                  additionalRepositories: workload.includes("Extended")
+                  additionalRepositories: workload.includes('Extended')
                     ? extendedReleaseRepositories
                     : undefined,
                   releaseVersion: extendedReleaseVersion,
@@ -193,9 +193,9 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
                     addSuccessNotification(`Activation key "${name}" created`);
                   },
                   onError: () => {
-                    addErrorNotification("Something went wrong", {
+                    addErrorNotification('Something went wrong', {
                       description:
-                        "Your changes could not be saved. Please try again.",
+                        'Your changes could not be saved. Please try again.',
                     });
                     onClose();
                   },

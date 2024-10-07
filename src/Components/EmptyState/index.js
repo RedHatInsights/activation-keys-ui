@@ -1,3 +1,3 @@
-import NoActivationKeysFound from "./NoActivationKeysFound";
+import NoActivationKeysFound from './NoActivationKeysFound';
 
 export default NoActivationKeysFound;

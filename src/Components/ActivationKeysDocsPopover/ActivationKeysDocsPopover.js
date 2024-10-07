@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, Popover, PopoverPosition } from "@patternfly/react-core";
-import propTypes from "prop-types";
-import { OutlinedQuestionCircleIcon } from "@patternfly/react-icons";
+import React from 'react';
+import { Button, Popover, PopoverPosition } from '@patternfly/react-core';
+import propTypes from 'prop-types';
+import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
 
 const ActivationKeysDocsPopover = (props) => {
   const { title, popoverContent, position } = props;

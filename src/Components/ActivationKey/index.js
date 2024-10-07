@@ -1,3 +1,3 @@
-import ActivationKey from "./ActivationKey";
+import ActivationKey from './ActivationKey';
 
 export default ActivationKey;

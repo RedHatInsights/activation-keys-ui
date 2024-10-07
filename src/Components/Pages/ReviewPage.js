@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Title,
   Text,
@@ -8,9 +8,9 @@ import {
   DescriptionListGroup,
   DescriptionListDescription,
   TextContent,
-} from "@patternfly/react-core";
-import Loading from "../LoadingState/Loading";
-import PropTypes from "prop-types";
+} from '@patternfly/react-core';
+import Loading from '../LoadingState/Loading';
+import PropTypes from 'prop-types';
 
 const ReviewPage = ({
   name,
@@ -36,7 +36,7 @@ const ReviewPage = ({
       <DescriptionList
         isHorizontal
         horizontalTermWidthModifier={{
-          default: "21ch",
+          default: '21ch',
         }}
       >
         <DescriptionListGroup>
@@ -48,7 +48,7 @@ const ReviewPage = ({
           <DescriptionListDescription>
             <TextContent>
               <Text component="p">{workload}</Text>
-              {workload.includes("Extended") && (
+              {workload.includes('Extended') && (
                 <>
                   <Text component="p">{extendedReleaseProduct}</Text>
                   <Text component="p">{extendedReleaseVersion}</Text>
@@ -60,7 +60,7 @@ const ReviewPage = ({
         <DescriptionListGroup>
           <DescriptionListTerm>Role</DescriptionListTerm>
           <DescriptionListDescription>
-            {role || "Not defined"}
+            {role || 'Not defined'}
           </DescriptionListDescription>
         </DescriptionListGroup>
         <DescriptionListGroup>
@@ -68,13 +68,13 @@ const ReviewPage = ({
             Service level agreement (SLA)
           </DescriptionListTerm>
           <DescriptionListDescription>
-            {sla || "Not defined"}
+            {sla || 'Not defined'}
           </DescriptionListDescription>
         </DescriptionListGroup>
         <DescriptionListGroup>
           <DescriptionListTerm>Usage</DescriptionListTerm>
           <DescriptionListDescription>
-            {usage || "Not defined"}
+            {usage || 'Not defined'}
           </DescriptionListDescription>
         </DescriptionListGroup>
       </DescriptionList>

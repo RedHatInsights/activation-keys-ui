@@ -1,3 +1,3 @@
-import ActivationKeysTable from "./ActivationKeysTable";
+import ActivationKeysTable from './ActivationKeysTable';
 
 export { ActivationKeysTable as default };

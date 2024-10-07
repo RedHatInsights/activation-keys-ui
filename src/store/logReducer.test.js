@@ -1,8 +1,8 @@
-import { GET_LOG } from "./actionTypes";
-import reducer from "./logReducer";
+import { GET_LOG } from './actionTypes';
+import reducer from './logReducer';
 
-describe("logReducer", () => {
-  test("should set loading", () => {
+describe('logReducer', () => {
+  test('should set loading', () => {
     expect(
       reducer(undefined, {
         type: `${GET_LOG}_PENDING`,
@@ -12,7 +12,7 @@ describe("logReducer", () => {
     });
   });
 
-  test("should not crash without payload", () => {
+  test('should not crash without payload', () => {
     expect(
       reducer(undefined, {
         type: `${GET_LOG}_FULFILLED`,
@@ -22,7 +22,7 @@ describe("logReducer", () => {
     });
   });
 
-  test("should spread payload", () => {
+  test('should spread payload', () => {
     expect(
       reducer(undefined, {
         type: `${GET_LOG}_FULFILLED`,

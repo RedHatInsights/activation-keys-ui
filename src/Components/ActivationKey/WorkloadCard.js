@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   TextContent,
   Text,
@@ -11,14 +11,14 @@ import {
   TextListItem,
   TextListItemVariants,
   Title,
-} from "@patternfly/react-core";
-import propTypes from "prop-types";
-import ActivationKeysDocsPopover from "../ActivationKeysDocsPopover";
-import EditButton from "./EditButton";
+} from '@patternfly/react-core';
+import propTypes from 'prop-types';
+import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
+import EditButton from './EditButton';
 
 const WorkloadCard = (props) => {
   const { activationKey, actionHandler } = props;
-  const notDefinedText = "Not defined";
+  const notDefinedText = 'Not defined';
   const docsPopoverContent = (
     <TextContent>
       <Text>
@@ -30,7 +30,7 @@ const WorkloadCard = (props) => {
     </TextContent>
   );
   return (
-    <Card style={{ minHeight: "100%" }}>
+    <Card style={{ minHeight: '100%' }}>
       <CardHeader
         actions={{
           actions: (
@@ -39,12 +39,12 @@ const WorkloadCard = (props) => {
             </>
           ),
           hasNoOffset: false,
-          className: "WorkloadCardHeader",
+          className: 'WorkloadCardHeader',
         }}
       >
         <CardTitle>
           <Title headingLevel="h2">
-            Workload{" "}
+            Workload{' '}
             <ActivationKeysDocsPopover
               popoverContent={docsPopoverContent}
               position="top"

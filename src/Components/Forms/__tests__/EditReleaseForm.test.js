@@ -1,28 +1,28 @@
-import React from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Provider } from "react-redux";
-import { init } from "../../../store";
-import { EditReleaseVersionForm } from "../EditReleaseVersionForm";
-import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import React from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Provider } from 'react-redux';
+import { init } from '../../../store';
+import { EditReleaseVersionForm } from '../EditReleaseVersionForm';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 const registry = init();
 const queryClient = new QueryClient();
 
 const props = {
   onClose: jest.fn(),
-  releaseVersions: ["1.1", "1.2"],
+  releaseVersions: ['1.1', '1.2'],
   activationKey: {
-    name: "",
-    releaseVersion: "",
-    usage: "",
-    serviceLevel: "",
-    role: "",
+    name: '',
+    releaseVersion: '',
+    usage: '',
+    serviceLevel: '',
+    role: '',
   },
 };
 
-describe("Edit release version form", () => {
-  it("renders correctly", () => {
+describe('Edit release version form', () => {
+  it('renders correctly', () => {
     render(
       <Provider store={registry.getStore()}>
         <QueryClientProvider client={queryClient}>
@@ -31,10 +31,10 @@ describe("Edit release version form", () => {
       </Provider>
     );
 
-    expect(screen.getByText("Not defined")).toBeInTheDocument();
+    expect(screen.getByText('Not defined')).toBeInTheDocument();
   });
 
-  it("shows the dropdown", () => {
+  it('shows the dropdown', () => {
     render(
       <Provider store={registry.getStore()}>
         <QueryClientProvider client={queryClient}>
@@ -43,7 +43,7 @@ describe("Edit release version form", () => {
       </Provider>
     );
 
-    screen.getByText("Not defined").click();
-    expect(screen.getByText("1.1")).toBeInTheDocument();
+    screen.getByText('Not defined').click();
+    expect(screen.getByText('1.1')).toBeInTheDocument();
   });
 });

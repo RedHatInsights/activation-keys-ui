@@ -1,10 +1,10 @@
-export const CONNECTOR_API_BASE = "/api/config-manager/v2";
+export const CONNECTOR_API_BASE = '/api/config-manager/v2';
 
-import { useAxiosWithPlatformInterceptors } from "@redhat-cloud-services/frontend-components-utilities/interceptors";
-import { DefaultApi } from "@redhat-cloud-services/config-manager-client";
-import { useEffect, useRef, useState } from "react";
+import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+import { DefaultApi } from '@redhat-cloud-services/config-manager-client';
+import { useEffect, useRef, useState } from 'react';
 
-export * from "./inventory";
+export * from './inventory';
 
 export const useConfigApi = () => {
   const axiosInstance = useAxiosWithPlatformInterceptors();

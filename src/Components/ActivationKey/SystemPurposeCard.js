@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   TextContent,
   Card,
@@ -11,18 +11,18 @@ import {
   TextListItem,
   TextListItemVariants,
   Title,
-} from "@patternfly/react-core";
-import EditButton from "./EditButton";
-import propTypes from "prop-types";
-import ActivationKeysDocsPopover from "../ActivationKeysDocsPopover";
-import NoAccessPopover from "../NoAccessPopover";
-import { useQueryClient } from "@tanstack/react-query";
+} from '@patternfly/react-core';
+import EditButton from './EditButton';
+import propTypes from 'prop-types';
+import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
+import NoAccessPopover from '../NoAccessPopover';
+import { useQueryClient } from '@tanstack/react-query';
 
 const SystemPurposeCard = (props) => {
   const { activationKey, actionHandler } = props;
-  const notDefinedText = "Not defined";
+  const notDefinedText = 'Not defined';
   const queryClient = useQueryClient();
-  const user = queryClient.getQueryData(["user"]);
+  const user = queryClient.getQueryData(['user']);
 
   const ButtonWrapper = () => {
     return <EditButton onClick={actionHandler} />;
@@ -52,16 +52,16 @@ const SystemPurposeCard = (props) => {
             </>
           ),
           hasNoOffset: false,
-          className: "SystemPurposeCardHeader",
+          className: 'SystemPurposeCardHeader',
         }}
       >
         <CardTitle>
           <Title headingLevel="h2">
-            System Purpose{" "}
+            System Purpose{' '}
             <ActivationKeysDocsPopover
               popoverContent={docsPopoverContent}
               position="top"
-            />{" "}
+            />{' '}
           </Title>
         </CardTitle>
       </CardHeader>
