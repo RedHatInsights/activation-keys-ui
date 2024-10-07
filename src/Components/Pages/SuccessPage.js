@@ -1,16 +1,14 @@
 import React from 'react';
-import {
-  Bullseye,
-  Button,
-  EmptyState,
-  EmptyStateBody,
-  EmptyStateIcon,
-  Spinner,
-  EmptyStateActions,
-  EmptyStateHeader,
-  EmptyStateFooter,
-} from '@patternfly/react-core';
-import { CheckCircleIcon } from '@patternfly/react-icons';
+import { Bullseye } from '@patternfly/react-core/dist/dynamic/layouts/Bullseye';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { EmptyState } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateBody } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateIcon } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { Spinner } from '@patternfly/react-core/dist/dynamic/components/Spinner';
+import { EmptyStateActions } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateHeader } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateFooter } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import CheckCircleIcon from '@patternfly/react-icons/dist/dynamic/icons/check-circle-icon';
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate/useInsightsNavigate';
 import PropTypes from 'prop-types';
 

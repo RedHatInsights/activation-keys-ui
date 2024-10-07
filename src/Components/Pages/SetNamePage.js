@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Title,
-  Text,
-  TextInput,
-  TextVariants,
-  FormGroup,
-  FormHelperText,
-  HelperText,
-  HelperTextItem,
-  Form,
-} from '@patternfly/react-core';
+import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextInput } from '@patternfly/react-core/dist/dynamic/components/TextInput';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormHelperText } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { HelperText } from '@patternfly/react-core/dist/dynamic/components/HelperText';
+import { HelperTextItem } from '@patternfly/react-core/dist/dynamic/components/HelperText';
+import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
 
 const SetNamePage = ({ name, setName, nameIsValid }) => {
   const [enableValidationFeedback, setEnableValidationFeedback] =

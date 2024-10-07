@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import {
-  ActionGroup,
-  Button,
-  Form,
-  FormGroup,
-  FormHelperText,
-  HelperText,
-  HelperTextItem,
-  Popover,
-  TextInput,
-  Text,
-  TextContent,
-  TextVariants,
-} from '@patternfly/react-core';
-import { HelpIcon } from '@patternfly/react-icons';
+import { ActionGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormHelperText } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { HelperText } from '@patternfly/react-core/dist/dynamic/components/HelperText';
+import { HelperTextItem } from '@patternfly/react-core/dist/dynamic/components/HelperText';
+import { Popover } from '@patternfly/react-core/dist/dynamic/components/Popover';
+import { TextInput } from '@patternfly/react-core/dist/dynamic/components/TextInput';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import HelpIcon from '@patternfly/react-icons/dist/dynamic/icons/help-icon';
 import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
 import ActivationKeysFormSelect from './ActivationKeysFormSelect';
 import PropTypes from 'prop-types';

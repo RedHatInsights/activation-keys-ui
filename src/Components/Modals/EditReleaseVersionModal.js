@@ -1,4 +1,5 @@
-import { Modal, ModalVariant } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
 import React from 'react';
 import { EditReleaseVersionForm } from '../Forms/EditReleaseVersionForm';
 import Loading from '../LoadingState/Loading';
