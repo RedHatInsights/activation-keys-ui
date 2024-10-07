@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 import propTypes from 'prop-types';
-import {
-  Modal,
-  ModalVariant,
-  ActionGroup,
-  Button,
-} from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ActionGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import { useQueryClient } from '@tanstack/react-query';
 import useAddAdditionalRepositories from '../../hooks/useAddAdditionalRepositories';
 import useNotifications from '../../hooks/useNotifications';
 import AddAdditionalRepositoriesTable from '../AddAdditionalRepositoriesTable';
 
 const AddAdditionalRepositoriesModal = (props) => {
-  const {
-    keyName,
-    handleModalToggle: parentHandleModalToggle,
-    isOpen,
-  } = props;
+  const { keyName, handleModalToggle: parentHandleModalToggle, isOpen } = props;
   const queryClient = useQueryClient();
   const [selectedRepositories, setSelectedRepositories] = useState([]);
   const { addSuccessNotification, addErrorNotification } = useNotifications();
@@ -73,8 +67,7 @@ const AddAdditionalRepositoriesModal = (props) => {
     </ActionGroup>
   );
 
-  const onClose =
-    isSubmitting ? null : handleModalToggle;
+  const onClose = isSubmitting ? null : handleModalToggle;
 
   return (
     <React.Fragment>

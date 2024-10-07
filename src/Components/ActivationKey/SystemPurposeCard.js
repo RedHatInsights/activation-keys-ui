@@ -1,17 +1,15 @@
 import React from 'react';
-import {
-  TextContent,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  TextList,
-  Text,
-  TextListVariants,
-  TextListItem,
-  TextListItemVariants,
-  Title,
-} from '@patternfly/react-core';
+import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Card } from '@patternfly/react-core/dist/dynamic/components/Card';
+import { CardHeader } from '@patternfly/react-core/dist/dynamic/components/Card';
+import { CardTitle } from '@patternfly/react-core/dist/dynamic/components/Card';
+import { CardBody } from '@patternfly/react-core/dist/dynamic/components/Card';
+import { TextList } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextListVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextListItem } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextListItemVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import EditButton from './EditButton';
 import propTypes from 'prop-types';
 import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';

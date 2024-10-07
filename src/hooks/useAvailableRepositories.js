@@ -6,7 +6,7 @@ const fetchAdditionalRepositories = async (
   keyName,
   limit,
   offset = 0,
-  search = ""
+  search = ''
 ) => {
   if (!keyName) {
     return false;
@@ -27,28 +27,56 @@ const fetchAdditionalRepositories = async (
   return repositoriesData;
 };
 
-const useAvailableRepositories = (keyName, page, pageSize, search = "") => {
+const useAvailableRepositories = (keyName, page, pageSize, search = '') => {
   const chrome = useChrome();
   const token = chrome?.auth?.getToken();
 
-  return useQuery([`activation_key_${keyName}_available_repositories`, page, pageSize, search], () =>
-    fetchAdditionalRepositories(token, keyName, pageSize, (page - 1) * pageSize, search)
+  return useQuery(
+    [
+      `activation_key_${keyName}_available_repositories`,
+      page,
+      pageSize,
+      search,
+    ],
+    () =>
+      fetchAdditionalRepositories(
+        token,
+        keyName,
+        pageSize,
+        (page - 1) * pageSize,
+        search
+      )
   );
 };
 
 const usePrefetchAvailableRepositoriesNextPate = () => {
   const chrome = useChrome();
 
-  return async (queryClient, keyName, page, pageSize, search = "") => {
+  return async (queryClient, keyName, page, pageSize, search = '') => {
     const token = chrome?.auth?.getToken();
 
     console.log('here');
 
     queryClient.prefetchQuery({
-      queryKey: [`activation_key_${keyName}_available_repositories`, page, pageSize, search],
-      queryFn: () => fetchAdditionalRepositories(token, keyName, pageSize, (page - 1) * pageSize, search)
-    })
-  }
-}
+      queryKey: [
+        `activation_key_${keyName}_available_repositories`,
+        page,
+        pageSize,
+        search,
+      ],
+      queryFn: () =>
+        fetchAdditionalRepositories(
+          token,
+          keyName,
+          pageSize,
+          (page - 1) * pageSize,
+          search
+        ),
+    });
+  };
+};
 
-export { useAvailableRepositories as default, usePrefetchAvailableRepositoriesNextPate };
+export {
+  useAvailableRepositories as default,
+  usePrefetchAvailableRepositoriesNextPate,
+};

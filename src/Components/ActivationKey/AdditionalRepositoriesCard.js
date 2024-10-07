@@ -1,16 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import propTypes from 'prop-types';
-import {
-  Text,
-  TextContent,
-  TextVariants,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  Title,
-} from '@patternfly/react-core';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Card } from '@patternfly/react-core/dist/dynamic/components/Card';
+import { CardHeader } from '@patternfly/react-core/dist/dynamic/components/Card';
+import { CardTitle } from '@patternfly/react-core/dist/dynamic/components/Card';
+import { CardBody } from '@patternfly/react-core/dist/dynamic/components/Card';
+import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import AdditionalRepositoriesTable from '../AdditionalRepositoriesTable';
 import AddAdditionalRepositoriesButton from '../ActivationKey/AddAdditionalRepositoriesButton';
 import AddAdditionalRepositoriesModal from '../Modals/AddAdditionalRepositoriesModal';
