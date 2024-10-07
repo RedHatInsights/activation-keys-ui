@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { headers } from './useToken.js';
 
 const fetchActivationKeyData = (token) => async (keyName) => {
   if (!keyName) {
@@ -7,7 +8,7 @@ const fetchActivationKeyData = (token) => async (keyName) => {
   }
 
   const response = await fetch(`/api/rhsm/v2/activation_keys/${keyName}`, {
-    headers: { Authorization: `Bearer ${await token}` },
+    headers: { Authorization: `Bearer ${await token}`, ...headers() },
   });
 
   const activationKeysData = await response.json();

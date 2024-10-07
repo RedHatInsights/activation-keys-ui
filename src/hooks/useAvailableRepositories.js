@@ -4,15 +4,16 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 const fetchAdditionalRepositories = async (
   token,
   keyName,
+  limit,
   offset = 0,
-  allRepositories = []
+  search = ""
 ) => {
   if (!keyName) {
     return false;
   }
 
   const response = await fetch(
-    `/api/rhsm/v2/activation_keys/${keyName}/available_repositories?default=Disabled&offset=${offset}`,
+    `/api/rhsm/v2/activation_keys/${keyName}/available_repositories?default=Disabled&limit=${limit}&offset=${offset}&search=${search}`,
     {
       headers: { Authorization: `Bearer ${await token}` },
     }
@@ -23,28 +24,31 @@ const fetchAdditionalRepositories = async (
   }
 
   const repositoriesData = await response.json();
-  const repositories = repositoriesData.body;
-
-  if (repositories.length < 100) {
-    return allRepositories.concat(repositories);
-  } else {
-    const nextOffset = offset + repositories.length;
-    return fetchAdditionalRepositories(
-      token,
-      keyName,
-      nextOffset,
-      allRepositories.concat(repositories)
-    );
-  }
+  return repositoriesData;
 };
 
-const useAvailableRepositories = (keyName) => {
+const useAvailableRepositories = (keyName, page, pageSize, search = "") => {
   const chrome = useChrome();
   const token = chrome?.auth?.getToken();
 
-  return useQuery([`activation_key_${keyName}_available_repositories`], () =>
-    fetchAdditionalRepositories(token, keyName)
+  return useQuery([`activation_key_${keyName}_available_repositories`, page, pageSize, search], () =>
+    fetchAdditionalRepositories(token, keyName, pageSize, (page - 1) * pageSize, search)
   );
 };
 
-export { useAvailableRepositories as default };
+const usePrefetchAvailableRepositoriesNextPate = () => {
+  const chrome = useChrome();
+
+  return async (queryClient, keyName, page, pageSize, search = "") => {
+    const token = chrome?.auth?.getToken();
+
+    console.log('here');
+
+    queryClient.prefetchQuery({
+      queryKey: [`activation_key_${keyName}_available_repositories`, page, pageSize, search],
+      queryFn: () => fetchAdditionalRepositories(token, keyName, pageSize, (page - 1) * pageSize, search)
+    })
+  }
+}
+
+export { useAvailableRepositories as default, usePrefetchAvailableRepositoriesNextPate };

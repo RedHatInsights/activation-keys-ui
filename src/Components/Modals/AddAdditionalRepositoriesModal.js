@@ -16,9 +16,6 @@ const AddAdditionalRepositoriesModal = (props) => {
     keyName,
     handleModalToggle: parentHandleModalToggle,
     isOpen,
-    repositories,
-    isLoading: additionalRepositoriesAreLoading,
-    error: additionalRepositoriesError,
   } = props;
   const queryClient = useQueryClient();
   const [selectedRepositories, setSelectedRepositories] = useState([]);
@@ -77,7 +74,7 @@ const AddAdditionalRepositoriesModal = (props) => {
   );
 
   const onClose =
-    isSubmitting || additionalRepositoriesError ? null : handleModalToggle;
+    isSubmitting ? null : handleModalToggle;
 
   return (
     <React.Fragment>
@@ -90,9 +87,7 @@ const AddAdditionalRepositoriesModal = (props) => {
         footer={editChangesButtons}
       >
         <AddAdditionalRepositoriesTable
-          repositories={repositories}
-          isLoading={additionalRepositoriesAreLoading}
-          error={additionalRepositoriesError}
+          keyName={keyName}
           selectedRepositories={selectedRepositories}
           setSelectedRepositories={setSelectedRepositories}
           isSubmitting={isSubmitting}

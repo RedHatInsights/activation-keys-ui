@@ -15,27 +15,19 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../LoadingState/Loading';
 import AddAdditionalRepositoriesToolbar from './AddAdditionalRepositoriesToolbar';
 import propTypes from 'prop-types';
+import useAvailableRepositories, { usePrefetchAvailableRepositoriesNextPate } from '../../hooks/useAvailableRepositories';
+import { useQueryClient } from '@tanstack/react-query';
+import { useDebouncedState } from '../../hooks/useDebouncedState';
 
 const AddAdditionalRepositoriesTable = (props) => {
   const {
-    repositories,
-    isLoading,
+    keyName,
     selectedRepositories,
     setSelectedRepositories,
     isSubmitting,
   } = props;
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
-  const [filter, setFilter] = useState('');
-  const [consideredRepositories, setConsideredRepositories] =
-    useState(repositories);
-  const [filteredRepositories, setFilteredRepositories] =
-    useState(repositories);
-  const [paginatedRepositories, setPaginatedRepositories] =
-    useState(repositories);
+  const [filter, setFilter] = useDebouncedState('', 300);
   const [filterBy, setFilterBy] = useState('repositoryName');
   const [onlyShowSelectedRepositories, setOnlyShowSelectedRepositories] =
     useState(false);
@@ -47,40 +39,22 @@ const AddAdditionalRepositoriesTable = (props) => {
     repositoryName: 'Name',
     repositoryLabel: 'Label',
   };
+  const queryClient = useQueryClient()
+  const prefetchNextPage = usePrefetchAvailableRepositoriesNextPate()
 
-  useEffect(() => {
-    setConsideredRepositories(
-      onlyShowSelectedRepositories ? selectedRepositories : repositories
-    );
-  }, [onlyShowSelectedRepositories]);
+  const {
+    data: repositoriesData,
+    isLoading,
+  } = useAvailableRepositories(keyName, page, perPage, filter);
 
+  // prefetch the next page
   useEffect(() => {
-    setFilteredRepositories(
-      sortRepositories(
-        consideredRepositories.filter((repository) => {
-          return repository[filterBy]
-            .toLowerCase()
-            .includes(filter.toLowerCase());
-        })
-      )
-    );
-  }, [
-    filter,
-    filterBy,
-    consideredRepositories,
-    activeSortIndex,
-    activeSortDirection,
-  ]);
-
-  useEffect(() => {
-    const first = (page - 1) * perPage;
-    const last = first + perPage;
-    setPaginatedRepositories(filteredRepositories.slice(first, last));
-  }, [page, perPage, filteredRepositories]);
+      prefetchNextPage(queryClient, keyName, page + 1, perPage, filter);
+  }, [page, perPage, filter])
 
   useEffect(() => {
     setPage(1);
-  }, [filteredRepositories]);
+  }, [onlyShowSelectedRepositories]);
 
   const getSortableRowValues = (repo) => {
     const { repositoryName, repositoryLabel } = repo;
@@ -118,7 +92,7 @@ const AddAdditionalRepositoriesTable = (props) => {
 
   const pagination = (
     <Pagination
-      itemCount={filteredRepositories.length}
+      itemCount={repositoriesData?.pagination.total}
       perPage={perPage}
       page={page}
       onSetPage={(_, newPage) => setPage(newPage)}
@@ -165,7 +139,7 @@ const AddAdditionalRepositoriesTable = (props) => {
             selectedRepositories.length === 0) ||
           isSubmitting
         }
-        searchIsDisabled={repositories.length === 0 || isSubmitting}
+        searchIsDisabled={isSubmitting}
         pagination={pagination}
         onlyShowSelectedRepositories={onlyShowSelectedRepositories}
         setOnlyShowSelectedRepositories={setOnlyShowSelectedRepositories}
@@ -179,7 +153,7 @@ const AddAdditionalRepositoriesTable = (props) => {
           </Tr>
         </Thead>
         <Tbody>
-          {paginatedRepositories.map((repository, rowIndex) => (
+          {!isLoading && repositoriesData.body.map((repository, rowIndex) => (
             <Tr key={repository.repositoryLabel}>
               <Td
                 select={{
@@ -210,13 +184,14 @@ const AddAdditionalRepositoriesTable = (props) => {
               <Td>{repository.repositoryLabel}</Td>
             </Tr>
           ))}
-          {paginatedRepositories.length === 0 && (
+          {!isLoading && repositoriesData.body.length === 0 && (
             <Tr>
               <Td colSpan={8}>
                 <Bullseye>{emptyState}</Bullseye>
               </Td>
             </Tr>
           )}
+          {isLoading && <Loading />}
         </Tbody>
       </Table>
       {pagination}
