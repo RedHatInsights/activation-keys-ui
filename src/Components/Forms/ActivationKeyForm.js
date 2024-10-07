@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   ActionGroup,
   Button,
@@ -12,30 +12,30 @@ import {
   Text,
   TextContent,
   TextVariants,
-} from '@patternfly/react-core';
-import { HelpIcon } from '@patternfly/react-icons';
-import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
-import ActivationKeysFormSelect from './ActivationKeysFormSelect';
-import PropTypes from 'prop-types';
-import useNotifications from '../../hooks/useNotifications';
+} from "@patternfly/react-core";
+import { HelpIcon } from "@patternfly/react-icons";
+import useSystemPurposeAttributes from "../../hooks/useSystemPurposeAttributes";
+import ActivationKeysFormSelect from "./ActivationKeysFormSelect";
+import PropTypes from "prop-types";
+import useNotifications from "../../hooks/useNotifications";
 
 const ActivationKeyForm = (props) => {
   const { handleModalToggle, submitForm, isSuccess, isError, activationKey } =
     props;
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const { isLoading, error, data } = useSystemPurposeAttributes();
-  const [name, setName] = useState('');
-  const [role, setRole] = useState('');
-  const [serviceLevel, setServiceLevel] = useState('');
-  const [usage, setUsage] = useState('');
-  const [validated, setValidated] = useState('default');
-  const nameRegex = '^[a-zA-Z0-9-_]*$';
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [serviceLevel, setServiceLevel] = useState("");
+  const [usage, setUsage] = useState("");
+  const [validated, setValidated] = useState("default");
+  const nameRegex = "^[a-zA-Z0-9-_]*$";
   const validationText =
-    'Provide a name to be used when registering the activation key. Your activation key name must be unique, may contain only numbers, letters, underscores, and hyphens, and less than 256 characters.';
+    "Provide a name to be used when registering the activation key. Your activation key name must be unique, may contain only numbers, letters, underscores, and hyphens, and less than 256 characters.";
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (validated === 'success' || activationKey) {
+    if (validated === "success" || activationKey) {
       submitForm({
         name: name,
         role: role,
@@ -43,17 +43,17 @@ const ActivationKeyForm = (props) => {
         usage: usage,
       });
     } else {
-      setValidated('error');
+      setValidated("error");
     }
   };
 
   const validateName = (value) => {
     if (value.length === 0 || value.length > 255) {
-      setValidated('error');
+      setValidated("error");
     } else if (!value.match(nameRegex)) {
-      setValidated('error');
+      setValidated("error");
     } else {
-      setValidated('success');
+      setValidated("success");
       setName(value);
     }
   };
@@ -75,7 +75,7 @@ const ActivationKeyForm = (props) => {
       );
     } else {
       return (
-        validated === 'error' || name.length === 0 || !name.match(nameRegex)
+        validated === "error" || name.length === 0 || !name.match(nameRegex)
       );
     }
   };
@@ -83,7 +83,7 @@ const ActivationKeyForm = (props) => {
   if (isSuccess) {
     const successMessage = activationKey
       ? `Activation key ${activationKey.name} updated successfully.`
-      : 'Activation key created successfully.';
+      : "Activation key created successfully.";
     addSuccessNotification(successMessage, {
       timeout: false,
     });
@@ -91,7 +91,7 @@ const ActivationKeyForm = (props) => {
   } else if (isError) {
     const errorMessage = activationKey
       ? `Error updating activation key ${activationKey.name}.`
-      : 'Activation Key was not created, please try again.';
+      : "Activation Key was not created, please try again.";
     addErrorNotification(errorMessage, {
       timeout: 8000,
     });
@@ -122,7 +122,7 @@ const ActivationKeyForm = (props) => {
       )}
       {activationKey && (
         <FormGroup label="Name">
-          {' '}
+          {" "}
           <TextContent>{activationKey.name}</TextContent>
         </FormGroup>
       )}
@@ -224,7 +224,7 @@ const ActivationKeyForm = (props) => {
           isDisabled={createButtonDisabled()}
           data-testid="activation-key-submit-button"
         >
-          {activationKey ? 'Save changes' : 'Create'}
+          {activationKey ? "Save changes" : "Create"}
         </Button>
 
         <Button

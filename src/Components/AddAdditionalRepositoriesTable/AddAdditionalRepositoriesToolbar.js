@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   SearchInput,
   ToggleGroupItem,
@@ -7,11 +7,11 @@ import {
   ToolbarGroup,
   ToolbarItem,
   ToggleGroup,
-} from '@patternfly/react-core';
-import { Select, SelectOption } from '@patternfly/react-core/deprecated';
+} from "@patternfly/react-core";
+import { Select, SelectOption } from "@patternfly/react-core/deprecated";
 
-import { FilterIcon } from '@patternfly/react-icons';
-import propTypes from 'prop-types';
+import { FilterIcon } from "@patternfly/react-icons";
+import propTypes from "prop-types";
 
 const AddAdditionalRepositoriesToolbar = ({
   friendlyNameMap,
@@ -33,7 +33,7 @@ const AddAdditionalRepositoriesToolbar = ({
     <Toolbar id="add-additional-repositories-toolbar">
       <ToolbarContent>
         <ToolbarGroup>
-          <ToolbarItem spacer={{ default: 'spacerNone' }}>
+          <ToolbarItem spacer={{ default: "spacerNone" }}>
             <Select
               isOpen={isSelectFilterByExpanded}
               onToggle={(_event, isSelectFilterByExpanded) =>
@@ -61,8 +61,8 @@ const AddAdditionalRepositoriesToolbar = ({
               value={filter}
               onChange={(_event, value) => setFilter(value)}
               isDisabled={searchIsDisabled}
-              onClear={() => setFilter('')}
-              style={{ width: '400px' }}
+              onClear={() => setFilter("")}
+              style={{ width: "400px" }}
             />
           </ToolbarItem>
           <ToolbarItem>
@@ -89,7 +89,7 @@ const AddAdditionalRepositoriesToolbar = ({
             </ToggleGroup>
           </ToolbarItem>
         </ToolbarGroup>
-        <ToolbarItem variant="pagination" align={{ default: 'alignRight' }}>
+        <ToolbarItem variant="pagination" align={{ default: "alignRight" }}>
           {pagination}
         </ToolbarItem>
       </ToolbarContent>

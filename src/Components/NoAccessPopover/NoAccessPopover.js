@@ -1,6 +1,6 @@
-import React from 'react';
-import { Tooltip } from '@patternfly/react-core';
-import propTypes from 'prop-types';
+import React from "react";
+import { Tooltip } from "@patternfly/react-core";
+import propTypes from "prop-types";
 
 const NoAccessPopover = ({ content: Button }) => {
   return (

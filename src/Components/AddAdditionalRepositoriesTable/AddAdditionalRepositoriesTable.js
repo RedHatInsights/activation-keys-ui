@@ -8,16 +8,18 @@ import {
   EmptyStateActions,
   EmptyStateHeader,
   EmptyStateFooter,
-} from '@patternfly/react-core';
-import { SearchIcon } from '@patternfly/react-icons';
-import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
-import React, { useEffect, useState } from 'react';
-import Loading from '../LoadingState/Loading';
-import AddAdditionalRepositoriesToolbar from './AddAdditionalRepositoriesToolbar';
-import propTypes from 'prop-types';
-import useAvailableRepositories, { usePrefetchAvailableRepositoriesNextPate } from '../../hooks/useAvailableRepositories';
-import { useQueryClient } from '@tanstack/react-query';
-import { useDebouncedState } from '../../hooks/useDebouncedState';
+} from "@patternfly/react-core";
+import { SearchIcon } from "@patternfly/react-icons";
+import { Table, Thead, Tr, Th, Tbody, Td } from "@patternfly/react-table";
+import React, { useEffect, useState } from "react";
+import Loading from "../LoadingState/Loading";
+import AddAdditionalRepositoriesToolbar from "./AddAdditionalRepositoriesToolbar";
+import propTypes from "prop-types";
+import useAvailableRepositories, {
+  usePrefetchAvailableRepositoriesNextPate,
+} from "../../hooks/useAvailableRepositories";
+import { useQueryClient } from "@tanstack/react-query";
+import { useDebouncedState } from "../../hooks/useDebouncedState";
 
 const AddAdditionalRepositoriesTable = (props) => {
   const {
@@ -27,30 +29,32 @@ const AddAdditionalRepositoriesTable = (props) => {
     isSubmitting,
   } = props;
 
-  const [filter, setFilter] = useDebouncedState('', 300);
-  const [filterBy, setFilterBy] = useState('repositoryName');
+  const [filter, setFilter] = useDebouncedState("", 300);
+  const [filterBy, setFilterBy] = useState("repositoryName");
   const [onlyShowSelectedRepositories, setOnlyShowSelectedRepositories] =
     useState(false);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
   const [activeSortIndex, setActiveSortIndex] = useState(0);
-  const [activeSortDirection, setActiveSortDirection] = useState('asc');
+  const [activeSortDirection, setActiveSortDirection] = useState("asc");
   const friendlyNameMap = {
-    repositoryName: 'Name',
-    repositoryLabel: 'Label',
+    repositoryName: "Name",
+    repositoryLabel: "Label",
   };
-  const queryClient = useQueryClient()
-  const prefetchNextPage = usePrefetchAvailableRepositoriesNextPate()
+  const queryClient = useQueryClient();
+  const prefetchNextPage = usePrefetchAvailableRepositoriesNextPate();
 
-  const {
-    data: repositoriesData,
-    isLoading,
-  } = useAvailableRepositories(keyName, page, perPage, filter);
+  const { data: repositoriesData, isLoading } = useAvailableRepositories(
+    keyName,
+    page,
+    perPage,
+    filter
+  );
 
   // prefetch the next page
   useEffect(() => {
-      prefetchNextPage(queryClient, keyName, page + 1, perPage, filter);
-  }, [page, perPage, filter])
+    prefetchNextPage(queryClient, keyName, page + 1, perPage, filter);
+  }, [page, perPage, filter]);
 
   useEffect(() => {
     setPage(1);
@@ -65,7 +69,7 @@ const AddAdditionalRepositoriesTable = (props) => {
     sortBy: {
       index: activeSortIndex,
       direction: activeSortDirection,
-      defaultDirection: 'asc',
+      defaultDirection: "asc",
     },
     onSort: (_event, index, direction) => {
       setActiveSortIndex(index);
@@ -76,8 +80,8 @@ const AddAdditionalRepositoriesTable = (props) => {
 
   const sortRepositories = (repositories) => {
     return repositories.sort((a, b) => {
-      const aValue = getSortableRowValues(a)[activeSortIndex] || '';
-      const bValue = getSortableRowValues(b)[activeSortIndex] || '';
+      const aValue = getSortableRowValues(a)[activeSortIndex] || "";
+      const bValue = getSortableRowValues(b)[activeSortIndex] || "";
       let result = 0;
 
       if (aValue < bValue) {
@@ -86,7 +90,7 @@ const AddAdditionalRepositoriesTable = (props) => {
         result = 1;
       }
 
-      return activeSortDirection == 'asc' ? result : -1 * result;
+      return activeSortDirection == "asc" ? result : -1 * result;
     });
   };
 
@@ -117,7 +121,7 @@ const AddAdditionalRepositoriesTable = (props) => {
       </EmptyStateBody>
       <EmptyStateFooter>
         <EmptyStateActions>
-          <Button variant="link" onClick={() => setFilter('')}>
+          <Button variant="link" onClick={() => setFilter("")}>
             Clear all filters
           </Button>
         </EmptyStateActions>
@@ -153,37 +157,38 @@ const AddAdditionalRepositoriesTable = (props) => {
           </Tr>
         </Thead>
         <Tbody>
-          {!isLoading && repositoriesData.body.map((repository, rowIndex) => (
-            <Tr key={repository.repositoryLabel}>
-              <Td
-                select={{
-                  rowIndex,
-                  isSelected: selectedRepositories.includes(repository),
-                  onSelect: (_, isSelecting) => {
-                    if (isSubmitting) {
-                      return;
-                    }
-                    if (isSelecting) {
-                      setSelectedRepositories([
-                        ...selectedRepositories,
-                        repository,
-                      ]);
-                    } else {
-                      setSelectedRepositories(
-                        selectedRepositories.filter(
-                          (selectedRepository) =>
-                            selectedRepository.repositoryLabel !==
-                            repository.repositoryLabel
-                        )
-                      );
-                    }
-                  },
-                }}
-              />
-              <Td>{repository.repositoryName}</Td>
-              <Td>{repository.repositoryLabel}</Td>
-            </Tr>
-          ))}
+          {!isLoading &&
+            repositoriesData.body.map((repository, rowIndex) => (
+              <Tr key={repository.repositoryLabel}>
+                <Td
+                  select={{
+                    rowIndex,
+                    isSelected: selectedRepositories.includes(repository),
+                    onSelect: (_, isSelecting) => {
+                      if (isSubmitting) {
+                        return;
+                      }
+                      if (isSelecting) {
+                        setSelectedRepositories([
+                          ...selectedRepositories,
+                          repository,
+                        ]);
+                      } else {
+                        setSelectedRepositories(
+                          selectedRepositories.filter(
+                            (selectedRepository) =>
+                              selectedRepository.repositoryLabel !==
+                              repository.repositoryLabel
+                          )
+                        );
+                      }
+                    },
+                  }}
+                />
+                <Td>{repository.repositoryName}</Td>
+                <Td>{repository.repositoryLabel}</Td>
+              </Tr>
+            ))}
           {!isLoading && repositoriesData.body.length === 0 && (
             <Tr>
               <Td colSpan={8}>

@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
-import propTypes from 'prop-types';
+import React, { useState } from "react";
+import propTypes from "prop-types";
 import {
   Modal,
   ModalVariant,
   ActionGroup,
   Button,
-} from '@patternfly/react-core';
-import { useQueryClient } from '@tanstack/react-query';
-import useAddAdditionalRepositories from '../../hooks/useAddAdditionalRepositories';
-import useNotifications from '../../hooks/useNotifications';
-import AddAdditionalRepositoriesTable from '../AddAdditionalRepositoriesTable';
+} from "@patternfly/react-core";
+import { useQueryClient } from "@tanstack/react-query";
+import useAddAdditionalRepositories from "../../hooks/useAddAdditionalRepositories";
+import useNotifications from "../../hooks/useNotifications";
+import AddAdditionalRepositoriesTable from "../AddAdditionalRepositoriesTable";
 
 const AddAdditionalRepositoriesModal = (props) => {
-  const {
-    keyName,
-    handleModalToggle: parentHandleModalToggle,
-    isOpen,
-  } = props;
+  const { keyName, handleModalToggle: parentHandleModalToggle, isOpen } = props;
   const queryClient = useQueryClient();
   const [selectedRepositories, setSelectedRepositories] = useState([]);
   const { addSuccessNotification, addErrorNotification } = useNotifications();
@@ -40,9 +36,9 @@ const AddAdditionalRepositoriesModal = (props) => {
           );
         },
         onError: () => {
-          addErrorNotification('Something went wrong', {
+          addErrorNotification("Something went wrong", {
             description:
-              'Your repositories could not be added. Please try again.',
+              "Your repositories could not be added. Please try again.",
           });
         },
       }
@@ -50,7 +46,7 @@ const AddAdditionalRepositoriesModal = (props) => {
   };
 
   const editAdditionalRepositoriesDescription =
-    'The core repositories for your operating system version, for example BaseOS and AppStream, are always enabled and do not need to be explicitly added to the activation key.';
+    "The core repositories for your operating system version, for example BaseOS and AppStream, are always enabled and do not need to be explicitly added to the activation key.";
   const editChangesButtons = (
     <ActionGroup>
       <Button
@@ -60,7 +56,7 @@ const AddAdditionalRepositoriesModal = (props) => {
         isDisabled={isSubmitting || selectedRepositories.length === 0}
         spinnerAriaValueText="Saving Changes..."
       >
-        {isSubmitting ? 'Saving Changes' : 'Save Changes'}
+        {isSubmitting ? "Saving Changes" : "Save Changes"}
       </Button>
       <Button
         key="cancel"
@@ -73,8 +69,7 @@ const AddAdditionalRepositoriesModal = (props) => {
     </ActionGroup>
   );
 
-  const onClose =
-    isSubmitting ? null : handleModalToggle;
+  const onClose = isSubmitting ? null : handleModalToggle;
 
   return (
     <React.Fragment>

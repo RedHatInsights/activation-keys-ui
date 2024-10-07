@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { useQuery } from "@tanstack/react-query";
+import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
 
 const fetchAdditionalRepositories = async (
   token,
@@ -20,7 +20,7 @@ const fetchAdditionalRepositories = async (
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch repositories');
+    throw new Error("Failed to fetch repositories");
   }
 
   const repositoriesData = await response.json();
@@ -31,8 +31,21 @@ const useAvailableRepositories = (keyName, page, pageSize, search = "") => {
   const chrome = useChrome();
   const token = chrome?.auth?.getToken();
 
-  return useQuery([`activation_key_${keyName}_available_repositories`, page, pageSize, search], () =>
-    fetchAdditionalRepositories(token, keyName, pageSize, (page - 1) * pageSize, search)
+  return useQuery(
+    [
+      `activation_key_${keyName}_available_repositories`,
+      page,
+      pageSize,
+      search,
+    ],
+    () =>
+      fetchAdditionalRepositories(
+        token,
+        keyName,
+        pageSize,
+        (page - 1) * pageSize,
+        search
+      )
   );
 };
 
@@ -42,13 +55,28 @@ const usePrefetchAvailableRepositoriesNextPate = () => {
   return async (queryClient, keyName, page, pageSize, search = "") => {
     const token = chrome?.auth?.getToken();
 
-    console.log('here');
+    console.log("here");
 
     queryClient.prefetchQuery({
-      queryKey: [`activation_key_${keyName}_available_repositories`, page, pageSize, search],
-      queryFn: () => fetchAdditionalRepositories(token, keyName, pageSize, (page - 1) * pageSize, search)
-    })
-  }
-}
+      queryKey: [
+        `activation_key_${keyName}_available_repositories`,
+        page,
+        pageSize,
+        search,
+      ],
+      queryFn: () =>
+        fetchAdditionalRepositories(
+          token,
+          keyName,
+          pageSize,
+          (page - 1) * pageSize,
+          search
+        ),
+    });
+  };
+};
 
-export { useAvailableRepositories as default, usePrefetchAvailableRepositoriesNextPate };
+export {
+  useAvailableRepositories as default,
+  usePrefetchAvailableRepositoriesNextPate,
+};

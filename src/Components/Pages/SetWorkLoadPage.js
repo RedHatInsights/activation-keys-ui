@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   Title,
   Text,
@@ -11,9 +11,9 @@ import {
   FormSelectOption,
   Tooltip,
   TextContent,
-} from '@patternfly/react-core';
-import PropTypes from 'prop-types';
-import useEusVersions from '../../hooks/useEusVersions';
+} from "@patternfly/react-core";
+import PropTypes from "prop-types";
+import useEusVersions from "../../hooks/useEusVersions";
 
 const SetWorkloadPage = ({
   workloadOptions,
@@ -28,19 +28,19 @@ const SetWorkloadPage = ({
   const { isLoading, error, data } = useEusVersions();
 
   useEffect(() => {
-    if (workload.includes('Extended') && data) {
+    if (workload.includes("Extended") && data) {
       setExtendedReleaseProduct(extendedReleaseProduct || data[0].name);
       setExtendedReleaseVersion(
         extendedReleaseVersion || data[0].configurations[0].version
       );
     } else {
-      setExtendedReleaseProduct('');
-      setExtendedReleaseVersion('');
+      setExtendedReleaseProduct("");
+      setExtendedReleaseVersion("");
     }
   }, [data, workload]);
 
   useEffect(() => {
-    if (data && workload.includes('Extended')) {
+    if (data && workload.includes("Extended")) {
       setExtendedReleaseRepositories(
         data
           .find((product) => extendedReleaseProduct == product.name)
@@ -61,7 +61,7 @@ const SetWorkloadPage = ({
       <Text component={TextVariants.p} className="pf-v5-u-mb-xl">
         Choose a workload option to associate an appropriate selection of
         repositories to the activation key. Repositories can be edited on the
-        activation key detail page.{' '}
+        activation key detail page.{" "}
       </Text>
       {!isLoading ? (
         workloadOptions.map((wl, i) => {
@@ -85,9 +85,9 @@ const SetWorkloadPage = ({
               key={i}
               content={
                 isDisabled ? (
-                  'Your account has no extended support subscriptions'
+                  "Your account has no extended support subscriptions"
                 ) : i == 0 ? (
-                  'Activation key will use the latest RHEL release'
+                  "Activation key will use the latest RHEL release"
                 ) : (
                   <TextContent>
                     <Text
@@ -97,7 +97,7 @@ const SetWorkloadPage = ({
                       Activation key can be version locked to a specific version
                       of RHEL. You can only version lock an activation key to a
                       RHEL release that has the option of Extended Update
-                      Support (EUS). For more information please refer to:{' '}
+                      Support (EUS). For more information please refer to:{" "}
                       <a
                         href="https://access.redhat.com/articles/rhel-eus#c9"
                         target="_blank"

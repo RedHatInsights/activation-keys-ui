@@ -1,8 +1,8 @@
-import { SET_CURR_STATE, GET_CURR_STATE } from './actionTypes';
-import reducer from './currStateReducer';
+import { SET_CURR_STATE, GET_CURR_STATE } from "./actionTypes";
+import reducer from "./currStateReducer";
 
-describe('currStateReducer', () => {
-  test('should set error', () => {
+describe("currStateReducer", () => {
+  test("should set error", () => {
     expect(
       reducer(undefined, {
         type: `${GET_CURR_STATE}_ERROR`,
@@ -12,7 +12,7 @@ describe('currStateReducer', () => {
     });
   });
 
-  test('should set loading - SET_CURR_STATE', () => {
+  test("should set loading - SET_CURR_STATE", () => {
     expect(
       reducer(undefined, {
         type: `${SET_CURR_STATE}_PENDING`,
@@ -22,7 +22,7 @@ describe('currStateReducer', () => {
     });
   });
 
-  test('should set loading - GET_CURR_STATE', () => {
+  test("should set loading - GET_CURR_STATE", () => {
     expect(
       reducer(undefined, {
         type: `${GET_CURR_STATE}_PENDING`,
@@ -32,7 +32,7 @@ describe('currStateReducer', () => {
     });
   });
 
-  test('should not crash without payload', () => {
+  test("should not crash without payload", () => {
     expect(
       reducer(undefined, {
         type: `${GET_CURR_STATE}_FULFILLED`,
@@ -52,7 +52,7 @@ describe('currStateReducer', () => {
     });
   });
 
-  test('should spread payload', () => {
+  test("should spread payload", () => {
     expect(
       reducer(undefined, {
         type: `${GET_CURR_STATE}_FULFILLED`,

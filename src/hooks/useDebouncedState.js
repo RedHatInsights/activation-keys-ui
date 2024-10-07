@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
 
 export const useDebouncedState = (def, delay) => {
   const timer = useRef();
@@ -13,12 +13,11 @@ export const useDebouncedState = (def, delay) => {
 
   const debouncedSetV = (v) => {
     const newTimer = setTimeout(() => {
-      setV(v)
-    }, delay)
-    clearTimeout(timer.current)
-    timer.current = newTimer
-  }
+      setV(v);
+    }, delay);
+    clearTimeout(timer.current);
+    timer.current = newTimer;
+  };
 
-  return [v, debouncedSetV]
-
-}
+  return [v, debouncedSetV];
+};

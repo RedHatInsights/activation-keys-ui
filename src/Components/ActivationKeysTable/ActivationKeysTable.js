@@ -1,19 +1,19 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
-import useActivationKeys from '../../hooks/useActivationKeys';
-import Loading from '../LoadingState/Loading';
-import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
-import DeleteActivationKeyButton from '../ActivationKeys/DeleteActivationKeyButton';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Table, Thead, Tr, Th, Tbody, Td } from "@patternfly/react-table";
+import useActivationKeys from "../../hooks/useActivationKeys";
+import Loading from "../LoadingState/Loading";
+import Unavailable from "@redhat-cloud-services/frontend-components/Unavailable";
+import DeleteActivationKeyButton from "../ActivationKeys/DeleteActivationKeyButton";
+import PropTypes from "prop-types";
 
 const ActivationKeysTable = (props) => {
   const { onDelete } = props;
   const columnNames = {
-    name: 'Key Name',
-    role: 'Role',
-    serviceLevel: 'SLA',
-    usage: 'Usage',
+    name: "Key Name",
+    role: "Role",
+    serviceLevel: "SLA",
+    usage: "Usage",
   };
   const { isLoading, error, data } = useActivationKeys();
   const location = useLocation();
@@ -36,7 +36,7 @@ const ActivationKeysTable = (props) => {
               <Tr key={datum.name} ouiaSafe={true}>
                 <Td modifier="breakWord" dataLabel={columnNames.name}>
                   <Link to={`${location.pathname}/${datum.name}`}>
-                    {' '}
+                    {" "}
                     {datum.name}
                   </Link>
                 </Td>

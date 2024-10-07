@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   FormGroup,
   FormHelperText,
@@ -6,9 +6,9 @@ import {
   HelperTextItem,
   FormSelect,
   FormSelectOption,
-} from '@patternfly/react-core';
+} from "@patternfly/react-core";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const ActivationKeysFormSelect = (props) => {
   const {
@@ -22,7 +22,7 @@ const ActivationKeysFormSelect = (props) => {
     placeholderValue,
     disableDefaultValues,
   } = props;
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState("");
   const options = data.map((role) => {
     return <FormSelectOption key={role} value={role} label={role} />;
   });

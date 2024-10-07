@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { WriteOnlyButton } from '../WriteOnlyButton';
+import React from "react";
+import PropTypes from "prop-types";
+import { WriteOnlyButton } from "../WriteOnlyButton";
 
 const DeleteButton = ({ onClick }) => {
   return (

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
-import { Breadcrumb, BreadcrumbItem } from '@patternfly/react-core';
+import React from "react";
+import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem } from "@patternfly/react-core";
 
 const Breadcrumbs = (breadcrumbs) => {
   return breadcrumbs ? (
@@ -17,7 +17,7 @@ const Breadcrumbs = (breadcrumbs) => {
               item.title}
           </BreadcrumbItem>
         ) : (
-          '/'
+          "/"
         )
       )}
     </Breadcrumb>

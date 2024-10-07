@@ -1,5 +1,5 @@
-import { applyReducerHash } from '@redhat-cloud-services/frontend-components-utilities/ReducerRegistry';
-import { GET_CONNECTED_HOSTS } from './actionTypes';
+import { applyReducerHash } from "@redhat-cloud-services/frontend-components-utilities/ReducerRegistry";
+import { GET_CONNECTED_HOSTS } from "./actionTypes";
 
 const initialState = {
   loaded: false,

@@ -1,5 +1,5 @@
-import { useMutation } from '@tanstack/react-query';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { useMutation } from "@tanstack/react-query";
+import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
 
 const additionalRepositoriesMutation = (token) => async (data) => {
   const { keyName, selectedRepositories } = data;
@@ -17,10 +17,10 @@ const additionalRepositoriesMutation = (token) => async (data) => {
   const response = await fetch(
     `/api/rhsm/v2/activation_keys/${keyName}/additional_repositories`,
     {
-      method: 'POST',
+      method: "POST",
       headers: {
         Authorization: `Bearer ${await token}`,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(
         additionalRepositoryLabels.map((label) => ({

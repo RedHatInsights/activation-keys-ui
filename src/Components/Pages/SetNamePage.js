@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import {
   Title,
   Text,
@@ -10,16 +10,16 @@ import {
   HelperText,
   HelperTextItem,
   Form,
-} from '@patternfly/react-core';
+} from "@patternfly/react-core";
 
 const SetNamePage = ({ name, setName, nameIsValid }) => {
   const [enableValidationFeedback, setEnableValidationFeedback] =
     useState(false);
 
   const helperText =
-    'Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.';
+    "Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.";
   const validated =
-    nameIsValid || !enableValidationFeedback ? 'default' : 'error';
+    nameIsValid || !enableValidationFeedback ? "default" : "error";
   const helperTextInvalid = `Name requirements have not been met. ${helperText}`;
 
   return (
@@ -48,7 +48,7 @@ const SetNamePage = ({ name, setName, nameIsValid }) => {
           <FormHelperText>
             <HelperText>
               <HelperTextItem variant={validated}>
-                {validated === 'default' ? helperText : helperTextInvalid}
+                {validated === "default" ? helperText : helperTextInvalid}
               </HelperTextItem>
             </HelperText>
           </FormHelperText>

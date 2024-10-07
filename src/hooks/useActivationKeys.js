@@ -1,8 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { useQuery } from "@tanstack/react-query";
+import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
 
 const fetchActivationKeysData = (token) => async () => {
-  const response = await fetch('/api/rhsm/v2/activation_keys', {
+  const response = await fetch("/api/rhsm/v2/activation_keys", {
     headers: { Authorization: `Bearer ${await token}` },
   });
 
@@ -20,7 +20,7 @@ const useActivationKeys = () => {
   const chrome = useChrome();
 
   return useQuery(
-    ['activation_keys'],
+    ["activation_keys"],
     getActivationKeys(chrome?.auth?.getToken())
   );
 };

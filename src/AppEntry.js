@@ -1,10 +1,10 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { init, RegistryContext } from './store';
-import App from './App';
-import logger from 'redux-logger';
-import Authentication from './Components/Authentication/Authentication';
+import React from "react";
+import { Provider } from "react-redux";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { init, RegistryContext } from "./store";
+import App from "./App";
+import logger from "redux-logger";
+import Authentication from "./Components/Authentication/Authentication";
 
 const queryClient = new QueryClient({
   defaultOptions: {

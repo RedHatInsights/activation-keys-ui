@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
-import { Pagination, PaginationVariant } from '@patternfly/react-core';
-import propTypes from 'prop-types';
-import RemoveAdditionalRepositoriesButton from './RemoveAdditionalRepositoriesButton';
-import NoAdditionalRepositories from './NoAdditionalRepositories';
-import DeleteAdditionalRepositoriesModal from '../Modals/DeleteAdditionalRepositoriesModal';
+import React, { useState } from "react";
+import { Table, Thead, Tr, Th, Tbody, Td } from "@patternfly/react-table";
+import { Pagination, PaginationVariant } from "@patternfly/react-core";
+import propTypes from "prop-types";
+import RemoveAdditionalRepositoriesButton from "./RemoveAdditionalRepositoriesButton";
+import NoAdditionalRepositories from "./NoAdditionalRepositories";
+import DeleteAdditionalRepositoriesModal from "../Modals/DeleteAdditionalRepositoriesModal";
 
 const AdditionalRepositoriesTable = (props) => {
   const { repositories, name } = props;
@@ -12,15 +12,15 @@ const AdditionalRepositoriesTable = (props) => {
   const [perPage, setPerPage] = useState(10);
   const [activeSortIndex, setActiveSortIndex] = useState(null);
   const [activeSortDirection, setActiveSortDirection] = useState(null);
-  const [repositoryNameToDelete, setRepositoryNameToDelete] = useState('');
-  const [repositoryLabelToDelete, setRepositoryLabelToDelete] = useState('');
+  const [repositoryNameToDelete, setRepositoryNameToDelete] = useState("");
+  const [repositoryLabelToDelete, setRepositoryLabelToDelete] = useState("");
   const [
     isDeleteAdditionalRepositoriesModalOpen,
     setisDeleteAdditionalRepositoriesModalOpen,
   ] = useState(false);
   const columnNames = {
-    repositoryLabel: 'Label',
-    repositoryName: 'Name',
+    repositoryLabel: "Label",
+    repositoryName: "Name",
   };
 
   const getSortableRowValues = (repo) => {
@@ -32,7 +32,7 @@ const AdditionalRepositoriesTable = (props) => {
     sortBy: {
       index: activeSortIndex,
       direction: activeSortDirection,
-      defaultDirection: 'asc',
+      defaultDirection: "asc",
     },
     onSort: (_event, index, direction) => {
       setActiveSortIndex(index);
@@ -43,15 +43,15 @@ const AdditionalRepositoriesTable = (props) => {
 
   const sortRepos = (repositories, sortIndex) => {
     const sortedRepos = repositories?.sort((a, b) => {
-      const aValue = getSortableRowValues(a)[sortIndex] || '';
-      const bValue = getSortableRowValues(b)[sortIndex] || '';
+      const aValue = getSortableRowValues(a)[sortIndex] || "";
+      const bValue = getSortableRowValues(b)[sortIndex] || "";
       let result = 0;
       if (aValue < bValue) {
         result = -1;
       } else if (aValue > bValue) {
         result = 1;
       }
-      return activeSortDirection == 'asc' ? result : -1 * result;
+      return activeSortDirection == "asc" ? result : -1 * result;
     });
     return sortedRepos;
   };

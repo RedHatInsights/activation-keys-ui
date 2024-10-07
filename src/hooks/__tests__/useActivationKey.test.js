@@ -1,24 +1,24 @@
-import { renderHook, waitFor } from '@testing-library/react';
-import fetch, { enableFetchMocks } from 'jest-fetch-mock';
-import { createQueryWrapper } from '../../utils/testHelpers';
-import useActivationKey from '../useActivationKey';
+import { renderHook, waitFor } from "@testing-library/react";
+import fetch, { enableFetchMocks } from "jest-fetch-mock";
+import { createQueryWrapper } from "../../utils/testHelpers";
+import useActivationKey from "../useActivationKey";
 
 enableFetchMocks();
 
-describe('useActivationKey', () => {
-  it('returns activation key details from the API', async () => {
+describe("useActivationKey", () => {
+  it("returns activation key details from the API", async () => {
     const keyData = [
       {
-        name: 'A',
-        role: 'role',
-        sla: 'sla',
-        usage: 'usage',
+        name: "A",
+        role: "role",
+        sla: "sla",
+        usage: "usage",
       },
     ];
 
     fetch.mockResponseOnce(JSON.stringify({ body: [...keyData] }));
 
-    const { result } = renderHook(() => useActivationKey('A'), {
+    const { result } = renderHook(() => useActivationKey("A"), {
       wrapper: createQueryWrapper(),
     });
 

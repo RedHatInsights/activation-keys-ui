@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { Modal, ModalVariant } from '@patternfly/react-core';
-import ActivationKeyForm from '../Forms/ActivationKeyForm';
-import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
-import useActivationKey from '../../hooks/useActivationKey';
-import propTypes from 'prop-types';
-import Loading from '../LoadingState/Loading';
-import { useQueryClient } from '@tanstack/react-query';
-import SystemPurposeForm from '../Forms/SystemPurposeForm';
-import useNotifications from '../../hooks/useNotifications';
+import * as React from "react";
+import { Modal, ModalVariant } from "@patternfly/react-core";
+import ActivationKeyForm from "../Forms/ActivationKeyForm";
+import useUpdateActivationKey from "../../hooks/useUpdateActivationKey";
+import useActivationKey from "../../hooks/useActivationKey";
+import propTypes from "prop-types";
+import Loading from "../LoadingState/Loading";
+import { useQueryClient } from "@tanstack/react-query";
+import SystemPurposeForm from "../Forms/SystemPurposeForm";
+import useNotifications from "../../hooks/useNotifications";
 
 const EditActivationKeyModal = (props) => {
   const {
@@ -40,7 +40,7 @@ const EditActivationKeyModal = (props) => {
         onSuccess: () => {
           setError(false);
           setUpdated(true);
-          queryClient.invalidateQueries(['activation_keys']);
+          queryClient.invalidateQueries(["activation_keys"]);
           queryClient.resetQueries([`activation_key_${activationKeyName}`]);
           handleModalToggle();
           const successMessage = `Changes saved for activation key "${activationKey.name}"`;
@@ -54,7 +54,7 @@ const EditActivationKeyModal = (props) => {
           handleModalToggle();
           const errorMessage = activationKey
             ? `Error updating activation key ${activationKey.name}.`
-            : 'Activation Key was not created, please try again.';
+            : "Activation Key was not created, please try again.";
           addErrorNotification(errorMessage, {
             timeout: 8000,
           });

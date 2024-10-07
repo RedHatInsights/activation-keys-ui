@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import Breadcrumbs from '../shared/breadcrumbs';
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Breadcrumbs from "../shared/breadcrumbs";
 import {
   Text,
   TextContent,
@@ -11,32 +11,32 @@ import {
   GalleryItem,
   Level,
   LevelItem,
-} from '@patternfly/react-core';
-import { Main } from '@redhat-cloud-services/frontend-components/Main';
+} from "@patternfly/react-core";
+import { Main } from "@redhat-cloud-services/frontend-components/Main";
 import {
   PageHeader,
   PageHeaderTitle,
-} from '@redhat-cloud-services/frontend-components/PageHeader';
-import AdditionalRepositoriesCard from './AdditionalRepositoriesCard';
-import useActivationKey from '../../hooks/useActivationKey';
-import Loading from '../LoadingState/Loading';
-import SystemPurposeCard from './SystemPurposeCard';
-import WorkloadCard from './WorkloadCard';
-import DeleteButton from './DeleteButton';
-import DeleteActivationKeyConfirmationModal from '../Modals/DeleteActivationKeyConfirmationModal';
-import EditActivationKeyModal from '../Modals/EditActivationKeyModal';
-import NoAccessPopover from '../NoAccessPopover';
-import { useQueryClient } from '@tanstack/react-query';
-import { EditReleaseVersionModal } from '../Modals/EditReleaseVersionModal';
-import useReleaseVersions from '../../hooks/useReleaseVersions';
+} from "@redhat-cloud-services/frontend-components/PageHeader";
+import AdditionalRepositoriesCard from "./AdditionalRepositoriesCard";
+import useActivationKey from "../../hooks/useActivationKey";
+import Loading from "../LoadingState/Loading";
+import SystemPurposeCard from "./SystemPurposeCard";
+import WorkloadCard from "./WorkloadCard";
+import DeleteButton from "./DeleteButton";
+import DeleteActivationKeyConfirmationModal from "../Modals/DeleteActivationKeyConfirmationModal";
+import EditActivationKeyModal from "../Modals/EditActivationKeyModal";
+import NoAccessPopover from "../NoAccessPopover";
+import { useQueryClient } from "@tanstack/react-query";
+import { EditReleaseVersionModal } from "../Modals/EditReleaseVersionModal";
+import useReleaseVersions from "../../hooks/useReleaseVersions";
 
 const ActivationKey = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const user = queryClient.getQueryData(['user']);
+  const user = queryClient.getQueryData(["user"]);
   const { id } = useParams();
   const breadcrumbs = [
-    { title: 'Activation Keys', to: '..' },
+    { title: "Activation Keys", to: ".." },
     { title: id, isActive: true },
   ];
   const {
@@ -48,7 +48,7 @@ const ActivationKey = () => {
     useReleaseVersions();
 
   const description =
-    'View and edit details and repositories for this activation key.';
+    "View and edit details and repositories for this activation key.";
   const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] =
     useState(false);
   const [isEditActivationKeyModalOpen, setIsEditActivationKeyModalOpen] =
@@ -58,7 +58,7 @@ const ActivationKey = () => {
   const handleDeleteActivationKeyModalToggle = (keyDeleted) => {
     setIsDeleteActivationKeyModalOpen(!isDeleteActivationKeyModalOpen);
     if (keyDeleted === true) {
-      navigate('..');
+      navigate("..");
     }
   };
 
@@ -71,7 +71,7 @@ const ActivationKey = () => {
   };
 
   const editModalDescription =
-    'System purpose values are used by the subscriptions service to help filter and identify hosts. Setting values for these attributes is optional, but doing so ensures that subscriptions reporting accurately reflects the system. Only those values available to your account are shown.';
+    "System purpose values are used by the subscriptions service to help filter and identify hosts. Setting values for these attributes is optional, but doing so ensures that subscriptions reporting accurately reflects the system. Only those values available to your account are shown.";
 
   return (
     <React.Fragment>
@@ -103,7 +103,7 @@ const ActivationKey = () => {
                 <Gallery
                   hasGutter
                   minWidths={{
-                    default: '40%',
+                    default: "40%",
                   }}
                 >
                   <GalleryItem>

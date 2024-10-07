@@ -1,15 +1,15 @@
-import { useQuery } from '@tanstack/react-query';
-import useAvailableRepositories from '../useAvailableRepositories';
+import { useQuery } from "@tanstack/react-query";
+import useAvailableRepositories from "../useAvailableRepositories";
 
-jest.mock('@tanstack/react-query');
-describe('useAvailableRepositories', () => {
-  const keyName = 'testKey';
+jest.mock("@tanstack/react-query");
+describe("useAvailableRepositories", () => {
+  const keyName = "testKey";
 
   beforeEach(() => {
     useQuery.mockReset();
   });
-  describe('useAvailableRepositories', () => {
-    test('should fetch available repositories correctly', async () => {
+  describe("useAvailableRepositories", () => {
+    test("should fetch available repositories correctly", async () => {
       const repositories = [];
       for (let i = 1; i <= 105; i++) {
         repositories.push({ repositoryId: i, repositoryName: `Repo ${i}` });
@@ -27,15 +27,15 @@ describe('useAvailableRepositories', () => {
     });
   });
 
-  test('should handle error during fetch correctly', async () => {
+  test("should handle error during fetch correctly", async () => {
     useQuery.mockReturnValueOnce({
       isLoading: false,
-      error: new Error('Fetch failed'),
+      error: new Error("Fetch failed"),
     });
 
     const result = useAvailableRepositories(keyName);
 
     expect(result.isLoading).toBe(false);
-    expect(result.error).toEqual(new Error('Fetch failed'));
+    expect(result.error).toEqual(new Error("Fetch failed"));
   });
 });

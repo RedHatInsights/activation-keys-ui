@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { AlertActionLink } from '@patternfly/react-core';
-import { v4 as uuid } from 'uuid';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import { AlertActionLink } from "@patternfly/react-core";
+import { v4 as uuid } from "uuid";
+import PropTypes from "prop-types";
 
 const NotificationContext = React.createContext({
   notifications: [],
@@ -24,7 +24,7 @@ const NotificationProvider = ({ children }) => {
 
     if (options && options.alertLinkText && options.alertLinkHref) {
       const linkAttributes = options.alertLinkIsDownload
-        ? { download: '' }
+        ? { download: "" }
         : {};
       const alertLink = (
         <>

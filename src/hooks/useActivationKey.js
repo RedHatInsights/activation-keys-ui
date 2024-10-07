@@ -1,5 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
-import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { useQuery } from "@tanstack/react-query";
+import useChrome from "@redhat-cloud-services/frontend-components/useChrome";
 
 const fetchActivationKeyData = (token) => async (keyName) => {
   if (!keyName) {
