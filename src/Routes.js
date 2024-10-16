@@ -1,7 +1,8 @@
 import React, { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Routes } from 'react-router-dom';
-import { Bullseye, Spinner } from '@patternfly/react-core';
+import { Bullseye } from '@patternfly/react-core/dist/dynamic/layouts/Bullseye';
+import { Spinner } from '@patternfly/react-core/dist/dynamic/components/Spinner';
 import pckg from '../package.json';
 import ActivationKey from './Components/ActivationKey/ActivationKey';
 const { routes: paths } = pckg;

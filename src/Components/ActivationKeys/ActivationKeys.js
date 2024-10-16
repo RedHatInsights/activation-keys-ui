@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import {
-  ActionGroup,
-  Text,
-  TextContent,
-  TextVariants,
-  PageSection,
-  PageSectionVariants,
-  Flex,
-  FlexItem,
-  Split,
-  SplitItem,
-} from '@patternfly/react-core';
+import { ActionGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { PageSection } from '@patternfly/react-core/dist/dynamic/components/Page';
+import { PageSectionVariants } from '@patternfly/react-core/dist/dynamic/components/Page';
+import { Flex } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
+import { FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
+import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
+import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
   PageHeader,

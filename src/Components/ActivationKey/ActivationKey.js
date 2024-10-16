@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Breadcrumbs from '../shared/breadcrumbs';
-import {
-  Text,
-  TextContent,
-  TextVariants,
-  Grid,
-  GridItem,
-  Gallery,
-  GalleryItem,
-  Level,
-  LevelItem,
-} from '@patternfly/react-core';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Grid } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
+import { GridItem } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
+import { Gallery } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
+import { GalleryItem } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
+import { Level } from '@patternfly/react-core/dist/dynamic/layouts/Level';
+import { LevelItem } from '@patternfly/react-core/dist/dynamic/layouts/Level';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
   PageHeader,

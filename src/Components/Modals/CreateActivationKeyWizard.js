@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, ModalVariant, Button } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import { Wizard } from '@patternfly/react-core/deprecated';
 
 import PropTypes from 'prop-types';

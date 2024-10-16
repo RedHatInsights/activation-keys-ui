@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { ActionGroup, Button, Form } from '@patternfly/react-core';
+import { ActionGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
 import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
 import ActivationKeysFormSelect from './ActivationKeysFormSelect';
 import PropTypes from 'prop-types';

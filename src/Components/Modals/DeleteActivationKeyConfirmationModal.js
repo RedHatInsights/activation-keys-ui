@@ -1,13 +1,11 @@
 import * as React from 'react';
-import {
-  Button,
-  Modal,
-  ModalVariant,
-  TextContent,
-  Text,
-  TextVariants,
-} from '@patternfly/react-core';
-import { ExclamationTriangleIcon } from '@patternfly/react-icons';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import ExclamationTriangleIcon from '@patternfly/react-icons/dist/dynamic/icons/exclamation-triangle-icon';
 import propTypes from 'prop-types';
 import useDeleteActivationKey from '../../hooks/useDeleteActivationKey';
 import useNotifications from '../../hooks/useNotifications';

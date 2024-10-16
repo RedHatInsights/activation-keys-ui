@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import {
-  SearchInput,
-  ToggleGroupItem,
-  Toolbar,
-  ToolbarContent,
-  ToolbarGroup,
-  ToolbarItem,
-  ToggleGroup,
-} from '@patternfly/react-core';
+import { SearchInput } from '@patternfly/react-core/dist/dynamic/components/SearchInput';
+import { ToggleGroupItem } from '@patternfly/react-core/dist/dynamic/components/ToggleGroup';
+import { Toolbar } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import { ToolbarContent } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import { ToolbarGroup } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import { ToolbarItem } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import { ToggleGroup } from '@patternfly/react-core/dist/dynamic/components/ToggleGroup';
 import { Select, SelectOption } from '@patternfly/react-core/deprecated';
 
-import { FilterIcon } from '@patternfly/react-icons';
+import FilterIcon from '@patternfly/react-icons/dist/dynamic/icons/filter-icon';
 import propTypes from 'prop-types';
 
 const AddAdditionalRepositoriesToolbar = ({

@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
-import {
-  Title,
-  Text,
-  TextVariants,
-  Radio,
-  Spinner,
-  Form,
-  FormGroup,
-  FormSelect,
-  FormSelectOption,
-  Tooltip,
-  TextContent,
-} from '@patternfly/react-core';
+import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Radio } from '@patternfly/react-core/dist/dynamic/components/Radio';
+import { Spinner } from '@patternfly/react-core/dist/dynamic/components/Spinner';
+import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormSelect } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
+import { FormSelectOption } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
+import { Tooltip } from '@patternfly/react-core/dist/dynamic/components/Tooltip';
+import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
 import PropTypes from 'prop-types';
 import useEusVersions from '../../hooks/useEusVersions';
 
