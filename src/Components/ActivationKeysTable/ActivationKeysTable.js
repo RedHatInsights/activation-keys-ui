@@ -5,7 +5,7 @@ import useActivationKeys from '../../hooks/useActivationKeys';
 import Loading from '../LoadingState/Loading';
 import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 import DeleteActivationKeyButton from '../ActivationKeys/DeleteActivationKeyButton';
-import { printDate, sortData } from '../../utils/dateHelpers';
+import { printDate, sortActivationKeys } from '../../utils/dateHelpers';
 import PropTypes from 'prop-types';
 
 const ActivationKeysTable = (props) => {
@@ -37,7 +37,12 @@ const ActivationKeysTable = (props) => {
     onSort: (_event, index, direction) => {
       setActiveSortIndex(index);
       setActiveSortDirection(direction);
-      const sorted = sortData(sortedData, index, direction, columnNames);
+      const sorted = sortActivationKeys(
+        sortedData,
+        index,
+        direction,
+        columnNames
+      );
       setSortedData(sorted);
     },
     columnIndex,

@@ -11,17 +11,22 @@ export const printDate = (dateString) => {
   }`;
 };
 
-export const sortData = (data, columnIndex, direction, columnNames) => {
-  return [...data].sort((a, b) => {
-    const aValue = a[columnNames[columnIndex]];
-    const bValue = b[columnNames[columnIndex]];
-    if (columnIndex === 4) {
+export const sortActivationKeys = (
+  activationKeys,
+  sortColumnIndex,
+  sortDirection,
+  columnsMap
+) => {
+  return [...activationKeys].sort((a, b) => {
+    const aValue = a[columnsMap[sortColumnIndex]];
+    const bValue = b[columnsMap[sortColumnIndex]];
+    if (sortColumnIndex === 4) {
       const aDate = new Date(a.updatedAt);
       const bDate = new Date(b.updatedAt);
-      return direction === 'asc' ? aDate - bDate : bDate - aDate;
+      return sortDirection === 'asc' ? aDate - bDate : bDate - aDate;
     }
-    if (aValue < bValue) return direction === 'asc' ? -1 : 1;
-    if (aValue > bValue) return direction === 'asc' ? 1 : -1;
+    if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+    if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
     return 0;
   });
 };
