@@ -101,7 +101,7 @@ describe('ActivationKeysTable', () => {
   });
 
   describe('printDate', () => {
-    it('should return the date in YYY-MM-DD format for a valid string', () => {
+    it('should return the date in YYYY-MM-DD format for a valid string', () => {
       const result = printDate('2023-10-21T10:30:00Z');
       expect(result).toBe('2023-10-21');
     });
@@ -119,7 +119,7 @@ describe('ActivationKeysTable', () => {
     expect(result).toBe('2023-10-21');
   });
 });
-describe('sortData', () => {
+describe('sortActivationKeys', () => {
   const mockData = [
     { name: 'Key1', updatedAt: '2023-10-21T10:30:00Z' },
     { name: 'Key2', updatedAt: '2023-10-19T10:30:00Z' },
@@ -127,13 +127,13 @@ describe('sortData', () => {
   ];
   const mockColumnNames = ['name', 'role', 'SLA', 'Usage', 'updatedAt'];
 
-  it('should sort data by date in ascending order', () => {
+  it('should sort activation key data by date in ascending order', () => {
     const result = sortActivationKeys(mockData, 4, 'asc', mockColumnNames);
     expect(result[0].name).toBe('Key2');
     expect(result[1].name).toBe('Key3');
     expect(result[2].name).toBe('Key1');
   });
-  it('should sort data by date in descending order', () => {
+  it('should sort activation key data by date in descending order', () => {
     const result = sortActivationKeys(mockData, 4, 'desc', mockColumnNames);
     expect(result[2].name).toBe('Key2');
     expect(result[1].name).toBe('Key3');
