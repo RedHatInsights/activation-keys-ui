@@ -18,9 +18,9 @@ const ActivationKeysTable = (props) => {
     updatedAt: 'Updated Date',
   };
   const { isLoading, error, data } = useActivationKeys();
-  const [activeSortIndex, setActiveSortIndex] = React.useState(null);
+  const [updatedDate, setUpdateDate] = React.useState(null);
   const [sortedData, setSortedData] = React.useState([]);
-  const [activeSortDirection, setActiveSortDirection] = React.useState(null);
+  const [sortDirection, setSortDirection] = React.useState(null);
   const location = useLocation();
   React.useEffect(() => {
     if (data) {
@@ -28,24 +28,23 @@ const ActivationKeysTable = (props) => {
     }
   }, [data]);
 
-  const getSortParams = (columnIndex) => ({
+  const getSortParams = (updatedDateField) => ({
     sortBy: {
-      index: activeSortIndex,
-      direction: activeSortDirection,
+      updatedAt: updatedDate,
+      direction: sortDirection,
       defaultDirection: 'asc',
     },
-    onSort: (_event, index, direction) => {
-      setActiveSortIndex(index);
-      setActiveSortDirection(direction);
+    onSort: (_event, updatedAt, direction) => {
+      setUpdateDate(updatedAt);
+      setSortDirection(direction);
       const sorted = sortActivationKeys(
         sortedData,
-        index,
-        direction,
-        columnNames
+        updatedDateField,
+        direction
       );
       setSortedData(sorted);
     },
-    columnIndex,
+    updatedDateField,
   });
 
   const Results = () => {
@@ -57,7 +56,7 @@ const ActivationKeysTable = (props) => {
             <Th>{columnNames.role}</Th>
             <Th>{columnNames.serviceLevel}</Th>
             <Th>{columnNames.usage}</Th>
-            <Th sort={getSortParams(4)} width={20}>
+            <Th width={20} sort={getSortParams('updatedAt')}>
               {columnNames.updatedAt}
             </Th>
             <Td></Td>

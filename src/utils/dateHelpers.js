@@ -13,14 +13,13 @@ export const printDate = (dateString) => {
 
 export const sortActivationKeys = (
   activationKeys,
-  sortColumnIndex,
-  sortDirection,
-  columnsMap
+  updatedAt,
+  sortDirection
 ) => {
   return [...activationKeys].sort((a, b) => {
-    const aValue = a[columnsMap[sortColumnIndex]];
-    const bValue = b[columnsMap[sortColumnIndex]];
-    if (sortColumnIndex === 4) {
+    const aValue = a[updatedAt];
+    const bValue = b[updatedAt];
+    if (updatedAt === 'updatedAt') {
       const aDate = new Date(a.updatedAt);
       const bDate = new Date(b.updatedAt);
       return sortDirection === 'asc' ? aDate - bDate : bDate - aDate;
