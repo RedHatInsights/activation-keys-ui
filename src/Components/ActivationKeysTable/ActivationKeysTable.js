@@ -19,7 +19,7 @@ const ActivationKeysTable = (props) => {
   };
   const { isLoading, error, data } = useActivationKeys();
   const [sortedData, setSortedData] = React.useState([]);
-  const [sortDirection, setSortDirection] = React.useState('asc');
+  const [sortDirection, setSortDirection] = React.useState('desc');
   const location = useLocation();
 
   React.useEffect(() => {
@@ -35,7 +35,7 @@ const ActivationKeysTable = (props) => {
       direction: sortDirection,
     },
     onSort: () => {
-      const newDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+      const newDirection = sortDirection === 'desc' ? 'asc' : 'desc';
       setSortDirection(newDirection);
     },
   });
