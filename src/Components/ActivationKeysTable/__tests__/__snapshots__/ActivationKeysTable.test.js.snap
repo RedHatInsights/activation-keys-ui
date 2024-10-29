@@ -48,8 +48,8 @@ exports[`ActivationKeysTable renders correctly 1`] = `
           Usage
         </th>
         <th
-          aria-sort="nullending"
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-selected pf-m-width-20"
+          aria-sort="none"
+          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-20"
           scope="col"
           tabindex="-1"
         >
@@ -78,7 +78,7 @@ exports[`ActivationKeysTable renders correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
+                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
                   />
                 </svg>
               </span>
@@ -139,7 +139,7 @@ exports[`ActivationKeysTable renders correctly 1`] = `
           data-label="Updated Date"
           tabindex="-1"
         >
-          Invalid Date
+          Not Available
         </td>
         <td
           class="pf-v5-c-table__td"

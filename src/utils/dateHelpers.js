@@ -11,21 +11,10 @@ export const printDate = (dateString) => {
   }`;
 };
 
-export const sortActivationKeys = (
-  activationKeys,
-  updatedAt,
-  sortDirection
-) => {
-  return [...activationKeys].sort((a, b) => {
-    const aValue = a[updatedAt];
-    const bValue = b[updatedAt];
-    if (updatedAt === 'updatedAt') {
-      const aDate = new Date(a.updatedAt);
-      const bDate = new Date(b.updatedAt);
-      return sortDirection === 'asc' ? aDate - bDate : bDate - aDate;
-    }
-    if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
-    if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
-    return 0;
+export const sortByUpdatedAtDate = (data, sortDirection = 'asc') => {
+  return [...data].sort((a, b) => {
+    const aDate = new Date(a.updatedAt);
+    const bDate = new Date(b.updatedAt);
+    return sortDirection === 'asc' ? aDate - bDate : bDate - aDate;
   });
 };

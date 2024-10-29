@@ -5,7 +5,7 @@ import useActivationKeys from '../../hooks/useActivationKeys';
 import Loading from '../LoadingState/Loading';
 import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 import DeleteActivationKeyButton from '../ActivationKeys/DeleteActivationKeyButton';
-import { printDate, sortActivationKeys } from '../../utils/dateHelpers';
+import { printDate, sortByUpdatedAtDate } from '../../utils/dateHelpers';
 import PropTypes from 'prop-types';
 
 const ActivationKeysTable = (props) => {
@@ -18,33 +18,26 @@ const ActivationKeysTable = (props) => {
     updatedAt: 'Updated Date',
   };
   const { isLoading, error, data } = useActivationKeys();
-  const [updatedDate, setUpdateDate] = React.useState(null);
   const [sortedData, setSortedData] = React.useState([]);
-  const [sortDirection, setSortDirection] = React.useState(null);
+  const [sortDirection, setSortDirection] = React.useState('asc');
   const location = useLocation();
-  React.useEffect(() => {
-    if (data) {
-      setSortedData(data);
-    }
-  }, [data]);
 
-  const getSortParams = (updatedDateField) => ({
-    sortBy: {
-      updatedAt: updatedDate,
-      direction: sortDirection,
-      defaultDirection: 'asc',
-    },
-    onSort: (_event, updatedAt, direction) => {
-      setUpdateDate(updatedAt);
-      setSortDirection(direction);
-      const sorted = sortActivationKeys(
-        sortedData,
-        updatedDateField,
-        direction
-      );
+  React.useEffect(() => {
+    if (data && data.length > 0) {
+      const sorted = sortByUpdatedAtDate(data, sortDirection);
       setSortedData(sorted);
+    }
+  }, [data, sortDirection]);
+
+  const getSortParams = () => ({
+    sortBy: {
+      index: 4,
+      direction: sortDirection,
     },
-    updatedDateField,
+    onSort: () => {
+      const newDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+      setSortDirection(newDirection);
+    },
   });
 
   const Results = () => {
@@ -56,7 +49,7 @@ const ActivationKeysTable = (props) => {
             <Th>{columnNames.role}</Th>
             <Th>{columnNames.serviceLevel}</Th>
             <Th>{columnNames.usage}</Th>
-            <Th width={20} sort={getSortParams('updatedAt')}>
+            <Th width={20} sort={getSortParams()}>
               {columnNames.updatedAt}
             </Th>
             <Td></Td>
@@ -78,9 +71,9 @@ const ActivationKeysTable = (props) => {
                 </Td>
                 <Td dataLabel={columnNames.usage}>{datum.usage}</Td>
                 <Td dataLabel={columnNames.updatedAt}>
-                  {datum.updatedAt == new Date(0)
-                    ? 'Not Available'
-                    : printDate(datum.updatedAt)}
+                  {datum.updatedAt
+                    ? printDate(datum.updatedAt)
+                    : 'Not Available'}
                 </Td>
                 <Td>
                   <DeleteActivationKeyButton

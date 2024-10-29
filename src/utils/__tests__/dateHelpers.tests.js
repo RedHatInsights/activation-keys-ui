@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { printDate, sortActivationKeys } from '../dateHelpers';
+import { printDate, sortByUpdatedAtDate } from '../dateHelpers';
 jest.mock('../../hooks/useActivationKey');
 jest.mock('uuid', () => {
   return { v4: jest.fn(() => '00000000-0000-0000-0000-000000000000') };
@@ -44,19 +44,19 @@ describe('sortActivationKeys', () => {
   const mockColumnNames = ['name', 'role', 'SLA', 'Usage', 'updatedAt'];
 
   it('should sort activation key data by date in ascending order', () => {
-    const result = sortActivationKeys(mockData, 4, 'asc', mockColumnNames);
+    const result = sortByUpdatedAtDate(mockData, 4, 'asc', mockColumnNames);
     expect(result[0].name).toBe('Key1');
-    expect(result[1].name).toBe('Key2');
-    expect(result[2].name).toBe('Key3');
+    expect(result[1].name).toBe('Key3');
+    expect(result[2].name).toBe('Key2');
   });
   it('should sort activation key data by date in descending order', () => {
-    const result = sortActivationKeys(mockData, 4, 'desc', mockColumnNames);
-    expect(result[2].name).toBe('Key3');
-    expect(result[1].name).toBe('Key2');
+    const result = sortByUpdatedAtDate(mockData, 4, 'desc', mockColumnNames);
+    expect(result[2].name).toBe('Key2');
+    expect(result[1].name).toBe('Key3');
     expect(result[0].name).toBe('Key1');
   });
   it('should return and empty array if the input data is empty', () => {
-    const result = sortActivationKeys([], 4, 'asc', mockColumnNames);
+    const result = sortByUpdatedAtDate([], 4, 'asc', mockColumnNames);
     expect(result).toEqual([]);
   });
 });
