@@ -48,7 +48,6 @@ exports[`ActivationKeysTable renders correctly 1`] = `
           Usage
         </th>
         <th
-          aria-sort="none"
           class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-20"
           scope="col"
           tabindex="-1"
