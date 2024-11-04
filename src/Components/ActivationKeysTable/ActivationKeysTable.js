@@ -5,6 +5,7 @@ import useActivationKeys from '../../hooks/useActivationKeys';
 import Loading from '../LoadingState/Loading';
 import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 import DeleteActivationKeyButton from '../ActivationKeys/DeleteActivationKeyButton';
+import { printDate, sortByUpdatedAtDate } from '../../utils/dateHelpers';
 import PropTypes from 'prop-types';
 
 const ActivationKeysTable = (props) => {
@@ -14,9 +15,31 @@ const ActivationKeysTable = (props) => {
     role: 'Role',
     serviceLevel: 'SLA',
     usage: 'Usage',
+    updatedAt: 'Updated Date',
   };
   const { isLoading, error, data } = useActivationKeys();
+  const [activeSortIndex, setActiveSortIndex] = React.useState(null);
+  const [sortedData, setSortedData] = React.useState([]);
+  const [sortDirection, setSortDirection] = React.useState('desc');
   const location = useLocation();
+
+  React.useEffect(() => {
+    if (data && data.length > 0) {
+      const sorted = sortByUpdatedAtDate(data, sortDirection);
+      setSortedData(sorted);
+    }
+  }, [data, sortDirection]);
+
+  const getSortParams = () => ({
+    sortBy: {
+      index: activeSortIndex,
+      direction: sortDirection,
+    },
+    onSort: (_event, index, direction) => {
+      setActiveSortIndex(index);
+      setSortDirection(direction);
+    },
+  });
 
   const Results = () => {
     return (
@@ -27,11 +50,14 @@ const ActivationKeysTable = (props) => {
             <Th>{columnNames.role}</Th>
             <Th>{columnNames.serviceLevel}</Th>
             <Th>{columnNames.usage}</Th>
+            <Th width={20} sort={getSortParams()}>
+              {columnNames.updatedAt}
+            </Th>
             <Td></Td>
           </Tr>
         </Thead>
         <Tbody>
-          {data.map((datum) => {
+          {sortedData.map((datum) => {
             return (
               <Tr key={datum.name} ouiaSafe={true}>
                 <Td modifier="breakWord" dataLabel={columnNames.name}>
@@ -45,6 +71,11 @@ const ActivationKeysTable = (props) => {
                   {datum.serviceLevel}
                 </Td>
                 <Td dataLabel={columnNames.usage}>{datum.usage}</Td>
+                <Td dataLabel={columnNames.updatedAt}>
+                  {datum.updatedAt
+                    ? printDate(datum.updatedAt)
+                    : 'Not Available'}
+                </Td>
                 <Td>
                   <DeleteActivationKeyButton
                     onClick={() => onDelete(datum.name)}
