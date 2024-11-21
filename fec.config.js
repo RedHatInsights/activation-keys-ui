@@ -26,6 +26,10 @@ module.exports = {
     ],
     exposes: {
       './RootApp': resolve(__dirname, './src/AppEntry'),
+      './CreateActivationKeyWizard': resolve(
+        __dirname,
+        '/src/Components/Modals/CreateActivationKeyWizard.js'
+      ),
     },
   },
 };
