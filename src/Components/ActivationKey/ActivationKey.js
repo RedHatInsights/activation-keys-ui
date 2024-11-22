@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Breadcrumbs from '../shared/breadcrumbs';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { Grid } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
-import { GridItem } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
-import { Gallery } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
-import { GalleryItem } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
-import { Level } from '@patternfly/react-core/dist/dynamic/layouts/Level';
-import { LevelItem } from '@patternfly/react-core/dist/dynamic/layouts/Level';
-import { DescriptionListGroup } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
-import { DescriptionListTerm } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
+import {
+  TextVariants,
+  Grid,
+  GridItem,
+  Gallery,
+  GalleryItem,
+  Level,
+  LevelItem,
+  DescriptionListDescription,
+  DescriptionListGroup,
+  DescriptionListTerm,
+} from '@patternfly/react-core';
+import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
   PageHeader,
   PageHeaderTitle,
@@ -75,12 +79,14 @@ const ActivationKey = () => {
           <LevelItem>
             <Breadcrumbs {...breadcrumbs} />
             <PageHeaderTitle className="pf-v5-u-mb-sm" title={id} />
-            <DescriptionListGroup className="pf-v5-u-mb-sm">
-              {activationKey ? (
-                <DescriptionListTerm component={TextVariants.p}>
-                  {activationKey?.description || 'No Description'}
-                </DescriptionListTerm>
-              ) : null}
+            <DescriptionListGroup>
+              <DescriptionListDescription className="pf-v5-u-mb-sm">
+                {activationKey ? (
+                  <DescriptionListTerm component={TextVariants.p}>
+                    {activationKey?.description || 'Not Defined'}
+                  </DescriptionListTerm>
+                ) : null}
+              </DescriptionListDescription>
             </DescriptionListGroup>
           </LevelItem>
           <LevelItem className="pf-v5-u-mb-sm">

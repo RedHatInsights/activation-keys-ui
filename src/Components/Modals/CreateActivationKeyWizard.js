@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Modal, ModalVariant, Button } from '@patternfly/react-core';
 import { Wizard } from '@patternfly/react-core/deprecated';
 import PropTypes from 'prop-types';
 import useCreateActivationKey from '../../hooks/useCreateActivationKey';
@@ -12,8 +10,6 @@ import ReviewPage from '../Pages/ReviewPage';
 import SetWorkloadPage from '../Pages/SetWorkLoadPage';
 import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
 import SuccessPage from '../Pages/SuccessPage';
-import useActivationKeys from '../../hooks/useActivationKeys';
-import SetNameAndDescriptionPage from '../Pages/SetNameAndDescriptionPage';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -59,7 +55,6 @@ const CreateActivationKeyWizard = ({
     error,
     data,
   } = useSystemPurposeAttributes();
-  const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
   const [description, setDescription] = useState();
