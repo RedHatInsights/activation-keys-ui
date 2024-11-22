@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Modal, ModalVariant, Button } from '@patternfly/react-core';
 import { Wizard } from '@patternfly/react-core/deprecated';
-
 import PropTypes from 'prop-types';
 import useCreateActivationKey from '../../hooks/useCreateActivationKey';
 import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
@@ -11,10 +8,10 @@ import useNotifications from '../../hooks/useNotifications';
 import { useQueryClient } from '@tanstack/react-query';
 import ReviewPage from '../Pages/ReviewPage';
 import SetNamePage from '../Pages/SetNamePage';
+import SetDescriptionPage from '../Pages/setDescriptionPage';
 import SetWorkloadPage from '../Pages/SetWorkLoadPage';
 import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
 import SuccessPage from '../Pages/SuccessPage';
-import useActivationKeys from '../../hooks/useActivationKeys';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -30,15 +27,8 @@ const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
   </>
 );
 
-const nameRegex = /^([\w-_])+$/;
-const nameValidator = (newName, keyNames) => {
-  const match =
-    keyNames?.find((name) => {
-      return name == newName;
-    }) || [];
-
-  return match.length == 0 && nameRegex.test(newName);
-};
+const nameValidator = /^([\w-_])+$/;
+const descriptionValidator = /^$|^[\w\s]{1,255}$/;
 
 const CreateActivationKeyWizard = ({
   handleModalToggle,
@@ -53,9 +43,9 @@ const CreateActivationKeyWizard = ({
     error,
     data,
   } = useSystemPurposeAttributes();
-  const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
   const [workload, setWorkload] = useState(workloadOptions[0]);
   const [extendedReleaseProduct, setExtendedReleaseProduct] = useState('');
   const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
@@ -67,9 +57,9 @@ const CreateActivationKeyWizard = ({
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const keyNames = activationKeys?.map((key) => key.name) || [];
 
-  const nameIsValid = nameValidator(name, keyNames);
+  const nameIsValid = nameValidator.test(name);
+  const descriptionIsValid = descriptionValidator.test(description);
 
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
@@ -91,11 +81,28 @@ const CreateActivationKeyWizard = ({
   const steps = [
     {
       id: 0,
-      name: 'Name',
+      name: 'Name and Description',
       component: (
-        <SetNamePage name={name} setName={setName} nameIsValid={nameIsValid} />
+        <div className="pf-l-grid pf-m-gutter">
+          <div className="pf-v5-u-mb-xl">
+            <SetNamePage
+              name={name}
+              setName={setName}
+              nameIsValid={nameIsValid}
+            />
+          </div>
+          <div className="pf-v5-u-mb-xl">
+            <div className="pf-v6-u-text-wrap">
+              <SetDescriptionPage
+                description={description}
+                setDescription={setDescription}
+                descriptionIsValid={descriptionIsValid}
+              />
+            </div>
+          </div>
+        </div>
       ),
-      enableNext: nameIsValid,
+      enableNext: nameIsValid && descriptionIsValid,
     },
     {
       id: 1,
@@ -138,6 +145,7 @@ const CreateActivationKeyWizard = ({
       component: (
         <ReviewPage
           name={name}
+          description={description}
           workload={workload}
           role={role}
           sla={sla}
@@ -203,6 +211,7 @@ const CreateActivationKeyWizard = ({
               mutate(
                 {
                   name,
+                  description,
                   role,
                   serviceLevel: sla,
                   usage,

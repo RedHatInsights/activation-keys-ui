@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Breadcrumbs from '../shared/breadcrumbs';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { Grid } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
-import { GridItem } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
-import { Gallery } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
-import { GalleryItem } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
-import { Level } from '@patternfly/react-core/dist/dynamic/layouts/Level';
-import { LevelItem } from '@patternfly/react-core/dist/dynamic/layouts/Level';
+import {
+  TextVariants,
+  Grid,
+  GridItem,
+  Gallery,
+  GalleryItem,
+  Level,
+  LevelItem,
+  DescriptionListDescription,
+  DescriptionListGroup,
+  DescriptionListTerm,
+} from '@patternfly/react-core';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
   PageHeader,
@@ -44,9 +47,6 @@ const ActivationKey = () => {
   } = useActivationKey(id);
   const { isLoading: areReleaseVersionsLoading, data: releaseVersions } =
     useReleaseVersions();
-
-  const description =
-    'View and edit details and repositories for this activation key.';
   const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] =
     useState(false);
   const [isEditActivationKeyModalOpen, setIsEditActivationKeyModalOpen] =
@@ -77,12 +77,18 @@ const ActivationKey = () => {
         <Level>
           <LevelItem>
             <Breadcrumbs {...breadcrumbs} />
-            <PageHeaderTitle title={id} />
-            <TextContent>
-              <Text component={TextVariants.p}>{description}</Text>
-            </TextContent>
+            <PageHeaderTitle className="pf-v5-u-mb-sm" title={id} />
+            <DescriptionListGroup>
+              <DescriptionListDescription className="pf-v5-u-mb-sm">
+                {activationKey ? (
+                  <DescriptionListTerm component={TextVariants.p}>
+                    {activationKey?.description || 'Not Defined'}
+                  </DescriptionListTerm>
+                ) : null}
+              </DescriptionListDescription>
+            </DescriptionListGroup>
           </LevelItem>
-          <LevelItem>
+          <LevelItem className="pf-v5-u-mb-sm">
             {user.rbacPermissions.canWriteActivationKeys ? (
               <DeleteButton onClick={handleDeleteActivationKeyModalToggle} />
             ) : (
