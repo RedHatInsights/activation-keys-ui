@@ -12,6 +12,7 @@ import SetNamePage from '../Pages/SetNamePage';
 import SetWorkloadPage from '../Pages/SetWorkLoadPage';
 import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
 import SuccessPage from '../Pages/SuccessPage';
+import useActivationKeys from '../../hooks/useActivationKeys';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -27,9 +28,16 @@ const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
   </>
 );
 
-const nameValidator = /^([\w-_])+$/;
+const nameRegex = /^([\w-_])+$/;
+const nameValidator = (newName, keyNames) => {
+  const match = keyNames?.find(name => {
+    return name == newName;
+  }) || [];
 
-const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
+  return match.length == 0 && nameRegex.test(newName);
+}
+
+const CreateActivationKeyWizard = ({ handleModalToggle, isOpen}) => {
   const queryClient = useQueryClient();
   const { mutate, isLoading: createActivationKeyIsLoading } =
     useCreateActivationKey();
@@ -38,6 +46,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
     error,
     data,
   } = useSystemPurposeAttributes();
+  const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
   const [workload, setWorkload] = useState(workloadOptions[0]);
@@ -51,8 +60,9 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const keyNames = activationKeys?.map(key => key.name) || []
 
-  const nameIsValid = nameValidator.test(name);
+  const nameIsValid = nameValidator(name, keyNames);
 
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
