@@ -1,11 +1,9 @@
 import React from 'react';
-import {
-  EmptyState,
-  EmptyStateBody,
-  EmptyStateIcon,
-  EmptyStateHeader,
-} from '@patternfly/react-core';
-import { AddCircleOIcon } from '@patternfly/react-icons';
+import { EmptyState } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateBody } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateIcon } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateHeader } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import AddCircleOIcon from '@patternfly/react-icons/dist/dynamic/icons/add-circle-o-icon';
 
 const NoAdditionalRepositories = () => {
   return (

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, ModalVariant, Button } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import { Wizard } from '@patternfly/react-core/deprecated';
 
 import PropTypes from 'prop-types';
@@ -30,14 +32,15 @@ const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
 
 const nameRegex = /^([\w-_])+$/;
 const nameValidator = (newName, keyNames) => {
-  const match = keyNames?.find(name => {
-    return name == newName;
-  }) || [];
+  const match =
+    keyNames?.find((name) => {
+      return name == newName;
+    }) || [];
 
   return match.length == 0 && nameRegex.test(newName);
-}
+};
 
-const CreateActivationKeyWizard = ({ handleModalToggle, isOpen}) => {
+const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
   const queryClient = useQueryClient();
   const { mutate, isLoading: createActivationKeyIsLoading } =
     useCreateActivationKey();
@@ -60,7 +63,7 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen}) => {
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const keyNames = activationKeys?.map(key => key.name) || []
+  const keyNames = activationKeys?.map((key) => key.name) || [];
 
   const nameIsValid = nameValidator(name, keyNames);
 

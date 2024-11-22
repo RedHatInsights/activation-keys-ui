@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
-import { Pagination, PaginationVariant } from '@patternfly/react-core';
+import { Pagination } from '@patternfly/react-core/dist/dynamic/components/Pagination';
+import { PaginationVariant } from '@patternfly/react-core/dist/dynamic/components/Pagination';
 import propTypes from 'prop-types';
 import RemoveAdditionalRepositoriesButton from './RemoveAdditionalRepositoriesButton';
 import NoAdditionalRepositories from './NoAdditionalRepositories';

@@ -1,7 +1,9 @@
 import React from 'react';
-import { Button, Popover, PopoverPosition } from '@patternfly/react-core';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Popover } from '@patternfly/react-core/dist/dynamic/components/Popover';
+import { PopoverPosition } from '@patternfly/react-core/dist/dynamic/components/Popover';
 import propTypes from 'prop-types';
-import { OutlinedQuestionCircleIcon } from '@patternfly/react-icons';
+import OutlinedQuestionCircleIcon from '@patternfly/react-icons/dist/dynamic/icons/outlined-question-circle-icon';
 
 const ActivationKeysDocsPopover = (props) => {
   const { title, popoverContent, position } = props;
