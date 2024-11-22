@@ -29,7 +29,11 @@ const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
 
 const nameValidator = /^([\w-_])+$/;
 
-const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
+const CreateActivationKeyWizard = ({
+  handleModalToggle,
+  isOpen,
+  CustomSuccessPage,
+}) => {
   const queryClient = useQueryClient();
   const { mutate, isLoading: createActivationKeyIsLoading } =
     useCreateActivationKey();
@@ -136,7 +140,13 @@ const CreateActivationKeyWizard = ({ handleModalToggle, isOpen }) => {
     {
       id: 4,
       name: 'Finish',
-      component: (
+      component: CustomSuccessPage ? (
+        <CustomSuccessPage
+          isLoading={createActivationKeyIsLoading}
+          name={name}
+          onClose={onClose}
+        />
+      ) : (
         <SuccessPage
           isLoading={createActivationKeyIsLoading}
           name={name}
@@ -220,6 +230,7 @@ ConfirmCloseFooter.propTypes = {
 CreateActivationKeyWizard.propTypes = {
   handleModalToggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  CustomSuccessPage: PropTypes.node,
 };
 
 export default CreateActivationKeyWizard;
