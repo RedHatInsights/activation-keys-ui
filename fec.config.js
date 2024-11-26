@@ -28,7 +28,7 @@ module.exports = {
       './RootApp': resolve(__dirname, './src/AppEntry'),
       './CreateActivationKeyWizard': resolve(
         __dirname,
-        '/src/Components/Modals/CreateActivationKeyWizard.js'
+        '/src/Modules/CreateActivationKeyWizardWithContext.js'
       ),
     },
   },
