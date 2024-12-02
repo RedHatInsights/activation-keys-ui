@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import {
-  ActionGroup,
-  Button,
-  Form,
-  FormGroup,
-  FormSelect,
-  FormSelectOption,
-} from '@patternfly/react-core';
+import { ActionGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormSelect } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
+import { FormSelectOption } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
 import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
 import { useQueryClient } from '@tanstack/react-query';
 import useNotifications from '../../hooks/useNotifications';
