@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Title,
-  Text,
-  TextInput,
-  TextVariants,
   FormGroup,
   FormHelperText,
   HelperText,
   HelperTextItem,
   Form,
   TextArea,
-  TextContent,
 } from '@patternfly/react-core';
 
 const SetDescriptionPage = ({
