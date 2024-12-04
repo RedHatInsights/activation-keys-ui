@@ -9,7 +9,6 @@ import {
   GalleryItem,
   Level,
   LevelItem,
-  DescriptionListDescription,
   DescriptionListGroup,
   DescriptionListTerm,
 } from '@patternfly/react-core';
@@ -79,14 +78,12 @@ const ActivationKey = () => {
           <LevelItem>
             <Breadcrumbs {...breadcrumbs} />
             <PageHeaderTitle className="pf-v5-u-mb-sm" title={id} />
-            <DescriptionListGroup>
-              <DescriptionListDescription className="pf-v5-u-mb-sm">
-                {activationKey ? (
-                  <DescriptionListTerm component={TextVariants.p}>
-                    {activationKey?.description || 'Not Defined'}
-                  </DescriptionListTerm>
-                ) : null}
-              </DescriptionListDescription>
+            <DescriptionListGroup className="pf-v5-u-mb-sm">
+              {activationKey ? (
+                <DescriptionListTerm component={TextVariants.p}>
+                  {activationKey?.description || 'Not Defined'}
+                </DescriptionListTerm>
+              ) : null}
             </DescriptionListGroup>
           </LevelItem>
           <LevelItem className="pf-v5-u-mb-sm">
