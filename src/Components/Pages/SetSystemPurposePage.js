@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  Title,
-  Text,
-  TextVariants,
-  FormGroup,
-  FormSelectOption,
-  FormSelect,
-  Form,
-} from '@patternfly/react-core';
+import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormSelectOption } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
+import { FormSelect } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
+import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
 import PropTypes from 'prop-types';
 import Loading from '../LoadingState/Loading';
 
