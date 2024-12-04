@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { WriteOnlyButton } from '../WriteOnlyButton';
-import { TrashIcon } from '@patternfly/react-icons';
+import TrashIcon from '@patternfly/react-icons/dist/dynamic/icons/trash-icon';
 
 const DeleteActivationKeyButton = ({ onClick }) => {
   return (

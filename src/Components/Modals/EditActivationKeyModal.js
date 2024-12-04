@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Modal, ModalVariant } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
 import ActivationKeyForm from '../Forms/ActivationKeyForm';
 import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
 import useActivationKey from '../../hooks/useActivationKey';
