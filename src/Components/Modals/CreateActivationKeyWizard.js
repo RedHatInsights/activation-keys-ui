@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, ModalVariant, Button } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import { Wizard } from '@patternfly/react-core/deprecated';
 
 import PropTypes from 'prop-types';
@@ -12,6 +14,7 @@ import SetNamePage from '../Pages/SetNamePage';
 import SetWorkloadPage from '../Pages/SetWorkLoadPage';
 import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
 import SuccessPage from '../Pages/SuccessPage';
+import useActivationKeys from '../../hooks/useActivationKeys';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -27,7 +30,15 @@ const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
   </>
 );
 
-const nameValidator = /^([\w-_])+$/;
+const nameRegex = /^([\w-_])+$/;
+const nameValidator = (newName, keyNames) => {
+  const match =
+    keyNames?.find((name) => {
+      return name == newName;
+    }) || [];
+
+  return match.length == 0 && nameRegex.test(newName);
+};
 
 const CreateActivationKeyWizard = ({
   handleModalToggle,
@@ -42,6 +53,7 @@ const CreateActivationKeyWizard = ({
     error,
     data,
   } = useSystemPurposeAttributes();
+  const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
   const [workload, setWorkload] = useState(workloadOptions[0]);
@@ -55,8 +67,9 @@ const CreateActivationKeyWizard = ({
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const keyNames = activationKeys?.map((key) => key.name) || [];
 
-  const nameIsValid = nameValidator.test(name);
+  const nameIsValid = nameValidator(name, keyNames);
 
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
