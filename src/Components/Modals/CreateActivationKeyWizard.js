@@ -10,6 +10,8 @@ import ReviewPage from '../Pages/ReviewPage';
 import SetWorkloadPage from '../Pages/SetWorkLoadPage';
 import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
 import SuccessPage from '../Pages/SuccessPage';
+import useActivationKeys from '../../hooks/useActivationKeys';
+import SetNameAndDescriptionPage from '../Pages/SetNameAndDescriptionPage';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -55,6 +57,7 @@ const CreateActivationKeyWizard = ({
     error,
     data,
   } = useSystemPurposeAttributes();
+  const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
   const [description, setDescription] = useState();
@@ -71,7 +74,8 @@ const CreateActivationKeyWizard = ({
   const [currentStep, setCurrentStep] = useState(0);
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
-  const descriptionIsValid = descriptionValidator(description || '');
+
+  const descriptionIsValid = descriptionValidator.test(description);
 
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
@@ -89,6 +93,8 @@ const CreateActivationKeyWizard = ({
   const returnToWizard = () => {
     setIsConfirmClose(false);
   };
+
+  console.log(data);
 
   const steps = [
     {

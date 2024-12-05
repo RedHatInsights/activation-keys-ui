@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
-import { FormHelperText } from '@patternfly/react-core/dist/dynamic/components/Form';
-import { HelperText } from '@patternfly/react-core/dist/dynamic/components/HelperText';
-import { HelperTextItem } from '@patternfly/react-core/dist/dynamic/components/HelperText';
-import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
-import { TextArea } from '@patternfly/react-core/dist/dynamic/components/TextArea';
+import {
+  FormGroup,
+  FormHelperText,
+  HelperText,
+  HelperTextItem,
+  Form,
+  TextArea,
+} from '@patternfly/react-core';
 
 const ActivationKeyDescription = ({
   description,

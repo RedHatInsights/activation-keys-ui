@@ -89,8 +89,9 @@ exports[`ActivationKeys renders correctly 1`] = `
     </div>
   </section>
   <section
-    class="pf-v5-l-page__main-section pf-v5-c-page__main-section"
+    class=""
   >
+     
     <section
       class="pf-v5-c-page__main-section pf-m-light"
     >
@@ -120,6 +121,7 @@ exports[`ActivationKeys renders correctly 1`] = `
         Activation Keys Table
       </div>
     </section>
+     
   </section>
 </div>
 `;
