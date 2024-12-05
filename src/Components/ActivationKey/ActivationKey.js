@@ -12,7 +12,7 @@ import {
   DescriptionListGroup,
   DescriptionListTerm,
 } from '@patternfly/react-core';
-import { Main } from '@redhat-cloud-services/frontend-components/Main';
+import { Section } from '@redhat-cloud-services/frontend-components/Section';
 import {
   PageHeader,
   PageHeaderTitle,
@@ -98,7 +98,7 @@ const ActivationKey = () => {
         <Loading />
       ) : (
         <React.Fragment>
-          <Main>
+          <Section>
             <Grid hasGutter>
               <GridItem span={12}>
                 <Gallery
@@ -128,7 +128,7 @@ const ActivationKey = () => {
                 />
               </GridItem>
             </Grid>
-          </Main>
+          </Section>
         </React.Fragment>
       )}
       <DeleteActivationKeyConfirmationModal

@@ -45,7 +45,7 @@ const ReviewPage = ({
         <DescriptionListGroup>
           <DescriptionListTerm>Description</DescriptionListTerm>
           <DescriptionListDescription>
-            {description || 'Not defined'}
+            {description || 'Not Defined'}
           </DescriptionListDescription>
         </DescriptionListGroup>
         <DescriptionListGroup>

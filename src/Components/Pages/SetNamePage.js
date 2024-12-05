@@ -33,25 +33,23 @@ const SetNamePage = ({ name, setName, nameIsValid }) => {
           e.preventDefault();
         }}
       >
-        <FormGroup>
-          <FormGroup label="Name" isRequired fieldId="activation-key-name">
-            <TextInput
-              id="activation-key-name"
-              isRequired
-              type="text"
-              value={name}
-              onChange={(_event, name) => setName(name)}
-              validated={validated}
-              onBlur={() => setEnableValidationFeedback(true)}
-            />
-            <FormHelperText>
-              <HelperText>
-                <HelperTextItem variant={validated}>
-                  {validated === 'default' ? helperText : helperTextInvalid}
-                </HelperTextItem>
-              </HelperText>
-            </FormHelperText>
-          </FormGroup>
+        <FormGroup label="Name" isRequired fieldId="activation-key-name">
+          <TextInput
+            id="activation-key-name"
+            isRequired
+            type="text"
+            value={name}
+            onChange={(_event, name) => setName(name)}
+            validated={validated}
+            onBlur={() => setEnableValidationFeedback(true)}
+          />
+          <FormHelperText>
+            <HelperText>
+              <HelperTextItem variant={validated}>
+                {validated === 'default' ? helperText : helperTextInvalid}
+              </HelperTextItem>
+            </HelperText>
+          </FormHelperText>
         </FormGroup>
       </Form>
     </>

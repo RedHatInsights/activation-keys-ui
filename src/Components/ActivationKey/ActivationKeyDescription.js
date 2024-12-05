@@ -9,7 +9,7 @@ import {
   TextArea,
 } from '@patternfly/react-core';
 
-const SetDescriptionPage = ({
+const ActivationKeyDescription = ({
   description,
   setDescription,
   descriptionIsValid,
@@ -17,8 +17,7 @@ const SetDescriptionPage = ({
   const [enableValidationFeedback, setEnableValidationFeedback] =
     useState(false);
 
-  const helperText =
-    'Provide a brief description for the activation key. Max characters is 225.';
+  const helperText = 'Max characters is 225.';
   const validated =
     descriptionIsValid || !enableValidationFeedback ? 'default' : 'error';
   const helperTextInvalid = `Description requirements have not been met. ${helperText}`;
@@ -51,10 +50,10 @@ const SetDescriptionPage = ({
   );
 };
 
-SetDescriptionPage.propTypes = {
+ActivationKeyDescription.propTypes = {
   description: PropTypes.string,
   setDescription: PropTypes.func.isRequired,
   descriptionIsValid: PropTypes.bool.isRequired,
 };
 
-export default SetDescriptionPage;
+export default ActivationKeyDescription;

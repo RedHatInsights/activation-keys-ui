@@ -7,11 +7,11 @@ import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
 import useNotifications from '../../hooks/useNotifications';
 import { useQueryClient } from '@tanstack/react-query';
 import ReviewPage from '../Pages/ReviewPage';
-import SetNamePage from '../Pages/SetNamePage';
-import SetDescriptionPage from '../Pages/setDescriptionPage';
 import SetWorkloadPage from '../Pages/SetWorkLoadPage';
 import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
 import SuccessPage from '../Pages/SuccessPage';
+import useActivationKeys from '../../hooks/useActivationKeys';
+import SetNameAndDescriptionPage from '../Pages/SetNameAndDescriptionPage';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -27,7 +27,16 @@ const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
   </>
 );
 
-const nameValidator = /^([\w-_])+$/;
+const nameRegex = /^([\w-_])+$/;
+const nameValidator = (newName, keyNames) => {
+  const match =
+    keyNames?.find((name) => {
+      return name == newName;
+    }) || [];
+
+  return match.length == 0 && nameRegex.test(newName);
+};
+
 const descriptionValidator = /^$|^[\w\s]{1,255}$/;
 
 const CreateActivationKeyWizard = ({
@@ -43,6 +52,7 @@ const CreateActivationKeyWizard = ({
     error,
     data,
   } = useSystemPurposeAttributes();
+  const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -57,8 +67,9 @@ const CreateActivationKeyWizard = ({
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const keyNames = activationKeys?.map((key) => key.name) || [];
+  const nameIsValid = nameValidator(name, keyNames);
 
-  const nameIsValid = nameValidator.test(name);
   const descriptionIsValid = descriptionValidator.test(description);
 
   const onClose = () => {
@@ -78,29 +89,21 @@ const CreateActivationKeyWizard = ({
     setIsConfirmClose(false);
   };
 
+  console.log(data);
+
   const steps = [
     {
       id: 0,
       name: 'Name and Description',
       component: (
-        <div className="pf-l-grid pf-m-gutter">
-          <div className="pf-v5-u-mb-xl">
-            <SetNamePage
-              name={name}
-              setName={setName}
-              nameIsValid={nameIsValid}
-            />
-          </div>
-          <div className="pf-v5-u-mb-xl">
-            <div className="pf-v6-u-text-wrap">
-              <SetDescriptionPage
-                description={description}
-                setDescription={setDescription}
-                descriptionIsValid={descriptionIsValid}
-              />
-            </div>
-          </div>
-        </div>
+        <SetNameAndDescriptionPage
+          name={name}
+          setName={setName}
+          nameIsValid={nameIsValid}
+          description={description}
+          setDescription={setDescription}
+          descriptionIsValid={descriptionIsValid}
+        />
       ),
       enableNext: nameIsValid && descriptionIsValid,
     },
@@ -128,7 +131,7 @@ const CreateActivationKeyWizard = ({
         <SetSystemPurposePage
           role={role}
           setRole={setRole}
-          data={data}
+          data={data || []}
           sla={sla}
           setSla={setSla}
           usage={usage}
