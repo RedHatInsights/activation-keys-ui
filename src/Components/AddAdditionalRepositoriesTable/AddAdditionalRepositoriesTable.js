@@ -13,27 +13,21 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../LoadingState/Loading';
 import AddAdditionalRepositoriesToolbar from './AddAdditionalRepositoriesToolbar';
 import propTypes from 'prop-types';
+import useAvailableRepositories, {
+  usePrefetchAvailableRepositoriesNextPate,
+} from '../../hooks/useAvailableRepositories';
+import { useQueryClient } from '@tanstack/react-query';
+import { useDebouncedState } from '../../hooks/useDebouncedState';
 
 const AddAdditionalRepositoriesTable = (props) => {
   const {
-    repositories,
-    isLoading,
+    keyName,
     selectedRepositories,
     setSelectedRepositories,
     isSubmitting,
   } = props;
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
-  const [filter, setFilter] = useState('');
-  const [consideredRepositories, setConsideredRepositories] =
-    useState(repositories);
-  const [filteredRepositories, setFilteredRepositories] =
-    useState(repositories);
-  const [paginatedRepositories, setPaginatedRepositories] =
-    useState(repositories);
+  const [filter, setFilter] = useDebouncedState('', 300);
   const [filterBy, setFilterBy] = useState('repositoryName');
   const [onlyShowSelectedRepositories, setOnlyShowSelectedRepositories] =
     useState(false);
@@ -45,45 +39,29 @@ const AddAdditionalRepositoriesTable = (props) => {
     repositoryName: 'Name',
     repositoryLabel: 'Label',
   };
+  const queryClient = useQueryClient();
+  const prefetchNextPage = usePrefetchAvailableRepositoriesNextPate();
 
-  useEffect(() => {
-    setConsideredRepositories(
-      onlyShowSelectedRepositories ? selectedRepositories : repositories
-    );
-  }, [onlyShowSelectedRepositories]);
+  const { data: repositoriesData, isLoading } = useAvailableRepositories(
+    keyName,
+    page,
+    perPage,
+    filter
+  );
 
+  // prefetch the next page
   useEffect(() => {
-    setFilteredRepositories(
-      sortRepositories(
-        consideredRepositories.filter((repository) => {
-          return repository[filterBy]
-            .toLowerCase()
-            .includes(filter.toLowerCase());
-        })
-      )
-    );
-  }, [
-    filter,
-    filterBy,
-    consideredRepositories,
-    activeSortIndex,
-    activeSortDirection,
-  ]);
-
-  useEffect(() => {
-    const first = (page - 1) * perPage;
-    const last = first + perPage;
-    setPaginatedRepositories(filteredRepositories.slice(first, last));
-  }, [page, perPage, filteredRepositories]);
+    prefetchNextPage(queryClient, keyName, page + 1, perPage, filter);
+  }, [page, perPage, filter]);
 
   useEffect(() => {
     setPage(1);
-  }, [filteredRepositories]);
+  }, [onlyShowSelectedRepositories]);
 
-  const getSortableRowValues = (repo) => {
-    const { repositoryName, repositoryLabel } = repo;
-    return [repositoryName, repositoryLabel];
-  };
+  // const getSortableRowValues = (repo) => {
+  //   const { repositoryName, repositoryLabel } = repo;
+  //   return [repositoryName, repositoryLabel];
+  // };
 
   const getSortParams = (columnIndex) => ({
     sortBy: {
@@ -98,25 +76,25 @@ const AddAdditionalRepositoriesTable = (props) => {
     columnIndex,
   });
 
-  const sortRepositories = (repositories) => {
-    return repositories.sort((a, b) => {
-      const aValue = getSortableRowValues(a)[activeSortIndex] || '';
-      const bValue = getSortableRowValues(b)[activeSortIndex] || '';
-      let result = 0;
+  // const sortRepositories = (repositories) => {
+  //   return repositories.sort((a, b) => {
+  //     const aValue = getSortableRowValues(a)[activeSortIndex] || '';
+  //     const bValue = getSortableRowValues(b)[activeSortIndex] || '';
+  //     let result = 0;
 
-      if (aValue < bValue) {
-        result = -1;
-      } else if (aValue > bValue) {
-        result = 1;
-      }
+  //     if (aValue < bValue) {
+  //       result = -1;
+  //     } else if (aValue > bValue) {
+  //       result = 1;
+  //     }
 
-      return activeSortDirection == 'asc' ? result : -1 * result;
-    });
-  };
+  //     return activeSortDirection == 'asc' ? result : -1 * result;
+  //   });
+  // };
 
   const pagination = (
     <Pagination
-      itemCount={filteredRepositories.length}
+      itemCount={repositoriesData?.pagination.total}
       perPage={perPage}
       page={page}
       onSetPage={(_, newPage) => setPage(newPage)}
@@ -163,7 +141,7 @@ const AddAdditionalRepositoriesTable = (props) => {
             selectedRepositories.length === 0) ||
           isSubmitting
         }
-        searchIsDisabled={repositories.length === 0 || isSubmitting}
+        searchIsDisabled={isSubmitting}
         pagination={pagination}
         onlyShowSelectedRepositories={onlyShowSelectedRepositories}
         setOnlyShowSelectedRepositories={setOnlyShowSelectedRepositories}
@@ -177,44 +155,46 @@ const AddAdditionalRepositoriesTable = (props) => {
           </Tr>
         </Thead>
         <Tbody>
-          {paginatedRepositories.map((repository, rowIndex) => (
-            <Tr key={repository.repositoryLabel}>
-              <Td
-                select={{
-                  rowIndex,
-                  isSelected: selectedRepositories.includes(repository),
-                  onSelect: (_, isSelecting) => {
-                    if (isSubmitting) {
-                      return;
-                    }
-                    if (isSelecting) {
-                      setSelectedRepositories([
-                        ...selectedRepositories,
-                        repository,
-                      ]);
-                    } else {
-                      setSelectedRepositories(
-                        selectedRepositories.filter(
-                          (selectedRepository) =>
-                            selectedRepository.repositoryLabel !==
-                            repository.repositoryLabel
-                        )
-                      );
-                    }
-                  },
-                }}
-              />
-              <Td>{repository.repositoryName}</Td>
-              <Td>{repository.repositoryLabel}</Td>
-            </Tr>
-          ))}
-          {paginatedRepositories.length === 0 && (
+          {!isLoading &&
+            repositoriesData.body.map((repository, rowIndex) => (
+              <Tr key={repository.repositoryLabel}>
+                <Td
+                  select={{
+                    rowIndex,
+                    isSelected: selectedRepositories.includes(repository),
+                    onSelect: (_, isSelecting) => {
+                      if (isSubmitting) {
+                        return;
+                      }
+                      if (isSelecting) {
+                        setSelectedRepositories([
+                          ...selectedRepositories,
+                          repository,
+                        ]);
+                      } else {
+                        setSelectedRepositories(
+                          selectedRepositories.filter(
+                            (selectedRepository) =>
+                              selectedRepository.repositoryLabel !==
+                              repository.repositoryLabel
+                          )
+                        );
+                      }
+                    },
+                  }}
+                />
+                <Td>{repository.repositoryName}</Td>
+                <Td>{repository.repositoryLabel}</Td>
+              </Tr>
+            ))}
+          {!isLoading && repositoriesData.body.length === 0 && (
             <Tr>
               <Td colSpan={8}>
                 <Bullseye>{emptyState}</Bullseye>
               </Td>
             </Tr>
           )}
+          {isLoading && <Loading />}
         </Tbody>
       </Table>
       {pagination}
@@ -223,12 +203,10 @@ const AddAdditionalRepositoriesTable = (props) => {
 };
 
 AddAdditionalRepositoriesTable.propTypes = {
-  repositories: propTypes.array.isRequired,
-  isLoading: propTypes.bool.isRequired,
-  error: propTypes.bool.isRequired,
   selectedRepositories: propTypes.array.isRequired,
   setSelectedRepositories: propTypes.func.isRequired,
   isSubmitting: propTypes.bool,
+  keyName: propTypes.string.isRequired,
 };
 
 export default AddAdditionalRepositoriesTable;

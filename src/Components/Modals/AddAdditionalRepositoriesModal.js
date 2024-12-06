@@ -10,14 +10,7 @@ import useNotifications from '../../hooks/useNotifications';
 import AddAdditionalRepositoriesTable from '../AddAdditionalRepositoriesTable';
 
 const AddAdditionalRepositoriesModal = (props) => {
-  const {
-    keyName,
-    handleModalToggle: parentHandleModalToggle,
-    isOpen,
-    repositories,
-    isLoading: additionalRepositoriesAreLoading,
-    error: additionalRepositoriesError,
-  } = props;
+  const { keyName, handleModalToggle: parentHandleModalToggle, isOpen } = props;
   const queryClient = useQueryClient();
   const [selectedRepositories, setSelectedRepositories] = useState([]);
   const { addSuccessNotification, addErrorNotification } = useNotifications();
@@ -74,8 +67,7 @@ const AddAdditionalRepositoriesModal = (props) => {
     </ActionGroup>
   );
 
-  const onClose =
-    isSubmitting || additionalRepositoriesError ? null : handleModalToggle;
+  const onClose = isSubmitting ? null : handleModalToggle;
 
   return (
     <React.Fragment>
@@ -88,9 +80,7 @@ const AddAdditionalRepositoriesModal = (props) => {
         footer={editChangesButtons}
       >
         <AddAdditionalRepositoriesTable
-          repositories={repositories}
-          isLoading={additionalRepositoriesAreLoading}
-          error={additionalRepositoriesError}
+          keyName={keyName}
           selectedRepositories={selectedRepositories}
           setSelectedRepositories={setSelectedRepositories}
           isSubmitting={isSubmitting}
