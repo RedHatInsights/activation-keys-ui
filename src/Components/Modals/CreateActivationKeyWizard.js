@@ -89,8 +89,6 @@ const CreateActivationKeyWizard = ({
     setIsConfirmClose(false);
   };
 
-  console.log(data);
-
   const steps = [
     {
       id: 0,
