@@ -10,6 +10,7 @@ describe('useActivationKeys', () => {
     fetch.mockResponseOnce(JSON.stringify({ body: { id: 'id' } }));
     const keyParams = {
       name: 'A',
+      description: 'description',
       role: 'role',
       serviceLevel: 'sla',
       usage: 'usage',
