@@ -9,7 +9,7 @@ import { Flex } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
 import { FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
 import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
-import { Main } from '@redhat-cloud-services/frontend-components/Main';
+import { Section } from '@redhat-cloud-services/frontend-components/Section';
 import {
   PageHeader,
   PageHeaderTitle,
@@ -101,7 +101,7 @@ const ActivationKeys = () => {
           <Text component={TextVariants.p}>Organization ID: {user.orgId}</Text>
         </TextContent>
       </PageHeader>
-      <Main>
+      <Section>
         <PageSection variant={PageSectionVariants.light}>
           {isLoading && <Loading />}
           {!isLoading && !error && data.length > 0 && (
@@ -118,7 +118,7 @@ const ActivationKeys = () => {
             <NoActivationKeysFound handleModalToggle={handleModalToggle} />
           )}
         </PageSection>
-      </Main>
+      </Section>
       <CreateActivationKeyWizard
         key={isOpen}
         isOpen={isOpen}
