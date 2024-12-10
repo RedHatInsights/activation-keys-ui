@@ -12,7 +12,6 @@ import {
   DescriptionListGroup,
   DescriptionListTerm,
 } from '@patternfly/react-core';
-import { Section } from '@redhat-cloud-services/frontend-components/Section';
 import {
   PageHeader,
   PageHeaderTitle,
@@ -29,6 +28,7 @@ import NoAccessPopover from '../NoAccessPopover';
 import { useQueryClient } from '@tanstack/react-query';
 import { EditReleaseVersionModal } from '../Modals/EditReleaseVersionModal';
 import useReleaseVersions from '../../hooks/useReleaseVersions';
+import { Main } from '@redhat-cloud-services/frontend-components/Main';
 
 const ActivationKey = () => {
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ const ActivationKey = () => {
             <DescriptionListGroup className="pf-v5-u-mb-sm">
               {activationKey ? (
                 <DescriptionListTerm component={TextVariants.p}>
-                  {activationKey?.description || 'Not Defined'}
+                  {activationKey?.description || 'Not defined'}
                 </DescriptionListTerm>
               ) : null}
             </DescriptionListGroup>
@@ -98,7 +98,7 @@ const ActivationKey = () => {
         <Loading />
       ) : (
         <React.Fragment>
-          <Section>
+          <Main>
             <Grid hasGutter>
               <GridItem span={12}>
                 <Gallery
@@ -128,7 +128,7 @@ const ActivationKey = () => {
                 />
               </GridItem>
             </Grid>
-          </Section>
+          </Main>
         </React.Fragment>
       )}
       <DeleteActivationKeyConfirmationModal
