@@ -17,7 +17,7 @@ const ActivationKeyDescription = ({
   const [enableValidationFeedback, setEnableValidationFeedback] =
     useState(false);
 
-  const helperText = 'Max characters is 225.';
+  const helperText = 'Max characters is 255.';
   const validated =
     descriptionIsValid || !enableValidationFeedback ? 'default' : 'error';
   const helperTextInvalid = `Description requirements have not been met. ${helperText}`;
