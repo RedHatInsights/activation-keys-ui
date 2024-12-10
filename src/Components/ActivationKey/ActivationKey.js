@@ -80,7 +80,7 @@ const ActivationKey = () => {
             <DescriptionListGroup className="pf-v5-u-mb-sm">
               {activationKey ? (
                 <DescriptionListTerm component={TextVariants.p}>
-                  {activationKey?.description || 'Not defined'}
+                  {activationKey?.description || 'No Description'}
                 </DescriptionListTerm>
               ) : null}
             </DescriptionListGroup>
