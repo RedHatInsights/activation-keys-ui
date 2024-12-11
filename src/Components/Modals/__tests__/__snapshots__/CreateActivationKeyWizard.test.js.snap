@@ -340,7 +340,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                                       <span
                                         class="pf-v5-c-helper-text__item-text"
                                       >
-                                        Max characters is 225.
+                                        Max characters is 255.
                                       </span>
                                     </div>
                                   </div>
@@ -743,7 +743,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                                       <span
                                         class="pf-v5-c-helper-text__item-text"
                                       >
-                                        Max characters is 225.
+                                        Max characters is 255.
                                       </span>
                                     </div>
                                   </div>
@@ -1146,7 +1146,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                                       <span
                                         class="pf-v5-c-helper-text__item-text"
                                       >
-                                        Max characters is 225.
+                                        Max characters is 255.
                                       </span>
                                     </div>
                                   </div>
@@ -1549,7 +1549,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                                       <span
                                         class="pf-v5-c-helper-text__item-text"
                                       >
-                                        Max characters is 225.
+                                        Max characters is 255.
                                       </span>
                                     </div>
                                   </div>
@@ -1952,7 +1952,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                                       <span
                                         class="pf-v5-c-helper-text__item-text"
                                       >
-                                        Max characters is 225.
+                                        Max characters is 255.
                                       </span>
                                     </div>
                                   </div>
@@ -2355,7 +2355,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                                       <span
                                         class="pf-v5-c-helper-text__item-text"
                                       >
-                                        Max characters is 225.
+                                        Max characters is 255.
                                       </span>
                                     </div>
                                   </div>
@@ -2758,7 +2758,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                                       <span
                                         class="pf-v5-c-helper-text__item-text"
                                       >
-                                        Max characters is 225.
+                                        Max characters is 255.
                                       </span>
                                     </div>
                                   </div>
@@ -3161,7 +3161,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                                       <span
                                         class="pf-v5-c-helper-text__item-text"
                                       >
-                                        Max characters is 225.
+                                        Max characters is 255.
                                       </span>
                                     </div>
                                   </div>
