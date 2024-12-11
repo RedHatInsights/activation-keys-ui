@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 
 const ReviewPage = ({
   name,
+  description,
   workload,
   role,
   sla,
@@ -40,6 +41,12 @@ const ReviewPage = ({
         <DescriptionListGroup>
           <DescriptionListTerm>Name</DescriptionListTerm>
           <DescriptionListDescription>{name}</DescriptionListDescription>
+        </DescriptionListGroup>
+        <DescriptionListGroup>
+          <DescriptionListTerm>Description</DescriptionListTerm>
+          <DescriptionListDescription>
+            {description || 'Not defined'}
+          </DescriptionListDescription>
         </DescriptionListGroup>
         <DescriptionListGroup>
           <DescriptionListTerm>Workload</DescriptionListTerm>
@@ -82,6 +89,7 @@ const ReviewPage = ({
 
 ReviewPage.propTypes = {
   name: PropTypes.string.isRequired,
+  description: PropTypes.string,
   workload: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
   sla: PropTypes.string.isRequired,

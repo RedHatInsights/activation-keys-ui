@@ -87,7 +87,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                     1
                   </span>
                    
-                  Name
+                  Name and Description
                 </span>
               </span>
               <span
@@ -137,7 +137,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                         data-ouia-safe="true"
                         type="button"
                       >
-                        Name
+                        Name and Description
                       </button>
                     </li>
                     <li
@@ -199,89 +199,158 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                   <div
                     class="pf-v5-c-wizard__main-body"
                   >
-                    <h2
-                      class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-7"
-                      data-ouia-component-type="PF5/Title"
-                      data-ouia-safe="true"
-                    >
-                      Name key
-                    </h2>
-                    <p
-                      class="pf-v5-u-mb-xl"
-                      data-ouia-component-id="OUIA-Generated-Text-7"
-                      data-ouia-component-type="PF5/Text"
-                      data-ouia-safe="true"
-                      data-pf-content="true"
-                    >
-                      This name cannot be modified after the activation key is created.
-                    </p>
-                    <form
-                      class="pf-v5-c-form"
-                      novalidate=""
+                    <div
+                      class="pf-l-grid pf-m-gutter"
                     >
                       <div
-                        class="pf-v5-c-form__group"
+                        class="pf-v5-u-mb-xl"
                       >
-                        <div
-                          class="pf-v5-c-form__group-label"
+                        <h2
+                          class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
+                          data-ouia-component-id="OUIA-Generated-Title-7"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
                         >
-                          <label
-                            class="pf-v5-c-form__label"
-                            for="activation-key-name"
-                          >
-                            <span
-                              class="pf-v5-c-form__label-text"
-                            >
-                              Name
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-v5-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-v5-c-form__group-control"
+                          Name key
+                        </h2>
+                        <p
+                          class="pf-v5-u-mb-xl"
+                          data-ouia-component-id="OUIA-Generated-Text-7"
+                          data-ouia-component-type="PF5/Text"
+                          data-ouia-safe="true"
+                          data-pf-content="true"
                         >
-                          <span
-                            class="pf-v5-c-form-control"
-                          >
-                            <input
-                              aria-invalid="false"
-                              data-ouia-component-id="OUIA-Generated-TextInputBase-7"
-                              data-ouia-component-type="PF5/TextInput"
-                              data-ouia-safe="true"
-                              id="activation-key-name"
-                              required=""
-                              type="text"
-                              value=""
-                            />
-                          </span>
+                          This name cannot be modified after the activation key is created.
+                        </p>
+                        <form
+                          class="pf-v5-c-form"
+                          novalidate=""
+                        >
                           <div
-                            class="pf-v5-c-form__helper-text"
+                            class="pf-v5-c-form__group"
                           >
                             <div
-                              class="pf-v5-c-helper-text"
+                              class="pf-v5-c-form__group-label"
                             >
-                              <div
-                                class="pf-v5-c-helper-text__item"
+                              <label
+                                class="pf-v5-c-form__label"
+                                for="activation-key-name"
                               >
                                 <span
-                                  class="pf-v5-c-helper-text__item-text"
+                                  class="pf-v5-c-form__label-text"
                                 >
-                                  Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  Name
                                 </span>
+                                <span
+                                  aria-hidden="true"
+                                  class="pf-v5-c-form__label-required"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                               
+                            </div>
+                            <div
+                              class="pf-v5-c-form__group-control"
+                            >
+                              <span
+                                class="pf-v5-c-form-control"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  data-ouia-component-id="OUIA-Generated-TextInputBase-7"
+                                  data-ouia-component-type="PF5/TextInput"
+                                  data-ouia-safe="true"
+                                  id="activation-key-name"
+                                  required=""
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                              <div
+                                class="pf-v5-c-form__helper-text"
+                              >
+                                <div
+                                  class="pf-v5-c-helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text__item"
+                                  >
+                                    <span
+                                      class="pf-v5-c-helper-text__item-text"
+                                    >
+                                      Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </form>
+                      </div>
+                      <div
+                        class="pf-v5-u-mb-xl"
+                      >
+                        <div
+                          class="pf-v6-u-text-wrap"
+                        >
+                          <form
+                            class="pf-v5-c-form"
+                            novalidate=""
+                          >
+                            <div
+                              class="pf-v5-c-form__group"
+                            >
+                              <div
+                                class="pf-v5-c-form__group-label"
+                              >
+                                <label
+                                  class="pf-v5-c-form__label"
+                                  for="activation-key-description"
+                                >
+                                  <span
+                                    class="pf-v5-c-form__label-text"
+                                  >
+                                    Description
+                                  </span>
+                                </label>
+                                 
+                              </div>
+                              <div
+                                class="pf-v5-c-form__group-control"
+                              >
+                                <span
+                                  class="pf-v5-c-form-control pf-m-resize-both"
+                                >
+                                  <textarea
+                                    aria-invalid="false"
+                                    id="activation-key-description"
+                                  />
+                                </span>
+                                <div
+                                  class="pf-v5-c-form__helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text"
+                                  >
+                                    <div
+                                      class="pf-v5-c-helper-text__item"
+                                    >
+                                      <span
+                                        class="pf-v5-c-helper-text__item-text"
+                                      >
+                                        Max characters is 255.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -421,7 +490,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                     1
                   </span>
                    
-                  Name
+                  Name and Description
                 </span>
               </span>
               <span
@@ -471,7 +540,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                         data-ouia-safe="true"
                         type="button"
                       >
-                        Name
+                        Name and Description
                       </button>
                     </li>
                     <li
@@ -533,89 +602,158 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                   <div
                     class="pf-v5-c-wizard__main-body"
                   >
-                    <h2
-                      class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-6"
-                      data-ouia-component-type="PF5/Title"
-                      data-ouia-safe="true"
-                    >
-                      Name key
-                    </h2>
-                    <p
-                      class="pf-v5-u-mb-xl"
-                      data-ouia-component-id="OUIA-Generated-Text-6"
-                      data-ouia-component-type="PF5/Text"
-                      data-ouia-safe="true"
-                      data-pf-content="true"
-                    >
-                      This name cannot be modified after the activation key is created.
-                    </p>
-                    <form
-                      class="pf-v5-c-form"
-                      novalidate=""
+                    <div
+                      class="pf-l-grid pf-m-gutter"
                     >
                       <div
-                        class="pf-v5-c-form__group"
+                        class="pf-v5-u-mb-xl"
                       >
-                        <div
-                          class="pf-v5-c-form__group-label"
+                        <h2
+                          class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
+                          data-ouia-component-id="OUIA-Generated-Title-6"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
                         >
-                          <label
-                            class="pf-v5-c-form__label"
-                            for="activation-key-name"
-                          >
-                            <span
-                              class="pf-v5-c-form__label-text"
-                            >
-                              Name
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-v5-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-v5-c-form__group-control"
+                          Name key
+                        </h2>
+                        <p
+                          class="pf-v5-u-mb-xl"
+                          data-ouia-component-id="OUIA-Generated-Text-6"
+                          data-ouia-component-type="PF5/Text"
+                          data-ouia-safe="true"
+                          data-pf-content="true"
                         >
-                          <span
-                            class="pf-v5-c-form-control"
-                          >
-                            <input
-                              aria-invalid="false"
-                              data-ouia-component-id="OUIA-Generated-TextInputBase-6"
-                              data-ouia-component-type="PF5/TextInput"
-                              data-ouia-safe="true"
-                              id="activation-key-name"
-                              required=""
-                              type="text"
-                              value=""
-                            />
-                          </span>
+                          This name cannot be modified after the activation key is created.
+                        </p>
+                        <form
+                          class="pf-v5-c-form"
+                          novalidate=""
+                        >
                           <div
-                            class="pf-v5-c-form__helper-text"
+                            class="pf-v5-c-form__group"
                           >
                             <div
-                              class="pf-v5-c-helper-text"
+                              class="pf-v5-c-form__group-label"
                             >
-                              <div
-                                class="pf-v5-c-helper-text__item"
+                              <label
+                                class="pf-v5-c-form__label"
+                                for="activation-key-name"
                               >
                                 <span
-                                  class="pf-v5-c-helper-text__item-text"
+                                  class="pf-v5-c-form__label-text"
                                 >
-                                  Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  Name
                                 </span>
+                                <span
+                                  aria-hidden="true"
+                                  class="pf-v5-c-form__label-required"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                               
+                            </div>
+                            <div
+                              class="pf-v5-c-form__group-control"
+                            >
+                              <span
+                                class="pf-v5-c-form-control"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  data-ouia-component-id="OUIA-Generated-TextInputBase-6"
+                                  data-ouia-component-type="PF5/TextInput"
+                                  data-ouia-safe="true"
+                                  id="activation-key-name"
+                                  required=""
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                              <div
+                                class="pf-v5-c-form__helper-text"
+                              >
+                                <div
+                                  class="pf-v5-c-helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text__item"
+                                  >
+                                    <span
+                                      class="pf-v5-c-helper-text__item-text"
+                                    >
+                                      Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </form>
+                      </div>
+                      <div
+                        class="pf-v5-u-mb-xl"
+                      >
+                        <div
+                          class="pf-v6-u-text-wrap"
+                        >
+                          <form
+                            class="pf-v5-c-form"
+                            novalidate=""
+                          >
+                            <div
+                              class="pf-v5-c-form__group"
+                            >
+                              <div
+                                class="pf-v5-c-form__group-label"
+                              >
+                                <label
+                                  class="pf-v5-c-form__label"
+                                  for="activation-key-description"
+                                >
+                                  <span
+                                    class="pf-v5-c-form__label-text"
+                                  >
+                                    Description
+                                  </span>
+                                </label>
+                                 
+                              </div>
+                              <div
+                                class="pf-v5-c-form__group-control"
+                              >
+                                <span
+                                  class="pf-v5-c-form-control pf-m-resize-both"
+                                >
+                                  <textarea
+                                    aria-invalid="false"
+                                    id="activation-key-description"
+                                  />
+                                </span>
+                                <div
+                                  class="pf-v5-c-form__helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text"
+                                  >
+                                    <div
+                                      class="pf-v5-c-helper-text__item"
+                                    >
+                                      <span
+                                        class="pf-v5-c-helper-text__item-text"
+                                      >
+                                        Max characters is 255.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -755,7 +893,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                     1
                   </span>
                    
-                  Name
+                  Name and Description
                 </span>
               </span>
               <span
@@ -805,7 +943,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                         data-ouia-safe="true"
                         type="button"
                       >
-                        Name
+                        Name and Description
                       </button>
                     </li>
                     <li
@@ -867,89 +1005,158 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                   <div
                     class="pf-v5-c-wizard__main-body"
                   >
-                    <h2
-                      class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-8"
-                      data-ouia-component-type="PF5/Title"
-                      data-ouia-safe="true"
-                    >
-                      Name key
-                    </h2>
-                    <p
-                      class="pf-v5-u-mb-xl"
-                      data-ouia-component-id="OUIA-Generated-Text-8"
-                      data-ouia-component-type="PF5/Text"
-                      data-ouia-safe="true"
-                      data-pf-content="true"
-                    >
-                      This name cannot be modified after the activation key is created.
-                    </p>
-                    <form
-                      class="pf-v5-c-form"
-                      novalidate=""
+                    <div
+                      class="pf-l-grid pf-m-gutter"
                     >
                       <div
-                        class="pf-v5-c-form__group"
+                        class="pf-v5-u-mb-xl"
                       >
-                        <div
-                          class="pf-v5-c-form__group-label"
+                        <h2
+                          class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
+                          data-ouia-component-id="OUIA-Generated-Title-8"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
                         >
-                          <label
-                            class="pf-v5-c-form__label"
-                            for="activation-key-name"
-                          >
-                            <span
-                              class="pf-v5-c-form__label-text"
-                            >
-                              Name
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-v5-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-v5-c-form__group-control"
+                          Name key
+                        </h2>
+                        <p
+                          class="pf-v5-u-mb-xl"
+                          data-ouia-component-id="OUIA-Generated-Text-8"
+                          data-ouia-component-type="PF5/Text"
+                          data-ouia-safe="true"
+                          data-pf-content="true"
                         >
-                          <span
-                            class="pf-v5-c-form-control"
-                          >
-                            <input
-                              aria-invalid="false"
-                              data-ouia-component-id="OUIA-Generated-TextInputBase-8"
-                              data-ouia-component-type="PF5/TextInput"
-                              data-ouia-safe="true"
-                              id="activation-key-name"
-                              required=""
-                              type="text"
-                              value=""
-                            />
-                          </span>
+                          This name cannot be modified after the activation key is created.
+                        </p>
+                        <form
+                          class="pf-v5-c-form"
+                          novalidate=""
+                        >
                           <div
-                            class="pf-v5-c-form__helper-text"
+                            class="pf-v5-c-form__group"
                           >
                             <div
-                              class="pf-v5-c-helper-text"
+                              class="pf-v5-c-form__group-label"
                             >
-                              <div
-                                class="pf-v5-c-helper-text__item"
+                              <label
+                                class="pf-v5-c-form__label"
+                                for="activation-key-name"
                               >
                                 <span
-                                  class="pf-v5-c-helper-text__item-text"
+                                  class="pf-v5-c-form__label-text"
                                 >
-                                  Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  Name
                                 </span>
+                                <span
+                                  aria-hidden="true"
+                                  class="pf-v5-c-form__label-required"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                               
+                            </div>
+                            <div
+                              class="pf-v5-c-form__group-control"
+                            >
+                              <span
+                                class="pf-v5-c-form-control"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  data-ouia-component-id="OUIA-Generated-TextInputBase-8"
+                                  data-ouia-component-type="PF5/TextInput"
+                                  data-ouia-safe="true"
+                                  id="activation-key-name"
+                                  required=""
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                              <div
+                                class="pf-v5-c-form__helper-text"
+                              >
+                                <div
+                                  class="pf-v5-c-helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text__item"
+                                  >
+                                    <span
+                                      class="pf-v5-c-helper-text__item-text"
+                                    >
+                                      Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </form>
+                      </div>
+                      <div
+                        class="pf-v5-u-mb-xl"
+                      >
+                        <div
+                          class="pf-v6-u-text-wrap"
+                        >
+                          <form
+                            class="pf-v5-c-form"
+                            novalidate=""
+                          >
+                            <div
+                              class="pf-v5-c-form__group"
+                            >
+                              <div
+                                class="pf-v5-c-form__group-label"
+                              >
+                                <label
+                                  class="pf-v5-c-form__label"
+                                  for="activation-key-description"
+                                >
+                                  <span
+                                    class="pf-v5-c-form__label-text"
+                                  >
+                                    Description
+                                  </span>
+                                </label>
+                                 
+                              </div>
+                              <div
+                                class="pf-v5-c-form__group-control"
+                              >
+                                <span
+                                  class="pf-v5-c-form-control pf-m-resize-both"
+                                >
+                                  <textarea
+                                    aria-invalid="false"
+                                    id="activation-key-description"
+                                  />
+                                </span>
+                                <div
+                                  class="pf-v5-c-form__helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text"
+                                  >
+                                    <div
+                                      class="pf-v5-c-helper-text__item"
+                                    >
+                                      <span
+                                        class="pf-v5-c-helper-text__item-text"
+                                      >
+                                        Max characters is 255.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1089,7 +1296,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                     1
                   </span>
                    
-                  Name
+                  Name and Description
                 </span>
               </span>
               <span
@@ -1139,7 +1346,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                         data-ouia-safe="true"
                         type="button"
                       >
-                        Name
+                        Name and Description
                       </button>
                     </li>
                     <li
@@ -1201,89 +1408,158 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                   <div
                     class="pf-v5-c-wizard__main-body"
                   >
-                    <h2
-                      class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-1"
-                      data-ouia-component-type="PF5/Title"
-                      data-ouia-safe="true"
-                    >
-                      Name key
-                    </h2>
-                    <p
-                      class="pf-v5-u-mb-xl"
-                      data-ouia-component-id="OUIA-Generated-Text-1"
-                      data-ouia-component-type="PF5/Text"
-                      data-ouia-safe="true"
-                      data-pf-content="true"
-                    >
-                      This name cannot be modified after the activation key is created.
-                    </p>
-                    <form
-                      class="pf-v5-c-form"
-                      novalidate=""
+                    <div
+                      class="pf-l-grid pf-m-gutter"
                     >
                       <div
-                        class="pf-v5-c-form__group"
+                        class="pf-v5-u-mb-xl"
                       >
-                        <div
-                          class="pf-v5-c-form__group-label"
+                        <h2
+                          class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
+                          data-ouia-component-id="OUIA-Generated-Title-1"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
                         >
-                          <label
-                            class="pf-v5-c-form__label"
-                            for="activation-key-name"
-                          >
-                            <span
-                              class="pf-v5-c-form__label-text"
-                            >
-                              Name
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-v5-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-v5-c-form__group-control"
+                          Name key
+                        </h2>
+                        <p
+                          class="pf-v5-u-mb-xl"
+                          data-ouia-component-id="OUIA-Generated-Text-1"
+                          data-ouia-component-type="PF5/Text"
+                          data-ouia-safe="true"
+                          data-pf-content="true"
                         >
-                          <span
-                            class="pf-v5-c-form-control"
-                          >
-                            <input
-                              aria-invalid="false"
-                              data-ouia-component-id="OUIA-Generated-TextInputBase-1"
-                              data-ouia-component-type="PF5/TextInput"
-                              data-ouia-safe="true"
-                              id="activation-key-name"
-                              required=""
-                              type="text"
-                              value=""
-                            />
-                          </span>
+                          This name cannot be modified after the activation key is created.
+                        </p>
+                        <form
+                          class="pf-v5-c-form"
+                          novalidate=""
+                        >
                           <div
-                            class="pf-v5-c-form__helper-text"
+                            class="pf-v5-c-form__group"
                           >
                             <div
-                              class="pf-v5-c-helper-text"
+                              class="pf-v5-c-form__group-label"
                             >
-                              <div
-                                class="pf-v5-c-helper-text__item"
+                              <label
+                                class="pf-v5-c-form__label"
+                                for="activation-key-name"
                               >
                                 <span
-                                  class="pf-v5-c-helper-text__item-text"
+                                  class="pf-v5-c-form__label-text"
                                 >
-                                  Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  Name
                                 </span>
+                                <span
+                                  aria-hidden="true"
+                                  class="pf-v5-c-form__label-required"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                               
+                            </div>
+                            <div
+                              class="pf-v5-c-form__group-control"
+                            >
+                              <span
+                                class="pf-v5-c-form-control"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  data-ouia-component-id="OUIA-Generated-TextInputBase-1"
+                                  data-ouia-component-type="PF5/TextInput"
+                                  data-ouia-safe="true"
+                                  id="activation-key-name"
+                                  required=""
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                              <div
+                                class="pf-v5-c-form__helper-text"
+                              >
+                                <div
+                                  class="pf-v5-c-helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text__item"
+                                  >
+                                    <span
+                                      class="pf-v5-c-helper-text__item-text"
+                                    >
+                                      Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </form>
+                      </div>
+                      <div
+                        class="pf-v5-u-mb-xl"
+                      >
+                        <div
+                          class="pf-v6-u-text-wrap"
+                        >
+                          <form
+                            class="pf-v5-c-form"
+                            novalidate=""
+                          >
+                            <div
+                              class="pf-v5-c-form__group"
+                            >
+                              <div
+                                class="pf-v5-c-form__group-label"
+                              >
+                                <label
+                                  class="pf-v5-c-form__label"
+                                  for="activation-key-description"
+                                >
+                                  <span
+                                    class="pf-v5-c-form__label-text"
+                                  >
+                                    Description
+                                  </span>
+                                </label>
+                                 
+                              </div>
+                              <div
+                                class="pf-v5-c-form__group-control"
+                              >
+                                <span
+                                  class="pf-v5-c-form-control pf-m-resize-both"
+                                >
+                                  <textarea
+                                    aria-invalid="false"
+                                    id="activation-key-description"
+                                  />
+                                </span>
+                                <div
+                                  class="pf-v5-c-form__helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text"
+                                  >
+                                    <div
+                                      class="pf-v5-c-helper-text__item"
+                                    >
+                                      <span
+                                        class="pf-v5-c-helper-text__item-text"
+                                      >
+                                        Max characters is 255.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1423,7 +1699,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                     1
                   </span>
                    
-                  Name
+                  Name and Description
                 </span>
               </span>
               <span
@@ -1473,7 +1749,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                         data-ouia-safe="true"
                         type="button"
                       >
-                        Name
+                        Name and Description
                       </button>
                     </li>
                     <li
@@ -1535,89 +1811,158 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                   <div
                     class="pf-v5-c-wizard__main-body"
                   >
-                    <h2
-                      class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-2"
-                      data-ouia-component-type="PF5/Title"
-                      data-ouia-safe="true"
-                    >
-                      Name key
-                    </h2>
-                    <p
-                      class="pf-v5-u-mb-xl"
-                      data-ouia-component-id="OUIA-Generated-Text-2"
-                      data-ouia-component-type="PF5/Text"
-                      data-ouia-safe="true"
-                      data-pf-content="true"
-                    >
-                      This name cannot be modified after the activation key is created.
-                    </p>
-                    <form
-                      class="pf-v5-c-form"
-                      novalidate=""
+                    <div
+                      class="pf-l-grid pf-m-gutter"
                     >
                       <div
-                        class="pf-v5-c-form__group"
+                        class="pf-v5-u-mb-xl"
                       >
-                        <div
-                          class="pf-v5-c-form__group-label"
+                        <h2
+                          class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
+                          data-ouia-component-id="OUIA-Generated-Title-2"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
                         >
-                          <label
-                            class="pf-v5-c-form__label"
-                            for="activation-key-name"
-                          >
-                            <span
-                              class="pf-v5-c-form__label-text"
-                            >
-                              Name
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-v5-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-v5-c-form__group-control"
+                          Name key
+                        </h2>
+                        <p
+                          class="pf-v5-u-mb-xl"
+                          data-ouia-component-id="OUIA-Generated-Text-2"
+                          data-ouia-component-type="PF5/Text"
+                          data-ouia-safe="true"
+                          data-pf-content="true"
                         >
-                          <span
-                            class="pf-v5-c-form-control"
-                          >
-                            <input
-                              aria-invalid="false"
-                              data-ouia-component-id="OUIA-Generated-TextInputBase-2"
-                              data-ouia-component-type="PF5/TextInput"
-                              data-ouia-safe="true"
-                              id="activation-key-name"
-                              required=""
-                              type="text"
-                              value=""
-                            />
-                          </span>
+                          This name cannot be modified after the activation key is created.
+                        </p>
+                        <form
+                          class="pf-v5-c-form"
+                          novalidate=""
+                        >
                           <div
-                            class="pf-v5-c-form__helper-text"
+                            class="pf-v5-c-form__group"
                           >
                             <div
-                              class="pf-v5-c-helper-text"
+                              class="pf-v5-c-form__group-label"
                             >
-                              <div
-                                class="pf-v5-c-helper-text__item"
+                              <label
+                                class="pf-v5-c-form__label"
+                                for="activation-key-name"
                               >
                                 <span
-                                  class="pf-v5-c-helper-text__item-text"
+                                  class="pf-v5-c-form__label-text"
                                 >
-                                  Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  Name
                                 </span>
+                                <span
+                                  aria-hidden="true"
+                                  class="pf-v5-c-form__label-required"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                               
+                            </div>
+                            <div
+                              class="pf-v5-c-form__group-control"
+                            >
+                              <span
+                                class="pf-v5-c-form-control"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  data-ouia-component-id="OUIA-Generated-TextInputBase-2"
+                                  data-ouia-component-type="PF5/TextInput"
+                                  data-ouia-safe="true"
+                                  id="activation-key-name"
+                                  required=""
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                              <div
+                                class="pf-v5-c-form__helper-text"
+                              >
+                                <div
+                                  class="pf-v5-c-helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text__item"
+                                  >
+                                    <span
+                                      class="pf-v5-c-helper-text__item-text"
+                                    >
+                                      Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </form>
+                      </div>
+                      <div
+                        class="pf-v5-u-mb-xl"
+                      >
+                        <div
+                          class="pf-v6-u-text-wrap"
+                        >
+                          <form
+                            class="pf-v5-c-form"
+                            novalidate=""
+                          >
+                            <div
+                              class="pf-v5-c-form__group"
+                            >
+                              <div
+                                class="pf-v5-c-form__group-label"
+                              >
+                                <label
+                                  class="pf-v5-c-form__label"
+                                  for="activation-key-description"
+                                >
+                                  <span
+                                    class="pf-v5-c-form__label-text"
+                                  >
+                                    Description
+                                  </span>
+                                </label>
+                                 
+                              </div>
+                              <div
+                                class="pf-v5-c-form__group-control"
+                              >
+                                <span
+                                  class="pf-v5-c-form-control pf-m-resize-both"
+                                >
+                                  <textarea
+                                    aria-invalid="false"
+                                    id="activation-key-description"
+                                  />
+                                </span>
+                                <div
+                                  class="pf-v5-c-form__helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text"
+                                  >
+                                    <div
+                                      class="pf-v5-c-helper-text__item"
+                                    >
+                                      <span
+                                        class="pf-v5-c-helper-text__item-text"
+                                      >
+                                        Max characters is 255.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1757,7 +2102,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                     1
                   </span>
                    
-                  Name
+                  Name and Description
                 </span>
               </span>
               <span
@@ -1807,7 +2152,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                         data-ouia-safe="true"
                         type="button"
                       >
-                        Name
+                        Name and Description
                       </button>
                     </li>
                     <li
@@ -1869,89 +2214,158 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                   <div
                     class="pf-v5-c-wizard__main-body"
                   >
-                    <h2
-                      class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-3"
-                      data-ouia-component-type="PF5/Title"
-                      data-ouia-safe="true"
-                    >
-                      Name key
-                    </h2>
-                    <p
-                      class="pf-v5-u-mb-xl"
-                      data-ouia-component-id="OUIA-Generated-Text-3"
-                      data-ouia-component-type="PF5/Text"
-                      data-ouia-safe="true"
-                      data-pf-content="true"
-                    >
-                      This name cannot be modified after the activation key is created.
-                    </p>
-                    <form
-                      class="pf-v5-c-form"
-                      novalidate=""
+                    <div
+                      class="pf-l-grid pf-m-gutter"
                     >
                       <div
-                        class="pf-v5-c-form__group"
+                        class="pf-v5-u-mb-xl"
                       >
-                        <div
-                          class="pf-v5-c-form__group-label"
+                        <h2
+                          class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
+                          data-ouia-component-id="OUIA-Generated-Title-3"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
                         >
-                          <label
-                            class="pf-v5-c-form__label"
-                            for="activation-key-name"
-                          >
-                            <span
-                              class="pf-v5-c-form__label-text"
-                            >
-                              Name
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-v5-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-v5-c-form__group-control"
+                          Name key
+                        </h2>
+                        <p
+                          class="pf-v5-u-mb-xl"
+                          data-ouia-component-id="OUIA-Generated-Text-3"
+                          data-ouia-component-type="PF5/Text"
+                          data-ouia-safe="true"
+                          data-pf-content="true"
                         >
-                          <span
-                            class="pf-v5-c-form-control"
-                          >
-                            <input
-                              aria-invalid="false"
-                              data-ouia-component-id="OUIA-Generated-TextInputBase-3"
-                              data-ouia-component-type="PF5/TextInput"
-                              data-ouia-safe="true"
-                              id="activation-key-name"
-                              required=""
-                              type="text"
-                              value=""
-                            />
-                          </span>
+                          This name cannot be modified after the activation key is created.
+                        </p>
+                        <form
+                          class="pf-v5-c-form"
+                          novalidate=""
+                        >
                           <div
-                            class="pf-v5-c-form__helper-text"
+                            class="pf-v5-c-form__group"
                           >
                             <div
-                              class="pf-v5-c-helper-text"
+                              class="pf-v5-c-form__group-label"
                             >
-                              <div
-                                class="pf-v5-c-helper-text__item"
+                              <label
+                                class="pf-v5-c-form__label"
+                                for="activation-key-name"
                               >
                                 <span
-                                  class="pf-v5-c-helper-text__item-text"
+                                  class="pf-v5-c-form__label-text"
                                 >
-                                  Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  Name
                                 </span>
+                                <span
+                                  aria-hidden="true"
+                                  class="pf-v5-c-form__label-required"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                               
+                            </div>
+                            <div
+                              class="pf-v5-c-form__group-control"
+                            >
+                              <span
+                                class="pf-v5-c-form-control"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  data-ouia-component-id="OUIA-Generated-TextInputBase-3"
+                                  data-ouia-component-type="PF5/TextInput"
+                                  data-ouia-safe="true"
+                                  id="activation-key-name"
+                                  required=""
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                              <div
+                                class="pf-v5-c-form__helper-text"
+                              >
+                                <div
+                                  class="pf-v5-c-helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text__item"
+                                  >
+                                    <span
+                                      class="pf-v5-c-helper-text__item-text"
+                                    >
+                                      Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </form>
+                      </div>
+                      <div
+                        class="pf-v5-u-mb-xl"
+                      >
+                        <div
+                          class="pf-v6-u-text-wrap"
+                        >
+                          <form
+                            class="pf-v5-c-form"
+                            novalidate=""
+                          >
+                            <div
+                              class="pf-v5-c-form__group"
+                            >
+                              <div
+                                class="pf-v5-c-form__group-label"
+                              >
+                                <label
+                                  class="pf-v5-c-form__label"
+                                  for="activation-key-description"
+                                >
+                                  <span
+                                    class="pf-v5-c-form__label-text"
+                                  >
+                                    Description
+                                  </span>
+                                </label>
+                                 
+                              </div>
+                              <div
+                                class="pf-v5-c-form__group-control"
+                              >
+                                <span
+                                  class="pf-v5-c-form-control pf-m-resize-both"
+                                >
+                                  <textarea
+                                    aria-invalid="false"
+                                    id="activation-key-description"
+                                  />
+                                </span>
+                                <div
+                                  class="pf-v5-c-form__helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text"
+                                  >
+                                    <div
+                                      class="pf-v5-c-helper-text__item"
+                                    >
+                                      <span
+                                        class="pf-v5-c-helper-text__item-text"
+                                      >
+                                        Max characters is 255.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2091,7 +2505,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                     1
                   </span>
                    
-                  Name
+                  Name and Description
                 </span>
               </span>
               <span
@@ -2141,7 +2555,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                         data-ouia-safe="true"
                         type="button"
                       >
-                        Name
+                        Name and Description
                       </button>
                     </li>
                     <li
@@ -2203,89 +2617,158 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                   <div
                     class="pf-v5-c-wizard__main-body"
                   >
-                    <h2
-                      class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-4"
-                      data-ouia-component-type="PF5/Title"
-                      data-ouia-safe="true"
-                    >
-                      Name key
-                    </h2>
-                    <p
-                      class="pf-v5-u-mb-xl"
-                      data-ouia-component-id="OUIA-Generated-Text-4"
-                      data-ouia-component-type="PF5/Text"
-                      data-ouia-safe="true"
-                      data-pf-content="true"
-                    >
-                      This name cannot be modified after the activation key is created.
-                    </p>
-                    <form
-                      class="pf-v5-c-form"
-                      novalidate=""
+                    <div
+                      class="pf-l-grid pf-m-gutter"
                     >
                       <div
-                        class="pf-v5-c-form__group"
+                        class="pf-v5-u-mb-xl"
                       >
-                        <div
-                          class="pf-v5-c-form__group-label"
+                        <h2
+                          class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
+                          data-ouia-component-id="OUIA-Generated-Title-4"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
                         >
-                          <label
-                            class="pf-v5-c-form__label"
-                            for="activation-key-name"
-                          >
-                            <span
-                              class="pf-v5-c-form__label-text"
-                            >
-                              Name
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-v5-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-v5-c-form__group-control"
+                          Name key
+                        </h2>
+                        <p
+                          class="pf-v5-u-mb-xl"
+                          data-ouia-component-id="OUIA-Generated-Text-4"
+                          data-ouia-component-type="PF5/Text"
+                          data-ouia-safe="true"
+                          data-pf-content="true"
                         >
-                          <span
-                            class="pf-v5-c-form-control"
-                          >
-                            <input
-                              aria-invalid="false"
-                              data-ouia-component-id="OUIA-Generated-TextInputBase-4"
-                              data-ouia-component-type="PF5/TextInput"
-                              data-ouia-safe="true"
-                              id="activation-key-name"
-                              required=""
-                              type="text"
-                              value=""
-                            />
-                          </span>
+                          This name cannot be modified after the activation key is created.
+                        </p>
+                        <form
+                          class="pf-v5-c-form"
+                          novalidate=""
+                        >
                           <div
-                            class="pf-v5-c-form__helper-text"
+                            class="pf-v5-c-form__group"
                           >
                             <div
-                              class="pf-v5-c-helper-text"
+                              class="pf-v5-c-form__group-label"
                             >
-                              <div
-                                class="pf-v5-c-helper-text__item"
+                              <label
+                                class="pf-v5-c-form__label"
+                                for="activation-key-name"
                               >
                                 <span
-                                  class="pf-v5-c-helper-text__item-text"
+                                  class="pf-v5-c-form__label-text"
                                 >
-                                  Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  Name
                                 </span>
+                                <span
+                                  aria-hidden="true"
+                                  class="pf-v5-c-form__label-required"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                               
+                            </div>
+                            <div
+                              class="pf-v5-c-form__group-control"
+                            >
+                              <span
+                                class="pf-v5-c-form-control"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  data-ouia-component-id="OUIA-Generated-TextInputBase-4"
+                                  data-ouia-component-type="PF5/TextInput"
+                                  data-ouia-safe="true"
+                                  id="activation-key-name"
+                                  required=""
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                              <div
+                                class="pf-v5-c-form__helper-text"
+                              >
+                                <div
+                                  class="pf-v5-c-helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text__item"
+                                  >
+                                    <span
+                                      class="pf-v5-c-helper-text__item-text"
+                                    >
+                                      Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </form>
+                      </div>
+                      <div
+                        class="pf-v5-u-mb-xl"
+                      >
+                        <div
+                          class="pf-v6-u-text-wrap"
+                        >
+                          <form
+                            class="pf-v5-c-form"
+                            novalidate=""
+                          >
+                            <div
+                              class="pf-v5-c-form__group"
+                            >
+                              <div
+                                class="pf-v5-c-form__group-label"
+                              >
+                                <label
+                                  class="pf-v5-c-form__label"
+                                  for="activation-key-description"
+                                >
+                                  <span
+                                    class="pf-v5-c-form__label-text"
+                                  >
+                                    Description
+                                  </span>
+                                </label>
+                                 
+                              </div>
+                              <div
+                                class="pf-v5-c-form__group-control"
+                              >
+                                <span
+                                  class="pf-v5-c-form-control pf-m-resize-both"
+                                >
+                                  <textarea
+                                    aria-invalid="false"
+                                    id="activation-key-description"
+                                  />
+                                </span>
+                                <div
+                                  class="pf-v5-c-form__helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text"
+                                  >
+                                    <div
+                                      class="pf-v5-c-helper-text__item"
+                                    >
+                                      <span
+                                        class="pf-v5-c-helper-text__item-text"
+                                      >
+                                        Max characters is 255.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2425,7 +2908,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                     1
                   </span>
                    
-                  Name
+                  Name and Description
                 </span>
               </span>
               <span
@@ -2475,7 +2958,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                         data-ouia-safe="true"
                         type="button"
                       >
-                        Name
+                        Name and Description
                       </button>
                     </li>
                     <li
@@ -2537,89 +3020,158 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                   <div
                     class="pf-v5-c-wizard__main-body"
                   >
-                    <h2
-                      class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
-                      data-ouia-component-id="OUIA-Generated-Title-5"
-                      data-ouia-component-type="PF5/Title"
-                      data-ouia-safe="true"
-                    >
-                      Name key
-                    </h2>
-                    <p
-                      class="pf-v5-u-mb-xl"
-                      data-ouia-component-id="OUIA-Generated-Text-5"
-                      data-ouia-component-type="PF5/Text"
-                      data-ouia-safe="true"
-                      data-pf-content="true"
-                    >
-                      This name cannot be modified after the activation key is created.
-                    </p>
-                    <form
-                      class="pf-v5-c-form"
-                      novalidate=""
+                    <div
+                      class="pf-l-grid pf-m-gutter"
                     >
                       <div
-                        class="pf-v5-c-form__group"
+                        class="pf-v5-u-mb-xl"
                       >
-                        <div
-                          class="pf-v5-c-form__group-label"
+                        <h2
+                          class="pf-v5-c-title pf-m-xl pf-v5-u-mb-sm"
+                          data-ouia-component-id="OUIA-Generated-Title-5"
+                          data-ouia-component-type="PF5/Title"
+                          data-ouia-safe="true"
                         >
-                          <label
-                            class="pf-v5-c-form__label"
-                            for="activation-key-name"
-                          >
-                            <span
-                              class="pf-v5-c-form__label-text"
-                            >
-                              Name
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="pf-v5-c-form__label-required"
-                            >
-                               
-                              *
-                            </span>
-                          </label>
-                           
-                        </div>
-                        <div
-                          class="pf-v5-c-form__group-control"
+                          Name key
+                        </h2>
+                        <p
+                          class="pf-v5-u-mb-xl"
+                          data-ouia-component-id="OUIA-Generated-Text-5"
+                          data-ouia-component-type="PF5/Text"
+                          data-ouia-safe="true"
+                          data-pf-content="true"
                         >
-                          <span
-                            class="pf-v5-c-form-control"
-                          >
-                            <input
-                              aria-invalid="false"
-                              data-ouia-component-id="OUIA-Generated-TextInputBase-5"
-                              data-ouia-component-type="PF5/TextInput"
-                              data-ouia-safe="true"
-                              id="activation-key-name"
-                              required=""
-                              type="text"
-                              value=""
-                            />
-                          </span>
+                          This name cannot be modified after the activation key is created.
+                        </p>
+                        <form
+                          class="pf-v5-c-form"
+                          novalidate=""
+                        >
                           <div
-                            class="pf-v5-c-form__helper-text"
+                            class="pf-v5-c-form__group"
                           >
                             <div
-                              class="pf-v5-c-helper-text"
+                              class="pf-v5-c-form__group-label"
                             >
-                              <div
-                                class="pf-v5-c-helper-text__item"
+                              <label
+                                class="pf-v5-c-form__label"
+                                for="activation-key-name"
                               >
                                 <span
-                                  class="pf-v5-c-helper-text__item-text"
+                                  class="pf-v5-c-form__label-text"
                                 >
-                                  Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  Name
                                 </span>
+                                <span
+                                  aria-hidden="true"
+                                  class="pf-v5-c-form__label-required"
+                                >
+                                   
+                                  *
+                                </span>
+                              </label>
+                               
+                            </div>
+                            <div
+                              class="pf-v5-c-form__group-control"
+                            >
+                              <span
+                                class="pf-v5-c-form-control"
+                              >
+                                <input
+                                  aria-invalid="false"
+                                  data-ouia-component-id="OUIA-Generated-TextInputBase-5"
+                                  data-ouia-component-type="PF5/TextInput"
+                                  data-ouia-safe="true"
+                                  id="activation-key-name"
+                                  required=""
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                              <div
+                                class="pf-v5-c-form__helper-text"
+                              >
+                                <div
+                                  class="pf-v5-c-helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text__item"
+                                  >
+                                    <span
+                                      class="pf-v5-c-helper-text__item-text"
+                                    >
+                                      Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
+                        </form>
+                      </div>
+                      <div
+                        class="pf-v5-u-mb-xl"
+                      >
+                        <div
+                          class="pf-v6-u-text-wrap"
+                        >
+                          <form
+                            class="pf-v5-c-form"
+                            novalidate=""
+                          >
+                            <div
+                              class="pf-v5-c-form__group"
+                            >
+                              <div
+                                class="pf-v5-c-form__group-label"
+                              >
+                                <label
+                                  class="pf-v5-c-form__label"
+                                  for="activation-key-description"
+                                >
+                                  <span
+                                    class="pf-v5-c-form__label-text"
+                                  >
+                                    Description
+                                  </span>
+                                </label>
+                                 
+                              </div>
+                              <div
+                                class="pf-v5-c-form__group-control"
+                              >
+                                <span
+                                  class="pf-v5-c-form-control pf-m-resize-both"
+                                >
+                                  <textarea
+                                    aria-invalid="false"
+                                    id="activation-key-description"
+                                  />
+                                </span>
+                                <div
+                                  class="pf-v5-c-form__helper-text"
+                                >
+                                  <div
+                                    class="pf-v5-c-helper-text"
+                                  >
+                                    <div
+                                      class="pf-v5-c-helper-text__item"
+                                    >
+                                      <span
+                                        class="pf-v5-c-helper-text__item-text"
+                                      >
+                                        Max characters is 255.
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
