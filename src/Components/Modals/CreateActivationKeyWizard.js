@@ -36,8 +36,7 @@ const nameValidator = (newName, keyNames) => {
 
   return match.length == 0 && nameRegex.test(newName);
 };
-
-const descriptionValidator = /^[^\s]{1,255}$/;
+const descriptionValidator = /^(?!\s*$).{1,255}$/;
 
 const CreateActivationKeyWizard = ({
   handleModalToggle,
