@@ -4,6 +4,7 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 const activationKeyMutation = (token) => async (data) => {
   const {
     name,
+    description,
     role,
     serviceLevel,
     usage,
@@ -13,6 +14,7 @@ const activationKeyMutation = (token) => async (data) => {
 
   const body = {
     name,
+    description,
     role,
     serviceLevel,
     usage,
