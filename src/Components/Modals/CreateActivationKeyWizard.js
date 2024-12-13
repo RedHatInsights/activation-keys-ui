@@ -36,7 +36,13 @@ const nameValidator = (newName, keyNames) => {
 
   return match.length == 0 && nameRegex.test(newName);
 };
-const descriptionValidator = /^(?!\s*$).{1,255}$/;
+const descriptionValidator = (description) => {
+  const trimmedDescription = description.trim();
+  return (
+    description === '' ||
+    (trimmedDescription.length > 0 && trimmedDescription.length <= 255)
+  );
+};
 
 const CreateActivationKeyWizard = ({
   handleModalToggle,
@@ -68,8 +74,7 @@ const CreateActivationKeyWizard = ({
   const [currentStep, setCurrentStep] = useState(0);
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
-
-  const descriptionIsValid = descriptionValidator.test(description);
+  const descriptionIsValid = descriptionValidator(description || '');
 
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
