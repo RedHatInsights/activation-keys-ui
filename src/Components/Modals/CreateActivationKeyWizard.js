@@ -74,7 +74,6 @@ const CreateActivationKeyWizard = ({
   const [currentStep, setCurrentStep] = useState(0);
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
-
   const descriptionIsValid = descriptionValidator(description || '');
 
   const onClose = () => {
