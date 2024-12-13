@@ -75,7 +75,7 @@ const CreateActivationKeyWizard = ({
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
 
-  const descriptionIsValid = descriptionValidator.test(description);
+  const descriptionIsValid = descriptionValidator(description || '');
 
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
