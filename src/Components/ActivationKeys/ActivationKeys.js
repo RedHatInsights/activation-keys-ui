@@ -9,7 +9,6 @@ import { Flex } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
 import { FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
 import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
-import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import {
   PageHeader,
   PageHeaderTitle,
@@ -25,6 +24,8 @@ import Loading from '../LoadingState/Loading';
 import CreateActivationKeyButton from './CreateActivationKeyButton';
 import DeleteActivationKeyConfirmationModal from '../Modals/DeleteActivationKeyConfirmationModal';
 import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
+import { Main } from '@redhat-cloud-services/frontend-components/Main';
+
 const ActivationKeys = () => {
   const { updateDocumentTitle } = useChrome();
   updateDocumentTitle?.('Activation Keys - System Configuration | RHEL', true);

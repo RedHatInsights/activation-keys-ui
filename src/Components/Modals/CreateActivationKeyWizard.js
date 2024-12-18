@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
-import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Modal, ModalVariant, Button } from '@patternfly/react-core';
 import { Wizard } from '@patternfly/react-core/deprecated';
-
 import PropTypes from 'prop-types';
 import useCreateActivationKey from '../../hooks/useCreateActivationKey';
 import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
 import useNotifications from '../../hooks/useNotifications';
 import { useQueryClient } from '@tanstack/react-query';
 import ReviewPage from '../Pages/ReviewPage';
-import SetNamePage from '../Pages/SetNamePage';
 import SetWorkloadPage from '../Pages/SetWorkLoadPage';
 import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
 import SuccessPage from '../Pages/SuccessPage';
 import useActivationKeys from '../../hooks/useActivationKeys';
+import SetNameAndDescriptionPage from '../Pages/SetNameAndDescriptionPage';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -39,6 +36,13 @@ const nameValidator = (newName, keyNames) => {
 
   return match.length == 0 && nameRegex.test(newName);
 };
+const descriptionValidator = (description) => {
+  const trimmedDescription = description.trim();
+  return (
+    description === '' ||
+    (trimmedDescription.length > 0 && trimmedDescription.length <= 255)
+  );
+};
 
 const CreateActivationKeyWizard = ({
   handleModalToggle,
@@ -56,6 +60,7 @@ const CreateActivationKeyWizard = ({
   const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
+  const [description, setDescription] = useState();
   const [workload, setWorkload] = useState(workloadOptions[0]);
   const [extendedReleaseProduct, setExtendedReleaseProduct] = useState('');
   const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
@@ -68,8 +73,8 @@ const CreateActivationKeyWizard = ({
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const keyNames = activationKeys?.map((key) => key.name) || [];
-
   const nameIsValid = nameValidator(name, keyNames);
+  const descriptionIsValid = descriptionValidator(description || '');
 
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
@@ -91,11 +96,18 @@ const CreateActivationKeyWizard = ({
   const steps = [
     {
       id: 0,
-      name: 'Name',
+      name: 'Name and Description',
       component: (
-        <SetNamePage name={name} setName={setName} nameIsValid={nameIsValid} />
+        <SetNameAndDescriptionPage
+          name={name}
+          setName={setName}
+          nameIsValid={nameIsValid}
+          description={description}
+          setDescription={setDescription}
+          descriptionIsValid={descriptionIsValid}
+        />
       ),
-      enableNext: nameIsValid,
+      enableNext: nameIsValid && descriptionIsValid,
     },
     {
       id: 1,
@@ -121,7 +133,7 @@ const CreateActivationKeyWizard = ({
         <SetSystemPurposePage
           role={role}
           setRole={setRole}
-          data={data}
+          data={data || []}
           sla={sla}
           setSla={setSla}
           usage={usage}
@@ -138,6 +150,7 @@ const CreateActivationKeyWizard = ({
       component: (
         <ReviewPage
           name={name}
+          description={description}
           workload={workload}
           role={role}
           sla={sla}
@@ -203,6 +216,7 @@ const CreateActivationKeyWizard = ({
               mutate(
                 {
                   name,
+                  description,
                   role,
                   serviceLevel: sla,
                   usage,
