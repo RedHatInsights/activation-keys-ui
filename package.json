@@ -63,7 +63,7 @@
     "redux-logger": "3.0.6",
     "redux-promise-middleware": "^6.2.0",
     "unleash-proxy-client": "^2.2.1",
-    "uuid": "^9.0.1"
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
