@@ -10,18 +10,11 @@ import { CardTitle } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { CardBody } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import AdditionalRepositoriesTable from '../AdditionalRepositoriesTable';
-import useAvailableRepositories from '../../hooks/useAvailableRepositories';
 import AddAdditionalRepositoriesButton from '../ActivationKey/AddAdditionalRepositoriesButton';
 import AddAdditionalRepositoriesModal from '../Modals/AddAdditionalRepositoriesModal';
 
 const AdditionalRepositoriesCard = (props) => {
   const { activationKey } = props;
-
-  const {
-    data: availableRepositories,
-    isLoading,
-    error,
-  } = useAvailableRepositories(activationKey.name);
 
   const [
     isEditAdditionalRepositoriesModalOpen,
@@ -55,9 +48,6 @@ const AdditionalRepositoriesCard = (props) => {
             isOpen={isEditAdditionalRepositoriesModalOpen}
             handleModalToggle={handleEditAdditionalRepositoriesToggle}
             keyName={activationKey.name}
-            repositories={availableRepositories}
-            isLoading={isLoading}
-            error={error}
           />
         </TextContent>
         <AdditionalRepositoriesTable
