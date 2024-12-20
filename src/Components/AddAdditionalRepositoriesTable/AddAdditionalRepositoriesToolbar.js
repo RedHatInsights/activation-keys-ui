@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { SearchInput } from "@patternfly/react-core/dist/dynamic/components/SearchInput";
-import { ToggleGroupItem } from "@patternfly/react-core/dist/dynamic/components/ToggleGroup";
-import { Toolbar } from "@patternfly/react-core/dist/dynamic/components/Toolbar";
-import { ToolbarContent } from "@patternfly/react-core/dist/dynamic/components/Toolbar";
-import { ToolbarGroup } from "@patternfly/react-core/dist/dynamic/components/Toolbar";
-import { ToolbarItem } from "@patternfly/react-core/dist/dynamic/components/Toolbar";
-import { ToggleGroup } from "@patternfly/react-core/dist/dynamic/components/ToggleGroup";
-import { Select, SelectOption } from "@patternfly/react-core/deprecated";
+import React, { useState } from 'react';
+import { SearchInput } from '@patternfly/react-core/dist/dynamic/components/SearchInput';
+import { ToggleGroupItem } from '@patternfly/react-core/dist/dynamic/components/ToggleGroup';
+import { Toolbar } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import { ToolbarContent } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import { ToolbarGroup } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import { ToolbarItem } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
+import { ToggleGroup } from '@patternfly/react-core/dist/dynamic/components/ToggleGroup';
+import { Select, SelectOption } from '@patternfly/react-core/deprecated';
 
-import FilterIcon from "@patternfly/react-icons/dist/dynamic/icons/filter-icon";
-import propTypes from "prop-types";
+import FilterIcon from '@patternfly/react-icons/dist/dynamic/icons/filter-icon';
+import propTypes from 'prop-types';
 
 const AddAdditionalRepositoriesToolbar = ({
   friendlyNameMap,
@@ -31,7 +31,7 @@ const AddAdditionalRepositoriesToolbar = ({
     <Toolbar id="add-additional-repositories-toolbar">
       <ToolbarContent>
         <ToolbarGroup>
-          <ToolbarItem spacer={{ default: "spacerNone" }}>
+          <ToolbarItem spacer={{ default: 'spacerNone' }}>
             <Select
               isOpen={isSelectFilterByExpanded}
               onToggle={(_event, isSelectFilterByExpanded) =>
@@ -59,8 +59,8 @@ const AddAdditionalRepositoriesToolbar = ({
               value={filter}
               onChange={(_event, value) => setFilter(value)}
               isDisabled={searchIsDisabled}
-              onClear={() => setFilter("")}
-              style={{ width: "400px" }}
+              onClear={() => setFilter('')}
+              style={{ width: '400px' }}
             />
           </ToolbarItem>
           <ToolbarItem>
@@ -87,7 +87,7 @@ const AddAdditionalRepositoriesToolbar = ({
             </ToggleGroup>
           </ToolbarItem>
         </ToolbarGroup>
-        <ToolbarItem variant="pagination" align={{ default: "alignRight" }}>
+        <ToolbarItem variant="pagination" align={{ default: 'alignRight' }}>
           {pagination}
         </ToolbarItem>
       </ToolbarContent>
