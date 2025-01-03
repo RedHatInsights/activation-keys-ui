@@ -88,6 +88,7 @@ const AddAdditionalRepositoriesModal = (props) => {
         footer={editChangesButtons}
       >
         <AddAdditionalRepositoriesTable
+          keyName={keyName}
           repositories={repositories}
           isLoading={additionalRepositoriesAreLoading}
           error={additionalRepositoriesError}
