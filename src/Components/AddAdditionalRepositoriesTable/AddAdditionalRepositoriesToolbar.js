@@ -45,11 +45,11 @@ const AddAdditionalRepositoriesToolbar = ({
               }}
               isDisabled={dropdownSelectisDisabled}
             >
-              <SelectOption value="repositoryName">
-                {friendlyNameMap.repositoryName}
+              <SelectOption value="repo_name">
+                {friendlyNameMap.repo_name}
               </SelectOption>
-              <SelectOption value="repositoryLabel">
-                {friendlyNameMap.repositoryLabel}
+              <SelectOption value="repo_label">
+                {friendlyNameMap.repo_label}
               </SelectOption>
             </Select>
           </ToolbarItem>
