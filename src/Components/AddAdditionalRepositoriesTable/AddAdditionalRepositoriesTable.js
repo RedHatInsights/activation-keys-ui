@@ -1,23 +1,23 @@
-import { Bullseye } from "@patternfly/react-core/dist/dynamic/layouts/Bullseye";
-import { Button } from "@patternfly/react-core/dist/dynamic/components/Button";
-import { EmptyState } from "@patternfly/react-core/dist/dynamic/components/EmptyState";
-import { EmptyStateBody } from "@patternfly/react-core/dist/dynamic/components/EmptyState";
-import { EmptyStateIcon } from "@patternfly/react-core/dist/dynamic/components/EmptyState";
-import { Pagination } from "@patternfly/react-core/dist/dynamic/components/Pagination";
-import { EmptyStateActions } from "@patternfly/react-core/dist/dynamic/components/EmptyState";
-import { EmptyStateHeader } from "@patternfly/react-core/dist/dynamic/components/EmptyState";
-import { EmptyStateFooter } from "@patternfly/react-core/dist/dynamic/components/EmptyState";
+import { Bullseye } from '@patternfly/react-core/dist/dynamic/layouts/Bullseye';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { EmptyState } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateBody } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateIcon } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { Pagination } from '@patternfly/react-core/dist/dynamic/components/Pagination';
+import { EmptyStateActions } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateHeader } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+import { EmptyStateFooter } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
 import useAvailableRepositories, {
   usePrefetchAvailableRepositoriesNextPage,
-} from "../../hooks/useAvailableRepositories";
-import SearchIcon from "@patternfly/react-icons/dist/dynamic/icons/search-icon";
-import { Table, Thead, Tr, Th, Tbody, Td } from "@patternfly/react-table";
-import React, { useEffect, useState } from "react";
-import Loading from "../LoadingState/Loading";
-import AddAdditionalRepositoriesToolbar from "./AddAdditionalRepositoriesToolbar";
-import propTypes from "prop-types";
-import { useQueryClient } from "@tanstack/react-query";
-import { useDebouncedState } from "../../hooks/useDebouncedState";
+} from '../../hooks/useAvailableRepositories';
+import SearchIcon from '@patternfly/react-icons/dist/dynamic/icons/search-icon';
+import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
+import React, { useEffect, useState } from 'react';
+import Loading from '../LoadingState/Loading';
+import AddAdditionalRepositoriesToolbar from './AddAdditionalRepositoriesToolbar';
+import propTypes from 'prop-types';
+import { useQueryClient } from '@tanstack/react-query';
+import { useDebouncedState } from '../../hooks/useDebouncedState';
 
 const AddAdditionalRepositoriesTable = (props) => {
   const {
@@ -27,26 +27,26 @@ const AddAdditionalRepositoriesTable = (props) => {
     isSubmitting,
   } = props;
 
-  const sort_by_index = ["repo_name", "repo_label"];
+  const sort_by_index = ['repo_name', 'repo_label'];
 
-  const [filter, setFilter] = useDebouncedState("", 300);
+  const [filter, setFilter] = useDebouncedState('', 300);
   const queryClient = useQueryClient();
-  const [filterBy, setFilterBy] = useState("repo_name");
+  const [filterBy, setFilterBy] = useState('repo_name');
   const [onlyShowSelectedRepositories, setOnlyShowSelectedRepositories] =
     useState(false);
   const [page, setPage] = useState(1);
   const [perPage, setPerPage] = useState(10);
   const [activeSortIndex, setActiveSortIndex] = useState(0);
-  const [activeSortDirection, setActiveSortDirection] = useState("asc");
+  const [activeSortDirection, setActiveSortDirection] = useState('asc');
   const [activeSortBy, setActiveSortBy] = useState(sort_by_index[0]);
   const friendlyNameMap = {
-    repo_name: "Name",
-    repo_label: "Label",
+    repo_name: 'Name',
+    repo_label: 'Label',
   };
 
   const attrMap = {
-    repo_name: "repositoryName",
-    repo_label: "repositoryLabel",
+    repo_name: 'repositoryName',
+    repo_label: 'repositoryLabel',
   };
 
   const { data: repositoriesData, isLoading } = useAvailableRepositories(
@@ -56,7 +56,7 @@ const AddAdditionalRepositoriesTable = (props) => {
     filterBy,
     filter,
     activeSortBy,
-    activeSortDirection,
+    activeSortDirection
   );
 
   const prefetchNextPage = usePrefetchAvailableRepositoriesNextPage();
@@ -74,7 +74,7 @@ const AddAdditionalRepositoriesTable = (props) => {
       filterBy,
       filter,
       activeSortBy,
-      activeSortDirection,
+      activeSortDirection
     );
   }, [page, perPage, filter]);
 
@@ -82,7 +82,7 @@ const AddAdditionalRepositoriesTable = (props) => {
     sortBy: {
       index: activeSortIndex,
       direction: activeSortDirection,
-      defaultDirection: "asc",
+      defaultDirection: 'asc',
     },
     onSort: (_event, index, direction) => {
       setActiveSortIndex(index);
@@ -113,7 +113,7 @@ const AddAdditionalRepositoriesTable = (props) => {
 
   const displayedSelectedRepos = selectedRepositories
     .filter((repo) => {
-      if (filter == "") {
+      if (filter == '') {
         return true;
       } else {
         return repo[attrMap[filterBy]]
@@ -133,7 +133,7 @@ const AddAdditionalRepositoriesTable = (props) => {
       } else if (aComp < bComp) {
         res = -1;
       }
-      return activeSortDirection == "asc" ? res : res * -1;
+      return activeSortDirection == 'asc' ? res : res * -1;
     });
 
   const emptyState = (
@@ -148,7 +148,7 @@ const AddAdditionalRepositoriesTable = (props) => {
       </EmptyStateBody>
       <EmptyStateFooter>
         <EmptyStateActions>
-          <Button variant="link" onClick={() => setFilter("")}>
+          <Button variant="link" onClick={() => setFilter('')}>
             Clear all filters
           </Button>
         </EmptyStateActions>
@@ -196,8 +196,7 @@ const AddAdditionalRepositoriesTable = (props) => {
                     isSelected:
                       selectedRepositories.find(
                         (selected) =>
-                          repository.repositoryLabel ==
-                          selected.repositoryLabel,
+                          repository.repositoryLabel == selected.repositoryLabel
                       ) != undefined,
                     onSelect: (_, isSelecting) => {
                       if (isSubmitting) {
@@ -208,7 +207,7 @@ const AddAdditionalRepositoriesTable = (props) => {
                           selectedRepositories.find(
                             (selected) =>
                               selected.repositoryLabel ==
-                              repository.repositoryLabel,
+                              repository.repositoryLabel
                           ) == undefined
                         ) {
                           setSelectedRepositories([
@@ -221,8 +220,8 @@ const AddAdditionalRepositoriesTable = (props) => {
                           selectedRepositories.filter(
                             (selectedRepository) =>
                               selectedRepository.repositoryLabel !==
-                              repository.repositoryLabel,
-                          ),
+                              repository.repositoryLabel
+                          )
                         );
                       }
                     },
