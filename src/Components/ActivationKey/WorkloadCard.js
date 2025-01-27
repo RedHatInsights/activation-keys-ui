@@ -12,10 +12,8 @@ import { TextListItemVariants } from '@patternfly/react-core/dist/dynamic/compon
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import propTypes from 'prop-types';
 import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
-import EditButton from './EditButton';
 
-const WorkloadCard = (props) => {
-  const { activationKey, actionHandler } = props;
+const WorkloadCard = ({ activationKey }) => {
   const notDefinedText = 'Not defined';
   const docsPopoverContent = (
     <TextContent>
@@ -29,17 +27,7 @@ const WorkloadCard = (props) => {
   );
   return (
     <Card style={{ minHeight: '100%' }}>
-      <CardHeader
-        actions={{
-          actions: (
-            <>
-              <EditButton onClick={actionHandler} />
-            </>
-          ),
-          hasNoOffset: false,
-          className: 'WorkloadCardHeader',
-        }}
-      >
+      <CardHeader hasNoOffset={false} className="WorkloadCardHeader">
         <CardTitle>
           <Title headingLevel="h2">
             Workload{' '}
@@ -70,7 +58,6 @@ const WorkloadCard = (props) => {
 
 WorkloadCard.propTypes = {
   activationKey: propTypes.object,
-  actionHandler: propTypes.func,
 };
 
 export default WorkloadCard;

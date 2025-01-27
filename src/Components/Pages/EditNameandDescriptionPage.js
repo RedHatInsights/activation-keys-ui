@@ -1,18 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SetNamePage from './SetNamePage';
-import ActivationKeyDescription from '../ActivationKey/ActivationKeyDescription';
+import EditActivationKeyDescription from '../ActivationKey/EditActivationKeyDescription';
 
-const SetNameAndDescriptionPage = ({
+const EditNameAndDescriptionPage = ({
   name,
   setName,
   nameIsValid,
   description,
-  setDescription,
   descriptionIsValid,
+  onDescriptionChange,
+  setDescription,
   isNameDisabled,
 }) => {
-  console.log('Props:', { name, description, isNameDisabled });
+  console.log('Edit Props:', {
+    name,
+    description,
+    isNameDisabled,
+    onDescriptionChange,
+  });
+  const handleDescriptionChange = (newDescription) => {
+    setDescription(newDescription);
+  };
   return (
     <div className="pf-l-grid pf-m-gutter">
       <div className="pf-v5-u-mb-xl">
@@ -25,9 +34,10 @@ const SetNameAndDescriptionPage = ({
       </div>
       <div className="pf-v5-u-mb-xl">
         <div className="pf-v6-u-text-wrap">
-          <ActivationKeyDescription
+          <EditActivationKeyDescription
             description={description}
             setDescription={setDescription}
+            onDescriptionChange={handleDescriptionChange}
             descriptionIsValid={descriptionIsValid}
           />
         </div>
@@ -36,14 +46,15 @@ const SetNameAndDescriptionPage = ({
   );
 };
 
-SetNameAndDescriptionPage.propTypes = {
+EditNameAndDescriptionPage.propTypes = {
   name: PropTypes.string.isRequired,
   setName: PropTypes.func.isRequired,
   nameIsValid: PropTypes.bool.isRequired,
   description: PropTypes.string,
+  onDescriptionChange: PropTypes.func.isRequired,
   setDescription: PropTypes.func.isRequired,
   descriptionIsValid: PropTypes.bool.isRequired,
   isNameDisabled: PropTypes.bool.isRequired,
 };
 
-export default SetNameAndDescriptionPage;
+export default EditNameAndDescriptionPage;
