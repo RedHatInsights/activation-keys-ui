@@ -36,7 +36,6 @@ const ActivationKey = () => {
     error: keyError,
     data: activationKey,
   } = useActivationKey(id);
-  console.log(activationKey);
   const { data: releaseVersions } = useReleaseVersions();
 
   const [isEditActivationKeyModalOpen, setIsEditActivationKeyModalOpen] =
@@ -50,24 +49,13 @@ const ActivationKey = () => {
     setIsEditActivationKeyModalOpen(!isEditActivationKeyModalOpen);
   };
 
-  const handleEditActivationKeyWizardToggle = (name) => {
-    setKeyName(isEditActivationKeyWizardOpen, name);
+  const handleEditActivationKeyWizardToggle = () => {
     setIsEditActivationKeyWizardOpen(!isEditActivationKeyWizardOpen);
   };
 
   const handleEditReleaseVersionModalToggle = () => {
     setIsEditReleaseVersionModalOpen(!isEditReleaseVersionModalOpen);
   };
-  const [currentKeyName, setCurrentKeyName] = useState('');
-
-  const setKeyName = (modalOpen, name) => {
-    let currentName = modalOpen ? '' : name;
-    setCurrentKeyName(currentName);
-  };
-
-  // const editModalDescription =
-  //   'System purpose values are used by the subscriptions service to help filter and identify hosts. Setting values for these attributes is optional, but doing so ensures that subscriptions reporting accurately reflects the system. Only those values available to your account are shown.';
-  console.log(activationKey);
 
   return (
     <React.Fragment>
@@ -87,9 +75,9 @@ const ActivationKey = () => {
           <LevelItem className="pf-v5-u-mb-sm">
             {activationKey && (
               <EditAndDeleteDropdown
+                name={id}
                 onClick={handleEditActivationKeyWizardToggle}
                 activationKey={activationKey}
-                activationKeyName={currentKeyName}
                 releaseVersions={releaseVersions}
               />
             )}

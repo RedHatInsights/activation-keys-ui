@@ -12,7 +12,6 @@ const SetNameAndDescriptionPage = ({
   descriptionIsValid,
   isNameDisabled,
 }) => {
-  console.log('Props:', { name, description, isNameDisabled });
   return (
     <div className="pf-l-grid pf-m-gutter">
       <div className="pf-v5-u-mb-xl">

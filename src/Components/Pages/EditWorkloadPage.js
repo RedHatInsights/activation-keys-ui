@@ -14,7 +14,6 @@ import PropTypes from 'prop-types';
 import useEusVersions from '../../hooks/useEusVersions';
 
 const EditWorkloadPage = ({
-  activationKey,
   releaseVersions,
   workloadOptions,
   workload,
@@ -22,7 +21,7 @@ const EditWorkloadPage = ({
   extendedReleaseProduct,
   extendedReleaseVersion,
   setExtendedReleaseVersion,
-  setExtendedReleaseRepositories,
+  setExtendedReleaseProduct,
 }) => {
   const { isLoading, error, data } = useEusVersions();
 
@@ -30,7 +29,6 @@ const EditWorkloadPage = ({
     <FormSelectOption value={version} label={version} key={i} />
   ));
 
-  console.log('Release Version:', activationKey?.extendedReleaseVersion);
   options.push(
     <FormSelectOption
       value=""
@@ -38,28 +36,17 @@ const EditWorkloadPage = ({
       key={releaseVersions?.length}
     />
   );
-
   useEffect(() => {
-    if (data && extendedReleaseProduct && extendedReleaseVersion) {
-      const selectedProduct = data.find(
-        (product) => product.name === extendedReleaseProduct
+    if (workload.includes('Extended') && data) {
+      setExtendedReleaseProduct(extendedReleaseProduct || data[0].name);
+      setExtendedReleaseVersion(
+        extendedReleaseVersion || data[0].configurations[0].version
       );
-      if (selectedProduct) {
-        const selectedConfig = selectedProduct.configurations.find(
-          (config) => config.version === extendedReleaseVersion
-        );
-
-        if (selectedConfig) {
-          setExtendedReleaseRepositories(selectedConfig.repositories);
-        }
-      }
+    } else {
+      setExtendedReleaseProduct('');
+      setExtendedReleaseVersion('');
     }
-  }, [
-    data,
-    extendedReleaseProduct,
-    extendedReleaseVersion,
-    setExtendedReleaseRepositories,
-  ]);
+  }, [data, workload]);
 
   return (
     <>
@@ -83,7 +70,7 @@ const EditWorkloadPage = ({
               className="pf-v5-u-mb-md"
               name={wl}
               id={wl}
-              isDisabled={isDisabled}
+              // isDisabled={isDisabled}
               key={wl}
             />
           );
@@ -130,11 +117,23 @@ const EditWorkloadPage = ({
       {workload === workloadOptions[1] && (
         <Form>
           <FormGroup label="Product">
-            <FormSelect isDisabled value={extendedReleaseProduct} id="product">
-              <FormSelectOption
-                value={extendedReleaseProduct}
-                label={extendedReleaseProduct || 'Not Defined'}
-              />
+            <FormSelect
+              value={extendedReleaseProduct}
+              id="product"
+              // onChange={(event) =>
+              //   setExtendedReleaseProduct(event.target.value)
+              // }
+              isDisabled
+            >
+              {data.map((product, i) => {
+                return (
+                  <FormSelectOption
+                    key={i}
+                    value={product.name}
+                    label={product.name}
+                  />
+                );
+              })}
             </FormSelect>
           </FormGroup>
           <FormGroup label="Version">
@@ -157,7 +156,6 @@ const EditWorkloadPage = ({
 EditWorkloadPage.propTypes = {
   workloadOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
   setWorkload: PropTypes.func.isRequired,
-  activationKey: PropTypes.object.isRequired,
   releaseVersions: PropTypes.array,
   workload: PropTypes.string.isRequired,
   extendedReleaseProduct: PropTypes.string.isRequired,

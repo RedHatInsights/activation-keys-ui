@@ -44,15 +44,16 @@ const EditActivationKeyWizard = ({
   CustomSuccessPage,
 }) => {
   const queryClient = useQueryClient();
-  const { mutate, isLoading: updateActivationKeyIsLoading } =
-    useUpdateActivationKey();
+  const {
+    mutate: updateActivationKey,
+    isLoading: updateActivationKeyIsLoading,
+  } = useUpdateActivationKey();
 
   const {
     isLoading: attributesAreLoading,
     error,
     data,
   } = useSystemPurposeAttributes();
-  console.log(data);
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [description, setDescription] = useState(
     activationKey?.description || ''
@@ -68,8 +69,6 @@ const EditActivationKeyWizard = ({
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-
-  console.log('Description:', activationKey?.description);
   const descriptionIsValid = descriptionValidator(description || '');
 
   const onClose = () => {
@@ -105,6 +104,7 @@ const EditActivationKeyWizard = ({
           isNameDisabled={true}
         />
       ),
+      enableNext: descriptionIsValid,
     },
     {
       id: 1,
@@ -158,6 +158,7 @@ const EditActivationKeyWizard = ({
           extendedReleaseVersion={extendedReleaseVersion}
         />
       ),
+      nextButtonText: 'Update',
     },
     {
       id: 4,
@@ -178,9 +179,7 @@ const EditActivationKeyWizard = ({
       isFinishedStep: true,
     },
   ];
-  console.log(activationKey);
 
-  console.log('Activation Key Name:', activationKey?.name);
   return (
     <Modal
       variant={isConfirmClose ? ModalVariant.small : ModalVariant.large}
@@ -208,19 +207,10 @@ const EditActivationKeyWizard = ({
           navAriaLabel="Edit activation key steps"
           mainAriaLabel="Edit activation key content"
           onCurrentStepChanged={(step) => {
-            console.log('Current step ID:', step.id);
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
             if (step.id == 4) {
-              console.log('Data sent to mutate', {
-                activationKeyName: activationKey.name,
-                description,
-                role,
-                serviceLevel: sla,
-                usage,
-                releaseVersion: extendedReleaseVersion,
-              });
-              mutate(
+              updateActivationKey(
                 {
                   activationKeyName: activationKey.name,
                   description,
@@ -229,22 +219,26 @@ const EditActivationKeyWizard = ({
                   usage,
                   releaseVersion: extendedReleaseVersion,
                 },
-                queryClient.invalidateQueries(['activation_keys']),
                 {
                   onSuccess: (updatedData) => {
-                    console.log('mutation succcessful:', updatedData);
-                    queryClient.setQueryData(
-                      ['activation_key', updatedData.activationKeyName],
-                      updatedData
-                    );
-                    queryClient.invalidateQueries(['activation_keys']);
-                    queryClient.resetQueries([
-                      `activation_key_${activationKey?.name}`,
+                    queryClient.invalidateQueries([
+                      `activation_key_${activationKey.name}`,
                     ]);
+                    queryClient.setQueryData([`activation_key`], (prev) => {
+                      if (!prev) return prev;
+                      return prev.map((key) =>
+                        key.activationKeyName === activationKey.name
+                          ? { ...key, description: updatedData.description }
+                          : key
+                      );
+                    });
+                    setDescription(updatedData.description);
                     addSuccessNotification(
                       `Changes saved for activation key "${activationKey.name}"`
                     );
-                    onClose();
+                    queryClient.resetQueries([
+                      `activation_key_${activationKey.name}`,
+                    ]);
                   },
                   onError: () => {
                     addErrorNotification(
@@ -271,7 +265,7 @@ ConfirmCloseFooter.propTypes = {
 };
 
 EditActivationKeyWizard.propTypes = {
-  activationKeyName: PropTypes.string,
+  name: PropTypes.string,
   handleModalToggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   activationKey: PropTypes.object,

@@ -20,8 +20,7 @@ export const EditAndDeleteDropdown = ({
   const onToggleClick = () => {
     setIsOpen(!isOpen);
   };
-  const onSelect = (_event, value) => {
-    console.log('selected', value);
+  const onSelect = () => {
     setIsOpen(false);
   };
 
@@ -40,10 +39,7 @@ export const EditAndDeleteDropdown = ({
   const handleEditActivationKeyWizardToggle = () => {
     setIsEditActivationKeyWizardOpen(!isEditActivationKeyWizardOpen);
   };
-  console.log(activationKey);
 
-  // const editModalDescription =
-  //   'System purpose values are used by the subscriptions service to help filter and identify hosts. Setting values for these attributes is optional, but doing so ensures that subscriptions reporting accurately reflects the system. Only those values available to your account are shown.';
   return (
     <React.Fragment>
       <Dropdown

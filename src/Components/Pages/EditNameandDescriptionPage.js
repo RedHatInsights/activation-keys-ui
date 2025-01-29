@@ -9,16 +9,9 @@ const EditNameAndDescriptionPage = ({
   nameIsValid,
   description,
   descriptionIsValid,
-  onDescriptionChange,
   setDescription,
   isNameDisabled,
 }) => {
-  console.log('Edit Props:', {
-    name,
-    description,
-    isNameDisabled,
-    onDescriptionChange,
-  });
   const handleDescriptionChange = (newDescription) => {
     setDescription(newDescription);
   };

@@ -40,7 +40,6 @@ const EditSystemPurposePage = ({
   const Placeholder = () => (
     <FormSelectOption label="Not defined" isPlaceholder />
   );
-  console.log('Api Data:', data);
 
   return isLoading ? (
     <Loading />

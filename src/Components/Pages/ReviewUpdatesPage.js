@@ -20,31 +20,35 @@ const ReviewUpdatesPage = ({
   activationKey,
 }) => {
   const rows = [
-    { term: 'Name', original: activationKey?.name, updated: name || '' },
+    {
+      term: 'Name',
+      original: activationKey?.name,
+      updated: name || 'Not Defined',
+    },
     {
       term: 'Description',
       original: activationKey?.description || 'Not Defined',
-      updated: description || '',
+      updated: description || 'Not Defined',
     },
     {
       term: 'Workload',
       original: activationKey?.workload || 'Not Defined',
-      updated: workload || '',
+      updated: workload || 'Not Defined',
     },
     {
       term: 'Role',
       original: activationKey?.role || 'Not Defined',
-      updated: role || '',
+      updated: role || 'Not Defined',
     },
     {
       term: 'Service level agreement(sla)',
       original: activationKey?.serviceLevel || 'Not Defined',
-      updated: sla || '',
+      updated: sla || 'Not Defined',
     },
     {
       term: 'Usage',
       original: activationKey?.usage || 'Not Defined',
-      updated: usage || '',
+      updated: usage || 'Not Defined',
     },
   ];
 

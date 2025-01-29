@@ -24,13 +24,13 @@ const EditActivationKeyDescription = ({
   };
 
   const handleBlur = () => {
+    setEnableValidationFeedback(true);
     onDescriptionChange(localDescription);
   };
   const helperText = 'Max characters is 255.';
   const validated =
     descriptionIsValid || !enableValidationFeedback ? 'default' : 'error';
   const helperTextInvalid = `Description requirements have not been met. ${helperText}`;
-  console.log('I am a description', description);
 
   return (
     <>
