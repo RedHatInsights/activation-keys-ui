@@ -104,9 +104,6 @@ const ActivationKeyWizard = ({
   const returnToWizard = () => {
     setIsConfirmClose(false);
   };
-  console.log('Data:', data);
-
-  console.log('Wizard loading state:', { attributesAreLoading });
 
   const steps = [
     {

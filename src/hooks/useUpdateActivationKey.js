@@ -33,9 +33,8 @@ const activationKeyMutation = (token) => async (data) => {
       `Status Code ${response.status}.  Error updating activation key: ${response.statusText}.`
     );
   }
-  const jsonResponse = await response.json();
 
-  return jsonResponse;
+  return response.json();
 };
 
 const useUpdateActivationKey = () => {

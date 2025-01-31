@@ -30,7 +30,6 @@ const SetWorkloadPage = ({
   const { isLoading, error, data } = useEusVersions();
   const isEditMode = mode === 'edit';
 
-  console.log('releaseVersions:', releaseVersions);
   useEffect(() => {
     if (workload.includes('Extended') && data?.length > 0) {
       setExtendedReleaseProduct(extendedReleaseProduct || data[0]?.name);
@@ -44,8 +43,6 @@ const SetWorkloadPage = ({
   }, [data, workload]);
 
   useEffect(() => {
-    console.log('Extended Release Product:', extendedReleaseProduct);
-    console.log('Extended Release Version:', extendedReleaseVersion);
     if (data && workload.includes('Extended')) {
       const selectedProduct = data.find(
         (product) => extendedReleaseProduct === product.name

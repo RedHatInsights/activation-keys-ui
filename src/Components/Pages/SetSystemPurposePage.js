@@ -24,7 +24,6 @@ const SetSystemPurposePage = ({
   isLoading,
   isError,
 }) => {
-  console.log('is mounting:', { activationKey, data });
   useEffect(() => {
     if (isEditMode) {
       setRole(activationKey?.role || '');
