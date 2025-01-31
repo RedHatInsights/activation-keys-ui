@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
@@ -10,9 +10,15 @@ import { HelperText } from '@patternfly/react-core/dist/dynamic/components/Helpe
 import { HelperTextItem } from '@patternfly/react-core/dist/dynamic/components/HelperText';
 import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
 
-const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
+const SetNamePage = ({ mode, name, setName, nameIsValid, isNameDisabled }) => {
   const [enableValidationFeedback, setEnableValidationFeedback] =
     useState(false);
+
+  useEffect(() => {
+    if (mode === 'edit' && name) {
+      setName(name);
+    }
+  }, [mode, name, setName]);
 
   const helperText =
     'Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.';
@@ -38,7 +44,7 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
             id="activation-key-name"
             isRequired
             type="text"
-            value={name}
+            value={name || ''}
             onChange={(_event, name) => setName(name)}
             validated={validated}
             onBlur={() => setEnableValidationFeedback(true)}
@@ -58,6 +64,7 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
 };
 
 SetNamePage.propTypes = {
+  mode: PropTypes.oneOf(['create', 'edit']).isRequired,
   name: PropTypes.string.isRequired,
   setName: PropTypes.func.isRequired,
   nameIsValid: PropTypes.bool.isRequired,

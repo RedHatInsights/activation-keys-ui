@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SetNamePage from './SetNamePage';
-import EditActivationKeyDescription from '../ActivationKey/EditActivationKeyDescription';
+import ActivationKeyDescription from '../ActivationKey/ActivationKeyDescription';
 
-const EditNameAndDescriptionPage = ({
+const NameAndDescriptionPage = ({
+  mode,
   name,
   setName,
   nameIsValid,
   description,
-  descriptionIsValid,
   setDescription,
+  descriptionIsValid,
   isNameDisabled,
 }) => {
-  const handleDescriptionChange = (newDescription) => {
-    setDescription(newDescription);
-  };
   return (
     <div className="pf-l-grid pf-m-gutter">
       <div className="pf-v5-u-mb-xl">
         <SetNamePage
+          mode={mode}
           name={name}
           setName={setName}
           nameIsValid={nameIsValid}
@@ -27,27 +26,36 @@ const EditNameAndDescriptionPage = ({
       </div>
       <div className="pf-v5-u-mb-xl">
         <div className="pf-v6-u-text-wrap">
-          <EditActivationKeyDescription
-            description={description}
-            setDescription={setDescription}
-            onDescriptionChange={handleDescriptionChange}
-            descriptionIsValid={descriptionIsValid}
-          />
+          {mode === 'edit' ? (
+            <ActivationKeyDescription
+              mode=" edit "
+              description={description}
+              setDescription={setDescription}
+              descriptionIsValid={descriptionIsValid}
+            />
+          ) : (
+            <ActivationKeyDescription
+              mode=" create "
+              description={description}
+              setDescription={setDescription}
+              descriptionIsValid={descriptionIsValid}
+            />
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-EditNameAndDescriptionPage.propTypes = {
+NameAndDescriptionPage.propTypes = {
+  mode: PropTypes.oneOf(['create', 'edit']).isRequired,
   name: PropTypes.string.isRequired,
+  activationKey: PropTypes.object.isRequired,
   setName: PropTypes.func.isRequired,
   nameIsValid: PropTypes.bool.isRequired,
   description: PropTypes.string,
-  onDescriptionChange: PropTypes.func.isRequired,
   setDescription: PropTypes.func.isRequired,
   descriptionIsValid: PropTypes.bool.isRequired,
   isNameDisabled: PropTypes.bool.isRequired,
 };
-
-export default EditNameAndDescriptionPage;
+export default NameAndDescriptionPage;

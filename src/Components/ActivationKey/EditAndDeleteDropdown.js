@@ -7,7 +7,7 @@ import { MenuToggle } from '@patternfly/react-core/dist/dynamic/components/MenuT
 import propTypes from 'prop-types';
 import { useNavigate, useParams } from 'react-router-dom';
 import DeleteActivationKeyConfirmationModal from '../Modals/DeleteActivationKeyConfirmationModal';
-import EditActivationKeyWizard from '../Modals/EditActivationKeyWizard';
+import ActivationKeyWizard from '../Modals/ActivationKeyWizard';
 
 export const EditAndDeleteDropdown = ({
   activationKey,
@@ -88,7 +88,7 @@ export const EditAndDeleteDropdown = ({
         isOpen={isDeleteActivationKeyModalOpen}
         name={id}
       />
-      <EditActivationKeyWizard
+      <ActivationKeyWizard
         activationKey={activationKey}
         handleModalToggle={handleEditActivationKeyWizardToggle}
         isOpen={isEditActivationKeyWizardOpen}

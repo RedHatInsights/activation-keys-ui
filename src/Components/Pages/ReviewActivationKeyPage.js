@@ -1,15 +1,18 @@
 import React from 'react';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { DescriptionList } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
-import { DescriptionListTerm } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
-import { DescriptionListGroup } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
-import { DescriptionListDescription } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
+import {
+  Title,
+  Text,
+  TextVariants,
+  DescriptionList,
+  DescriptionListTerm,
+  DescriptionListGroup,
+  DescriptionListDescription,
+} from '@patternfly/react-core';
 import Loading from '../LoadingState/Loading';
 import PropTypes from 'prop-types';
 
-const ReviewUpdatesPage = ({
+const ReviewActivationKeyPage = ({
+  mode,
   name,
   description,
   workload,
@@ -18,7 +21,11 @@ const ReviewUpdatesPage = ({
   usage,
   isLoading,
   activationKey,
+  extendedReleaseProduct,
+  extendedReleaseVersion,
 }) => {
+  if (isLoading) return <Loading />;
+  const isEditMode = mode === 'edit';
   const rows = [
     {
       term: 'Name',
@@ -41,7 +48,7 @@ const ReviewUpdatesPage = ({
       updated: role || 'Not Defined',
     },
     {
-      term: 'Service level agreement(sla)',
+      term: 'Service level agreement (SLA)',
       original: activationKey?.serviceLevel || 'Not Defined',
       updated: sla || 'Not Defined',
     },
@@ -51,42 +58,52 @@ const ReviewUpdatesPage = ({
       updated: usage || 'Not Defined',
     },
   ];
-
-  return isLoading ? (
-    <Loading />
-  ) : (
+  return (
     <>
       <Title headingLevel="h2" className="pf-v5-u-mb-sm">
         Review
       </Title>
       <Text component={TextVariants.p} className="pf-v5-u-mb-xl">
-        Review the following information and click <b>Update</b> to finish
-        editing the activation key. The updates will only affect the future
-        systems that register with this activation key, but not the systems that
-        already registered.
+        {isEditMode
+          ? 'Review the following information and click Edit to apply your changes. The updates will only affect future systems that register with this activation key, not currently registered systems.'
+          : 'Review the following information and click Create to generate the activation key.'}
       </Text>
       <DescriptionList isHorizontal>
         {rows.map((row, index) => (
           <DescriptionListGroup key={index}>
-            <DescriptionListTerm style={{ flexBasis: '30%' }}>
+            <DescriptionListTerm style={{ flexBasis: '35%' }}>
               {row.term}
             </DescriptionListTerm>
             <DescriptionListDescription>
-              <div
-                style={{ display: 'flex', justifyContent: ' space-between' }}
-              >
-                <span style={{ flexBasis: '45%' }}>{row.original}</span>
+              {isEditMode ? (
+                <div
+                  style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
+                  <span style={{ flexBasis: '45%' }}>{row.original}</span>
+                  <span style={{ flexBasis: '45%' }}>{row.updated}</span>
+                </div>
+              ) : (
                 <span style={{ flexBasis: '45%' }}>{row.updated}</span>
-              </div>
+              )}
             </DescriptionListDescription>
           </DescriptionListGroup>
         ))}
+        {workload?.includes('Extended') && (
+          <DescriptionListGroup>
+            <DescriptionListTerm>Extended Release Details</DescriptionListTerm>
+            <DescriptionListDescription>
+              <Text component="p">{extendedReleaseProduct}</Text>
+              <Text component="p">{extendedReleaseVersion}</Text>
+            </DescriptionListDescription>
+          </DescriptionListGroup>
+        )}
       </DescriptionList>
     </>
   );
 };
 
-ReviewUpdatesPage.propTypes = {
+ReviewActivationKeyPage.propTypes = {
+  mode: PropTypes.oneOf(['create', 'edit']).isRequired,
   activationKey: PropTypes.shape({
     name: PropTypes.string,
     description: PropTypes.string,
@@ -94,7 +111,7 @@ ReviewUpdatesPage.propTypes = {
     role: PropTypes.string,
     serviceLevel: PropTypes.string,
     usage: PropTypes.string,
-  }).isRequired,
+  }),
   name: PropTypes.string.isRequired,
   description: PropTypes.string,
   workload: PropTypes.string.isRequired,
@@ -102,8 +119,7 @@ ReviewUpdatesPage.propTypes = {
   sla: PropTypes.string.isRequired,
   usage: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  extendedReleaseProduct: PropTypes.string.isRequired,
-  extendedReleaseVersion: PropTypes.string.isRequired,
+  extendedReleaseProduct: PropTypes.string,
+  extendedReleaseVersion: PropTypes.string,
 };
-
-export default ReviewUpdatesPage;
+export default ReviewActivationKeyPage;

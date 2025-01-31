@@ -18,7 +18,8 @@ import ActivationKeysTable from '../ActivationKeysTable';
 import { useQueryClient } from '@tanstack/react-query';
 import NoActivationKeysFound from '../EmptyState';
 import EditActivationKeyModal from '../Modals/EditActivationKeyModal';
-import CreateActivationKeyWizard from '../Modals/CreateActivationKeyWizard';
+import ActivationKeyWizard from '../Modals/ActivationKeyWizard';
+// import CreateActivationKeyWizard from '../Modals/CreateActivationKeyWizard';
 import useActivationKeys from '../../hooks/useActivationKeys';
 import Loading from '../LoadingState/Loading';
 import CreateActivationKeyButton from './CreateActivationKeyButton';
@@ -120,7 +121,7 @@ const ActivationKeys = () => {
           )}
         </PageSection>
       </Main>
-      <CreateActivationKeyWizard
+      <ActivationKeyWizard
         key={isOpen}
         isOpen={isOpen}
         handleModalToggle={handleModalToggle}

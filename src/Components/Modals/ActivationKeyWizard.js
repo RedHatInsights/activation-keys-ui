@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
+import { Modal, ModalVariant, Button } from '@patternfly/react-core';
 import { Wizard } from '@patternfly/react-core/deprecated';
 import PropTypes from 'prop-types';
-import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
+import useCreateActivationKey from '../../hooks/useCreateActivationKey';
 import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
 import useNotifications from '../../hooks/useNotifications';
 import { useQueryClient } from '@tanstack/react-query';
-import EditWorkloadPage from '../Pages/EditWorkloadPage';
+import ReviewActivationKeyPage from '../Pages/ReviewActivationKeyPage';
+import SetWorkloadPage from '../Pages/SetWorkLoadPage';
+import SetSystemPurposePage from '../Pages/SetSystemPurposePage';
 import SuccessPage from '../Pages/SuccessPage';
-import EditNameAndDescriptionPage from '../Pages/EditNameandDescriptionPage';
-import EditSystemPurposePage from '../Pages/EditSystemPurposePage';
-import ReviewUpdatesPage from '../Pages/ReviewUpdatesPage';
+import useActivationKeys from '../../hooks/useActivationKeys';
+import NameAndDescriptionPage from '../Pages/NameAndDescriptionPage';
+import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -28,6 +28,15 @@ const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
   </>
 );
 
+const nameRegex = /^([\w-_])+$/;
+const nameValidator = (newName, keyNames) => {
+  const match =
+    keyNames?.find((name) => {
+      return name == newName;
+    }) || [];
+
+  return match.length == 0 && nameRegex.test(newName);
+};
 const descriptionValidator = (description) => {
   const trimmedDescription = description.trim();
   return (
@@ -36,7 +45,7 @@ const descriptionValidator = (description) => {
   );
 };
 
-const EditActivationKeyWizard = ({
+const ActivationKeyWizard = ({
   activationKey,
   releaseVersions,
   handleModalToggle,
@@ -45,36 +54,42 @@ const EditActivationKeyWizard = ({
 }) => {
   const queryClient = useQueryClient();
   const {
+    mutate: createActivationKey,
+    isLoading: createActivationKeyIsLoading,
+  } = useCreateActivationKey();
+  const {
     mutate: updateActivationKey,
     isLoading: updateActivationKeyIsLoading,
   } = useUpdateActivationKey();
-
   const {
     isLoading: attributesAreLoading,
     error,
     data,
   } = useSystemPurposeAttributes();
+  const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
+  const [name, setName] = useState('');
   const [description, setDescription] = useState(
     activationKey?.description || ''
   );
   const [workload, setWorkload] = useState(workloadOptions[0]);
   const [extendedReleaseProduct, setExtendedReleaseProduct] = useState('');
-  const [extendedReleaseVersion, setExtendedReleaseVersion] = useState(
-    activationKey?.releaseVersion || ''
-  );
+  const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
+  const [extendedReleaseRepositories, setExtendedReleaseRepositories] =
+    useState([]);
   const [role, setRole] = useState(activationKey?.role);
   const [sla, setSla] = useState(activationKey?.serviceLevel);
   const [usage, setUsage] = useState(activationKey?.usage);
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const keyNames = activationKeys?.map((key) => key.name) || [];
+  const nameIsValid = nameValidator(name, keyNames);
+  const isEditMode = activationKey !== undefined;
   const descriptionIsValid = descriptionValidator(description || '');
 
   const onClose = () => {
-    queryClient.invalidateQueries(['activation_keys'], {
-      refetchActive: true,
-    });
+    queryClient.invalidateQueries(['activation_keys']);
     handleModalToggle();
   };
 
@@ -89,90 +104,113 @@ const EditActivationKeyWizard = ({
   const returnToWizard = () => {
     setIsConfirmClose(false);
   };
+  console.log('Data:', data);
+
+  console.log('Wizard loading state:', { attributesAreLoading });
 
   const steps = [
     {
       id: 0,
       name: 'Name and Description',
       component: (
-        <EditNameAndDescriptionPage
+        <NameAndDescriptionPage
           activationKey={activationKey}
-          name={activationKey?.name}
+          mode={isEditMode ? 'edit' : 'create'}
+          name={activationKey?.name || name}
+          setName={setName}
+          nameIsValid={nameIsValid}
           description={description}
           setDescription={setDescription}
+          isNameDisabled={isEditMode ? true : false}
           descriptionIsValid={descriptionIsValid}
-          isNameDisabled={true}
         />
       ),
-      enableNext: descriptionIsValid,
+      enableNext: isEditMode
+        ? descriptionIsValid
+        : nameIsValid && descriptionIsValid,
     },
     {
       id: 1,
       name: 'Workload',
       component: (
-        <EditWorkloadPage
+        <SetWorkloadPage
           activationKey={activationKey}
+          mode={isEditMode ? 'edit' : 'create'}
           workloadOptions={workloadOptions}
+          releaseVersions={releaseVersions || []}
           workload={workload}
           setWorkload={setWorkload}
           extendedReleaseProduct={extendedReleaseProduct}
-          extendedReleaseVersion={extendedReleaseVersion}
-          releaseVersions={releaseVersions}
           setExtendedReleaseProduct={setExtendedReleaseProduct}
+          extendedReleaseVersion={extendedReleaseVersion}
           setExtendedReleaseVersion={setExtendedReleaseVersion}
+          setExtendedReleaseRepositories={setExtendedReleaseRepositories}
         />
       ),
+      isDisabled: !isEditMode && !nameIsValid,
     },
     {
       id: 2,
       name: 'System purpose',
       component: (
-        <EditSystemPurposePage
-          data={data}
+        <SetSystemPurposePage
+          mode={isEditMode ? 'edit' : 'create'}
           activationKey={activationKey}
-          roles={role}
+          role={role}
           setRole={setRole}
+          data={data}
           sla={sla}
           setSla={setSla}
           usage={usage}
           setUsage={setUsage}
-          isError={error}
           isLoading={attributesAreLoading}
+          isError={error}
         />
       ),
+      isDisabled: !isEditMode && !nameIsValid,
     },
     {
       id: 3,
       name: 'Review',
       component: (
-        <ReviewUpdatesPage
+        <ReviewActivationKeyPage
+          mode={isEditMode ? 'edit' : 'create'}
           activationKey={activationKey}
-          name={activationKey?.name}
+          name={name}
           description={description}
           workload={workload}
           role={role}
           sla={sla}
           usage={usage}
-          isLoading={updateActivationKeyIsLoading}
+          isLoading={createActivationKeyIsLoading}
           extendedReleaseProduct={extendedReleaseProduct}
           extendedReleaseVersion={extendedReleaseVersion}
         />
       ),
-      nextButtonText: 'Update',
+      isDisabled: !isEditMode && !nameIsValid,
+      nextButtonText: isEditMode ? 'Update' : 'Create',
     },
     {
       id: 4,
       name: 'Finish',
       component: CustomSuccessPage ? (
         <CustomSuccessPage
-          isLoading={updateActivationKeyIsLoading}
-          name={activationKey?.name}
+          isLoading={
+            isEditMode
+              ? updateActivationKeyIsLoading
+              : createActivationKeyIsLoading
+          }
+          name={isEditMode ? activationKey?.name : name}
           onClose={onClose}
         />
       ) : (
         <SuccessPage
-          isLoading={updateActivationKeyIsLoading}
-          name={activationKey?.name}
+          isLoading={
+            isEditMode
+              ? updateActivationKeyIsLoading
+              : createActivationKeyIsLoading
+          }
+          name={isEditMode ? activationKey?.name : name}
           onClose={onClose}
         />
       ),
@@ -196,31 +234,54 @@ const EditActivationKeyWizard = ({
         ) : undefined
       }
       hasNoBodyWrapper={!isConfirmClose}
-      aria-label="Edit activation key wizard"
+      aria-label="Create activation key wizard"
       onClose={isConfirmClose ? returnToWizard : undefined}
     >
       {!isConfirmClose && (
         <Wizard
-          title="Edit activation key"
+          title={isEditMode ? 'Edit activation key' : 'Create activation key '}
           steps={steps}
           height={400}
-          navAriaLabel="Edit activation key steps"
-          mainAriaLabel="Edit activation key content"
+          navAriaLabel={
+            isEditMode
+              ? 'Edit activation key steps'
+              : 'Create activation key steps'
+          }
+          mainAriaLabel={
+            isEditMode
+              ? 'Edit activation key content'
+              : 'Create activation key content '
+          }
           onCurrentStepChanged={(step) => {
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
-            if (step.id == 4) {
-              updateActivationKey(
-                {
-                  activationKeyName: activationKey.name,
-                  description,
-                  role,
-                  serviceLevel: sla,
-                  usage,
-                  releaseVersion: extendedReleaseVersion,
-                },
-                {
-                  onSuccess: (updatedData) => {
+            if (step.id === 4) {
+              const mutationFn = isEditMode
+                ? updateActivationKey
+                : createActivationKey;
+              const mutationData = isEditMode
+                ? {
+                    activationKeyName: activationKey.name,
+                    description,
+                    role,
+                    serviceLevel: sla,
+                    usage,
+                    releaseVersion: extendedReleaseVersion,
+                  }
+                : {
+                    name,
+                    description,
+                    role,
+                    serviceLevel: sla,
+                    usage,
+                    additionalRepositories: workload.includes('Extended')
+                      ? extendedReleaseRepositories
+                      : undefined,
+                    releaseVersion: extendedReleaseVersion,
+                  };
+              mutationFn(mutationData, {
+                onSuccess: (updatedData) => {
+                  if (isEditMode) {
                     queryClient.invalidateQueries([
                       `activation_key_${activationKey.name}`,
                     ]);
@@ -233,21 +294,31 @@ const EditActivationKeyWizard = ({
                       );
                     });
                     setDescription(updatedData.description);
-                    addSuccessNotification(
-                      `Changes saved for activation key "${activationKey.name}"`
-                    );
                     queryClient.resetQueries([
                       `activation_key_${activationKey.name}`,
                     ]);
-                  },
-                  onError: () => {
-                    addErrorNotification(
-                      `Error updating activation key ${activationKey.name}.`
+                    addSuccessNotification(
+                      `Changes saved for activation key "${activationKey.name}"`
                     );
-                    onClose();
-                  },
-                }
-              );
+                  } else {
+                    addSuccessNotification(`Activation key "${name}" created`);
+                  }
+                },
+                onError: () => {
+                  addErrorNotification(
+                    isEditMode
+                      ? `Error updating activation key ${activationKey.name}.`
+                      : 'Something went wrong',
+                    isEditMode
+                      ? undefined
+                      : {
+                          description:
+                            'Your changes could not be saved. Please try again.',
+                        }
+                  );
+                  onClose();
+                },
+              });
             }
           }}
           startAtStep={currentStep + 1}
@@ -264,13 +335,12 @@ ConfirmCloseFooter.propTypes = {
   returnToWizard: PropTypes.func.isRequired,
 };
 
-EditActivationKeyWizard.propTypes = {
-  name: PropTypes.string,
+ActivationKeyWizard.propTypes = {
+  activationKey: PropTypes.object,
   handleModalToggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  activationKey: PropTypes.object,
   CustomSuccessPage: PropTypes.node,
   releaseVersions: PropTypes.array,
 };
 
-export default EditActivationKeyWizard;
+export default ActivationKeyWizard;
