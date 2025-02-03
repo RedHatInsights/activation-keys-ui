@@ -12,7 +12,6 @@ import PropTypes from 'prop-types';
 import Loading from '../LoadingState/Loading';
 
 const SetSystemPurposePage = ({
-  isEditMode,
   activationKey,
   role,
   setRole,
@@ -25,12 +24,10 @@ const SetSystemPurposePage = ({
   isError,
 }) => {
   useEffect(() => {
-    if (isEditMode) {
-      setRole(activationKey?.role || '');
-      setSla(activationKey?.serviceLevel || '');
-      setUsage(activationKey?.usage || '');
-    }
-  }, [isEditMode, activationKey, setRole, setSla, setUsage]);
+    setRole(activationKey?.role || '');
+    setSla(activationKey?.serviceLevel || '');
+    setUsage(activationKey?.usage || '');
+  }, [activationKey, setRole, setSla, setUsage]);
   const Options = ({ options }) => (
     <>
       {options?.map((option) => (
@@ -49,7 +46,7 @@ const SetSystemPurposePage = ({
   return (
     <>
       <Title headingLevel="h2" className="pf-v5-u-mb-sm">
-        {isEditMode ? 'Edit system purpose' : 'Select system purpose'}
+        Select system purpose
       </Title>
       <Text component={TextVariants.p} className="pf-v5-u-mb-xl">
         System purpose values are used by the subscriptions service to help
@@ -107,7 +104,6 @@ const SetSystemPurposePage = ({
 };
 
 SetSystemPurposePage.propTypes = {
-  isEditMode: PropTypes.bool.isRequired,
   activationKey: PropTypes.object,
   role: PropTypes.string.isRequired,
   setRole: PropTypes.func.isRequired,

@@ -17,6 +17,8 @@ import {
   PageHeaderTitle,
 } from '@redhat-cloud-services/frontend-components/PageHeader';
 import AdditionalRepositoriesCard from './AdditionalRepositoriesCard';
+import { useQueryClient } from '@tanstack/react-query';
+import NoAccessPopover from '../NoAccessPopover';
 import useActivationKey from '../../hooks/useActivationKey';
 import Loading from '../LoadingState/Loading';
 import SystemPurposeCard from './SystemPurposeCard';
@@ -27,6 +29,9 @@ import EditAndDeleteDropdown from './EditAndDeleteDropdown';
 
 const ActivationKey = () => {
   const { id } = useParams();
+  const queryClient = useQueryClient();
+  const user = queryClient.getQueryData(['user']);
+
   const breadcrumbs = [
     { title: 'Activation Keys', to: '..' },
     { title: id, isActive: true },
@@ -37,24 +42,10 @@ const ActivationKey = () => {
     data: activationKey,
   } = useActivationKey(id);
   const { data: releaseVersions } = useReleaseVersions();
-
-  const [isEditActivationKeyModalOpen, setIsEditActivationKeyModalOpen] =
-    useState(false);
   const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] =
     useState(false);
-  const [isEditReleaseVersionModalOpen, setIsEditReleaseVersionModalOpen] =
-    useState(false);
-
-  const handleEditActivationKeyModalToggle = () => {
-    setIsEditActivationKeyModalOpen(!isEditActivationKeyModalOpen);
-  };
-
   const handleEditActivationKeyWizardToggle = () => {
     setIsEditActivationKeyWizardOpen(!isEditActivationKeyWizardOpen);
-  };
-
-  const handleEditReleaseVersionModalToggle = () => {
-    setIsEditReleaseVersionModalOpen(!isEditReleaseVersionModalOpen);
   };
 
   return (
@@ -73,13 +64,14 @@ const ActivationKey = () => {
             </DescriptionListGroup>
           </LevelItem>
           <LevelItem className="pf-v5-u-mb-sm">
-            {activationKey && (
+            {!isKeyLoading && user.rbacPermissions.canWriteActivationKeys ? (
               <EditAndDeleteDropdown
-                name={id}
                 onClick={handleEditActivationKeyWizardToggle}
                 activationKey={activationKey}
                 releaseVersions={releaseVersions}
               />
+            ) : (
+              <NoAccessPopover content={EditAndDeleteDropdown} />
             )}
           </LevelItem>
         </Level>
@@ -98,24 +90,15 @@ const ActivationKey = () => {
                   }}
                 >
                   <GalleryItem>
-                    <SystemPurposeCard
-                      activationKey={activationKey}
-                      actionHandler={handleEditActivationKeyModalToggle}
-                    />
+                    <SystemPurposeCard activationKey={activationKey} />
                   </GalleryItem>
                   <GalleryItem>
-                    <WorkloadCard
-                      activationKey={activationKey}
-                      actionHandler={handleEditReleaseVersionModalToggle}
-                    />
+                    <WorkloadCard activationKey={activationKey} />
                   </GalleryItem>
                 </Gallery>
               </GridItem>
               <GridItem span={12}>
-                <AdditionalRepositoriesCard
-                  activationKey={activationKey}
-                  actionHandler={handleEditActivationKeyModalToggle}
-                />
+                <AdditionalRepositoriesCard activationKey={activationKey} />
               </GridItem>
             </Grid>
           </Main>

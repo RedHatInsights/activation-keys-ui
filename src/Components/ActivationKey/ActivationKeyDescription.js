@@ -16,19 +16,13 @@ const ActivationKeyDescription = ({
 }) => {
   const [enableValidationFeedback, setEnableValidationFeedback] =
     useState(false);
-  const [localDescription, setLocalDescription] = useState(description);
+
   const handleChange = (event) => {
-    if (mode === 'edit') {
-      setLocalDescription(event.target.value);
-    } else {
-      setDescription(event.target.value);
-    }
+    setDescription(event.target.value);
   };
+
   const handleBlur = () => {
     setEnableValidationFeedback(true);
-    if (mode === 'edit') {
-      setDescription(localDescription);
-    }
   };
   const helperText = 'Max characters is 255.';
   const validated =
@@ -50,7 +44,7 @@ const ActivationKeyDescription = ({
               ? 'edit-activation-key-description'
               : 'activation-key-description'
           }
-          value={mode === 'edit' ? localDescription : description}
+          value={description}
           onChange={handleChange}
           validated={validated}
           onBlur={handleBlur}

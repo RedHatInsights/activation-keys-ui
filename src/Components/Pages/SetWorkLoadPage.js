@@ -55,6 +55,7 @@ const SetWorkloadPage = ({
       setExtendedReleaseRepositories([]);
     }
   }, [data, extendedReleaseProduct, extendedReleaseVersion]);
+
   return (
     <>
       <Title headingLevel="h2" className="pf-v5-u-mb-sm">
@@ -67,6 +68,7 @@ const SetWorkloadPage = ({
       </Text>
       {!isLoading ? (
         workloadOptions.map((wl, i) => {
+          console.log('wl:', wl, ' workload:', workload);
           const isDisabled = i === 1 && error === 400;
           return (
             <Tooltip

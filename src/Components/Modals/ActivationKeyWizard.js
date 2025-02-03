@@ -46,6 +46,7 @@ const descriptionValidator = (description) => {
 };
 
 const ActivationKeyWizard = ({
+  isEditMode,
   activationKey,
   releaseVersions,
   handleModalToggle,
@@ -85,7 +86,6 @@ const ActivationKeyWizard = ({
   const [currentStep, setCurrentStep] = useState(0);
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
-  const isEditMode = activationKey !== undefined;
   const descriptionIsValid = descriptionValidator(description || '');
 
   const onClose = () => {
@@ -105,6 +105,8 @@ const ActivationKeyWizard = ({
     setIsConfirmClose(false);
   };
 
+  const mode = isEditMode ? 'Edit' : 'Create';
+
   const steps = [
     {
       id: 0,
@@ -112,13 +114,13 @@ const ActivationKeyWizard = ({
       component: (
         <NameAndDescriptionPage
           activationKey={activationKey}
-          mode={isEditMode ? 'edit' : 'create'}
+          mode={isEditMode}
           name={activationKey?.name || name}
           setName={setName}
           nameIsValid={nameIsValid}
           description={description}
           setDescription={setDescription}
-          isNameDisabled={isEditMode ? true : false}
+          isNameDisabled={isEditMode}
           descriptionIsValid={descriptionIsValid}
         />
       ),
@@ -132,7 +134,7 @@ const ActivationKeyWizard = ({
       component: (
         <SetWorkloadPage
           activationKey={activationKey}
-          mode={isEditMode ? 'edit' : 'create'}
+          mode={isEditMode}
           workloadOptions={workloadOptions}
           releaseVersions={releaseVersions || []}
           workload={workload}
@@ -151,7 +153,7 @@ const ActivationKeyWizard = ({
       name: 'System purpose',
       component: (
         <SetSystemPurposePage
-          mode={isEditMode ? 'edit' : 'create'}
+          mode={isEditMode}
           activationKey={activationKey}
           role={role}
           setRole={setRole}
@@ -171,7 +173,7 @@ const ActivationKeyWizard = ({
       name: 'Review',
       component: (
         <ReviewActivationKeyPage
-          mode={isEditMode ? 'edit' : 'create'}
+          mode={isEditMode}
           activationKey={activationKey}
           name={name}
           description={description}
@@ -239,16 +241,8 @@ const ActivationKeyWizard = ({
           title={isEditMode ? 'Edit activation key' : 'Create activation key '}
           steps={steps}
           height={400}
-          navAriaLabel={
-            isEditMode
-              ? 'Edit activation key steps'
-              : 'Create activation key steps'
-          }
-          mainAriaLabel={
-            isEditMode
-              ? 'Edit activation key content'
-              : 'Create activation key content '
-          }
+          navAriaLabel={`${mode} activation key steps`}
+          mainAriaLabel={`${mode} activation key content`}
           onCurrentStepChanged={(step) => {
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
@@ -300,6 +294,7 @@ const ActivationKeyWizard = ({
                   } else {
                     addSuccessNotification(`Activation key "${name}" created`);
                   }
+                  setCurrentStep(4);
                 },
                 onError: () => {
                   addErrorNotification(
@@ -333,6 +328,7 @@ ConfirmCloseFooter.propTypes = {
 };
 
 ActivationKeyWizard.propTypes = {
+  isEditMode: PropTypes.bool.isRequired,
   activationKey: PropTypes.object,
   handleModalToggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,

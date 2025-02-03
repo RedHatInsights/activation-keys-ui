@@ -36,6 +36,8 @@ export const EditAndDeleteDropdown = ({
     }
   };
 
+  const isEditMode = activationKey !== undefined;
+
   const handleEditActivationKeyWizardToggle = () => {
     setIsEditActivationKeyWizardOpen(!isEditActivationKeyWizardOpen);
   };
@@ -89,6 +91,7 @@ export const EditAndDeleteDropdown = ({
         name={id}
       />
       <ActivationKeyWizard
+        isEditMode={isEditMode}
         activationKey={activationKey}
         handleModalToggle={handleEditActivationKeyWizardToggle}
         isOpen={isEditActivationKeyWizardOpen}

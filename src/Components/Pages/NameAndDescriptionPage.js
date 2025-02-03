@@ -26,21 +26,12 @@ const NameAndDescriptionPage = ({
       </div>
       <div className="pf-v5-u-mb-xl">
         <div className="pf-v6-u-text-wrap">
-          {mode === 'edit' ? (
-            <ActivationKeyDescription
-              mode=" edit "
-              description={description}
-              setDescription={setDescription}
-              descriptionIsValid={descriptionIsValid}
-            />
-          ) : (
-            <ActivationKeyDescription
-              mode=" create "
-              description={description}
-              setDescription={setDescription}
-              descriptionIsValid={descriptionIsValid}
-            />
-          )}
+          <ActivationKeyDescription
+            mode={mode}
+            description={description}
+            setDescription={setDescription}
+            descriptionIsValid={descriptionIsValid}
+          />
         </div>
       </div>
     </div>
