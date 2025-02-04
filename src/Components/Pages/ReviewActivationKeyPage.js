@@ -25,7 +25,7 @@ const ReviewActivationKeyPage = ({
   extendedReleaseVersion,
 }) => {
   if (isLoading) return <Loading />;
-  const isEditMode = mode === 'edit';
+  const isEditMode = mode;
   const rows = [
     {
       term: 'Name',
@@ -103,7 +103,7 @@ const ReviewActivationKeyPage = ({
 };
 
 ReviewActivationKeyPage.propTypes = {
-  mode: PropTypes.oneOf(['create', 'edit']).isRequired,
+  mode: PropTypes.bool.isRequired,
   activationKey: PropTypes.shape({
     name: PropTypes.string,
     description: PropTypes.string,

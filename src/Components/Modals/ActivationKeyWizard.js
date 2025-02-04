@@ -73,7 +73,6 @@ const ActivationKeyWizard = ({
   const [description, setDescription] = useState(
     activationKey?.description || ''
   );
-  const [workload, setWorkload] = useState(workloadOptions[0]);
   const [extendedReleaseProduct, setExtendedReleaseProduct] = useState('');
   const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
   const [extendedReleaseRepositories, setExtendedReleaseRepositories] =
@@ -84,6 +83,20 @@ const ActivationKeyWizard = ({
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const isEUSKey = activationKey?.additionalRepositories?.some(
+    (repo) =>
+      repo.repositoryLabel.includes('eus') ||
+      repo.repositoryName.includes('Extended Update Support')
+  );
+
+  const [workload, setWorkload] = useState(
+    isEditMode && activationKey?.workload
+      ? activationKey.workload
+      : isEUSKey
+      ? 'Extended support releases'
+      : 'Latest release'
+  );
+
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
   const descriptionIsValid = descriptionValidator(description || '');
@@ -105,6 +118,9 @@ const ActivationKeyWizard = ({
     setIsConfirmClose(false);
   };
 
+  const handleWorkloadChange = (newValue) => {
+    setWorkload(newValue);
+  };
   const mode = isEditMode ? 'Edit' : 'Create';
 
   const steps = [
@@ -134,11 +150,11 @@ const ActivationKeyWizard = ({
       component: (
         <SetWorkloadPage
           activationKey={activationKey}
-          mode={isEditMode}
+          isEditMode={isEditMode}
           workloadOptions={workloadOptions}
           releaseVersions={releaseVersions || []}
           workload={workload}
-          setWorkload={setWorkload}
+          setWorkload={handleWorkloadChange}
           extendedReleaseProduct={extendedReleaseProduct}
           setExtendedReleaseProduct={setExtendedReleaseProduct}
           extendedReleaseVersion={extendedReleaseVersion}
@@ -189,6 +205,7 @@ const ActivationKeyWizard = ({
       isDisabled: !isEditMode && !nameIsValid,
       nextButtonText: isEditMode ? 'Update' : 'Create',
     },
+
     {
       id: 4,
       name: 'Finish',
@@ -199,7 +216,7 @@ const ActivationKeyWizard = ({
               ? updateActivationKeyIsLoading
               : createActivationKeyIsLoading
           }
-          name={isEditMode ? activationKey?.name : name}
+          name={name}
           onClose={onClose}
         />
       ) : (
@@ -209,7 +226,7 @@ const ActivationKeyWizard = ({
               ? updateActivationKeyIsLoading
               : createActivationKeyIsLoading
           }
-          name={isEditMode ? activationKey?.name : name}
+          name={name}
           onClose={onClose}
         />
       ),
@@ -233,7 +250,11 @@ const ActivationKeyWizard = ({
         ) : undefined
       }
       hasNoBodyWrapper={!isConfirmClose}
-      aria-label="Create activation key wizard"
+      aria-label={
+        isEditMode
+          ? 'Edit activation key wizard'
+          : 'Create activation key wizard'
+      }
       onClose={isConfirmClose ? returnToWizard : undefined}
     >
       {!isConfirmClose && (

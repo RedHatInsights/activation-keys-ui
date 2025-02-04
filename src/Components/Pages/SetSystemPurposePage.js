@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 import Loading from '../LoadingState/Loading';
 
 const SetSystemPurposePage = ({
+  isEditMode,
   activationKey,
   role,
   setRole,
@@ -46,7 +47,7 @@ const SetSystemPurposePage = ({
   return (
     <>
       <Title headingLevel="h2" className="pf-v5-u-mb-sm">
-        Select system purpose
+        {isEditMode ? 'Edit system purpose' : 'Select system purpose'}{' '}
       </Title>
       <Text component={TextVariants.p} className="pf-v5-u-mb-xl">
         System purpose values are used by the subscriptions service to help
@@ -104,6 +105,7 @@ const SetSystemPurposePage = ({
 };
 
 SetSystemPurposePage.propTypes = {
+  isEditMode: PropTypes.bool,
   activationKey: PropTypes.object,
   role: PropTypes.string.isRequired,
   setRole: PropTypes.func.isRequired,

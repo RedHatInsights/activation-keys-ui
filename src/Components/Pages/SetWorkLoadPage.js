@@ -16,7 +16,7 @@ import PropTypes from 'prop-types';
 import useEusVersions from '../../hooks/useEusVersions';
 
 const SetWorkloadPage = ({
-  mode,
+  isEditMode,
   releaseVersions,
   workloadOptions,
   workload,
@@ -28,7 +28,6 @@ const SetWorkloadPage = ({
   setExtendedReleaseRepositories,
 }) => {
   const { isLoading, error, data } = useEusVersions();
-  const isEditMode = mode === 'edit';
 
   useEffect(() => {
     if (workload.includes('Extended') && data?.length > 0) {
@@ -172,8 +171,9 @@ const SetWorkloadPage = ({
     </>
   );
 };
+
 SetWorkloadPage.propTypes = {
-  mode: PropTypes.oneOf(['create', 'edit']).isRequired,
+  isEditMode: PropTypes.bool,
   releaseVersions: PropTypes.array,
   workloadOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
   workload: PropTypes.string.isRequired,
