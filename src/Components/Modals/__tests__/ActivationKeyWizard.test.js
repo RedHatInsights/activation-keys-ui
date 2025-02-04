@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateActivationKeyWizard from '../CreateActivationKeyWizard';
+import ActivationKeyWizard from '../ActivationKeyWizard';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -21,10 +21,7 @@ describe('Create Activation Key Wizard', () => {
     it(`renders page ${page} correctly`, () => {
       render(
         <QueryClientProvider client={queryClient}>
-          <CreateActivationKeyWizard
-            handleModalToggle={() => {}}
-            isOpen={true}
-          />
+          <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
         </QueryClientProvider>
       );
       for (let i = 1; i < page; i++) {
@@ -38,7 +35,7 @@ describe('Create Activation Key Wizard', () => {
   it("Doesn't confirm on close when nothing has been done", () => {
     const { container } = render(
       <QueryClientProvider client={queryClient}>
-        <CreateActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
+        <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
       </QueryClientProvider>
     );
     fireEvent.click(
@@ -50,7 +47,7 @@ describe('Create Activation Key Wizard', () => {
   it('Confirms on close one next has been clicked', () => {
     const { container } = render(
       <QueryClientProvider client={queryClient}>
-        <CreateActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
+        <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
       </QueryClientProvider>
     );
 
@@ -65,7 +62,7 @@ describe('Create Activation Key Wizard', () => {
   it('Saves data', async () => {
     render(
       <QueryClientProvider client={queryClient}>
-        <CreateActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
+        <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
       </QueryClientProvider>
     );
     for (let i = 0; i < 4; i++) {

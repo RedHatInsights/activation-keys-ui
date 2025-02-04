@@ -10,7 +10,7 @@ import { HelperText } from '@patternfly/react-core/dist/dynamic/components/Helpe
 import { HelperTextItem } from '@patternfly/react-core/dist/dynamic/components/HelperText';
 import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
 
-const SetNamePage = ({ name, setName, nameIsValid }) => {
+const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
   const [enableValidationFeedback, setEnableValidationFeedback] =
     useState(false);
 
@@ -38,10 +38,11 @@ const SetNamePage = ({ name, setName, nameIsValid }) => {
             id="activation-key-name"
             isRequired
             type="text"
-            value={name}
+            value={name || ''}
             onChange={(_event, name) => setName(name)}
             validated={validated}
             onBlur={() => setEnableValidationFeedback(true)}
+            isDisabled={isNameDisabled}
           />
           <FormHelperText>
             <HelperText>
@@ -57,9 +58,11 @@ const SetNamePage = ({ name, setName, nameIsValid }) => {
 };
 
 SetNamePage.propTypes = {
+  mode: PropTypes.oneOf(['create', 'edit']).isRequired,
   name: PropTypes.string.isRequired,
   setName: PropTypes.func.isRequired,
   nameIsValid: PropTypes.bool.isRequired,
+  isNameDisabled: PropTypes.bool.isRequired,
 };
 
 export default SetNamePage;
