@@ -28,6 +28,7 @@ export const EditAndDeleteDropdown = ({
     useState(false);
   const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] =
     useState(false);
+
   const handleDeleteActivationKeysModalToggle = (keyDeleted) => {
     setIsDeleteActivationKeyModalOpen(!isDeleteActivationKeyModalOpen);
 

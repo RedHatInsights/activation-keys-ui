@@ -12,22 +12,25 @@ import CheckCircleIcon from '@patternfly/react-icons/dist/dynamic/icons/check-ci
 import useInsightsNavigate from '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate/useInsightsNavigate';
 import PropTypes from 'prop-types';
 
-const SuccessPage = ({ isLoading, name, onClose }) => {
+const SuccessPage = ({ isLoading, name, onClose, isEditMode }) => {
   const navigate = useInsightsNavigate();
 
+  const titleText = isEditMode
+    ? 'Edit activation key'
+    : 'Activation key created';
+  const bodyText = isEditMode
+    ? `You are now editing the activation key: ${name}. Click "View activation key" to modify its settings.`
+    : `${name} is now available for use. Click "View activation key" to edit settings or add repositories.`;
   const content = isLoading ? (
     <Spinner />
   ) : (
     <EmptyState>
       <EmptyStateHeader
-        titleText="Activation key created"
+        titleText={titleText}
         icon={<EmptyStateIcon color="green" icon={CheckCircleIcon} />}
         headingLevel="h4"
       />
-      <EmptyStateBody>
-        <b>{name}</b> is now available for use. Click <b>View activation key</b>{' '}
-        to edit settings or add repositories.
-      </EmptyStateBody>
+      <EmptyStateBody>{bodyText}</EmptyStateBody>
       <EmptyStateFooter>
         <Button
           variant="primary"
@@ -43,14 +46,13 @@ const SuccessPage = ({ isLoading, name, onClose }) => {
       </EmptyStateFooter>
     </EmptyState>
   );
-
   return <Bullseye>{content}</Bullseye>;
 };
-
 SuccessPage.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
+  isEditMode: PropTypes.bool.isRequired,
 };
 
 export default SuccessPage;

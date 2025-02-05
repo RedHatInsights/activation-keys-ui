@@ -51,7 +51,6 @@ const ActivationKeyWizard = ({
   releaseVersions,
   handleModalToggle,
   isOpen,
-  CustomSuccessPage,
 }) => {
   const queryClient = useQueryClient();
   const {
@@ -103,6 +102,7 @@ const ActivationKeyWizard = ({
 
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
+    queryClient.invalidateQueries([`activation_key_${activationKey.name}`]);
     handleModalToggle();
   };
 
@@ -209,25 +209,14 @@ const ActivationKeyWizard = ({
     {
       id: 4,
       name: 'Finish',
-      component: CustomSuccessPage ? (
-        <CustomSuccessPage
-          isLoading={
-            isEditMode
-              ? updateActivationKeyIsLoading
-              : createActivationKeyIsLoading
-          }
-          name={name}
-          onClose={onClose}
-        />
-      ) : (
+      component: (
         <SuccessPage
           isLoading={
-            isEditMode
-              ? updateActivationKeyIsLoading
-              : createActivationKeyIsLoading
+            updateActivationKeyIsLoading && createActivationKeyIsLoading
           }
-          name={name}
+          name={isEditMode ? activationKey?.name : name}
           onClose={onClose}
+          isEditMode={isEditMode}
         />
       ),
       isFinishedStep: true,
@@ -265,9 +254,11 @@ const ActivationKeyWizard = ({
           navAriaLabel={`${mode} activation key steps`}
           mainAriaLabel={`${mode} activation key content`}
           onCurrentStepChanged={(step) => {
+            console.log('Current Step:', step.id, 'isEditMode:', isEditMode);
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
             if (step.id === 4) {
+              console.log('Attmepting to render SuccessPage in Edit Mode');
               const mutationFn = isEditMode
                 ? updateActivationKey
                 : createActivationKey;
@@ -315,7 +306,6 @@ const ActivationKeyWizard = ({
                   } else {
                     addSuccessNotification(`Activation key "${name}" created`);
                   }
-                  setCurrentStep(4);
                 },
                 onError: () => {
                   addErrorNotification(
