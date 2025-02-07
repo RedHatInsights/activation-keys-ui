@@ -122,7 +122,7 @@ const SetWorkloadPage = ({
               onChange={(_event, v) => setExtendedReleaseProduct(v)}
               value={extendedReleaseProduct}
               id="product"
-              isDisabled={isEditMode}
+              // isDisabled={isEditMode}
             >
               {data?.map((product, i) => (
                 <FormSelectOption

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, ModalVariant, Button } from '@patternfly/react-core';
 import { Wizard } from '@patternfly/react-core/deprecated';
 import PropTypes from 'prop-types';
@@ -13,7 +13,6 @@ import SuccessPage from '../Pages/SuccessPage';
 import useActivationKeys from '../../hooks/useActivationKeys';
 import NameAndDescriptionPage from '../Pages/NameAndDescriptionPage';
 import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
-
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
 const confirmCloseBody = <p>All inputs will be discarded.</p>;
@@ -27,14 +26,12 @@ const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
     </Button>
   </>
 );
-
 const nameRegex = /^([\w-_])+$/;
 const nameValidator = (newName, keyNames) => {
   const match =
     keyNames?.find((name) => {
       return name == newName;
     }) || [];
-
   return match.length == 0 && nameRegex.test(newName);
 };
 const descriptionValidator = (description) => {
@@ -44,7 +41,6 @@ const descriptionValidator = (description) => {
     (trimmedDescription.length > 0 && trimmedDescription.length <= 255)
   );
 };
-
 const ActivationKeyWizard = ({
   isEditMode,
   activationKey,
@@ -82,30 +78,40 @@ const ActivationKeyWizard = ({
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const isEUSKey = activationKey?.additionalRepositories?.some(
-    (repo) =>
-      repo.repositoryLabel.includes('eus') ||
-      repo.repositoryName.includes('Extended Update Support')
-  );
+  const isEUSKey = (activationKey) => {
+    return activationKey?.additionalRepositories?.some(
+      (repo) =>
+        repo.repositoryLabel.includes('eus') ||
+        repo.repositoryName.includes('Extended Update Support')
+    );
+  };
 
-  const [workload, setWorkload] = useState(
-    isEditMode && activationKey?.workload
-      ? activationKey.workload
-      : isEUSKey
-      ? 'Extended support releases'
-      : 'Latest release'
-  );
+  const [workload, setWorkload] = useState('Latest release');
+  useEffect(() => {
+    if (isEditMode && activationKey?.additionalRepositories) {
+      const previousWorkload = isEUSKey(activationKey)
+        ? 'Extended support release'
+        : 'Latest release';
 
+      if (workload !== previousWorkload) {
+        setWorkload(previousWorkload);
+      }
+      if (
+        previousWorkload === 'Extended support release' &&
+        activationKey?.releaseVersion
+      )
+        setExtendedReleaseVersion(activationKey.releaseVersion);
+    }
+  }, [isEditMode, activationKey]);
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
   const descriptionIsValid = descriptionValidator(description || '');
-
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
     queryClient.invalidateQueries([`activation_key_${activationKey.name}`]);
+    queryClient.resetQueries([`activation_key_${activationKey.name}`]);
     handleModalToggle();
   };
-
   const confirmClose = (onClose) => {
     if (shouldConfirmClose) {
       setIsConfirmClose(true);
@@ -113,16 +119,13 @@ const ActivationKeyWizard = ({
       onClose();
     }
   };
-
   const returnToWizard = () => {
     setIsConfirmClose(false);
   };
-
   const handleWorkloadChange = (newValue) => {
     setWorkload(newValue);
   };
   const mode = isEditMode ? 'Edit' : 'Create';
-
   const steps = [
     {
       id: 0,
@@ -205,7 +208,6 @@ const ActivationKeyWizard = ({
       isDisabled: !isEditMode && !nameIsValid,
       nextButtonText: isEditMode ? 'Update' : 'Create',
     },
-
     {
       id: 4,
       name: 'Finish',
