@@ -21,8 +21,6 @@ const ReviewActivationKeyPage = ({
   usage,
   isLoading,
   activationKey,
-  extendedReleaseProduct,
-  extendedReleaseVersion,
 }) => {
   if (isLoading) return <Loading />;
   const isEditMode = mode;
@@ -88,15 +86,6 @@ const ReviewActivationKeyPage = ({
             </DescriptionListDescription>
           </DescriptionListGroup>
         ))}
-        {workload?.includes('Extended') && (
-          <DescriptionListGroup>
-            <DescriptionListTerm>Extended Release Details</DescriptionListTerm>
-            <DescriptionListDescription>
-              <Text component="p">{extendedReleaseProduct}</Text>
-              <Text component="p">{extendedReleaseVersion}</Text>
-            </DescriptionListDescription>
-          </DescriptionListGroup>
-        )}
       </DescriptionList>
     </>
   );

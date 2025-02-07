@@ -78,31 +78,25 @@ const ActivationKeyWizard = ({
   const [isConfirmClose, setIsConfirmClose] = useState(false);
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const isEUSKey = (activationKey) => {
-    return activationKey?.additionalRepositories?.some(
-      (repo) =>
-        repo.repositoryLabel.includes('eus') ||
-        repo.repositoryName.includes('Extended Update Support')
-    );
-  };
-
-  const [workload, setWorkload] = useState('Latest release');
+  const [workload, setWorkload] = useState(() =>
+    isEditMode && activationKey?.releaseVersion
+      ? 'Extended support releases'
+      : 'Latest release'
+  );
   useEffect(() => {
-    if (isEditMode && activationKey?.additionalRepositories) {
-      const previousWorkload = isEUSKey(activationKey)
-        ? 'Extended support release'
+    if (isEditMode && activationKey) {
+      const previousWorkload = activationKey?.releaseVersion
+        ? 'Extended support releases'
         : 'Latest release';
 
       if (workload !== previousWorkload) {
         setWorkload(previousWorkload);
       }
-      if (
-        previousWorkload === 'Extended support release' &&
-        activationKey?.releaseVersion
-      )
-        setExtendedReleaseVersion(activationKey.releaseVersion);
+      if (previousWorkload === 'Extended support release')
+        setExtendedReleaseVersion(activationKey?.releaseVersion);
     }
   }, [isEditMode, activationKey]);
+
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
   const descriptionIsValid = descriptionValidator(description || '');
@@ -256,11 +250,9 @@ const ActivationKeyWizard = ({
           navAriaLabel={`${mode} activation key steps`}
           mainAriaLabel={`${mode} activation key content`}
           onCurrentStepChanged={(step) => {
-            console.log('Current Step:', step.id, 'isEditMode:', isEditMode);
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
             if (step.id === 4) {
-              console.log('Attmepting to render SuccessPage in Edit Mode');
               const mutationFn = isEditMode
                 ? updateActivationKey
                 : createActivationKey;

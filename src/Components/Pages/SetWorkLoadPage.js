@@ -117,22 +117,6 @@ const SetWorkloadPage = ({
       )}
       {workload === workloadOptions[1] && (
         <Form>
-          <FormGroup label="Product">
-            <FormSelect
-              onChange={(_event, v) => setExtendedReleaseProduct(v)}
-              value={extendedReleaseProduct}
-              id="product"
-              // isDisabled={isEditMode}
-            >
-              {data?.map((product, i) => (
-                <FormSelectOption
-                  key={i}
-                  value={product.name}
-                  label={product.name}
-                />
-              ))}
-            </FormSelect>
-          </FormGroup>
           <FormGroup label="Version">
             <FormSelect
               onChange={(_event, v) => setExtendedReleaseVersion(v)}
