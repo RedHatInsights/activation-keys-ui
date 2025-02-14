@@ -113,7 +113,8 @@ const ActivationKeyWizard = ({
     if (shouldConfirmClose) {
       setIsConfirmClose(true);
     } else {
-      handleModalToggle();    }
+      handleModalToggle();
+    }
   };
   const returnToWizard = () => {
     setIsConfirmClose(false);
@@ -260,7 +261,7 @@ const ActivationKeyWizard = ({
             if (step.id === 3) {
               setIsMutationLoading(true);
               setIsSuccess(false);
-              setIsError(false);
+              setIsError(isError);
               const mutationFn = isEditMode
                 ? updateActivationKey
                 : createActivationKey;
@@ -286,9 +287,9 @@ const ActivationKeyWizard = ({
                   };
               mutationFn(mutationData, {
                 onSuccess: (updatedData) => {
-                  setIsMutationLoading(false);
-                  setIsSuccess(true);
-                  setIsError(false);
+                  setIsMutationLoading(isMutationLoading);
+                  setIsSuccess(!isSuccess);
+                  setIsError(isError);
                   setCurrentStep(4);
                   if (isEditMode) {
                     queryClient.invalidateQueries([
@@ -303,9 +304,9 @@ const ActivationKeyWizard = ({
                   }
                 },
                 onError: () => {
-                  setIsMutationLoading(false);
-                  setIsError(true);
-                  setIsSuccess(false);
+                  setIsMutationLoading(isMutationLoading);
+                  setIsError(!isError);
+                  setIsSuccess(isSuccess);
                   addErrorNotification(
                     isEditMode
                       ? `Error updating activation key ${activationKey.name}.`
