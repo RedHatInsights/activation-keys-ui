@@ -41,6 +41,7 @@ const descriptionValidator = (description) => {
     (trimmedDescription.length > 0 && trimmedDescription.length <= 255)
   );
 };
+
 const ActivationKeyWizard = ({
   isEditMode,
   activationKey,
@@ -53,10 +54,7 @@ const ActivationKeyWizard = ({
     mutate: createActivationKey,
     isLoading: createActivationKeyIsLoading,
   } = useCreateActivationKey();
-  const {
-    mutate: updateActivationKey,
-    isLoading: updateActivationKeyIsLoading,
-  } = useUpdateActivationKey();
+  const { mutate: updateActivationKey } = useUpdateActivationKey();
   const {
     isLoading: attributesAreLoading,
     error,
@@ -72,6 +70,9 @@ const ActivationKeyWizard = ({
   const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
   const [extendedReleaseRepositories, setExtendedReleaseRepositories] =
     useState([]);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isMutationLoading, setIsMutationLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [role, setRole] = useState(activationKey?.role);
   const [sla, setSla] = useState(activationKey?.serviceLevel);
   const [usage, setUsage] = useState(activationKey?.usage);
@@ -102,16 +103,17 @@ const ActivationKeyWizard = ({
   const descriptionIsValid = descriptionValidator(description || '');
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
-    queryClient.invalidateQueries([`activation_key_${activationKey.name}`]);
-    queryClient.resetQueries([`activation_key_${activationKey.name}`]);
+    if (activationKey?.name) {
+      queryClient.invalidateQueries([`activation_key_${activationKey.name}`]);
+      queryClient.resetQueries([`activation_key_${activationKey.name}`]);
+    }
     handleModalToggle();
   };
-  const confirmClose = (onClose) => {
+  const confirmClose = () => {
     if (shouldConfirmClose) {
       setIsConfirmClose(true);
     } else {
-      onClose();
-    }
+      handleModalToggle();    }
   };
   const returnToWizard = () => {
     setIsConfirmClose(false);
@@ -207,9 +209,7 @@ const ActivationKeyWizard = ({
       name: 'Finish',
       component: (
         <SuccessPage
-          isLoading={
-            updateActivationKeyIsLoading && createActivationKeyIsLoading
-          }
+          isLoading={false}
           name={isEditMode ? activationKey?.name : name}
           onClose={onClose}
           isEditMode={isEditMode}
@@ -251,8 +251,16 @@ const ActivationKeyWizard = ({
           mainAriaLabel={`${mode} activation key content`}
           onCurrentStepChanged={(step) => {
             setShouldConfirmClose(step.id > 0 && step.id < 4);
-            setCurrentStep(step.id);
             if (step.id === 4) {
+              if (!isSuccess) {
+                return;
+              }
+            }
+            setCurrentStep(step.id);
+            if (step.id === 3) {
+              setIsMutationLoading(true);
+              setIsSuccess(false);
+              setIsError(false);
               const mutationFn = isEditMode
                 ? updateActivationKey
                 : createActivationKey;
@@ -278,22 +286,15 @@ const ActivationKeyWizard = ({
                   };
               mutationFn(mutationData, {
                 onSuccess: (updatedData) => {
+                  setIsMutationLoading(false);
+                  setIsSuccess(true);
+                  setIsError(false);
+                  setCurrentStep(4);
                   if (isEditMode) {
                     queryClient.invalidateQueries([
                       `activation_key_${activationKey.name}`,
                     ]);
-                    queryClient.setQueryData([`activation_key`], (prev) => {
-                      if (!prev) return prev;
-                      return prev.map((key) =>
-                        key.activationKeyName === activationKey.name
-                          ? { ...key, description: updatedData.description }
-                          : key
-                      );
-                    });
                     setDescription(updatedData.description);
-                    queryClient.resetQueries([
-                      `activation_key_${activationKey.name}`,
-                    ]);
                     addSuccessNotification(
                       `Changes saved for activation key "${activationKey.name}"`
                     );
@@ -302,16 +303,13 @@ const ActivationKeyWizard = ({
                   }
                 },
                 onError: () => {
+                  setIsMutationLoading(false);
+                  setIsError(true);
+                  setIsSuccess(false);
                   addErrorNotification(
                     isEditMode
                       ? `Error updating activation key ${activationKey.name}.`
-                      : 'Something went wrong',
-                    isEditMode
-                      ? undefined
-                      : {
-                          description:
-                            'Your changes could not be saved. Please try again.',
-                        }
+                      : 'Something went wrong.'
                   );
                   onClose();
                 },

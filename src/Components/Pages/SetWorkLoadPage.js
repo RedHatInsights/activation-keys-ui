@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 import useEusVersions from '../../hooks/useEusVersions';
 
 const SetWorkloadPage = ({
+  activationKey,
   isEditMode,
   releaseVersions,
   workloadOptions,
@@ -31,9 +32,12 @@ const SetWorkloadPage = ({
 
   useEffect(() => {
     if (workload.includes('Extended') && data?.length > 0) {
-      setExtendedReleaseProduct(extendedReleaseProduct || data[0]?.name);
+      setExtendedReleaseProduct((prev) => prev || data[0]?.name);
       setExtendedReleaseVersion(
-        extendedReleaseVersion || data[0]?.configurations[0]?.version
+        (prev) =>
+          prev ||
+          activationKey?.releaseVersion ||
+          data[0]?.configurations[0]?.version
       );
     } else {
       setExtendedReleaseProduct('');
@@ -120,7 +124,11 @@ const SetWorkloadPage = ({
           <FormGroup label="Version">
             <FormSelect
               onChange={(_event, v) => setExtendedReleaseVersion(v)}
-              value={extendedReleaseVersion || 'Not Defined'}
+              value={
+                extendedReleaseVersion ||
+                activationKey?.releaseVersion ||
+                'Not Defined'
+              }
               id="version"
             >
               {isEditMode
@@ -157,6 +165,7 @@ const SetWorkloadPage = ({
 };
 
 SetWorkloadPage.propTypes = {
+  activationKey: PropTypes.obj,
   isEditMode: PropTypes.bool,
   releaseVersions: PropTypes.array,
   workloadOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
