@@ -29,9 +29,10 @@ const AddAdditionalRepositoriesTable = (props) => {
 
   const sort_by_index = ['repo_name', 'repo_label'];
 
-  const [filter, setFilter] = useDebouncedState('', 300);
+  const [repoNameFilter, setRepoNameFilter] = useDebouncedState('', 300);
+  const [repoLabelFilter, setRepoLabelFilter] = useDebouncedState('', 300);
+  const [rpmTypeFilter, setRpmTypeFilter] = useState([]);
   const queryClient = useQueryClient();
-  const [filterBy, setFilterBy] = useState('repo_name');
   const [onlyShowSelectedRepositories, setOnlyShowSelectedRepositories] =
     useState(false);
   const [page, setPage] = useState(1);
@@ -42,19 +43,59 @@ const AddAdditionalRepositoriesTable = (props) => {
   const friendlyNameMap = {
     repo_name: 'Name',
     repo_label: 'Label',
+    rpm_type: 'RPM Type',
+  };
+
+  const filters = {
+    repo_name: { value: repoNameFilter, set: setRepoNameFilter },
+    repo_label: { value: repoLabelFilter, set: setRepoLabelFilter },
+    rpm_type: {
+      value: rpmTypeFilter,
+      set: setRpmTypeFilter,
+      opts: ['binary', 'debug', 'source'],
+      placeholder: 'Type',
+    },
   };
 
   const attrMap = {
     repo_name: 'repositoryName',
     repo_label: 'repositoryLabel',
+    rpm_type: 'rpmType',
+  };
+
+  const matchFilters = (repository) => {
+    for (const [k, filter] of Object.entries(filters)) {
+      if (!Array.isArray(filter.value)) {
+        if (
+          !repository[attrMap[k]]
+            .toLowerCase()
+            .includes(filter.value.toLowerCase())
+        ) {
+          return false;
+        }
+      } else {
+        if (
+          filter.value.length > 0 &&
+          filter.value.filter((option) =>
+            repository[attrMap[k]].toLowerCase().includes(option.toLowerCase())
+          ).length == 0
+        ) {
+          return false;
+        }
+      }
+    }
+    return true;
   };
 
   const { data: repositoriesData, isLoading } = useAvailableRepositories(
     keyName,
     page,
     perPage,
-    filterBy,
-    filter,
+    {
+      repo_name: repoNameFilter,
+      repo_label: repoLabelFilter,
+      rpm_type: rpmTypeFilter,
+    },
     activeSortBy,
     activeSortDirection
   );
@@ -63,7 +104,7 @@ const AddAdditionalRepositoriesTable = (props) => {
 
   useEffect(() => {
     setPage(1);
-  }, [onlyShowSelectedRepositories, filter]);
+  }, [onlyShowSelectedRepositories, JSON.stringify(filters)]);
 
   useEffect(() => {
     prefetchNextPage(
@@ -71,12 +112,15 @@ const AddAdditionalRepositoriesTable = (props) => {
       keyName,
       page + 1,
       perPage,
-      filterBy,
-      filter,
+      {
+        repo_name: repoNameFilter,
+        repo_label: repoLabelFilter,
+        rpm_type: rpmTypeFilter,
+      },
       activeSortBy,
       activeSortDirection
     );
-  }, [page, perPage, filter]);
+  }, [page, perPage, JSON.stringify(filters)]);
 
   const getSortParams = (columnIndex) => ({
     sortBy: {
@@ -112,15 +156,7 @@ const AddAdditionalRepositoriesTable = (props) => {
   );
 
   const displayedSelectedRepos = selectedRepositories
-    .filter((repo) => {
-      if (filter == '') {
-        return true;
-      } else {
-        return repo[attrMap[filterBy]]
-          .toLowerCase()
-          .includes(filter.toLowerCase());
-      }
-    })
+    .filter((repo) => matchFilters(repo))
     .filter((_, i) => {
       return i >= (page - 1) * perPage && i < page * perPage;
     })
@@ -148,7 +184,18 @@ const AddAdditionalRepositoriesTable = (props) => {
       </EmptyStateBody>
       <EmptyStateFooter>
         <EmptyStateActions>
-          <Button variant="link" onClick={() => setFilter('')}>
+          <Button
+            variant="link"
+            onClick={() => {
+              Object.values(filters).forEach((filter) => {
+                if (Array.isArray(filter.value)) {
+                  filter.set([]);
+                } else {
+                  filter.set('');
+                }
+              });
+            }}
+          >
             Clear all filters
           </Button>
         </EmptyStateActions>
@@ -160,10 +207,7 @@ const AddAdditionalRepositoriesTable = (props) => {
     <>
       <AddAdditionalRepositoriesToolbar
         friendlyNameMap={friendlyNameMap}
-        filter={filter}
-        setFilter={setFilter}
-        filterBy={filterBy}
-        setFilterBy={setFilterBy}
+        filters={filters}
         dropdownSelectisDisabled={isSubmitting}
         selectedOnlyToggleIsDisabled={
           (!onlyShowSelectedRepositories &&
@@ -179,8 +223,8 @@ const AddAdditionalRepositoriesTable = (props) => {
         <Thead>
           <Tr>
             <Th />
-            <Th sort={getSortParams(0)}>{friendlyNameMap.repositoryName}</Th>
-            <Th sort={getSortParams(1)}>{friendlyNameMap.repositoryLabel}</Th>
+            <Th sort={getSortParams(0)}>{friendlyNameMap.repo_name}</Th>
+            <Th sort={getSortParams(1)}>{friendlyNameMap.repo_label}</Th>
           </Tr>
         </Thead>
         <Tbody>
