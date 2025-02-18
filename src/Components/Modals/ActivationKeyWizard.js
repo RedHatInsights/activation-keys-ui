@@ -54,7 +54,10 @@ const ActivationKeyWizard = ({
     mutate: createActivationKey,
     isLoading: createActivationKeyIsLoading,
   } = useCreateActivationKey();
-  const { mutate: updateActivationKey } = useUpdateActivationKey();
+  const {
+    mutate: updateActivationKey,
+    isLoading: updateActivationKeyIsLoading,
+  } = useUpdateActivationKey();
   const {
     isLoading: attributesAreLoading,
     error,
@@ -113,7 +116,7 @@ const ActivationKeyWizard = ({
     if (shouldConfirmClose) {
       setIsConfirmClose(true);
     } else {
-      handleModalToggle();
+      onClose();
     }
   };
   const returnToWizard = () => {
@@ -197,7 +200,9 @@ const ActivationKeyWizard = ({
           role={role}
           sla={sla}
           usage={usage}
-          isLoading={createActivationKeyIsLoading}
+          isLoading={
+            createActivationKeyIsLoading || updateActivationKeyIsLoading
+          }
           extendedReleaseProduct={extendedReleaseProduct}
           extendedReleaseVersion={extendedReleaseVersion}
         />
@@ -208,14 +213,16 @@ const ActivationKeyWizard = ({
     {
       id: 4,
       name: 'Finish',
-      component: (
+      component: isSuccess ? (
         <SuccessPage
-          isLoading={false}
-          name={isEditMode ? activationKey?.name : name}
+          isLoading={
+            createActivationKeyIsLoading || updateActivationKeyIsLoading
+          }
+          name={activationKey?.name}
           onClose={onClose}
           isEditMode={isEditMode}
         />
-      ),
+      ) : null,
       isFinishedStep: true,
     },
   ];
@@ -252,13 +259,8 @@ const ActivationKeyWizard = ({
           mainAriaLabel={`${mode} activation key content`}
           onCurrentStepChanged={(step) => {
             setShouldConfirmClose(step.id > 0 && step.id < 4);
-            if (step.id === 4) {
-              if (!isSuccess) {
-                return;
-              }
-            }
             setCurrentStep(step.id);
-            if (step.id === 3) {
+            if (step.id === 4) {
               setIsMutationLoading(true);
               setIsSuccess(false);
               setIsError(isError);
@@ -290,7 +292,6 @@ const ActivationKeyWizard = ({
                   setIsMutationLoading(isMutationLoading);
                   setIsSuccess(!isSuccess);
                   setIsError(isError);
-                  setCurrentStep(4);
                   if (isEditMode) {
                     queryClient.invalidateQueries([
                       `activation_key_${activationKey.name}`,
@@ -302,6 +303,7 @@ const ActivationKeyWizard = ({
                   } else {
                     addSuccessNotification(`Activation key "${name}" created`);
                   }
+                  setCurrentStep(4);
                 },
                 onError: () => {
                   setIsMutationLoading(isMutationLoading);
@@ -312,7 +314,7 @@ const ActivationKeyWizard = ({
                       ? `Error updating activation key ${activationKey.name}.`
                       : 'Something went wrong.'
                   );
-                  onClose();
+                  handleModalToggle();
                 },
               });
             }
