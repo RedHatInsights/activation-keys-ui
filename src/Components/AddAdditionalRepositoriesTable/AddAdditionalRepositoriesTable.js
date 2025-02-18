@@ -32,6 +32,7 @@ const AddAdditionalRepositoriesTable = (props) => {
   const [repoNameFilter, setRepoNameFilter] = useDebouncedState('', 300);
   const [repoLabelFilter, setRepoLabelFilter] = useDebouncedState('', 300);
   const [rpmTypeFilter, setRpmTypeFilter] = useState([]);
+  const [architectureFilter, setArchitectureFilter] = useState([]);
   const queryClient = useQueryClient();
   const [onlyShowSelectedRepositories, setOnlyShowSelectedRepositories] =
     useState(false);
@@ -44,6 +45,7 @@ const AddAdditionalRepositoriesTable = (props) => {
     repo_name: 'Name',
     repo_label: 'Label',
     rpm_type: 'RPM Type',
+    architecture: 'Architecture',
   };
 
   const filters = {
@@ -55,12 +57,19 @@ const AddAdditionalRepositoriesTable = (props) => {
       opts: ['binary', 'debug', 'source'],
       placeholder: 'Type',
     },
+    architecture: {
+      value: architectureFilter,
+      set: setArchitectureFilter,
+      opts: ['aarch64', 'ia64', 'ppc', 's390x', 'x86'],
+      placeholder: 'Type',
+    },
   };
 
   const attrMap = {
     repo_name: 'repositoryName',
     repo_label: 'repositoryLabel',
     rpm_type: 'rpmType',
+    architecture: 'architecture',
   };
 
   const matchFilters = (repository) => {
@@ -95,6 +104,7 @@ const AddAdditionalRepositoriesTable = (props) => {
       repo_name: repoNameFilter,
       repo_label: repoLabelFilter,
       rpm_type: rpmTypeFilter,
+      architecture: architectureFilter,
     },
     activeSortBy,
     activeSortDirection
@@ -116,6 +126,7 @@ const AddAdditionalRepositoriesTable = (props) => {
         repo_name: repoNameFilter,
         repo_label: repoLabelFilter,
         rpm_type: rpmTypeFilter,
+        architecture: architectureFilter,
       },
       activeSortBy,
       activeSortDirection
@@ -136,27 +147,11 @@ const AddAdditionalRepositoriesTable = (props) => {
     columnIndex,
   });
 
-  const pagination = (
-    <Pagination
-      itemCount={
-        onlyShowSelectedRepositories
-          ? selectedRepositories.length
-          : repositoriesData?.pagination.total
-      }
-      perPage={perPage}
-      page={page}
-      onSetPage={(_, newPage) => setPage(newPage)}
-      onPerPageSelect={(_, newPerPage, newPage) => {
-        setPerPage(newPerPage);
-        setPage(newPage);
-      }}
-      isCompact
-      isDisabled={isSubmitting}
-    />
+  const filteredRepos = selectedRepositories.filter((repo) =>
+    matchFilters(repo)
   );
 
-  const displayedSelectedRepos = selectedRepositories
-    .filter((repo) => matchFilters(repo))
+  const displayedSelectedRepos = filteredRepos
     .filter((_, i) => {
       return i >= (page - 1) * perPage && i < page * perPage;
     })
@@ -171,6 +166,25 @@ const AddAdditionalRepositoriesTable = (props) => {
       }
       return activeSortDirection == 'asc' ? res : res * -1;
     });
+
+  const pagination = (
+    <Pagination
+      itemCount={
+        onlyShowSelectedRepositories
+          ? filteredRepos.length
+          : repositoriesData?.pagination.total
+      }
+      perPage={perPage}
+      page={page}
+      onSetPage={(_, newPage) => setPage(newPage)}
+      onPerPageSelect={(_, newPerPage, newPage) => {
+        setPerPage(newPerPage);
+        setPage(newPage);
+      }}
+      isCompact
+      isDisabled={isSubmitting}
+    />
+  );
 
   const emptyState = (
     <EmptyState>
@@ -275,7 +289,9 @@ const AddAdditionalRepositoriesTable = (props) => {
                 <Td>{repository.repositoryLabel}</Td>
               </Tr>
             ))}
-          {repositoriesData && repositoriesData.body.length === 0 && (
+          {((repositoriesData && repositoriesData.body.length === 0) ||
+            (onlyShowSelectedRepositories &&
+              displayedSelectedRepos.length === 0)) && (
             <Tr>
               <Td colSpan={8}>
                 <Bullseye>{emptyState}</Bullseye>
