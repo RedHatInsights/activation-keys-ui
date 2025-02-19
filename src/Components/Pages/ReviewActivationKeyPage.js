@@ -21,6 +21,8 @@ const ReviewActivationKeyPage = ({
   usage,
   isLoading,
   activationKey,
+  extendedReleaseProduct,
+  extendedReleaseVersion,
 }) => {
   if (isLoading) return <Loading />;
   const isEditMode = mode;
@@ -37,9 +39,28 @@ const ReviewActivationKeyPage = ({
     },
     {
       term: 'Workload',
-      original: activationKey?.workload || 'Not Defined',
+      original:
+        isEditMode && activationKey?.releaseVersion
+          ? 'Extended support releases'
+          : 'Latest release',
       updated: workload || 'Not Defined',
     },
+  ];
+  if (workload === 'Extended support releases') {
+    rows.push(
+      {
+        term: '',
+        original: activationKey?.releaseProduct || 'Not Defined',
+        updated: extendedReleaseProduct || 'Not Defined',
+      },
+      {
+        term: '',
+        original: activationKey?.releaseVersion || 'Not Defined',
+        updated: extendedReleaseVersion || 'Not Defined',
+      }
+    );
+  }
+  rows.push(
     {
       term: 'Role',
       original: activationKey?.role || 'Not Defined',
@@ -54,8 +75,10 @@ const ReviewActivationKeyPage = ({
       term: 'Usage',
       original: activationKey?.usage || 'Not Defined',
       updated: usage || 'Not Defined',
-    },
-  ];
+    }
+  );
+
+  console.log('Version:', activationKey?.releaseVersion);
   return (
     <>
       <Title headingLevel="h2" className="pf-v5-u-mb-sm">
@@ -100,6 +123,8 @@ ReviewActivationKeyPage.propTypes = {
     role: PropTypes.string,
     serviceLevel: PropTypes.string,
     usage: PropTypes.string,
+    releaseVersion: PropTypes.string,
+    releaseProduct: PropTypes.string,
   }),
   name: PropTypes.string.isRequired,
   description: PropTypes.string,

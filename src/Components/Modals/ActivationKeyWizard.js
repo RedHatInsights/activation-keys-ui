@@ -213,16 +213,18 @@ const ActivationKeyWizard = ({
     {
       id: 4,
       name: 'Finish',
-      component: isSuccess ? (
+      component: (
         <SuccessPage
           isLoading={
-            createActivationKeyIsLoading || updateActivationKeyIsLoading
+            createActivationKeyIsLoading ||
+            updateActivationKeyIsLoading ||
+            isMutationLoading
           }
           name={activationKey?.name}
           onClose={onClose}
           isEditMode={isEditMode}
         />
-      ) : null,
+      ),
       isFinishedStep: true,
     },
   ];
