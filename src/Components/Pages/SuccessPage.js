@@ -19,8 +19,9 @@ const SuccessPage = ({ isLoading, name, onClose, isEditMode }) => {
     ? 'Edit activation key'
     : 'Activation key created';
   const bodyText = isEditMode
-    ? `You are now editing the activation key: ${name}. Click "View activation key" to modify its settings.`
+    ? `${name} has been edited and is now ready for use. Click View activation key to view the change(s) in the details page.`
     : `${name} is now available for use. Click "View activation key" to edit settings or add repositories.`;
+
   const content = isLoading ? (
     <Spinner />
   ) : (
@@ -34,7 +35,10 @@ const SuccessPage = ({ isLoading, name, onClose, isEditMode }) => {
       <EmptyStateFooter>
         <Button
           variant="primary"
-          onClick={() => navigate(`/activation-keys/${name}`)}
+          onClick={() => {
+            onClose();
+            navigate(`/activation-keys/${name}`);
+          }}
         >
           View activation key
         </Button>

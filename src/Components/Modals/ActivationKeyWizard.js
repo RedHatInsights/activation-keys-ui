@@ -220,7 +220,7 @@ const ActivationKeyWizard = ({
             updateActivationKeyIsLoading ||
             isMutationLoading
           }
-          name={activationKey?.name}
+          name={isEditMode ? activationKey?.name : name}
           onClose={onClose}
           isEditMode={isEditMode}
         />

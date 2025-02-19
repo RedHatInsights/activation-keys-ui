@@ -71,7 +71,6 @@ const SetWorkloadPage = ({
       </Text>
       {!isLoading ? (
         workloadOptions.map((wl, i) => {
-          console.log('wl:', wl, ' workload:', workload);
           const isDisabled = i === 1 && error === 400;
           return (
             <Tooltip
