@@ -74,7 +74,7 @@ const ActivationKeyWizard = ({
   const [extendedReleaseRepositories, setExtendedReleaseRepositories] =
     useState([]);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isMutationLoading, setIsMutationLoading] = useState(false);
+  // const [isMutationLoading, setIsMutationLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [role, setRole] = useState(activationKey?.role);
   const [sla, setSla] = useState(activationKey?.serviceLevel);
@@ -216,9 +216,7 @@ const ActivationKeyWizard = ({
       component: (
         <SuccessPage
           isLoading={
-            createActivationKeyIsLoading ||
-            updateActivationKeyIsLoading ||
-            isMutationLoading
+            createActivationKeyIsLoading || updateActivationKeyIsLoading
           }
           name={isEditMode ? activationKey?.name : name}
           onClose={onClose}
@@ -263,7 +261,6 @@ const ActivationKeyWizard = ({
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
             if (step.id === 4) {
-              setIsMutationLoading(true);
               setIsSuccess(false);
               setIsError(isError);
               const mutationFn = isEditMode
@@ -291,7 +288,6 @@ const ActivationKeyWizard = ({
                   };
               mutationFn(mutationData, {
                 onSuccess: (updatedData) => {
-                  setIsMutationLoading(isMutationLoading);
                   setIsSuccess(!isSuccess);
                   setIsError(isError);
                   if (isEditMode) {
@@ -308,7 +304,6 @@ const ActivationKeyWizard = ({
                   setCurrentStep(4);
                 },
                 onError: () => {
-                  setIsMutationLoading(isMutationLoading);
                   setIsError(!isError);
                   setIsSuccess(isSuccess);
                   addErrorNotification(
