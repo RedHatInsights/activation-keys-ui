@@ -66,7 +66,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                 class="pf-v5-c-wizard__title-text"
                 id="pf-wizard-title-6"
               >
-                Create activation key
+                Create activation key 
               </h2>
             </div>
           </div>
@@ -468,7 +468,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                 class="pf-v5-c-wizard__title-text"
                 id="pf-wizard-title-5"
               >
-                Create activation key
+                Create activation key 
               </h2>
             </div>
           </div>
@@ -870,7 +870,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                 class="pf-v5-c-wizard__title-text"
                 id="pf-wizard-title-7"
               >
-                Create activation key
+                Create activation key 
               </h2>
             </div>
           </div>
@@ -1272,7 +1272,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                 class="pf-v5-c-wizard__title-text"
                 id="pf-wizard-title-0"
               >
-                Create activation key
+                Create activation key 
               </h2>
             </div>
           </div>
@@ -1674,7 +1674,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                 class="pf-v5-c-wizard__title-text"
                 id="pf-wizard-title-1"
               >
-                Create activation key
+                Create activation key 
               </h2>
             </div>
           </div>
@@ -2076,7 +2076,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                 class="pf-v5-c-wizard__title-text"
                 id="pf-wizard-title-2"
               >
-                Create activation key
+                Create activation key 
               </h2>
             </div>
           </div>
@@ -2478,7 +2478,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                 class="pf-v5-c-wizard__title-text"
                 id="pf-wizard-title-3"
               >
-                Create activation key
+                Create activation key 
               </h2>
             </div>
           </div>
@@ -2880,7 +2880,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                 class="pf-v5-c-wizard__title-text"
                 id="pf-wizard-title-4"
               >
-                Create activation key
+                Create activation key 
               </h2>
             </div>
           </div>

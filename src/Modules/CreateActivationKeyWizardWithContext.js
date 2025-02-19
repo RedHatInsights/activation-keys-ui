@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { init, RegistryContext } from '../store';
 import logger from 'redux-logger';
 import Authentication from '../Components/Authentication';
-import CreateActivationKeyWizard from '../Components/Modals/CreateActivationKeyWizard';
+import ActivationKeyWizard from '../Components/Modals/ActivationKeyWizard';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,7 +29,7 @@ const CreateActivationKeyWizardWithContext = (props) => {
       >
         <Provider store={registry.getStore()}>
           <Authentication>
-            <CreateActivationKeyWizard {...props} />
+            <ActivationKeyWizard {...props} />
           </Authentication>
         </Provider>
       </RegistryContext.Provider>
