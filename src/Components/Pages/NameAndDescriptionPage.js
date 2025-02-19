@@ -41,7 +41,6 @@ const NameAndDescriptionPage = ({
 NameAndDescriptionPage.propTypes = {
   mode: PropTypes.oneOf(['create', 'edit']).isRequired,
   name: PropTypes.string.isRequired,
-  activationKey: PropTypes.object.isRequired,
   setName: PropTypes.func.isRequired,
   nameIsValid: PropTypes.bool.isRequired,
   description: PropTypes.string,

@@ -73,8 +73,6 @@ const ActivationKeyWizard = ({
   const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
   const [extendedReleaseRepositories, setExtendedReleaseRepositories] =
     useState([]);
-  const [isSuccess, setIsSuccess] = useState(false);
-  // const [isMutationLoading, setIsMutationLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [role, setRole] = useState(activationKey?.role);
   const [sla, setSla] = useState(activationKey?.serviceLevel);
@@ -122,9 +120,7 @@ const ActivationKeyWizard = ({
   const returnToWizard = () => {
     setIsConfirmClose(false);
   };
-  const handleWorkloadChange = (newValue) => {
-    setWorkload(newValue);
-  };
+
   const mode = isEditMode ? 'Edit' : 'Create';
   const steps = [
     {
@@ -157,7 +153,7 @@ const ActivationKeyWizard = ({
           workloadOptions={workloadOptions}
           releaseVersions={releaseVersions || []}
           workload={workload}
-          setWorkload={handleWorkloadChange}
+          setWorkload={setWorkload}
           extendedReleaseProduct={extendedReleaseProduct}
           setExtendedReleaseProduct={setExtendedReleaseProduct}
           extendedReleaseVersion={extendedReleaseVersion}
@@ -261,7 +257,6 @@ const ActivationKeyWizard = ({
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
             if (step.id === 4) {
-              setIsSuccess(false);
               setIsError(isError);
               const mutationFn = isEditMode
                 ? updateActivationKey
@@ -288,7 +283,6 @@ const ActivationKeyWizard = ({
                   };
               mutationFn(mutationData, {
                 onSuccess: (updatedData) => {
-                  setIsSuccess(!isSuccess);
                   setIsError(isError);
                   if (isEditMode) {
                     queryClient.invalidateQueries([
@@ -305,7 +299,6 @@ const ActivationKeyWizard = ({
                 },
                 onError: () => {
                   setIsError(!isError);
-                  setIsSuccess(isSuccess);
                   addErrorNotification(
                     isEditMode
                       ? `Error updating activation key ${activationKey.name}.`

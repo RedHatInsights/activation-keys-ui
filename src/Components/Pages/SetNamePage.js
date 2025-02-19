@@ -58,7 +58,6 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
 };
 
 SetNamePage.propTypes = {
-  mode: PropTypes.oneOf(['create', 'edit']).isRequired,
   name: PropTypes.string.isRequired,
   setName: PropTypes.func.isRequired,
   nameIsValid: PropTypes.bool.isRequired,
