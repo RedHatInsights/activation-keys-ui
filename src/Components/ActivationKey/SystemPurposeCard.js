@@ -10,21 +10,11 @@ import { TextListVariants } from '@patternfly/react-core/dist/dynamic/components
 import { TextListItem } from '@patternfly/react-core/dist/dynamic/components/Text';
 import { TextListItemVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
-import EditButton from './EditButton';
 import propTypes from 'prop-types';
 import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
-import NoAccessPopover from '../NoAccessPopover';
-import { useQueryClient } from '@tanstack/react-query';
 
-const SystemPurposeCard = (props) => {
-  const { activationKey, actionHandler } = props;
+const SystemPurposeCard = ({ activationKey }) => {
   const notDefinedText = 'Not defined';
-  const queryClient = useQueryClient();
-  const user = queryClient.getQueryData(['user']);
-
-  const ButtonWrapper = () => {
-    return <EditButton onClick={actionHandler} />;
-  };
 
   const docsPopoverContent = (
     <TextContent>
@@ -38,21 +28,7 @@ const SystemPurposeCard = (props) => {
   );
   return (
     <Card>
-      <CardHeader
-        actions={{
-          actions: (
-            <>
-              {user.rbacPermissions.canWriteActivationKeys ? (
-                <ButtonWrapper />
-              ) : (
-                <NoAccessPopover content={ButtonWrapper} />
-              )}
-            </>
-          ),
-          hasNoOffset: false,
-          className: 'SystemPurposeCardHeader',
-        }}
-      >
+      <CardHeader hasNoOffset={false} className="SystemPurposeCardHeader">
         <CardTitle>
           <Title headingLevel="h2">
             System Purpose{' '}
@@ -97,7 +73,6 @@ const SystemPurposeCard = (props) => {
 
 SystemPurposeCard.propTypes = {
   activationKey: propTypes.object,
-  actionHandler: propTypes.func,
 };
 
 export default SystemPurposeCard;
