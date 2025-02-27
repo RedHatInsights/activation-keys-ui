@@ -2,7 +2,14 @@ import { useMutation } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const activationKeyMutation = (token) => async (data) => {
-  const { activationKeyName, role, serviceLevel, usage, releaseVersion } = data;
+  const {
+    activationKeyName,
+    role,
+    serviceLevel,
+    usage,
+    releaseVersion,
+    description,
+  } = data;
 
   const response = await fetch(
     `/api/rhsm/v2/activation_keys/${activationKeyName}`,
@@ -17,6 +24,7 @@ const activationKeyMutation = (token) => async (data) => {
         serviceLevel,
         usage,
         releaseVersion,
+        description,
       }),
     }
   );
@@ -25,6 +33,7 @@ const activationKeyMutation = (token) => async (data) => {
       `Status Code ${response.status}.  Error updating activation key: ${response.statusText}.`
     );
   }
+
   return response.json();
 };
 
