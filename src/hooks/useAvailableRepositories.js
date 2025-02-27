@@ -6,8 +6,7 @@ const fetchAdditionalRepositories = async (
   keyName,
   limit,
   offset = 0,
-  filterBy = '',
-  filter = '',
+  filters = {},
   sortBy = '',
   sortDirection = ''
 ) => {
@@ -15,8 +14,27 @@ const fetchAdditionalRepositories = async (
     return false;
   }
 
+  const filterQuery = Object.entries(filters)
+    .map(([k, v]) => {
+      if (k == 'rpm_type') {
+        v = v.map((v) => {
+          if (v == 'binary') {
+            return 'binary,binary_image,binary_iso';
+          }
+          if (v == 'debug') {
+            return 'debug';
+          }
+          if (v == 'source') {
+            return 'source,source_iso';
+          }
+        });
+      }
+      return `${k}=${v}`;
+    })
+    .join('&');
+
   const response = await fetch(
-    `/api/rhsm/v2/activation_keys/${keyName}/available_repositories?default=Disabled&limit=${limit}&offset=${offset}&${filterBy}=${filter}&sort_by=${sortBy}&sort_direction=${sortDirection}`,
+    `/api/rhsm/v2/activation_keys/${keyName}/available_repositories?default=Disabled&limit=${limit}&offset=${offset}&${filterQuery}&sort_by=${sortBy}&sort_direction=${sortDirection}`,
     {
       headers: { Authorization: `Bearer ${await token}` },
     }
@@ -34,8 +52,7 @@ const useAvailableRepositories = (
   keyName,
   page,
   pageSize,
-  filterBy,
-  filter,
+  filters,
   sortBy,
   sortDirection
 ) => {
@@ -47,8 +64,7 @@ const useAvailableRepositories = (
       `activation_key_${keyName}_available_repositories`,
       page,
       pageSize,
-      filterBy,
-      filter,
+      filters,
       sortBy,
       sortDirection,
     ],
@@ -58,8 +74,7 @@ const useAvailableRepositories = (
         keyName,
         pageSize,
         (page - 1) * pageSize,
-        filterBy,
-        filter,
+        filters,
         sortBy,
         sortDirection
       )
@@ -74,8 +89,7 @@ const usePrefetchAvailableRepositoriesNextPage = () => {
     keyName,
     page,
     pageSize,
-    filterBy,
-    filter,
+    filters,
     sortBy,
     sortDirection
   ) => {
@@ -86,8 +100,7 @@ const usePrefetchAvailableRepositoriesNextPage = () => {
         `activation_key_${keyName}_available_repositories`,
         page,
         pageSize,
-        filterBy,
-        filter,
+        filters,
         sortBy,
         sortDirection,
       ],
@@ -97,8 +110,7 @@ const usePrefetchAvailableRepositoriesNextPage = () => {
           keyName,
           pageSize,
           (page - 1) * pageSize,
-          filterBy,
-          filter,
+          filters,
           sortBy,
           sortDirection
         ),
