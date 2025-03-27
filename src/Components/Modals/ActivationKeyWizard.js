@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, ModalVariant, Button } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import { Wizard } from '@patternfly/react-core/deprecated';
 import PropTypes from 'prop-types';
 import useCreateActivationKey from '../../hooks/useCreateActivationKey';
@@ -13,6 +15,9 @@ import SuccessPage from '../Pages/SuccessPage';
 import useActivationKeys from '../../hooks/useActivationKeys';
 import NameAndDescriptionPage from '../Pages/NameAndDescriptionPage';
 import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
+import useDeleteAdditionalRepositories from '../../hooks/useDeleteAdditionalRepositories';
+import useAddAdditionalRepositories from '../../hooks/useAddAdditionalRepositories';
+
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
 const confirmCloseBody = <p>All inputs will be discarded.</p>;
@@ -45,7 +50,6 @@ const descriptionValidator = (description) => {
 const ActivationKeyWizard = ({
   isEditMode,
   activationKey,
-  releaseVersions,
   handleModalToggle,
   isOpen,
 }) => {
@@ -63,6 +67,14 @@ const ActivationKeyWizard = ({
     error,
     data,
   } = useSystemPurposeAttributes();
+  const {
+    mutate: deleteAdditionalRepositories,
+    isLoading: isDeleteAdditionalRepositoriesLoading,
+  } = useDeleteAdditionalRepositories();
+  const {
+    mutate: addAdditionalRepositories,
+    isLoading: isAddAdditionRepositoriesLoading,
+  } = useAddAdditionalRepositories();
   const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
@@ -73,7 +85,6 @@ const ActivationKeyWizard = ({
   const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
   const [extendedReleaseRepositories, setExtendedReleaseRepositories] =
     useState([]);
-  const [isError, setIsError] = useState(false);
   const [role, setRole] = useState(activationKey?.role);
   const [sla, setSla] = useState(activationKey?.serviceLevel);
   const [usage, setUsage] = useState(activationKey?.usage);
@@ -121,6 +132,97 @@ const ActivationKeyWizard = ({
     setIsConfirmClose(false);
   };
 
+  const saveChanges = () => {
+    const mutationFn = isEditMode ? updateActivationKey : createActivationKey;
+    const mutationData = {
+      name: isEditMode ? activationKey.name : name,
+      description,
+      role,
+      serviceLevel: sla,
+      usage,
+      additionalRepositories:
+        workload.includes('Extended') && !isEditMode
+          ? extendedReleaseRepositories
+          : undefined,
+      releaseVersion: extendedReleaseVersion,
+    };
+
+    if (isEditMode) {
+      // missing repos it should have
+      const missing = extendedReleaseRepositories.filter((label) => {
+        return (
+          activationKey.additionalRepositories.findIndex(
+            (cur) => cur.label == label
+          ) == -1
+        );
+      });
+
+      // has repos it shouldn't have
+      const extra = activationKey.additionalRepositories.filter((repo) => {
+        return (
+          extendedReleaseRepositories.findIndex(
+            (label) => label == repo.label
+          ) == -1
+        );
+      });
+
+      if (missing.length != 0 || extra.length != 0) {
+        // Clear all repos and add new ones
+        deleteAdditionalRepositories(
+          {
+            name: activationKey.name,
+            payload: activationKey.additionalRepositories,
+          },
+          {
+            onError: () => {
+              addErrorNotification('Error updating additional repositories');
+            },
+            onSuccess: () => {
+              if (extendedReleaseRepositories.length > 0) {
+                addAdditionalRepositories(
+                  {
+                    keyName: activationKey.name,
+                    selectedRepositories: extendedReleaseRepositories.map(
+                      (r) => ({
+                        repositoryLabel: r,
+                      })
+                    ),
+                  },
+                  {
+                    onError: () => {
+                      addErrorNotification(
+                        'Error updating additional repositories'
+                      );
+                    },
+                  }
+                );
+              }
+            },
+          }
+        );
+      }
+    }
+
+    mutationFn(mutationData, {
+      onSuccess: () => {
+        addSuccessNotification(
+          isEditMode
+            ? `Changes saved for activation key "${activationKey.name}"`
+            : `Activation key "${name}" created`
+        );
+        setCurrentStep(4);
+      },
+      onError: () => {
+        addErrorNotification(
+          isEditMode
+            ? `Error updating activation key ${activationKey.name}.`
+            : 'Something went wrong.'
+        );
+        handleModalToggle();
+      },
+    });
+  };
+
   const mode = isEditMode ? 'Edit' : 'Create';
   const steps = [
     {
@@ -151,7 +253,6 @@ const ActivationKeyWizard = ({
           activationKey={activationKey}
           isEditMode={isEditMode}
           workloadOptions={workloadOptions}
-          releaseVersions={releaseVersions || []}
           workload={workload}
           setWorkload={setWorkload}
           extendedReleaseProduct={extendedReleaseProduct}
@@ -212,7 +313,10 @@ const ActivationKeyWizard = ({
       component: (
         <SuccessPage
           isLoading={
-            createActivationKeyIsLoading || updateActivationKeyIsLoading
+            createActivationKeyIsLoading ||
+            updateActivationKeyIsLoading ||
+            isDeleteAdditionalRepositoriesLoading ||
+            isAddAdditionRepositoriesLoading
           }
           name={isEditMode ? activationKey?.name : name}
           onClose={onClose}
@@ -257,56 +361,7 @@ const ActivationKeyWizard = ({
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
             if (step.id === 4) {
-              setIsError(isError);
-              const mutationFn = isEditMode
-                ? updateActivationKey
-                : createActivationKey;
-              const mutationData = isEditMode
-                ? {
-                    activationKeyName: activationKey.name,
-                    description,
-                    role,
-                    serviceLevel: sla,
-                    usage,
-                    releaseVersion: extendedReleaseVersion,
-                  }
-                : {
-                    name,
-                    description,
-                    role,
-                    serviceLevel: sla,
-                    usage,
-                    additionalRepositories: workload.includes('Extended')
-                      ? extendedReleaseRepositories
-                      : undefined,
-                    releaseVersion: extendedReleaseVersion,
-                  };
-              mutationFn(mutationData, {
-                onSuccess: (updatedData) => {
-                  setIsError(isError);
-                  if (isEditMode) {
-                    queryClient.invalidateQueries([
-                      `activation_key_${activationKey.name}`,
-                    ]);
-                    setDescription(updatedData.description);
-                    addSuccessNotification(
-                      `Changes saved for activation key "${activationKey.name}"`
-                    );
-                  } else {
-                    addSuccessNotification(`Activation key "${name}" created`);
-                  }
-                  setCurrentStep(4);
-                },
-                onError: () => {
-                  setIsError(!isError);
-                  addErrorNotification(
-                    isEditMode
-                      ? `Error updating activation key ${activationKey.name}.`
-                      : 'Something went wrong.'
-                  );
-                  handleModalToggle();
-                },
-              });
+              saveChanges();
             }
           }}
           startAtStep={currentStep + 1}
@@ -329,7 +384,6 @@ ActivationKeyWizard.propTypes = {
   handleModalToggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   CustomSuccessPage: PropTypes.node,
-  releaseVersions: PropTypes.array,
 };
 
 export default ActivationKeyWizard;

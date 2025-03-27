@@ -17,7 +17,6 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import ActivationKeysTable from '../ActivationKeysTable';
 import { useQueryClient } from '@tanstack/react-query';
 import NoActivationKeysFound from '../EmptyState';
-import EditActivationKeyModal from '../Modals/EditActivationKeyModal';
 import ActivationKeyWizard from '../Modals/ActivationKeyWizard';
 import useActivationKeys from '../../hooks/useActivationKeys';
 import Loading from '../LoadingState/Loading';
@@ -36,8 +35,6 @@ const ActivationKeys = () => {
   const [currentKeyName, setCurrentKeyName] = useState('');
 
   const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] =
-    useState(false);
-  const [isEditActivationKeyModalOpen, setIsEditActivationKeyModalOpen] =
     useState(false);
   const handleModalToggle = () => {
     setisOpen(!isOpen);
@@ -72,11 +69,6 @@ const ActivationKeys = () => {
   const handleDeleteActivationKeyModalToggle = (name) => {
     setKeyName(isDeleteActivationKeyModalOpen, name);
     setIsDeleteActivationKeyModalOpen(!isDeleteActivationKeyModalOpen);
-  };
-
-  const handleEditActivationKeyModalToggle = (name) => {
-    setKeyName(isEditActivationKeyModalOpen, name);
-    setIsEditActivationKeyModalOpen(!isEditActivationKeyModalOpen);
   };
 
   return (
@@ -124,13 +116,6 @@ const ActivationKeys = () => {
         key={isOpen}
         isOpen={isOpen}
         handleModalToggle={handleModalToggle}
-      />
-      <EditActivationKeyModal
-        title="Edit activation key"
-        isOpen={isEditActivationKeyModalOpen}
-        handleModalToggle={handleEditActivationKeyModalToggle}
-        activationKeyName={currentKeyName}
-        modalSize="large"
       />
       <DeleteActivationKeyConfirmationModal
         handleModalToggle={handleDeleteActivationKeyModalToggle}
