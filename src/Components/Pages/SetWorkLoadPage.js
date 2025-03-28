@@ -1,24 +1,21 @@
 import React, { useEffect } from 'react';
-import {
-  Title,
-  Text,
-  TextVariants,
-  Radio,
-  Spinner,
-  Form,
-  FormGroup,
-  FormSelect,
-  FormSelectOption,
-  Tooltip,
-  TextContent,
-} from '@patternfly/react-core';
+import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
+import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Radio } from '@patternfly/react-core/dist/dynamic/components/Radio';
+import { Spinner } from '@patternfly/react-core/dist/dynamic/components/Spinner';
+import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { FormSelect } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
+import { FormSelectOption } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
+import { Tooltip } from '@patternfly/react-core/dist/dynamic/components/Tooltip';
+import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
 import PropTypes from 'prop-types';
 import useEusVersions from '../../hooks/useEusVersions';
 
 const SetWorkloadPage = ({
   activationKey,
   isEditMode,
-  releaseVersions,
   workloadOptions,
   workload,
   setWorkload,
@@ -28,26 +25,26 @@ const SetWorkloadPage = ({
   setExtendedReleaseVersion,
   setExtendedReleaseRepositories,
 }) => {
-  const { isLoading, error, data } = useEusVersions();
+  const { isLoading, error, data: releaseVersions } = useEusVersions();
 
   useEffect(() => {
-    if (workload.includes('Extended') && data?.length > 0) {
-      setExtendedReleaseProduct((prev) => prev || data[0]?.name);
+    if (workload.includes('Extended') && releaseVersions?.length > 0) {
+      setExtendedReleaseProduct((prev) => prev || releaseVersions[0]?.name);
       setExtendedReleaseVersion(
         (prev) =>
           prev ||
           activationKey?.releaseVersion ||
-          data[0]?.configurations[0]?.version
+          releaseVersions[0]?.configurations[0]?.version
       );
     } else {
       setExtendedReleaseProduct('');
       setExtendedReleaseVersion('');
     }
-  }, [data, workload]);
+  }, [releaseVersions, workload]);
 
   useEffect(() => {
-    if (data && workload.includes('Extended')) {
-      const selectedProduct = data.find(
+    if (releaseVersions && workload.includes('Extended')) {
+      const selectedProduct = releaseVersions.find(
         (product) => extendedReleaseProduct === product.name
       );
       const selectedVersion = selectedProduct?.configurations.find(
@@ -57,7 +54,7 @@ const SetWorkloadPage = ({
     } else {
       setExtendedReleaseRepositories([]);
     }
-  }, [data, extendedReleaseProduct, extendedReleaseVersion]);
+  }, [releaseVersions, extendedReleaseProduct, extendedReleaseVersion]);
 
   return (
     <>
@@ -118,7 +115,7 @@ const SetWorkloadPage = ({
       ) : (
         <Spinner />
       )}
-      {workload === workloadOptions[1] && (
+      {!isLoading && workload === workloadOptions[1] && (
         <Form>
           <FormGroup label="Version">
             <FormSelect
@@ -130,35 +127,31 @@ const SetWorkloadPage = ({
               }
               id="version"
             >
-              {isEditMode
-                ? releaseVersions.length > 0
-                  ? releaseVersions.map((version, i) => (
-                      <FormSelectOption
-                        key={i}
-                        value={version}
-                        label={version}
-                      />
-                    ))
-                  : [
-                      <FormSelectOption
-                        key="0"
-                        value=""
-                        label="No versions available"
-                      />,
-                    ]
-                : data
-                    ?.find((product) => product.name === extendedReleaseProduct)
-                    ?.configurations.map((configuration, i) => (
-                      <FormSelectOption
-                        key={i}
-                        value={configuration.version}
-                        label={configuration.version}
-                      />
-                    ))}
+              {releaseVersions
+                ?.find((product) => product.name === extendedReleaseProduct)
+                ?.configurations.map((configuration, i) => (
+                  <FormSelectOption
+                    key={i}
+                    value={configuration.version}
+                    label={configuration.version}
+                  />
+                ))}
             </FormSelect>
           </FormGroup>
         </Form>
       )}
+      {!isLoading &&
+        isEditMode &&
+        !(
+          activationKey?.releaseVersion == undefined &&
+          extendedReleaseVersion == ''
+        ) &&
+        activationKey?.releaseVersion != extendedReleaseVersion && (
+          <Text component="small" className="pf-v5-u-warning-color-200">
+            Editing the release version may remove all existing additional
+            repositories from this key.
+          </Text>
+        )}
     </>
   );
 };
@@ -166,7 +159,6 @@ const SetWorkloadPage = ({
 SetWorkloadPage.propTypes = {
   activationKey: PropTypes.obj,
   isEditMode: PropTypes.bool,
-  releaseVersions: PropTypes.array,
   workloadOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
   workload: PropTypes.string.isRequired,
   setWorkload: PropTypes.func.isRequired,

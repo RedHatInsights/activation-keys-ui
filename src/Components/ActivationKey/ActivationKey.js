@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumbs from '../shared/breadcrumbs';
-import {
-  TextVariants,
-  Grid,
-  GridItem,
-  Gallery,
-  GalleryItem,
-  Level,
-  LevelItem,
-  DescriptionListGroup,
-  DescriptionListTerm,
-} from '@patternfly/react-core';
+import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Grid } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
+import { GridItem } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
+import { Gallery } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
+import { GalleryItem } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
+import { Level } from '@patternfly/react-core/dist/dynamic/layouts/Level';
+import { LevelItem } from '@patternfly/react-core/dist/dynamic/layouts/Level';
+import { DescriptionListGroup } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
+import { DescriptionListTerm } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
 import {
   PageHeader,
   PageHeaderTitle,
@@ -23,7 +21,6 @@ import useActivationKey from '../../hooks/useActivationKey';
 import Loading from '../LoadingState/Loading';
 import SystemPurposeCard from './SystemPurposeCard';
 import WorkloadCard from './WorkloadCard';
-import useReleaseVersions from '../../hooks/useReleaseVersions';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import EditAndDeleteDropdown from './EditAndDeleteDropdown';
 
@@ -41,7 +38,6 @@ const ActivationKey = () => {
     error: keyError,
     data: activationKey,
   } = useActivationKey(id);
-  const { data: releaseVersions } = useReleaseVersions();
   const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] =
     useState(false);
   const handleEditActivationKeyWizardToggle = () => {
@@ -68,7 +64,6 @@ const ActivationKey = () => {
               <EditAndDeleteDropdown
                 onClick={handleEditActivationKeyWizardToggle}
                 activationKey={activationKey}
-                releaseVersions={releaseVersions}
               />
             ) : (
               <NoAccessPopover content={EditAndDeleteDropdown} />
