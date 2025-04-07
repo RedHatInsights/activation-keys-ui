@@ -58,7 +58,7 @@ const SetWorkloadPage = ({
         }
       }
       setExtendedReleaseProduct(
-        (prev) => prev || inferredReleaseProduct || releaseVersions[0]?.name
+        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name
       );
       setExtendedReleaseVersion(
         (prev) =>
@@ -70,7 +70,7 @@ const SetWorkloadPage = ({
       setExtendedReleaseProduct('');
       setExtendedReleaseVersion('');
     }
-  }, [releaseVersions, workload]);
+  }, [releaseVersions, workload, inferredReleaseProduct]);
 
   /**
    * Update the EUS repos
