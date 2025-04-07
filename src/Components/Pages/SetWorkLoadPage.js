@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
 import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
@@ -26,10 +26,40 @@ const SetWorkloadPage = ({
   setExtendedReleaseRepositories,
 }) => {
   const { isLoading, error, data: releaseVersions } = useEusVersions();
+  const [inferredReleaseProduct, setInferredReleaseProduct] = useState('');
+  const [errorInferringProduct, setErrorInferringProduct] = useState(false);
 
+  /**
+   * Handle default settings
+   *
+   * Upon render, or workload change, set the correct defaults for release
+   * product and version
+   */
   useEffect(() => {
     if (workload.includes('Extended') && releaseVersions?.length > 0) {
-      setExtendedReleaseProduct((prev) => prev || releaseVersions[0]?.name);
+      // In edit, we need to infer the product based on the repos
+      if (isEditMode) {
+        const inferredReleaseProduct = releaseVersions.find((product) =>
+          product.configurations.find(
+            (c) =>
+              c.version == activationKey.releaseVersion &&
+              c.repositories.every((repo) =>
+                activationKey.additionalRepositories.find(
+                  (has) => has.repositoryLabel == repo
+                )
+              )
+          )
+        )?.name;
+
+        if (!inferredReleaseProduct) {
+          setErrorInferringProduct(true);
+        } else {
+          setInferredReleaseProduct(inferredReleaseProduct);
+        }
+      }
+      setExtendedReleaseProduct(
+        (prev) => prev || inferredReleaseProduct || releaseVersions[0]?.name
+      );
       setExtendedReleaseVersion(
         (prev) =>
           prev ||
@@ -42,15 +72,26 @@ const SetWorkloadPage = ({
     }
   }, [releaseVersions, workload]);
 
+  /**
+   * Update the EUS repos
+   *
+   * Based on the currently selected EUS product and version, set the
+   * applicable repos
+   */
   useEffect(() => {
-    if (releaseVersions && workload.includes('Extended')) {
-      const selectedProduct = releaseVersions.find(
-        (product) => extendedReleaseProduct === product.name
+    if (
+      releaseVersions &&
+      workload.includes('Extended') &&
+      extendedReleaseProduct
+    ) {
+      console.log(releaseVersions, extendedReleaseProduct);
+      setExtendedReleaseRepositories(
+        releaseVersions
+          .find((product) => extendedReleaseProduct == product.name)
+          .configurations.find(
+            (configuration) => extendedReleaseVersion == configuration.version
+          ).repositories
       );
-      const selectedVersion = selectedProduct?.configurations.find(
-        (configuration) => extendedReleaseVersion === configuration.version
-      );
-      setExtendedReleaseRepositories(selectedVersion?.repositories || []);
     } else {
       setExtendedReleaseRepositories([]);
     }
@@ -117,6 +158,30 @@ const SetWorkloadPage = ({
       )}
       {!isLoading && workload === workloadOptions[1] && (
         <Form>
+          <FormGroup label="Product">
+            <FormSelect
+              onChange={(_event, v) => setExtendedReleaseProduct(v)}
+              value={extendedReleaseProduct}
+              id="product"
+            >
+              {releaseVersions.map((product, i) => {
+                return (
+                  <FormSelectOption
+                    key={i}
+                    value={product.name}
+                    label={product.name}
+                  />
+                );
+              })}
+            </FormSelect>
+            {errorInferringProduct && (
+              <Text component="small" className="pf-v5-u-warning-color-200">
+                Unable to infer product based on current additional
+                repositories. &quot;{extendedReleaseProduct}&quot; has been
+                selected by default.
+              </Text>
+            )}
+          </FormGroup>
           <FormGroup label="Version">
             <FormSelect
               onChange={(_event, v) => setExtendedReleaseVersion(v)}
@@ -146,10 +211,11 @@ const SetWorkloadPage = ({
           activationKey?.releaseVersion == undefined &&
           extendedReleaseVersion == ''
         ) &&
-        activationKey?.releaseVersion != extendedReleaseVersion && (
+        (activationKey?.releaseVersion != extendedReleaseVersion ||
+          inferredReleaseProduct != extendedReleaseProduct) && (
           <Text component="small" className="pf-v5-u-warning-color-200">
-            Editing the release version may remove all existing additional
-            repositories from this key.
+            Editing the release version or product may remove all existing
+            additional repositories from this key.
           </Text>
         )}
     </>
