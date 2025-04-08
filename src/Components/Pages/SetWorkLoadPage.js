@@ -37,8 +37,9 @@ const SetWorkloadPage = ({
    */
   useEffect(() => {
     if (workload.includes('Extended') && releaseVersions?.length > 0) {
-      // In edit, we need to infer the product based on the repos
-      if (isEditMode) {
+      // In edit, when we are changing EUS products, we need to infer the
+      // product based on the repos
+      if (isEditMode && activationKey.releaseVersion) {
         const inferredReleaseProduct = releaseVersions.find((product) =>
           product.configurations.find(
             (c) =>
@@ -84,7 +85,6 @@ const SetWorkloadPage = ({
       workload.includes('Extended') &&
       extendedReleaseProduct
     ) {
-      console.log(releaseVersions, extendedReleaseProduct);
       setExtendedReleaseRepositories(
         releaseVersions
           .find((product) => extendedReleaseProduct == product.name)
