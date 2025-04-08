@@ -9,11 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import DeleteActivationKeyConfirmationModal from '../Modals/DeleteActivationKeyConfirmationModal';
 import ActivationKeyWizard from '../Modals/ActivationKeyWizard';
 
-export const EditAndDeleteDropdown = ({
-  activationKey,
-  onClick,
-  releaseVersions,
-}) => {
+export const EditAndDeleteDropdown = ({ activationKey, onClick }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -96,7 +92,6 @@ export const EditAndDeleteDropdown = ({
         activationKey={activationKey}
         handleModalToggle={handleEditActivationKeyWizardToggle}
         isOpen={isEditActivationKeyWizardOpen}
-        releaseVersions={releaseVersions}
       />
     </React.Fragment>
   );
@@ -106,7 +101,6 @@ EditAndDeleteDropdown.propTypes = {
   onClick: propTypes.func.isRequired,
   activationKey: propTypes.object,
   activationKeyName: propTypes.string,
-  releaseVersions: propTypes.array,
 };
 
 export default EditAndDeleteDropdown;
