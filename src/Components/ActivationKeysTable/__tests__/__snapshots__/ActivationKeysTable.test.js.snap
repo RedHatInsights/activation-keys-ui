@@ -4,72 +4,72 @@ exports[`ActivationKeysTable renders correctly 1`] = `
 <div>
   <table
     aria-label="ActivationKeys"
-    class="pf-v5-c-table pf-m-grid-md"
+    class="pf-v6-c-table pf-m-grid-md"
     data-ouia-component-id="OUIA-Generated-Table-2"
-    data-ouia-component-type="PF5/Table"
+    data-ouia-component-type="PF6/Table"
     data-ouia-safe="true"
     role="grid"
   >
     <thead
-      class="pf-v5-c-table__thead"
+      class="pf-v6-c-table__thead"
     >
       <tr
-        class="pf-v5-c-table__tr"
+        class="pf-v6-c-table__tr"
         data-ouia-component-id="OUIA-Generated-TableRow-2"
-        data-ouia-component-type="PF5/TableRow"
+        data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
         <th
-          class="pf-v5-c-table__th pf-m-width-40"
+          class="pf-v6-c-table__th pf-m-width-40"
           scope="col"
           tabindex="-1"
         >
           Key Name
         </th>
         <th
-          class="pf-v5-c-table__th"
+          class="pf-v6-c-table__th"
           scope="col"
           tabindex="-1"
         >
           Role
         </th>
         <th
-          class="pf-v5-c-table__th"
+          class="pf-v6-c-table__th"
           scope="col"
           tabindex="-1"
         >
           SLA
         </th>
         <th
-          class="pf-v5-c-table__th"
+          class="pf-v6-c-table__th"
           scope="col"
           tabindex="-1"
         >
           Usage
         </th>
         <th
-          class="pf-v5-c-table__th pf-v5-c-table__sort pf-m-width-20"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-20"
           scope="col"
           tabindex="-1"
         >
           <button
-            class="pf-v5-c-table__button"
+            class="pf-v6-c-table__button"
             type="button"
           >
             <div
-              class="pf-v5-c-table__button-content"
+              class="pf-v6-c-table__button-content"
             >
               <span
-                class="pf-v5-c-table__text"
+                class="pf-v6-c-table__text"
               >
                 Updated Date
               </span>
               <span
-                class="pf-v5-c-table__sort-indicator"
+                class="pf-v6-c-table__sort-indicator"
               >
                 <svg
                   aria-hidden="true"
-                  class="pf-v5-svg"
+                  class="pf-v6-svg"
                   fill="currentColor"
                   height="1em"
                   role="img"
@@ -85,23 +85,23 @@ exports[`ActivationKeysTable renders correctly 1`] = `
           </button>
         </th>
         <td
-          class="pf-v5-c-table__td"
+          class="pf-v6-c-table__td"
           tabindex="-1"
         />
       </tr>
     </thead>
     <tbody
-      class="pf-v5-c-table__tbody"
+      class="pf-v6-c-table__tbody"
       role="rowgroup"
     >
       <tr
-        class="pf-v5-c-table__tr"
+        class="pf-v6-c-table__tr"
         data-ouia-component-id="OUIA-Generated-TableRow-3"
-        data-ouia-component-type="PF5/TableRow"
+        data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
         <td
-          class="pf-v5-c-table__td pf-m-break-word"
+          class="pf-v6-c-table__td pf-m-break-word"
           data-label="Key Name"
           tabindex="-1"
         >
@@ -113,61 +113,64 @@ exports[`ActivationKeysTable renders correctly 1`] = `
           </a>
         </td>
         <td
-          class="pf-v5-c-table__td"
+          class="pf-v6-c-table__td"
           data-label="Role"
           tabindex="-1"
         >
           B
         </td>
         <td
-          class="pf-v5-c-table__td"
+          class="pf-v6-c-table__td"
           data-label="SLA"
           tabindex="-1"
         >
           C
         </td>
         <td
-          class="pf-v5-c-table__td"
+          class="pf-v6-c-table__td"
           data-label="Usage"
           tabindex="-1"
         >
           D
         </td>
         <td
-          class="pf-v5-c-table__td"
+          class="pf-v6-c-table__td"
           data-label="Updated Date"
           tabindex="-1"
         >
           Not Available
         </td>
         <td
-          class="pf-v5-c-table__td"
+          class="pf-v6-c-table__td"
           tabindex="-1"
         >
           <div
             style="display: contents;"
           >
             <button
-              aria-disabled="false"
-              class="pf-v5-c-button pf-m-plain"
+              class="pf-v6-c-button pf-m-plain"
               data-ouia-component-id="OUIA-Generated-Button-plain-1"
-              data-ouia-component-type="PF5/Button"
+              data-ouia-component-type="PF6/Button"
               data-ouia-safe="true"
               type="button"
             >
-              <svg
-                aria-hidden="true"
-                class="pf-v5-svg"
-                fill="currentColor"
-                height="1em"
-                role="img"
-                viewBox="0 0 448 512"
-                width="1em"
+              <span
+                class="pf-v6-c-button__icon"
               >
-                <path
-                  d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 448 512"
+                  width="1em"
+                >
+                  <path
+                    d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                  />
+                </svg>
+              </span>
             </button>
           </div>
         </td>
@@ -180,17 +183,17 @@ exports[`ActivationKeysTable renders correctly 1`] = `
 exports[`ActivationKeysTable when loading renders the loading state 1`] = `
 <div>
   <div
-    class="pf-v5-l-bullseye"
+    class="pf-v6-l-bullseye"
   >
     <svg
       aria-label="Contents"
       aria-valuetext="Loading..."
-      class="pf-v5-c-spinner pf-m-xl"
+      class="pf-v6-c-spinner pf-m-xl"
       role="progressbar"
       viewBox="0 0 100 100"
     >
       <circle
-        class="pf-v5-c-spinner__path"
+        class="pf-v6-c-spinner__path"
         cx="50"
         cy="50"
         fill="none"

@@ -2,10 +2,10 @@ import { Bullseye } from '@patternfly/react-core/dist/dynamic/layouts/Bullseye';
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import { EmptyState } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
 import { EmptyStateBody } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
-import { EmptyStateIcon } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+
 import { Pagination } from '@patternfly/react-core/dist/dynamic/components/Pagination';
 import { EmptyStateActions } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
-import { EmptyStateHeader } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
+
 import { EmptyStateFooter } from '@patternfly/react-core/dist/dynamic/components/EmptyState';
 import useAvailableRepositories, {
   usePrefetchAvailableRepositoriesNextPage,
@@ -187,12 +187,11 @@ const AddAdditionalRepositoriesTable = (props) => {
   );
 
   const emptyState = (
-    <EmptyState>
-      <EmptyStateHeader
-        titleText="No results found"
-        icon={<EmptyStateIcon icon={SearchIcon} />}
-        headingLevel="h2"
-      />
+    <EmptyState
+      headingLevel="h2"
+      icon={SearchIcon}
+      titleText="No results found"
+    >
       <EmptyStateBody>
         No results match the filter criteria. Clear all filters and try again.
       </EmptyStateBody>

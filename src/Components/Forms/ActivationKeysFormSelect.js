@@ -30,7 +30,7 @@ const ActivationKeysFormSelect = (props) => {
   };
 
   return (
-    <FormGroup label={label} labelIcon={popover}>
+    <FormGroup label={label} labelHelp={popover}>
       <FormSelect
         onChange={(_event, value) => valueChange(value)}
         value={selected || value}

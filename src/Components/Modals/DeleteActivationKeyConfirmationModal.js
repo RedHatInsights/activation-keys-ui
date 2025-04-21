@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
-import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Modal } from '@patternfly/react-core/dist/dynamic/deprecated/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/deprecated/components/Modal';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
+
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import ExclamationTriangleIcon from '@patternfly/react-icons/dist/dynamic/icons/exclamation-triangle-icon';
 import propTypes from 'prop-types';
 import useDeleteActivationKey from '../../hooks/useDeleteActivationKey';
@@ -50,12 +50,12 @@ const DeleteActivationKeyConfirmationModal = (props) => {
 
   const title = (
     <>
-      <TextContent>
-        <Text component={TextVariants.h2}>
+      <Content>
+        <Content component={ContentVariants.h2}>
           <ExclamationTriangleIcon size="md" color="#F0AB00" /> Delete
           activation key?
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
     </>
   );
   const content = () => {
@@ -63,12 +63,12 @@ const DeleteActivationKeyConfirmationModal = (props) => {
       return <Loading />;
     } else {
       return (
-        <TextContent>
-          <Text component={TextVariants.p}>
+        <Content>
+          <Content component={ContentVariants.p}>
             <b>{name}</b> will no longer be available for use. This operation
             cannot be undone.
-          </Text>
-        </TextContent>
+          </Content>
+        </Content>
       );
     }
   };

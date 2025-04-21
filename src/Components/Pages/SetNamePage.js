@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { TextInput } from '@patternfly/react-core/dist/dynamic/components/TextInput';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { FormHelperText } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { HelperText } from '@patternfly/react-core/dist/dynamic/components/HelperText';
@@ -25,9 +25,9 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
       <Title headingLevel="h2" className="pf-v5-u-mb-sm">
         Name key
       </Title>
-      <Text component={TextVariants.p} className="pf-v5-u-mb-xl">
+      <Content component={ContentVariants.p} className="pf-v5-u-mb-xl">
         This name cannot be modified after the activation key is created.
-      </Text>
+      </Content>
       <Form
         onSubmit={(e) => {
           e.preventDefault();

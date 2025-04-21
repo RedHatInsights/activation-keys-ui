@@ -6,11 +6,16 @@ import { ToolbarContent } from '@patternfly/react-core/dist/dynamic/components/T
 import { ToolbarGroup } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
 import { ToolbarItem } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
 import { ToggleGroup } from '@patternfly/react-core/dist/dynamic/components/ToggleGroup';
-import { Select, SelectOption } from '@patternfly/react-core/deprecated';
+import {
+  Select,
+  SelectList,
+} from '@patternfly/react-core/dist/dynamic/components/Select';
+import { SelectOption } from '@patternfly/react-core/dist/dynamic/components/Select';
 import FilterIcon from '@patternfly/react-icons/dist/dynamic/icons/filter-icon';
 import propTypes from 'prop-types';
-import { Chip } from '@patternfly/react-core/dist/dynamic/components/Chip';
-import { ChipGroup } from '@patternfly/react-core/dist/dynamic/components/Chip';
+import { LabelGroup } from '@patternfly/react-core/dist/dynamic/components/Label';
+import { MenuToggle } from '@patternfly/react-core/dist/dynamic/components/MenuToggle';
+import { Label } from '@patternfly/react-core/dist/dynamic/components/Label';
 
 const AddAdditionalRepositoriesToolbar = ({
   friendlyNameMap,
@@ -34,27 +39,41 @@ const AddAdditionalRepositoriesToolbar = ({
     <Toolbar id="add-additional-repositories-toolbar">
       <ToolbarContent>
         <ToolbarGroup>
-          <ToolbarItem spacer={{ default: 'spacerNone' }}>
+          <ToolbarItem gap={{ default: 'gapNone' }}>
             <Select
               isOpen={isSelectFilterByExpanded}
-              onToggle={(_event, isSelectFilterByExpanded) =>
-                setIsSelectFilterByExpanded(isSelectFilterByExpanded)
-              }
-              toggleIcon={<FilterIcon />}
-              placeholderText={friendlyNameMap[activeFilter]}
+              toggle={(toggleRef) => (
+                <MenuToggle
+                  ref={toggleRef}
+                  icon={<FilterIcon />}
+                  onClick={() =>
+                    setIsSelectFilterByExpanded(!isSelectFilterByExpanded)
+                  }
+                  isExpanded={isSelectFilterByExpanded}
+                >
+                  {friendlyNameMap[activeFilter]}
+                </MenuToggle>
+              )}
               onSelect={(_, value) => {
                 setActiveFilter(value[0]);
                 setIsSelectFilterByExpanded(false);
               }}
+              onOpenChange={(isOpen) => setIsSelectFilterByExpanded(isOpen)}
               isDisabled={dropdownSelectisDisabled}
             >
-              {Object.entries(filters).map(([k, v]) => {
-                return (
-                  <SelectOption value={[k, v]} key={k}>
-                    {friendlyNameMap[k]}
-                  </SelectOption>
-                );
-              })}
+              <SelectList>
+                {Object.entries(filters).map(([k, v]) => {
+                  return (
+                    <SelectOption
+                      value={[k, v]}
+                      key={k}
+                      isFocused={activeFilter == k}
+                    >
+                      {friendlyNameMap[k]}
+                    </SelectOption>
+                  );
+                })}
+              </SelectList>
             </Select>
           </ToolbarItem>
           <ToolbarItem>
@@ -71,10 +90,20 @@ const AddAdditionalRepositoriesToolbar = ({
             {Array.isArray(filters[activeFilter].value) && (
               <Select
                 isOpen={isMultiSelectOptionsExanded}
-                placeholderText={filters[activeFilter].placeholder}
-                onToggle={(_, isOpen) =>
-                  setIsMultiSelectOptionsExpanded(isOpen)
-                }
+                toggle={(toggleRef) => (
+                  <MenuToggle
+                    ref={toggleRef}
+                    icon={<FilterIcon />}
+                    onClick={() =>
+                      setIsMultiSelectOptionsExpanded(
+                        !isMultiSelectOptionsExanded
+                      )
+                    }
+                    isExpanded={isMultiSelectOptionsExanded}
+                  >
+                    {filters[activeFilter].placeholder}
+                  </MenuToggle>
+                )}
                 onSelect={(_, value) => {
                   filters[activeFilter].set([
                     ...filters[activeFilter].value,
@@ -82,18 +111,23 @@ const AddAdditionalRepositoriesToolbar = ({
                   ]);
                   setIsMultiSelectOptionsExpanded(false);
                 }}
+                onOpenChange={(isOpen) => {
+                  setIsMultiSelectOptionsExpanded(isOpen);
+                }}
               >
-                {filters[activeFilter].opts.map((opt) => {
-                  return (
-                    <SelectOption
-                      key={opt}
-                      isDisabled={filters[activeFilter].value.includes(opt)}
-                      value={opt}
-                    >
-                      {opt}
-                    </SelectOption>
-                  );
-                })}
+                <SelectList>
+                  {filters[activeFilter].opts.map((opt) => {
+                    return (
+                      <SelectOption
+                        key={opt}
+                        isDisabled={filters[activeFilter].value.includes(opt)}
+                        value={opt}
+                      >
+                        {opt}
+                      </SelectOption>
+                    );
+                  })}
+                </SelectList>
               </Select>
             )}
           </ToolbarItem>
@@ -121,7 +155,7 @@ const AddAdditionalRepositoriesToolbar = ({
             </ToggleGroup>
           </ToolbarItem>
         </ToolbarGroup>
-        <ToolbarItem variant="pagination" align={{ default: 'alignRight' }}>
+        <ToolbarItem variant="pagination" align={{ default: 'alignEnd' }}>
           {pagination}
         </ToolbarItem>
       </ToolbarContent>
@@ -133,25 +167,28 @@ const AddAdditionalRepositoriesToolbar = ({
             )
             .map(([k, v]) => (
               <ToolbarItem key={k}>
-                <ChipGroup categoryName={friendlyNameMap[k]}>
+                <LabelGroup categoryName={friendlyNameMap[k]}>
                   {Array.isArray(v.value) && (
                     <>
                       {v.value.map((filter, i) => (
-                        <Chip
+                        <Label
                           key={i}
-                          onClick={() => {
+                          variant="outline"
+                          onClose={() => {
                             v.set(v.value.toSpliced(i, 1));
                           }}
                         >
                           {filter}
-                        </Chip>
+                        </Label>
                       ))}
                     </>
                   )}
                   {!Array.isArray(v.value) && (
-                    <Chip onClick={() => v.set('')}>{v.value}</Chip>
+                    <Label variant="outline" onClose={() => v.set('')}>
+                      {v.value}
+                    </Label>
                   )}
-                </ChipGroup>
+                </LabelGroup>
               </ToolbarItem>
             ))}
         </ToolbarGroup>

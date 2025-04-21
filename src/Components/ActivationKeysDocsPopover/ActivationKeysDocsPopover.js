@@ -20,9 +20,12 @@ const ActivationKeysDocsPopover = (props) => {
       className="connector pf-v5-u-color-100"
       bodyContent={popoverContent}
     >
-      <Button variant="plain" isInline style={{ padding: 0 }}>
-        <OutlinedQuestionCircleIcon />
-      </Button>
+      <Button
+        icon={<OutlinedQuestionCircleIcon />}
+        variant="plain"
+        isInline
+        style={{ padding: 0 }}
+      />
     </Popover>
   );
 };

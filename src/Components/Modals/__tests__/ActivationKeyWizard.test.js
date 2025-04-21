@@ -39,7 +39,7 @@ describe('Create Activation Key Wizard', () => {
       </QueryClientProvider>
     );
     fireEvent.click(
-      container.nextSibling.querySelector('.pf-v5-c-wizard__close')
+      container.nextSibling.querySelector('.pf-v6-c-modal-box__close')
     );
     expect(document.body).toMatchSnapshot();
   });
@@ -54,7 +54,7 @@ describe('Create Activation Key Wizard', () => {
     const nextStepBtn = screen.getByText('Next');
     fireEvent.click(nextStepBtn);
     fireEvent.click(
-      container.nextSibling.querySelector('.pf-v5-c-wizard__close')
+      container.nextSibling.querySelector('.pf-v6-c-modal-box__close')
     );
     expect(document.body).toMatchSnapshot();
   });

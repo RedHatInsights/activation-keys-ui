@@ -8,9 +8,9 @@ import { HelperText } from '@patternfly/react-core/dist/dynamic/components/Helpe
 import { HelperTextItem } from '@patternfly/react-core/dist/dynamic/components/HelperText';
 import { Popover } from '@patternfly/react-core/dist/dynamic/components/Popover';
 import { TextInput } from '@patternfly/react-core/dist/dynamic/components/TextInput';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
+
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import HelpIcon from '@patternfly/react-icons/dist/dynamic/icons/help-icon';
 import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
 import ActivationKeysFormSelect from './ActivationKeysFormSelect';
@@ -121,7 +121,7 @@ const ActivationKeyForm = (props) => {
       {activationKey && (
         <FormGroup label="Name">
           {' '}
-          <TextContent>{activationKey.name}</TextContent>
+          <Content>{activationKey.name}</Content>
         </FormGroup>
       )}
       {!isLoading && !error && (
@@ -136,19 +136,19 @@ const ActivationKeyForm = (props) => {
           popover={
             <Popover
               bodyContent={
-                <TextContent>
-                  <Text component={TextVariants.p}>
+                <Content>
+                  <Content component={ContentVariants.p}>
                     Role is used to categorize systems by the workload on the
                     system
-                  </Text>
-                  <Text component={TextVariants.p}>
+                  </Content>
+                  <Content component={ContentVariants.p}>
                     Subscription Watch can help you filter and report by these
                     items.
-                  </Text>
-                  <Text component={TextVariants.p}>
+                  </Content>
+                  <Content component={ContentVariants.p}>
                     Only roles available to your account are shown.
-                  </Text>
-                </TextContent>
+                  </Content>
+                </Content>
               }
             >
               <HelpIcon />
@@ -169,12 +169,12 @@ const ActivationKeyForm = (props) => {
           popover={
             <Popover
               bodyContent={
-                <TextContent>
-                  <Text component={TextVariants.p}>
+                <Content>
+                  <Content component={ContentVariants.p}>
                     Service Level Agreement (SLA) determines the level of
                     support for systems registered with this activation key.
-                  </Text>
-                </TextContent>
+                  </Content>
+                </Content>
               }
             >
               <HelpIcon />
@@ -195,16 +195,16 @@ const ActivationKeyForm = (props) => {
           popover={
             <Popover
               bodyContent={
-                <TextContent>
-                  <Text component={TextVariants.p}>
+                <Content>
+                  <Content component={ContentVariants.p}>
                     Usage is used to categorize systems by how they are meant to
                     be used, and therefore supported.
-                  </Text>
-                  <Text component={TextVariants.p}>
+                  </Content>
+                  <Content component={ContentVariants.p}>
                     Subscription Watch can help you filter and report by these
                     items.
-                  </Text>
-                </TextContent>
+                  </Content>
+                </Content>
               }
             >
               <HelpIcon />

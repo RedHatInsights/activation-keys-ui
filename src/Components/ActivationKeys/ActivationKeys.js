@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { ActionGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
+
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { PageSection } from '@patternfly/react-core/dist/dynamic/components/Page';
-import { PageSectionVariants } from '@patternfly/react-core/dist/dynamic/components/Page';
+
 import { Flex } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
 import { FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
 import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
@@ -41,8 +41,8 @@ const ActivationKeys = () => {
   };
 
   const popoverContent = (
-    <TextContent className="pf-v5-u-font-size-sm">
-      <Text>
+    <Content className="pf-v5-u-font-size-sm">
+      <Content component="p">
         Activation keys assist you in registering systems. Metadata such as
         role, system purpose, and usage can be automatically attached to systems
         via an activation key, and monitored with &nbsp;
@@ -53,12 +53,12 @@ const ActivationKeys = () => {
         >
           Subscription Watch.
         </a>
-      </Text>
-      <Text>
+      </Content>
+      <Content component="p">
         To register with an activation key, you will need your organization ID:{' '}
         <b>{user.orgId}</b>
-      </Text>
-    </TextContent>
+      </Content>
+    </Content>
   );
 
   const setKeyName = (modalOpen, name) => {
@@ -90,12 +90,14 @@ const ActivationKeys = () => {
             </Flex>
           </SplitItem>
         </Split>
-        <TextContent>
-          <Text component={TextVariants.p}>Organization ID: {user.orgId}</Text>
-        </TextContent>
+        <Content>
+          <Content component={ContentVariants.p}>
+            Organization ID: {user.orgId}
+          </Content>
+        </Content>
       </PageHeader>
       <Main>
-        <PageSection variant={PageSectionVariants.light}>
+        <PageSection hasBodyWrapper={false}>
           {isLoading && <Loading />}
           {!isLoading && !error && data.length > 0 && (
             <>
