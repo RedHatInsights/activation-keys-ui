@@ -23,6 +23,7 @@ import { Content } from '@patternfly/react-core/dist/dynamic/components/Content'
 import { ModalBody } from '@patternfly/react-core/dist/dynamic/components/Modal';
 import { WizardStep } from '@patternfly/react-core/dist/dynamic/components/Wizard';
 import { Wizard } from '@patternfly/react-core/dist/dynamic/components/Wizard';
+import useEusVersions from '../../hooks/useEusVersions';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
@@ -126,6 +127,86 @@ const ActivationKeyWizard = ({
   const nameIsValid = nameValidator(name, keyNames);
   const descriptionIsValid = descriptionValidator(description || '');
 
+  const {
+    isLoading: isReleaseVersionsLoading,
+    error: eusError,
+    data: releaseVersions,
+  } = useEusVersions();
+  const [inferredReleaseProduct, setInferredReleaseProduct] = useState('');
+  const [errorInferringProduct, setErrorInferringProduct] = useState(false);
+
+  /**
+   * Handle default workload settings
+   *
+   * Upon render, or workload change, set the correct defaults for release
+   * product and version.
+   *
+   * This needs to be handled upon modal load here, not upon load of the
+   * workload page, as if it is skipped over we would accidentally unset
+   * the current workload if.
+   */
+  useEffect(() => {
+    if (workload.includes('Extended') && releaseVersions?.length > 0) {
+      // In edit, when we are changing EUS products, we need to infer the
+      // product based on the repos
+      if (isEditMode && activationKey.releaseVersion) {
+        const inferredReleaseProduct = releaseVersions.find((product) =>
+          product.configurations.find(
+            (c) =>
+              c.version == activationKey.releaseVersion &&
+              c.repositories.every((repo) =>
+                activationKey.additionalRepositories.find(
+                  (has) => has.repositoryLabel == repo
+                )
+              )
+          )
+        )?.name;
+
+        if (!inferredReleaseProduct) {
+          setErrorInferringProduct(true);
+        } else {
+          setInferredReleaseProduct(inferredReleaseProduct);
+        }
+      }
+      setExtendedReleaseProduct(
+        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name
+      );
+      setExtendedReleaseVersion(
+        (prev) =>
+          prev ||
+          activationKey?.releaseVersion ||
+          releaseVersions[0]?.configurations[0]?.version
+      );
+    } else {
+      setExtendedReleaseProduct('');
+      setExtendedReleaseVersion('');
+    }
+  }, [releaseVersions, workload, inferredReleaseProduct]);
+
+  /**
+   * Update the EUS repos
+   *
+   * Based on the currently selected EUS product and version, set the
+   * applicable repos
+   */
+  useEffect(() => {
+    if (
+      releaseVersions &&
+      workload.includes('Extended') &&
+      extendedReleaseProduct
+    ) {
+      setExtendedReleaseRepositories(
+        releaseVersions
+          .find((product) => extendedReleaseProduct == product.name)
+          .configurations.find(
+            (configuration) => extendedReleaseVersion == configuration.version
+          ).repositories
+      );
+    } else {
+      setExtendedReleaseRepositories([]);
+    }
+  }, [releaseVersions, extendedReleaseProduct, extendedReleaseVersion]);
+
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
     if (activationKey?.name) {
@@ -167,7 +248,7 @@ const ActivationKeyWizard = ({
       const missing = extendedReleaseRepositories.filter((label) => {
         return (
           activationKey.additionalRepositories.findIndex(
-            (cur) => cur.label == label
+            (cur) => cur.repositoryLabel == label
           ) == -1
         );
       });
@@ -176,7 +257,7 @@ const ActivationKeyWizard = ({
       const extra = activationKey.additionalRepositories.filter((repo) => {
         return (
           extendedReleaseRepositories.findIndex(
-            (label) => label == repo.label
+            (label) => label == repo.repositoryLabel
           ) == -1
         );
       });
@@ -275,6 +356,11 @@ const ActivationKeyWizard = ({
           extendedReleaseVersion={extendedReleaseVersion}
           setExtendedReleaseVersion={setExtendedReleaseVersion}
           setExtendedReleaseRepositories={setExtendedReleaseRepositories}
+          isLoading={isReleaseVersionsLoading}
+          error={eusError}
+          releaseVersions={releaseVersions}
+          errorInferringProduct={errorInferringProduct}
+          inferredReleaseProduct={inferredReleaseProduct}
         />
       ),
       isDisabled: !isEditMode && !nameIsValid,
@@ -377,7 +463,7 @@ const ActivationKeyWizard = ({
           }}
           startIndex={currentStep + 1}
           onClose={confirmClose}
-          isVisitRequired
+          isVisitRequired={!isEditMode}
         >
           {steps.map((step, i) => {
             return (

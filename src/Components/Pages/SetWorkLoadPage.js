@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
@@ -11,7 +11,6 @@ import { FormSelectOption } from '@patternfly/react-core/dist/dynamic/components
 import { Tooltip } from '@patternfly/react-core/dist/dynamic/components/Tooltip';
 
 import PropTypes from 'prop-types';
-import useEusVersions from '../../hooks/useEusVersions';
 
 const SetWorkloadPage = ({
   activationKey,
@@ -23,80 +22,12 @@ const SetWorkloadPage = ({
   setExtendedReleaseProduct,
   extendedReleaseVersion,
   setExtendedReleaseVersion,
-  setExtendedReleaseRepositories,
+  isLoading,
+  error,
+  releaseVersions,
+  errorInferringProduct,
+  inferredReleaseProduct,
 }) => {
-  const { isLoading, error, data: releaseVersions } = useEusVersions();
-  const [inferredReleaseProduct, setInferredReleaseProduct] = useState('');
-  const [errorInferringProduct, setErrorInferringProduct] = useState(false);
-
-  /**
-   * Handle default settings
-   *
-   * Upon render, or workload change, set the correct defaults for release
-   * product and version
-   */
-  useEffect(() => {
-    if (workload.includes('Extended') && releaseVersions?.length > 0) {
-      // In edit, when we are changing EUS products, we need to infer the
-      // product based on the repos
-      if (isEditMode && activationKey.releaseVersion) {
-        const inferredReleaseProduct = releaseVersions.find((product) =>
-          product.configurations.find(
-            (c) =>
-              c.version == activationKey.releaseVersion &&
-              c.repositories.every((repo) =>
-                activationKey.additionalRepositories.find(
-                  (has) => has.repositoryLabel == repo
-                )
-              )
-          )
-        )?.name;
-
-        if (!inferredReleaseProduct) {
-          setErrorInferringProduct(true);
-        } else {
-          setInferredReleaseProduct(inferredReleaseProduct);
-        }
-      }
-      setExtendedReleaseProduct(
-        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name
-      );
-      setExtendedReleaseVersion(
-        (prev) =>
-          prev ||
-          activationKey?.releaseVersion ||
-          releaseVersions[0]?.configurations[0]?.version
-      );
-    } else {
-      setExtendedReleaseProduct('');
-      setExtendedReleaseVersion('');
-    }
-  }, [releaseVersions, workload, inferredReleaseProduct]);
-
-  /**
-   * Update the EUS repos
-   *
-   * Based on the currently selected EUS product and version, set the
-   * applicable repos
-   */
-  useEffect(() => {
-    if (
-      releaseVersions &&
-      workload.includes('Extended') &&
-      extendedReleaseProduct
-    ) {
-      setExtendedReleaseRepositories(
-        releaseVersions
-          .find((product) => extendedReleaseProduct == product.name)
-          .configurations.find(
-            (configuration) => extendedReleaseVersion == configuration.version
-          ).repositories
-      );
-    } else {
-      setExtendedReleaseRepositories([]);
-    }
-  }, [releaseVersions, extendedReleaseProduct, extendedReleaseVersion]);
-
   return (
     <>
       <Title headingLevel="h2" className="pf-v5-u-mb-sm">
@@ -233,5 +164,10 @@ SetWorkloadPage.propTypes = {
   extendedReleaseVersion: PropTypes.string.isRequired,
   setExtendedReleaseVersion: PropTypes.func.isRequired,
   setExtendedReleaseRepositories: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired,
+  releaseVersions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  errorInferringProduct: PropTypes.bool.isRequired,
+  inferredReleaseProduct: PropTypes.string.isRequired,
 };
 export default SetWorkloadPage;
