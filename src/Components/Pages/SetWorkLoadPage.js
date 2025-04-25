@@ -30,10 +30,10 @@ const SetWorkloadPage = ({
 }) => {
   return (
     <>
-      <Title headingLevel="h2" className="pf-v5-u-mb-sm">
+      <Title headingLevel="h2" className="pf-v6-u-mb-sm">
         {isEditMode ? 'Edit Workload' : 'Select Workload'}
       </Title>
-      <Content component={ContentVariants.p} className="pf-v5-u-mb-xl">
+      <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
         Choose a workload option to associate an appropriate selection of
         repositories to the activation key. Repositories can be edited on the
         activation key detail page.
@@ -52,7 +52,7 @@ const SetWorkloadPage = ({
                 ) : (
                   <Content>
                     <Content
-                      className="pf-v5-u-color-light-100"
+                      className="pf-v6-u-color-light-100"
                       component={ContentVariants.small}
                     >
                       Activation key can be version locked to a specific version
@@ -76,7 +76,7 @@ const SetWorkloadPage = ({
                 label={wl}
                 onChange={() => setWorkload(wl)}
                 isChecked={wl === workload}
-                className="pf-v5-u-mb-md"
+                className="pf-v6-u-mb-md"
                 name={wl}
                 id={wl}
                 isDisabled={isDisabled}
@@ -106,7 +106,10 @@ const SetWorkloadPage = ({
               })}
             </FormSelect>
             {errorInferringProduct && (
-              <Content component="small" className="pf-v5-u-warning-color-200">
+              <Content
+                component="small"
+                className="pf-v6-u-text-color-status-danger"
+              >
                 Unable to infer product based on current additional
                 repositories. &quot;{extendedReleaseProduct}&quot; has been
                 selected by default.
@@ -144,7 +147,10 @@ const SetWorkloadPage = ({
         ) &&
         (activationKey?.releaseVersion != extendedReleaseVersion ||
           inferredReleaseProduct != extendedReleaseProduct) && (
-          <Content component="small" className="pf-v5-u-warning-color-200">
+          <Content
+            component="small"
+            className="pf-v6-u-text-color-status-danger"
+          >
             Editing the release version or product may remove all existing
             additional repositories from this key.
           </Content>

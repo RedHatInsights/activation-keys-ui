@@ -80,10 +80,10 @@ const ReviewActivationKeyPage = ({
 
   return (
     <>
-      <Title headingLevel="h2" className="pf-v5-u-mb-sm">
+      <Title headingLevel="h2" className="pf-v6-u-mb-sm">
         Review
       </Title>
-      <Content component={ContentVariants.p} className="pf-v5-u-mb-xl">
+      <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
         {isEditMode
           ? 'Review the following information and click Edit to apply your changes. The updates will only affect future systems that register with this activation key, not currently registered systems.'
           : 'Review the following information and click Create to generate the activation key.'}

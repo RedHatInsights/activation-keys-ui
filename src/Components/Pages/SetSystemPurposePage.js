@@ -44,10 +44,10 @@ const SetSystemPurposePage = ({
   if (isError) return null;
   return (
     <>
-      <Title headingLevel="h2" className="pf-v5-u-mb-sm">
+      <Title headingLevel="h2" className="pf-v6-u-mb-sm">
         {isEditMode ? 'Edit system purpose' : 'Select system purpose'}{' '}
       </Title>
-      <Content component={ContentVariants.p} className="pf-v5-u-mb-xl">
+      <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
         System purpose values are used by the subscriptions service to help
         filter and identify hosts. Setting values for these attributes is an
         optional step, but doing so ensures that subscriptions reporting
@@ -57,7 +57,7 @@ const SetSystemPurposePage = ({
       <Form>
         <FormGroup
           label="Role"
-          className="pf-v5-u-mb-sm"
+          className="pf-v6-u-mb-sm"
           fieldId="activation-key-role"
         >
           <FormSelect
@@ -71,7 +71,7 @@ const SetSystemPurposePage = ({
         </FormGroup>
         <FormGroup
           label="Service level agreement (SLA)"
-          className="pf-v5-u-mb-sm"
+          className="pf-v6-u-mb-sm"
           fieldId="activation-key-sla"
         >
           <FormSelect
@@ -85,7 +85,7 @@ const SetSystemPurposePage = ({
         </FormGroup>
         <FormGroup
           label="Usage"
-          className="pf-v5-u-mb-sm"
+          className="pf-v6-u-mb-sm"
           fieldId="activation-key-usage"
         >
           <FormSelect

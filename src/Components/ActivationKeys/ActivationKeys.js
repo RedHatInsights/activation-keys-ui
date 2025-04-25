@@ -41,7 +41,7 @@ const ActivationKeys = () => {
   };
 
   const popoverContent = (
-    <Content className="pf-v5-u-font-size-sm">
+    <Content className="pf-v6-u-font-size-sm">
       <Content component="p">
         Activation keys assist you in registering systems. Metadata such as
         role, system purpose, and usage can be automatically attached to systems

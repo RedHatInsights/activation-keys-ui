@@ -15,7 +15,7 @@ const NameAndDescriptionPage = ({
 }) => {
   return (
     <div className="pf-l-grid pf-m-gutter">
-      <div className="pf-v5-u-mb-xl">
+      <div className="pf-v6-u-mb-xl">
         <SetNamePage
           mode={mode}
           name={name}
@@ -24,7 +24,7 @@ const NameAndDescriptionPage = ({
           isNameDisabled={isNameDisabled}
         />
       </div>
-      <div className="pf-v5-u-mb-xl">
+      <div className="pf-v6-u-mb-xl">
         <div className="pf-v6-u-text-wrap">
           <ActivationKeyDescription
             mode={mode}

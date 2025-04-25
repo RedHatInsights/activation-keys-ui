@@ -22,10 +22,10 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
 
   return (
     <>
-      <Title headingLevel="h2" className="pf-v5-u-mb-sm">
+      <Title headingLevel="h2" className="pf-v6-u-mb-sm">
         Name key
       </Title>
-      <Content component={ContentVariants.p} className="pf-v5-u-mb-xl">
+      <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
         This name cannot be modified after the activation key is created.
       </Content>
       <Form

@@ -50,8 +50,8 @@ const ActivationKey = () => {
         <Level>
           <LevelItem>
             <Breadcrumbs {...breadcrumbs} />
-            <PageHeaderTitle className="pf-v5-u-mb-sm" title={id} />
-            <DescriptionListGroup className="pf-v5-u-mb-sm">
+            <PageHeaderTitle className="pf-v6-u-mb-sm" title={id} />
+            <DescriptionListGroup className="pf-v6-u-mb-sm">
               {activationKey ? (
                 <DescriptionListTerm component={ContentVariants.p}>
                   {activationKey?.description || 'No Description'}
@@ -59,7 +59,7 @@ const ActivationKey = () => {
               ) : null}
             </DescriptionListGroup>
           </LevelItem>
-          <LevelItem className="pf-v5-u-mb-sm">
+          <LevelItem className="pf-v6-u-mb-sm">
             {!isKeyLoading && user.rbacPermissions.canWriteActivationKeys ? (
               <EditAndDeleteDropdown
                 onClick={handleEditActivationKeyWizardToggle}
