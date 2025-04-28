@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumbs from '../shared/breadcrumbs';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { Grid } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
 import { GridItem } from '@patternfly/react-core/dist/dynamic/layouts/Grid';
 import { Gallery } from '@patternfly/react-core/dist/dynamic/layouts/Gallery';
@@ -50,16 +50,16 @@ const ActivationKey = () => {
         <Level>
           <LevelItem>
             <Breadcrumbs {...breadcrumbs} />
-            <PageHeaderTitle className="pf-v5-u-mb-sm" title={id} />
-            <DescriptionListGroup className="pf-v5-u-mb-sm">
+            <PageHeaderTitle className="pf-v6-u-mb-sm" title={id} />
+            <DescriptionListGroup className="pf-v6-u-mb-sm">
               {activationKey ? (
-                <DescriptionListTerm component={TextVariants.p}>
+                <DescriptionListTerm component={ContentVariants.p}>
                   {activationKey?.description || 'No Description'}
                 </DescriptionListTerm>
               ) : null}
             </DescriptionListGroup>
           </LevelItem>
-          <LevelItem className="pf-v5-u-mb-sm">
+          <LevelItem className="pf-v6-u-mb-sm">
             {!isKeyLoading && user.rbacPermissions.canWriteActivationKeys ? (
               <EditAndDeleteDropdown
                 onClick={handleEditActivationKeyWizardToggle}

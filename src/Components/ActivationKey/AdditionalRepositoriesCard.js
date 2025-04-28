@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import propTypes from 'prop-types';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
+
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { Card } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { CardHeader } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { CardTitle } from '@patternfly/react-core/dist/dynamic/components/Card';
@@ -35,12 +35,12 @@ const AdditionalRepositoriesCard = (props) => {
         </CardTitle>
       </CardHeader>
       <CardBody>
-        <TextContent>
-          <Text component={TextVariants.p}>
+        <Content>
+          <Content component={ContentVariants.p}>
             The core repositories for your operating system version, for example
             BaseOS and AppStream, are always enabled and do not need to be
             explicitly added to the activation key.
-          </Text>
+          </Content>
           <AddAdditionalRepositoriesButton
             onClick={handleEditAdditionalRepositoriesToggle}
           />
@@ -49,7 +49,7 @@ const AdditionalRepositoriesCard = (props) => {
             handleModalToggle={handleEditAdditionalRepositoriesToggle}
             keyName={activationKey.name}
           />
-        </TextContent>
+        </Content>
         <AdditionalRepositoriesTable
           repositories={activationKey.additionalRepositories}
           name={activationKey.name}

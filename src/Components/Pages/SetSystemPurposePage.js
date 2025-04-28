@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { FormSelect } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
@@ -44,20 +44,20 @@ const SetSystemPurposePage = ({
   if (isError) return null;
   return (
     <>
-      <Title headingLevel="h2" className="pf-v5-u-mb-sm">
+      <Title headingLevel="h2" className="pf-v6-u-mb-sm">
         {isEditMode ? 'Edit system purpose' : 'Select system purpose'}{' '}
       </Title>
-      <Text component={TextVariants.p} className="pf-v5-u-mb-xl">
+      <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
         System purpose values are used by the subscriptions service to help
         filter and identify hosts. Setting values for these attributes is an
         optional step, but doing so ensures that subscriptions reporting
         accurately reflects the system. Only those values available to your
         account are shown.
-      </Text>
+      </Content>
       <Form>
         <FormGroup
           label="Role"
-          className="pf-v5-u-mb-sm"
+          className="pf-v6-u-mb-sm"
           fieldId="activation-key-role"
         >
           <FormSelect
@@ -71,7 +71,7 @@ const SetSystemPurposePage = ({
         </FormGroup>
         <FormGroup
           label="Service level agreement (SLA)"
-          className="pf-v5-u-mb-sm"
+          className="pf-v6-u-mb-sm"
           fieldId="activation-key-sla"
         >
           <FormSelect
@@ -85,7 +85,7 @@ const SetSystemPurposePage = ({
         </FormGroup>
         <FormGroup
           label="Usage"
-          className="pf-v5-u-mb-sm"
+          className="pf-v6-u-mb-sm"
           fieldId="activation-key-usage"
         >
           <FormSelect

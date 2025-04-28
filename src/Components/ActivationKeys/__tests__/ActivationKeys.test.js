@@ -135,7 +135,9 @@ describe('ActivationKeys', () => {
     it('create activation key button is disabled', async () => {
       render(<PageContainer />);
       await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
-      expect(screen.getByText('Create activation key')).toBeDisabled();
+      expect(
+        screen.getByText('Create activation key').parentElement
+      ).toBeDisabled();
     });
   });
 

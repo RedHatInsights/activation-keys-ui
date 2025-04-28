@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { Radio } from '@patternfly/react-core/dist/dynamic/components/Radio';
 import { Spinner } from '@patternfly/react-core/dist/dynamic/components/Spinner';
 import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
@@ -9,9 +9,8 @@ import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { FormSelect } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
 import { FormSelectOption } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
 import { Tooltip } from '@patternfly/react-core/dist/dynamic/components/Tooltip';
-import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
+
 import PropTypes from 'prop-types';
-import useEusVersions from '../../hooks/useEusVersions';
 
 const SetWorkloadPage = ({
   activationKey,
@@ -23,90 +22,22 @@ const SetWorkloadPage = ({
   setExtendedReleaseProduct,
   extendedReleaseVersion,
   setExtendedReleaseVersion,
-  setExtendedReleaseRepositories,
+  isLoading,
+  error,
+  releaseVersions,
+  errorInferringProduct,
+  inferredReleaseProduct,
 }) => {
-  const { isLoading, error, data: releaseVersions } = useEusVersions();
-  const [inferredReleaseProduct, setInferredReleaseProduct] = useState('');
-  const [errorInferringProduct, setErrorInferringProduct] = useState(false);
-
-  /**
-   * Handle default settings
-   *
-   * Upon render, or workload change, set the correct defaults for release
-   * product and version
-   */
-  useEffect(() => {
-    if (workload.includes('Extended') && releaseVersions?.length > 0) {
-      // In edit, when we are changing EUS products, we need to infer the
-      // product based on the repos
-      if (isEditMode && activationKey.releaseVersion) {
-        const inferredReleaseProduct = releaseVersions.find((product) =>
-          product.configurations.find(
-            (c) =>
-              c.version == activationKey.releaseVersion &&
-              c.repositories.every((repo) =>
-                activationKey.additionalRepositories.find(
-                  (has) => has.repositoryLabel == repo
-                )
-              )
-          )
-        )?.name;
-
-        if (!inferredReleaseProduct) {
-          setErrorInferringProduct(true);
-        } else {
-          setInferredReleaseProduct(inferredReleaseProduct);
-        }
-      }
-      setExtendedReleaseProduct(
-        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name
-      );
-      setExtendedReleaseVersion(
-        (prev) =>
-          prev ||
-          activationKey?.releaseVersion ||
-          releaseVersions[0]?.configurations[0]?.version
-      );
-    } else {
-      setExtendedReleaseProduct('');
-      setExtendedReleaseVersion('');
-    }
-  }, [releaseVersions, workload, inferredReleaseProduct]);
-
-  /**
-   * Update the EUS repos
-   *
-   * Based on the currently selected EUS product and version, set the
-   * applicable repos
-   */
-  useEffect(() => {
-    if (
-      releaseVersions &&
-      workload.includes('Extended') &&
-      extendedReleaseProduct
-    ) {
-      setExtendedReleaseRepositories(
-        releaseVersions
-          .find((product) => extendedReleaseProduct == product.name)
-          .configurations.find(
-            (configuration) => extendedReleaseVersion == configuration.version
-          ).repositories
-      );
-    } else {
-      setExtendedReleaseRepositories([]);
-    }
-  }, [releaseVersions, extendedReleaseProduct, extendedReleaseVersion]);
-
   return (
     <>
-      <Title headingLevel="h2" className="pf-v5-u-mb-sm">
+      <Title headingLevel="h2" className="pf-v6-u-mb-sm">
         {isEditMode ? 'Edit Workload' : 'Select Workload'}
       </Title>
-      <Text component={TextVariants.p} className="pf-v5-u-mb-xl">
+      <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
         Choose a workload option to associate an appropriate selection of
         repositories to the activation key. Repositories can be edited on the
         activation key detail page.
-      </Text>
+      </Content>
       {!isLoading ? (
         workloadOptions.map((wl, i) => {
           const isDisabled = i === 1 && error === 400;
@@ -119,10 +50,10 @@ const SetWorkloadPage = ({
                 ) : i === 0 ? (
                   'Activation key will use the latest RHEL release'
                 ) : (
-                  <TextContent>
-                    <Text
-                      className="pf-v5-u-color-light-100"
-                      component={TextVariants.small}
+                  <Content>
+                    <Content
+                      className="pf-v6-u-color-light-100"
+                      component={ContentVariants.small}
                     >
                       Activation key can be version locked to a specific version
                       of RHEL. You can only version lock an activation key to a
@@ -135,8 +66,8 @@ const SetWorkloadPage = ({
                       >
                         https://access.redhat.com/articles/rhel-eus#c9
                       </a>
-                    </Text>
-                  </TextContent>
+                    </Content>
+                  </Content>
                 )
               }
               position="left"
@@ -145,7 +76,7 @@ const SetWorkloadPage = ({
                 label={wl}
                 onChange={() => setWorkload(wl)}
                 isChecked={wl === workload}
-                className="pf-v5-u-mb-md"
+                className="pf-v6-u-mb-md"
                 name={wl}
                 id={wl}
                 isDisabled={isDisabled}
@@ -175,11 +106,14 @@ const SetWorkloadPage = ({
               })}
             </FormSelect>
             {errorInferringProduct && (
-              <Text component="small" className="pf-v5-u-warning-color-200">
+              <Content
+                component="small"
+                className="pf-v6-u-text-color-status-danger"
+              >
                 Unable to infer product based on current additional
                 repositories. &quot;{extendedReleaseProduct}&quot; has been
                 selected by default.
-              </Text>
+              </Content>
             )}
           </FormGroup>
           <FormGroup label="Version">
@@ -213,10 +147,13 @@ const SetWorkloadPage = ({
         ) &&
         (activationKey?.releaseVersion != extendedReleaseVersion ||
           inferredReleaseProduct != extendedReleaseProduct) && (
-          <Text component="small" className="pf-v5-u-warning-color-200">
+          <Content
+            component="small"
+            className="pf-v6-u-text-color-status-danger"
+          >
             Editing the release version or product may remove all existing
             additional repositories from this key.
-          </Text>
+          </Content>
         )}
     </>
   );
@@ -233,5 +170,10 @@ SetWorkloadPage.propTypes = {
   extendedReleaseVersion: PropTypes.string.isRequired,
   setExtendedReleaseVersion: PropTypes.func.isRequired,
   setExtendedReleaseRepositories: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired,
+  releaseVersions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  errorInferringProduct: PropTypes.bool.isRequired,
+  inferredReleaseProduct: PropTypes.string.isRequired,
 };
 export default SetWorkloadPage;

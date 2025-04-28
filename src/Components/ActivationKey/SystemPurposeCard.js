@@ -1,14 +1,12 @@
 import React from 'react';
-import { TextContent } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { Card } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { CardHeader } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { CardTitle } from '@patternfly/react-core/dist/dynamic/components/Card';
 import { CardBody } from '@patternfly/react-core/dist/dynamic/components/Card';
-import { TextList } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextListVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextListItem } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextListItemVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
+
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import propTypes from 'prop-types';
 import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
@@ -17,14 +15,14 @@ const SystemPurposeCard = ({ activationKey }) => {
   const notDefinedText = 'Not defined';
 
   const docsPopoverContent = (
-    <TextContent>
-      <Text>
+    <Content>
+      <Content component="p">
         System purpose values are used by the subscriptions service to help
         filter and identify hosts. Setting values for these attributes is
         optional, but doing so ensures that subscriptions reporting accurately
         reflects the system.
-      </Text>
-    </TextContent>
+      </Content>
+    </Content>
   );
   return (
     <Card>
@@ -40,32 +38,28 @@ const SystemPurposeCard = ({ activationKey }) => {
         </CardTitle>
       </CardHeader>
       <CardBody>
-        <TextContent>
-          <TextList component={TextListVariants.dl}>
-            <TextListItem component={TextListItemVariants.dt}>
-              Role
-            </TextListItem>
-            <TextListItem component={TextListItemVariants.dd}>
+        <Content>
+          <Content component={ContentVariants.dl}>
+            <Content component={ContentVariants.dt}>Role</Content>
+            <Content component={ContentVariants.dd}>
               {activationKey && activationKey.role
                 ? activationKey.role
                 : notDefinedText}
-            </TextListItem>
-            <TextListItem component={TextListItemVariants.dt}>SLA</TextListItem>
-            <TextListItem component={TextListItemVariants.dd}>
+            </Content>
+            <Content component={ContentVariants.dt}>SLA</Content>
+            <Content component={ContentVariants.dd}>
               {activationKey && activationKey.serviceLevel
                 ? activationKey.serviceLevel
                 : notDefinedText}
-            </TextListItem>
-            <TextListItem component={TextListItemVariants.dt}>
-              Usage
-            </TextListItem>
-            <TextListItem component={TextListItemVariants.dd}>
+            </Content>
+            <Content component={ContentVariants.dt}>Usage</Content>
+            <Content component={ContentVariants.dd}>
               {activationKey && activationKey.usage
                 ? activationKey.usage
                 : notDefinedText}
-            </TextListItem>
-          </TextList>
-        </TextContent>
+            </Content>
+          </Content>
+        </Content>
       </CardBody>
     </Card>
   );

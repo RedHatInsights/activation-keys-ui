@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
-import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
+
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
-import { Wizard } from '@patternfly/react-core/deprecated';
 import PropTypes from 'prop-types';
 import useCreateActivationKey from '../../hooks/useCreateActivationKey';
 import useSystemPurposeAttributes from '../../hooks/useSystemPurposeAttributes';
@@ -17,10 +15,23 @@ import NameAndDescriptionPage from '../Pages/NameAndDescriptionPage';
 import useUpdateActivationKey from '../../hooks/useUpdateActivationKey';
 import useDeleteAdditionalRepositories from '../../hooks/useDeleteAdditionalRepositories';
 import useAddAdditionalRepositories from '../../hooks/useAddAdditionalRepositories';
+import { ModalFooter } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalHeader } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { Modal } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { ModalVariant } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
+import { ModalBody } from '@patternfly/react-core/dist/dynamic/components/Modal';
+import { WizardStep } from '@patternfly/react-core/dist/dynamic/components/Wizard';
+import { Wizard } from '@patternfly/react-core/dist/dynamic/components/Wizard';
+import useEusVersions from '../../hooks/useEusVersions';
 
 const workloadOptions = ['Latest release', 'Extended support releases'];
 const confirmCloseTitle = 'Exit activation key creation?';
-const confirmCloseBody = <p>All inputs will be discarded.</p>;
+const confirmCloseBody = (
+  <ModalBody>
+    <Content variant="p">All inputs will be discarded.</Content>
+  </ModalBody>
+);
 const ConfirmCloseFooter = ({ onClose, returnToWizard }) => (
   <>
     <Button variant="primary" onClick={onClose}>
@@ -96,6 +107,8 @@ const ActivationKeyWizard = ({
       ? 'Extended support releases'
       : 'Latest release'
   );
+  const [mutationError, setMutationError] = useState(false);
+
   useEffect(() => {
     if (isEditMode && activationKey) {
       const previousWorkload = activationKey?.releaseVersion
@@ -113,6 +126,87 @@ const ActivationKeyWizard = ({
   const keyNames = activationKeys?.map((key) => key.name) || [];
   const nameIsValid = nameValidator(name, keyNames);
   const descriptionIsValid = descriptionValidator(description || '');
+
+  const {
+    isLoading: isReleaseVersionsLoading,
+    error: eusError,
+    data: releaseVersions,
+  } = useEusVersions();
+  const [inferredReleaseProduct, setInferredReleaseProduct] = useState('');
+  const [errorInferringProduct, setErrorInferringProduct] = useState(false);
+
+  /**
+   * Handle default workload settings
+   *
+   * Upon render, or workload change, set the correct defaults for release
+   * product and version.
+   *
+   * This needs to be handled upon modal load here, not upon load of the
+   * workload page, as if it is skipped over we would accidentally unset
+   * the current workload if.
+   */
+  useEffect(() => {
+    if (workload.includes('Extended') && releaseVersions?.length > 0) {
+      // In edit, when we are changing EUS products, we need to infer the
+      // product based on the repos
+      if (isEditMode && activationKey.releaseVersion) {
+        const inferredReleaseProduct = releaseVersions.find((product) =>
+          product.configurations.find(
+            (c) =>
+              c.version == activationKey.releaseVersion &&
+              c.repositories.every((repo) =>
+                activationKey.additionalRepositories.find(
+                  (has) => has.repositoryLabel == repo
+                )
+              )
+          )
+        )?.name;
+
+        if (!inferredReleaseProduct) {
+          setErrorInferringProduct(true);
+        } else {
+          setInferredReleaseProduct(inferredReleaseProduct);
+        }
+      }
+      setExtendedReleaseProduct(
+        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name
+      );
+      setExtendedReleaseVersion(
+        (prev) =>
+          prev ||
+          activationKey?.releaseVersion ||
+          releaseVersions[0]?.configurations[0]?.version
+      );
+    } else {
+      setExtendedReleaseProduct('');
+      setExtendedReleaseVersion('');
+    }
+  }, [releaseVersions, workload, inferredReleaseProduct]);
+
+  /**
+   * Update the EUS repos
+   *
+   * Based on the currently selected EUS product and version, set the
+   * applicable repos
+   */
+  useEffect(() => {
+    if (
+      releaseVersions &&
+      workload.includes('Extended') &&
+      extendedReleaseProduct
+    ) {
+      setExtendedReleaseRepositories(
+        releaseVersions
+          .find((product) => extendedReleaseProduct == product.name)
+          .configurations.find(
+            (configuration) => extendedReleaseVersion == configuration.version
+          ).repositories
+      );
+    } else {
+      setExtendedReleaseRepositories([]);
+    }
+  }, [releaseVersions, extendedReleaseProduct, extendedReleaseVersion]);
+
   const onClose = () => {
     queryClient.invalidateQueries(['activation_keys']);
     if (activationKey?.name) {
@@ -121,6 +215,7 @@ const ActivationKeyWizard = ({
     }
     handleModalToggle();
   };
+
   const confirmClose = () => {
     if (shouldConfirmClose) {
       setIsConfirmClose(true);
@@ -128,6 +223,7 @@ const ActivationKeyWizard = ({
       onClose();
     }
   };
+
   const returnToWizard = () => {
     setIsConfirmClose(false);
   };
@@ -152,7 +248,7 @@ const ActivationKeyWizard = ({
       const missing = extendedReleaseRepositories.filter((label) => {
         return (
           activationKey.additionalRepositories.findIndex(
-            (cur) => cur.label == label
+            (cur) => cur.repositoryLabel == label
           ) == -1
         );
       });
@@ -161,7 +257,7 @@ const ActivationKeyWizard = ({
       const extra = activationKey.additionalRepositories.filter((repo) => {
         return (
           extendedReleaseRepositories.findIndex(
-            (label) => label == repo.label
+            (label) => label == repo.repositoryLabel
           ) == -1
         );
       });
@@ -210,7 +306,7 @@ const ActivationKeyWizard = ({
             ? `Changes saved for activation key "${activationKey.name}"`
             : `Activation key "${name}" created`
         );
-        setCurrentStep(4);
+        setMutationError(false);
       },
       onError: () => {
         addErrorNotification(
@@ -218,7 +314,7 @@ const ActivationKeyWizard = ({
             ? `Error updating activation key ${activationKey.name}.`
             : 'Something went wrong.'
         );
-        handleModalToggle();
+        setMutationError(true);
       },
     });
   };
@@ -226,7 +322,6 @@ const ActivationKeyWizard = ({
   const mode = isEditMode ? 'Edit' : 'Create';
   const steps = [
     {
-      id: 0,
       name: 'Name and Description',
       component: (
         <NameAndDescriptionPage
@@ -241,12 +336,13 @@ const ActivationKeyWizard = ({
           descriptionIsValid={descriptionIsValid}
         />
       ),
-      enableNext: isEditMode
-        ? descriptionIsValid
-        : nameIsValid && descriptionIsValid,
+      customFooter: {
+        isNextDisabled: isEditMode
+          ? !descriptionIsValid
+          : !nameIsValid || !descriptionIsValid,
+      },
     },
     {
-      id: 1,
       name: 'Workload',
       component: (
         <SetWorkloadPage
@@ -260,12 +356,16 @@ const ActivationKeyWizard = ({
           extendedReleaseVersion={extendedReleaseVersion}
           setExtendedReleaseVersion={setExtendedReleaseVersion}
           setExtendedReleaseRepositories={setExtendedReleaseRepositories}
+          isLoading={isReleaseVersionsLoading}
+          error={eusError}
+          releaseVersions={releaseVersions}
+          errorInferringProduct={errorInferringProduct}
+          inferredReleaseProduct={inferredReleaseProduct}
         />
       ),
       isDisabled: !isEditMode && !nameIsValid,
     },
     {
-      id: 2,
       name: 'System purpose',
       component: (
         <SetSystemPurposePage
@@ -285,7 +385,6 @@ const ActivationKeyWizard = ({
       isDisabled: !isEditMode && !nameIsValid,
     },
     {
-      id: 3,
       name: 'Review',
       component: (
         <ReviewActivationKeyPage
@@ -305,10 +404,11 @@ const ActivationKeyWizard = ({
         />
       ),
       isDisabled: !isEditMode && !nameIsValid,
-      nextButtonText: isEditMode ? 'Update' : 'Create',
+      customFooter: {
+        nextButtonText: isEditMode ? 'Update' : 'Create',
+      },
     },
     {
-      id: 4,
       name: 'Finish',
       component: (
         <SuccessPage
@@ -321,9 +421,11 @@ const ActivationKeyWizard = ({
           name={isEditMode ? activationKey?.name : name}
           onClose={onClose}
           isEditMode={isEditMode}
+          isError={mutationError}
         />
       ),
-      isFinishedStep: true,
+      customNav: <></>,
+      customFooter: <></>,
     },
   ];
 
@@ -331,44 +433,63 @@ const ActivationKeyWizard = ({
     <Modal
       variant={isConfirmClose ? ModalVariant.small : ModalVariant.large}
       isOpen={isOpen}
-      showClose={isConfirmClose}
-      title={isConfirmClose ? confirmCloseTitle : undefined}
-      titleIconVariant={isConfirmClose ? 'warning' : undefined}
-      footer={
-        isConfirmClose ? (
-          <ConfirmCloseFooter
-            onClose={onClose}
-            returnToWizard={returnToWizard}
-          />
-        ) : undefined
-      }
-      hasNoBodyWrapper={!isConfirmClose}
       aria-label={
         isEditMode
           ? 'Edit activation key wizard'
           : 'Create activation key wizard'
       }
-      onClose={isConfirmClose ? returnToWizard : undefined}
+      onClose={isConfirmClose ? undefined : confirmClose}
     >
+      <ModalHeader
+        titleIconVariant={isConfirmClose ? 'warning' : undefined}
+        title={
+          isConfirmClose
+            ? confirmCloseTitle
+            : isEditMode
+            ? 'Edit activation key'
+            : 'Create activation key '
+        }
+      />
       {!isConfirmClose && (
         <Wizard
-          title={isEditMode ? 'Edit activation key' : 'Create activation key '}
-          steps={steps}
-          height={400}
+          height={800}
           navAriaLabel={`${mode} activation key steps`}
-          mainAriaLabel={`${mode} activation key content`}
-          onCurrentStepChanged={(step) => {
+          onStepChange={(_event, step) => {
             setShouldConfirmClose(step.id > 0 && step.id < 4);
             setCurrentStep(step.id);
             if (step.id === 4) {
               saveChanges();
             }
           }}
-          startAtStep={currentStep + 1}
-          onClose={() => confirmClose(onClose)}
-        />
+          startIndex={currentStep + 1}
+          onClose={confirmClose}
+          isVisitRequired={!isEditMode}
+        >
+          {steps.map((step, i) => {
+            return (
+              <WizardStep
+                id={i}
+                key={i}
+                name={step.name}
+                isDisabled={step.isDisabled}
+                navItem={step.customNav}
+                footer={step.customFooter}
+              >
+                {step.component}
+              </WizardStep>
+            );
+          })}
+        </Wizard>
       )}
       {isConfirmClose && confirmCloseBody}
+      <ModalFooter>
+        {isConfirmClose ? (
+          <ConfirmCloseFooter
+            onClose={onClose}
+            returnToWizard={returnToWizard}
+          />
+        ) : undefined}
+      </ModalFooter>
     </Modal>
   );
 };

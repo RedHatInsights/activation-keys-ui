@@ -32,3 +32,16 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
     getUserPermissions: () => Promise.resolve(['inventory:*:*']),
   }),
 }));
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => () => {},
+}));
+
+jest.mock(
+  '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate/useInsightsNavigate',
+  () => ({
+    __esModule: true,
+    default: () => () => {},
+  })
+);

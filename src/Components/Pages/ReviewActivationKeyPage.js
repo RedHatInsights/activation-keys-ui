@@ -1,7 +1,7 @@
 import React from 'react';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
-import { Text } from '@patternfly/react-core/dist/dynamic/components/Text';
-import { TextVariants } from '@patternfly/react-core/dist/dynamic/components/Text';
+import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
+import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { DescriptionList } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
 import { DescriptionListTerm } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
 import { DescriptionListGroup } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
@@ -23,7 +23,9 @@ const ReviewActivationKeyPage = ({
   extendedReleaseVersion,
 }) => {
   if (isLoading) return <Loading />;
+
   const isEditMode = mode;
+
   const rows = [
     {
       term: 'Name',
@@ -76,17 +78,16 @@ const ReviewActivationKeyPage = ({
     }
   );
 
-  console.log('Version:', activationKey?.releaseVersion);
   return (
     <>
-      <Title headingLevel="h2" className="pf-v5-u-mb-sm">
+      <Title headingLevel="h2" className="pf-v6-u-mb-sm">
         Review
       </Title>
-      <Text component={TextVariants.p} className="pf-v5-u-mb-xl">
+      <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
         {isEditMode
           ? 'Review the following information and click Edit to apply your changes. The updates will only affect future systems that register with this activation key, not currently registered systems.'
           : 'Review the following information and click Create to generate the activation key.'}
-      </Text>
+      </Content>
       <DescriptionList isHorizontal>
         {rows.map((row, index) => (
           <DescriptionListGroup key={index}>
