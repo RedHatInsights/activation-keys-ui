@@ -77,7 +77,7 @@
     "@redhat-cloud-services/eslint-config-redhat-cloud-services": "^2.0.12",
     "@redhat-cloud-services/frontend-components-config": "^6.3.5",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.23",
-    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^14.1.2",
     "axios-mock-adapter": "^2.1.0",
     "babel-core": "7.0.0-bridge.0",
