@@ -78,7 +78,7 @@
     "@redhat-cloud-services/frontend-components-config": "^6.3.5",
     "@redhat-cloud-services/tsc-transform-imports": "^1.0.23",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^14.1.2",
+    "@testing-library/react": "^16.3.0",
     "axios-mock-adapter": "^2.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "=29.7.0",
