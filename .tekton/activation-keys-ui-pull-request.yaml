@@ -31,6 +31,8 @@ spec:
     value: ./build-tools/Dockerfile
   taskRunTemplate:
     serviceAccountName: build-pipeline-activation-keys-ui
+  pipelineRef:
+    name: docker-build
   workspaces:
   - name: workspace
     volumeClaimTemplate:
