@@ -46,7 +46,7 @@
     "@babel/runtime": "7.27.4",
     "@patternfly/react-core": "^6.2.0",
     "@patternfly/react-icons": "^6.2.2",
-    "@patternfly/react-table": "^6.2.0",
+    "@patternfly/react-table": "^6.2.2",
     "@redhat-cloud-services/frontend-components": "^6.0.2",
     "@redhat-cloud-services/frontend-components-notifications": "^5.0.4",
     "@redhat-cloud-services/frontend-components-utilities": "^6.0.5",
