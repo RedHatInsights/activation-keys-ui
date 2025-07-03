@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json
+apiVersion: v1
+kind: Template
+metadata:
+  name: activation-keys
+objects:
+  - apiVersion: cloud.redhat.com/v1alpha1
+    kind: Frontend
+    metadata:
+      name: activation-keys
+    spec:
+      envName: ${ENV_NAME}
+      feoConfigEnabled: true
+      title: "Manage Activation Keys"
+      deploymentRepo: https://github.com/RedHatInsights/activation-keys-ui
+      API:
+        versions:
+          - v1
+      frontend:
+        paths:
+          - /apps/activation-keys
+      image: ${IMAGE}:${IMAGE_TAG}
+      searchEntries:
+        - id: 'manage-configuration'
+          title: Manage Configuration
+          href: /connector
+          description: Configure remote host and settings.
+        - id: activation-keys
+          title: Activation Keys
+          href: /connector/activation-keys
+          description: Assign and manager activation keys.
+      bundleSegments:
+        - segmentId: connector-activation-nav
+          bundleId: connector
+          position: 125
+          navItems:
+            - id: remote-host-config
+              title: Manage Configuration
+              href: /connector
+            - id: activation-keys
+              title: Activation Keys
+              href: /connector/activation-keys
+      module:
+        manifestLocation: /apps/activation-keys/fed-mods.json
+        modules:
+          - id: activation-keys
+            module: ./RootApp
+            routes:
+              - pathname: /connector/activation-keys
+parameters:
+  - name: ENV_NAME
+    required: true
+  - name: IMAGE_TAG
+    required: true
+  - name: IMAGE
+    value: quay.io/cloudservices/activation-keys-ui
