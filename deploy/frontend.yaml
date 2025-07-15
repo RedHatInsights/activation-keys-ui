@@ -21,10 +21,6 @@ objects:
           - /apps/activation-keys
       image: ${IMAGE}:${IMAGE_TAG}
       searchEntries:
-        - id: 'manage-configuration'
-          title: Manage Configuration
-          href: /connector
-          description: Configure remote host and settings.
         - id: activation-keys
           title: Activation Keys
           href: /connector/activation-keys
@@ -34,19 +30,16 @@ objects:
           bundleId: connector
           position: 125
           navItems:
-            - id: remote-host-config
-              title: Manage Configuration
-              href: /connector
             - id: activation-keys
               title: Activation Keys
-              href: /connector/activation-keys
+              href: insights/connector/activation-keys
       module:
         manifestLocation: /apps/activation-keys/fed-mods.json
         modules:
           - id: activation-keys
             module: ./RootApp
             routes:
-              - pathname: /connector/activation-keys
+              - pathname: insights/connector/activation-keys
 parameters:
   - name: ENV_NAME
     required: true
