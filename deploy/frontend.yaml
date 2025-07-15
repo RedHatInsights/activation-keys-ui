@@ -23,7 +23,7 @@ objects:
       searchEntries:
         - id: activation-keys
           title: Activation Keys
-          href: /connector/activation-keys
+          href: insights/connector/activation-keys
           description: Assign and manager activation keys.
       bundleSegments:
         - segmentId: connector-activation-nav
@@ -40,6 +40,7 @@ objects:
             module: ./RootApp
             routes:
               - pathname: insights/connector/activation-keys
+    moduleID: activation-keys
 parameters:
   - name: ENV_NAME
     required: true
