@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
 import useActivationKeys from '../../hooks/useActivationKeys';
 import Loading from '../LoadingState/Loading';
@@ -21,7 +21,6 @@ const ActivationKeysTable = (props) => {
   const [activeSortIndex, setActiveSortIndex] = React.useState(null);
   const [sortedData, setSortedData] = React.useState([]);
   const [sortDirection, setSortDirection] = React.useState('desc');
-  const location = useLocation();
 
   React.useEffect(() => {
     if (data && data.length > 0) {
@@ -61,10 +60,7 @@ const ActivationKeysTable = (props) => {
             return (
               <Tr key={datum.name} ouiaSafe={true}>
                 <Td modifier="breakWord" dataLabel={columnNames.name}>
-                  <Link to={`${location.pathname}/${datum.name}`}>
-                    {' '}
-                    {datum.name}
-                  </Link>
+                  <Link to={`${datum.name}`}> {datum.name}</Link>
                 </Td>
                 <Td dataLabel={columnNames.role}>{datum.role}</Td>
                 <Td dataLabel={columnNames.serviceLevel}>
