@@ -106,7 +106,7 @@ exports[`ActivationKeysTable renders correctly 1`] = `
           tabindex="-1"
         >
           <a
-            href="/connector/test-key/A"
+            href="/A"
           >
              
             A
