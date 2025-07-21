@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/RedHatInsights/frontend-components/refs/heads/master/packages/config-utils/src/feo/spec/frontend-crd.schema.json
 apiVersion: v1
 kind: Template
 metadata:
@@ -9,8 +10,8 @@ objects:
       name: activation-keys
     spec:
       envName: ${ENV_NAME}
+      feoConfigEnabled: true
       title: "Manage Activation Keys"
-      routePrefix: insights
       deploymentRepo: https://github.com/RedHatInsights/activation-keys-ui
       API:
         versions:
@@ -19,24 +20,27 @@ objects:
         paths:
           - /apps/activation-keys
       image: ${IMAGE}:${IMAGE_TAG}
-      navItems:
-        - title: Remote Host Configuration
-          expandable: true
-          routes:
-            - appId: connector
-              title: Manage configuration
-              href: /insights/connector
-            - appId: activation-keys
+      searchEntries:
+        - id: activation-keys
+          title: Activation Keys
+          href: insights/connector/activation-keys
+          description: Assign and manager activation keys.
+      bundleSegments:
+        - segmentId: connector-activation-nav
+          bundleId: connector
+          position: 125
+          navItems:
+            - id: activation-keys
               title: Activation Keys
-              href: /insights/connector/activation-keys
+              href: insights/connector/activation-keys
       module:
         manifestLocation: /apps/activation-keys/fed-mods.json
         modules:
           - id: activation-keys
             module: ./RootApp
             routes:
-              - pathname: /insights/connector/activation-keys
-        moduleID: activation-keys
+              - pathname: insights/connector/activation-keys
+    moduleID: activation-keys
 parameters:
   - name: ENV_NAME
     required: true
