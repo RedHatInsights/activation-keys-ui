@@ -685,7 +685,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                                   <span
                                     class="pf-v6-c-helper-text__item-text"
                                   >
-                                    Custom named activation key names may be guessable and insecure. We suggest using the default name provided or provide a long, unguessable value.
+                                    Custom activation key names may be guessable and insecure. We suggest using the default name provided or provide a long, unguessable value.
                                      
                                     <button
                                       class="pf-v6-c-button pf-m-link pf-m-inline"
@@ -1505,7 +1505,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                                   <span
                                     class="pf-v6-c-helper-text__item-text"
                                   >
-                                    Custom named activation key names may be guessable and insecure. We suggest using the default name provided or provide a long, unguessable value.
+                                    Custom activation key names may be guessable and insecure. We suggest using the default name provided or provide a long, unguessable value.
                                      
                                     <button
                                       class="pf-v6-c-button pf-m-link pf-m-inline"

@@ -59,9 +59,9 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
               </HelperTextItem>
               {!isUUID(name) && !isNameDisabled && (
                 <HelperTextItem variant="error">
-                  Custom named activation key names may be guessable and
-                  insecure. We suggest using the default name provided or
-                  provide a long, unguessable value.{' '}
+                  Custom activation key names may be guessable and insecure. We
+                  suggest using the default name provided or provide a long,
+                  unguessable value.{' '}
                   <Button
                     variant="link"
                     isInline
