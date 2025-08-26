@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
@@ -9,6 +9,8 @@ import { FormHelperText } from '@patternfly/react-core/dist/dynamic/components/F
 import { HelperText } from '@patternfly/react-core/dist/dynamic/components/HelperText';
 import { HelperTextItem } from '@patternfly/react-core/dist/dynamic/components/HelperText';
 import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
+import { v4 as uuid, validate as isUUID } from 'uuid';
+import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 
 const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
   const [enableValidationFeedback, setEnableValidationFeedback] =
@@ -19,6 +21,12 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
   const validated =
     nameIsValid || !enableValidationFeedback ? 'default' : 'error';
   const helperTextInvalid = `Name requirements have not been met. ${helperText}`;
+
+  useEffect(() => {
+    if (!name) {
+      setName(uuid());
+    }
+  }, []);
 
   return (
     <>
@@ -49,6 +57,21 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
               <HelperTextItem variant={validated}>
                 {validated === 'default' ? helperText : helperTextInvalid}
               </HelperTextItem>
+              {!isUUID(name) && !isNameDisabled && (
+                <HelperTextItem variant="error">
+                  Custom activation key names may be guessable and insecure. We
+                  suggest using the default name provided or provide a long,
+                  unguessable value.{' '}
+                  <Button
+                    variant="link"
+                    isInline
+                    onClick={() => setName(uuid())}
+                  >
+                    Click here
+                  </Button>{' '}
+                  to regenerate a secure name.
+                </HelperTextItem>
+              )}
             </HelperText>
           </FormHelperText>
         </FormGroup>
