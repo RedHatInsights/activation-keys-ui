@@ -4,8 +4,12 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import useCreateActivationKey from '../../../hooks/useCreateActivationKey';
+import useEusVersions from '../../../hooks/useEusVersions';
+import useReleaseVersions from '../../../hooks/useReleaseVersions';
 
 jest.mock('../../../hooks/useCreateActivationKey');
+jest.mock('../../../hooks/useEusVersions');
+jest.mock('../../../hooks/useReleaseVersions');
 
 const queryClient = new QueryClient();
 
@@ -14,6 +18,14 @@ useCreateActivationKey.mockReturnValue({
   mutate,
   error: false,
 });
+useEusVersions.mockReturnValue({});
+useReleaseVersions.mockReturnValue({});
+
+jest.mock('uuid', () => ({
+  __esModule: true,
+  ...jest.requireActual('uuid'),
+  v4: jest.fn(() => '11111111-1111-1111-1111-111111111111'),
+}));
 
 describe('Create Activation Key Wizard', () => {
   const pages = [1, 2, 3, 4, 5];
@@ -25,7 +37,7 @@ describe('Create Activation Key Wizard', () => {
         </QueryClientProvider>
       );
       for (let i = 1; i < page; i++) {
-        const nextStepBtn = screen.getByText('Next');
+        const nextStepBtn = screen.getByText(i < 4 ? 'Next' : 'Create');
         fireEvent.click(nextStepBtn);
       }
       expect(document.body).toMatchSnapshot();
@@ -65,8 +77,8 @@ describe('Create Activation Key Wizard', () => {
         <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
       </QueryClientProvider>
     );
-    for (let i = 0; i < 4; i++) {
-      const nextStepBtn = screen.getByText('Next');
+    for (let i = 1; i < 5; i++) {
+      const nextStepBtn = screen.getByText(i < 4 ? 'Next' : 'Create');
       fireEvent.click(nextStepBtn);
     }
 

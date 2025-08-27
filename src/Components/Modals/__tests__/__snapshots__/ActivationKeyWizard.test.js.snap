@@ -85,10 +85,10 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                 <span
                   class="pf-v6-c-wizard__toggle-num"
                 >
-                  1
+                  2
                 </span>
                  
-                Name and Description
+                Workload
               </span>
             </span>
             <span
@@ -127,8 +127,8 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="step"
-                      class="pf-v6-c-wizard__nav-link pf-m-current"
+                      aria-current="false"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-25"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
@@ -144,13 +144,11 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      aria-current="step"
+                      class="pf-v6-c-wizard__nav-link pf-m-current"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-26"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="1"
                     >
                       <span
@@ -203,169 +201,83 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                 </ol>
               </nav>
               <div
+                style="display: none;"
+              />
+              <div
                 class="pf-v6-c-wizard__main"
                 tabindex="-1"
               >
                 <div
                   class="pf-v6-c-wizard__main-body"
                 >
+                  <h2
+                    class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
+                    data-ouia-component-id="OUIA-Generated-Title-14"
+                    data-ouia-component-type="PF6/Title"
+                    data-ouia-safe="true"
+                  >
+                    Select Workload
+                  </h2>
+                  <p
+                    class="pf-v6-c-content--p pf-v6-u-mb-xl"
+                    data-ouia-component-id="OUIA-Generated-Content-14"
+                    data-ouia-component-type="PF6/Content"
+                    data-ouia-safe="true"
+                    data-pf-content="true"
+                  >
+                    Choose a workload option to associate an appropriate selection of repositories to the activation key. Repositories can be edited on the activation key detail page.
+                  </p>
                   <div
-                    class="pf-l-grid pf-m-gutter"
+                    style="display: contents;"
                   >
                     <div
-                      class="pf-v6-u-mb-xl"
+                      class="pf-v6-c-radio pf-v6-u-mb-md"
                     >
-                      <h2
-                        class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-7"
-                        data-ouia-component-type="PF6/Title"
+                      <input
+                        aria-invalid="false"
+                        checked=""
+                        class="pf-v6-c-radio__input"
+                        data-ouia-component-id="OUIA-Generated-Radio-9"
+                        data-ouia-component-type="PF6/Radio"
                         data-ouia-safe="true"
+                        id="Latest release"
+                        name="Latest release"
+                        type="radio"
+                      />
+                      <label
+                        class="pf-v6-c-radio__label"
+                        for="Latest release"
                       >
-                        Name key
-                      </h2>
-                      <p
-                        class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-7"
-                        data-ouia-component-type="PF6/Content"
-                        data-ouia-safe="true"
-                        data-pf-content="true"
-                      >
-                        This name cannot be modified after the activation key is created.
-                      </p>
-                      <form
-                        class="pf-v6-c-form"
-                        novalidate=""
-                      >
-                        <div
-                          class="pf-v6-c-form__group"
-                        >
-                          <div
-                            class="pf-v6-c-form__group-label"
-                          >
-                            <label
-                              class="pf-v6-c-form__label"
-                              for="activation-key-name"
-                            >
-                              <span
-                                class="pf-v6-c-form__label-text"
-                              >
-                                Name
-                              </span>
-                              <span
-                                aria-hidden="true"
-                                class="pf-v6-c-form__label-required"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                              
-                          </div>
-                          <div
-                            class="pf-v6-c-form__group-control"
-                          >
-                            <span
-                              class="pf-v6-c-form-control"
-                            >
-                              <input
-                                aria-invalid="false"
-                                data-ouia-component-id="OUIA-Generated-TextInputBase-7"
-                                data-ouia-component-type="PF6/TextInput"
-                                data-ouia-safe="true"
-                                id="activation-key-name"
-                                required=""
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                            <div
-                              class="pf-v6-c-form__helper-text"
-                            >
-                              <div
-                                class="pf-v6-c-helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text__item"
-                                >
-                                  <span
-                                    class="pf-v6-c-helper-text__item-text"
-                                  >
-                                    Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
+                        Latest release
+                      </label>
                     </div>
+                  </div>
+                  <div
+                    style="display: contents;"
+                  >
                     <div
-                      class="pf-v6-u-mb-xl"
+                      class="pf-v6-c-radio pf-v6-u-mb-md"
                     >
-                      <div
-                        class="pf-v6-u-text-wrap"
+                      <input
+                        aria-invalid="false"
+                        class="pf-v6-c-radio__input"
+                        data-ouia-component-id="OUIA-Generated-Radio-10"
+                        data-ouia-component-type="PF6/Radio"
+                        data-ouia-safe="true"
+                        id="Extended support releases"
+                        name="Extended support releases"
+                        type="radio"
+                      />
+                      <label
+                        class="pf-v6-c-radio__label"
+                        for="Extended support releases"
                       >
-                        <form
-                          class="pf-v6-c-form"
-                          novalidate=""
-                        >
-                          <div
-                            class="pf-v6-c-form__group"
-                          >
-                            <div
-                              class="pf-v6-c-form__group-label"
-                            >
-                              <label
-                                class="pf-v6-c-form__label"
-                                for="activation-key-description"
-                              >
-                                <span
-                                  class="pf-v6-c-form__label-text"
-                                >
-                                  Description
-                                </span>
-                              </label>
-                                
-                            </div>
-                            <div
-                              class="pf-v6-c-form__group-control"
-                            >
-                              <span
-                                class="pf-v6-c-form-control pf-m-textarea pf-m-resize-both"
-                              >
-                                <textarea
-                                  aria-invalid="false"
-                                  id="activation-key-description"
-                                />
-                              </span>
-                              <div
-                                class="pf-v6-c-form__helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text"
-                                >
-                                  <div
-                                    class="pf-v6-c-helper-text__item"
-                                  >
-                                    <span
-                                      class="pf-v6-c-helper-text__item-text"
-                                    >
-                                      Max characters is 255.
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
+                        Extended support releases
+                      </label>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                style="display: none;"
-              />
               <div
                 style="display: none;"
               />
@@ -396,7 +308,6 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                       data-ouia-component-id="OUIA-Generated-Button-secondary-7"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="button"
                     >
                       <span
@@ -411,10 +322,9 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                   >
                     <button
                       class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-7"
+                      data-ouia-component-id="OUIA-Generated-Button-primary-8"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="submit"
                     >
                       <span
@@ -433,7 +343,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-7"
+                      data-ouia-component-id="OUIA-Generated-Button-link-15"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -676,7 +586,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                     >
                       <h2
                         class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-6"
+                        data-ouia-component-id="OUIA-Generated-Title-12"
                         data-ouia-component-type="PF6/Title"
                         data-ouia-safe="true"
                       >
@@ -684,7 +594,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                       </h2>
                       <p
                         class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-6"
+                        data-ouia-component-id="OUIA-Generated-Content-12"
                         data-ouia-component-type="PF6/Content"
                         data-ouia-safe="true"
                         data-pf-content="true"
@@ -734,7 +644,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                                 id="activation-key-name"
                                 required=""
                                 type="text"
-                                value=""
+                                value="11111111-1111-1111-1111-111111111111"
                               />
                             </span>
                             <div
@@ -750,6 +660,55 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                                     class="pf-v6-c-helper-text__item-text"
                                   >
                                     Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  </span>
+                                </div>
+                                <div
+                                  class="pf-v6-c-helper-text__item pf-m-error"
+                                >
+                                  <span
+                                    class="pf-v6-c-helper-text__item-icon"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="pf-v6-svg"
+                                      fill="currentColor"
+                                      height="1em"
+                                      role="img"
+                                      viewBox="0 0 512 512"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <span
+                                    class="pf-v6-c-helper-text__item-text"
+                                  >
+                                    Custom activation key names may be guessable and insecure. We suggest using the default name provided or provide a long, unguessable value.
+                                     
+                                    <button
+                                      class="pf-v6-c-button pf-m-link pf-m-inline"
+                                      data-ouia-component-id="OUIA-Generated-Button-link-12"
+                                      data-ouia-component-type="PF6/Button"
+                                      data-ouia-safe="true"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="pf-v6-c-button__text"
+                                      >
+                                        Click here
+                                      </span>
+                                    </button>
+                                     
+                                    to regenerate a secure name.
+                                    <span
+                                      class="pf-v6-screen-reader"
+                                    >
+                                      : 
+                                      error status
+                                      ;
+                                    </span>
                                   </span>
                                 </div>
                               </div>
@@ -870,10 +829,9 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                   >
                     <button
                       class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-6"
+                      data-ouia-component-id="OUIA-Generated-Button-primary-7"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="submit"
                     >
                       <span
@@ -892,7 +850,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-6"
+                      data-ouia-component-id="OUIA-Generated-Button-link-13"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -1003,10 +961,10 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                 <span
                   class="pf-v6-c-wizard__toggle-num"
                 >
-                  1
+                  5
                 </span>
                  
-                Name and Description
+                Finish
               </span>
             </span>
             <span
@@ -1045,8 +1003,8 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="step"
-                      class="pf-v6-c-wizard__nav-link pf-m-current"
+                      aria-current="false"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-29"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
@@ -1063,12 +1021,10 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-30"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="1"
                     >
                       <span
@@ -1083,12 +1039,10 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-31"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="2"
                     >
                       <span
@@ -1103,12 +1057,10 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-32"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="3"
                     >
                       <span
@@ -1121,6 +1073,18 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                 </ol>
               </nav>
               <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
                 class="pf-v6-c-wizard__main"
                 tabindex="-1"
               >
@@ -1128,154 +1092,83 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                   class="pf-v6-c-wizard__main-body"
                 >
                   <div
-                    class="pf-l-grid pf-m-gutter"
+                    class="pf-v6-l-bullseye"
                   >
                     <div
-                      class="pf-v6-u-mb-xl"
-                    >
-                      <h2
-                        class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-8"
-                        data-ouia-component-type="PF6/Title"
-                        data-ouia-safe="true"
-                      >
-                        Name key
-                      </h2>
-                      <p
-                        class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-8"
-                        data-ouia-component-type="PF6/Content"
-                        data-ouia-safe="true"
-                        data-pf-content="true"
-                      >
-                        This name cannot be modified after the activation key is created.
-                      </p>
-                      <form
-                        class="pf-v6-c-form"
-                        novalidate=""
-                      >
-                        <div
-                          class="pf-v6-c-form__group"
-                        >
-                          <div
-                            class="pf-v6-c-form__group-label"
-                          >
-                            <label
-                              class="pf-v6-c-form__label"
-                              for="activation-key-name"
-                            >
-                              <span
-                                class="pf-v6-c-form__label-text"
-                              >
-                                Name
-                              </span>
-                              <span
-                                aria-hidden="true"
-                                class="pf-v6-c-form__label-required"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                              
-                          </div>
-                          <div
-                            class="pf-v6-c-form__group-control"
-                          >
-                            <span
-                              class="pf-v6-c-form-control"
-                            >
-                              <input
-                                aria-invalid="false"
-                                data-ouia-component-id="OUIA-Generated-TextInputBase-8"
-                                data-ouia-component-type="PF6/TextInput"
-                                data-ouia-safe="true"
-                                id="activation-key-name"
-                                required=""
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                            <div
-                              class="pf-v6-c-form__helper-text"
-                            >
-                              <div
-                                class="pf-v6-c-helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text__item"
-                                >
-                                  <span
-                                    class="pf-v6-c-helper-text__item-text"
-                                  >
-                                    Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                    <div
-                      class="pf-v6-u-mb-xl"
+                      class="pf-v6-c-empty-state pf-m-success"
                     >
                       <div
-                        class="pf-v6-u-text-wrap"
+                        class="pf-v6-c-empty-state__content"
                       >
-                        <form
-                          class="pf-v6-c-form"
-                          novalidate=""
+                        <div
+                          class="pf-v6-c-empty-state__header"
                         >
                           <div
-                            class="pf-v6-c-form__group"
+                            class="pf-v6-c-empty-state__icon"
                           >
-                            <div
-                              class="pf-v6-c-form__group-label"
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v6-svg"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 512 512"
+                              width="1em"
                             >
-                              <label
-                                class="pf-v6-c-form__label"
-                                for="activation-key-description"
-                              >
-                                <span
-                                  class="pf-v6-c-form__label-text"
-                                >
-                                  Description
-                                </span>
-                              </label>
-                                
-                            </div>
-                            <div
-                              class="pf-v6-c-form__group-control"
+                              <path
+                                d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="pf-v6-c-empty-state__title"
+                          >
+                            <h4
+                              class="pf-v6-c-empty-state__title-text"
+                            >
+                              Activation key created
+                            </h4>
+                          </div>
+                        </div>
+                        <div
+                          class="pf-v6-c-empty-state__body"
+                        >
+                          11111111-1111-1111-1111-111111111111 is now available for use. Click "View activation key" to edit settings or add repositories.
+                        </div>
+                        <div
+                          class="pf-v6-c-empty-state__footer"
+                        >
+                          <button
+                            class="pf-v6-c-button pf-m-primary"
+                            data-ouia-component-id="OUIA-Generated-Button-primary-10"
+                            data-ouia-component-type="PF6/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <span
+                              class="pf-v6-c-button__text"
+                            >
+                              View activation key
+                            </span>
+                          </button>
+                          <div
+                            class="pf-v6-c-empty-state__actions"
+                          >
+                            <button
+                              class="pf-v6-c-button pf-m-link"
+                              data-ouia-component-id="OUIA-Generated-Button-link-18"
+                              data-ouia-component-type="PF6/Button"
+                              data-ouia-safe="true"
+                              type="button"
                             >
                               <span
-                                class="pf-v6-c-form-control pf-m-textarea pf-m-resize-both"
+                                class="pf-v6-c-button__text"
                               >
-                                <textarea
-                                  aria-invalid="false"
-                                  id="activation-key-description"
-                                />
+                                Close
                               </span>
-                              <div
-                                class="pf-v6-c-form__helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text"
-                                >
-                                  <div
-                                    class="pf-v6-c-helper-text__item"
-                                  >
-                                    <span
-                                      class="pf-v6-c-helper-text__item-text"
-                                    >
-                                      Max characters is 255.
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            </button>
                           </div>
-                        </form>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1284,88 +1177,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
               <div
                 style="display: none;"
               />
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
             </div>
-            <footer
-              class="pf-v6-c-wizard__footer"
-            >
-              <div
-                class="pf-v6-c-action-list"
-              >
-                <div
-                  class="pf-v6-c-action-list__group"
-                >
-                  <div
-                    class="pf-v6-c-action-list__item"
-                  >
-                    <button
-                      class="pf-v6-c-button pf-m-secondary"
-                      data-ouia-component-id="OUIA-Generated-Button-secondary-8"
-                      data-ouia-component-type="PF6/Button"
-                      data-ouia-safe="true"
-                      disabled=""
-                      type="button"
-                    >
-                      <span
-                        class="pf-v6-c-button__text"
-                      >
-                        Back
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="pf-v6-c-action-list__item"
-                  >
-                    <button
-                      class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-8"
-                      data-ouia-component-type="PF6/Button"
-                      data-ouia-safe="true"
-                      disabled=""
-                      type="submit"
-                    >
-                      <span
-                        class="pf-v6-c-button__text"
-                      >
-                        Next
-                      </span>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="pf-v6-c-action-list__group"
-                >
-                  <div
-                    class="pf-v6-c-action-list__item"
-                  >
-                    <button
-                      class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-8"
-                      data-ouia-component-type="PF6/Button"
-                      data-ouia-safe="true"
-                      type="button"
-                    >
-                      <span
-                        class="pf-v6-c-button__text"
-                      >
-                        Cancel
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </footer>
           </div>
         </div>
         <footer
@@ -1652,7 +1464,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                                 id="activation-key-name"
                                 required=""
                                 type="text"
-                                value=""
+                                value="11111111-1111-1111-1111-111111111111"
                               />
                             </span>
                             <div
@@ -1668,6 +1480,55 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                                     class="pf-v6-c-helper-text__item-text"
                                   >
                                     Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
+                                  </span>
+                                </div>
+                                <div
+                                  class="pf-v6-c-helper-text__item pf-m-error"
+                                >
+                                  <span
+                                    class="pf-v6-c-helper-text__item-icon"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="pf-v6-svg"
+                                      fill="currentColor"
+                                      height="1em"
+                                      role="img"
+                                      viewBox="0 0 512 512"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  <span
+                                    class="pf-v6-c-helper-text__item-text"
+                                  >
+                                    Custom activation key names may be guessable and insecure. We suggest using the default name provided or provide a long, unguessable value.
+                                     
+                                    <button
+                                      class="pf-v6-c-button pf-m-link pf-m-inline"
+                                      data-ouia-component-id="OUIA-Generated-Button-link-1"
+                                      data-ouia-component-type="PF6/Button"
+                                      data-ouia-safe="true"
+                                      type="button"
+                                    >
+                                      <span
+                                        class="pf-v6-c-button__text"
+                                      >
+                                        Click here
+                                      </span>
+                                    </button>
+                                     
+                                    to regenerate a secure name.
+                                    <span
+                                      class="pf-v6-screen-reader"
+                                    >
+                                      : 
+                                      error status
+                                      ;
+                                    </span>
                                   </span>
                                 </div>
                               </div>
@@ -1791,7 +1652,6 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                       data-ouia-component-id="OUIA-Generated-Button-primary-1"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="submit"
                     >
                       <span
@@ -1810,7 +1670,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-1"
+                      data-ouia-component-id="OUIA-Generated-Button-link-2"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -1921,10 +1781,10 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                 <span
                   class="pf-v6-c-wizard__toggle-num"
                 >
-                  1
+                  2
                 </span>
                  
-                Name and Description
+                Workload
               </span>
             </span>
             <span
@@ -1963,8 +1823,8 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="step"
-                      class="pf-v6-c-wizard__nav-link pf-m-current"
+                      aria-current="false"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-5"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
@@ -1980,13 +1840,11 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      aria-current="step"
+                      class="pf-v6-c-wizard__nav-link pf-m-current"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-6"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="1"
                     >
                       <span
@@ -2039,169 +1897,83 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                 </ol>
               </nav>
               <div
+                style="display: none;"
+              />
+              <div
                 class="pf-v6-c-wizard__main"
                 tabindex="-1"
               >
                 <div
                   class="pf-v6-c-wizard__main-body"
                 >
+                  <h2
+                    class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
+                    data-ouia-component-id="OUIA-Generated-Title-3"
+                    data-ouia-component-type="PF6/Title"
+                    data-ouia-safe="true"
+                  >
+                    Select Workload
+                  </h2>
+                  <p
+                    class="pf-v6-c-content--p pf-v6-u-mb-xl"
+                    data-ouia-component-id="OUIA-Generated-Content-3"
+                    data-ouia-component-type="PF6/Content"
+                    data-ouia-safe="true"
+                    data-pf-content="true"
+                  >
+                    Choose a workload option to associate an appropriate selection of repositories to the activation key. Repositories can be edited on the activation key detail page.
+                  </p>
                   <div
-                    class="pf-l-grid pf-m-gutter"
+                    style="display: contents;"
                   >
                     <div
-                      class="pf-v6-u-mb-xl"
+                      class="pf-v6-c-radio pf-v6-u-mb-md"
                     >
-                      <h2
-                        class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-2"
-                        data-ouia-component-type="PF6/Title"
+                      <input
+                        aria-invalid="false"
+                        checked=""
+                        class="pf-v6-c-radio__input"
+                        data-ouia-component-id="OUIA-Generated-Radio-1"
+                        data-ouia-component-type="PF6/Radio"
                         data-ouia-safe="true"
+                        id="Latest release"
+                        name="Latest release"
+                        type="radio"
+                      />
+                      <label
+                        class="pf-v6-c-radio__label"
+                        for="Latest release"
                       >
-                        Name key
-                      </h2>
-                      <p
-                        class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-2"
-                        data-ouia-component-type="PF6/Content"
-                        data-ouia-safe="true"
-                        data-pf-content="true"
-                      >
-                        This name cannot be modified after the activation key is created.
-                      </p>
-                      <form
-                        class="pf-v6-c-form"
-                        novalidate=""
-                      >
-                        <div
-                          class="pf-v6-c-form__group"
-                        >
-                          <div
-                            class="pf-v6-c-form__group-label"
-                          >
-                            <label
-                              class="pf-v6-c-form__label"
-                              for="activation-key-name"
-                            >
-                              <span
-                                class="pf-v6-c-form__label-text"
-                              >
-                                Name
-                              </span>
-                              <span
-                                aria-hidden="true"
-                                class="pf-v6-c-form__label-required"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                              
-                          </div>
-                          <div
-                            class="pf-v6-c-form__group-control"
-                          >
-                            <span
-                              class="pf-v6-c-form-control"
-                            >
-                              <input
-                                aria-invalid="false"
-                                data-ouia-component-id="OUIA-Generated-TextInputBase-2"
-                                data-ouia-component-type="PF6/TextInput"
-                                data-ouia-safe="true"
-                                id="activation-key-name"
-                                required=""
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                            <div
-                              class="pf-v6-c-form__helper-text"
-                            >
-                              <div
-                                class="pf-v6-c-helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text__item"
-                                >
-                                  <span
-                                    class="pf-v6-c-helper-text__item-text"
-                                  >
-                                    Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
+                        Latest release
+                      </label>
                     </div>
+                  </div>
+                  <div
+                    style="display: contents;"
+                  >
                     <div
-                      class="pf-v6-u-mb-xl"
+                      class="pf-v6-c-radio pf-v6-u-mb-md"
                     >
-                      <div
-                        class="pf-v6-u-text-wrap"
+                      <input
+                        aria-invalid="false"
+                        class="pf-v6-c-radio__input"
+                        data-ouia-component-id="OUIA-Generated-Radio-2"
+                        data-ouia-component-type="PF6/Radio"
+                        data-ouia-safe="true"
+                        id="Extended support releases"
+                        name="Extended support releases"
+                        type="radio"
+                      />
+                      <label
+                        class="pf-v6-c-radio__label"
+                        for="Extended support releases"
                       >
-                        <form
-                          class="pf-v6-c-form"
-                          novalidate=""
-                        >
-                          <div
-                            class="pf-v6-c-form__group"
-                          >
-                            <div
-                              class="pf-v6-c-form__group-label"
-                            >
-                              <label
-                                class="pf-v6-c-form__label"
-                                for="activation-key-description"
-                              >
-                                <span
-                                  class="pf-v6-c-form__label-text"
-                                >
-                                  Description
-                                </span>
-                              </label>
-                                
-                            </div>
-                            <div
-                              class="pf-v6-c-form__group-control"
-                            >
-                              <span
-                                class="pf-v6-c-form-control pf-m-textarea pf-m-resize-both"
-                              >
-                                <textarea
-                                  aria-invalid="false"
-                                  id="activation-key-description"
-                                />
-                              </span>
-                              <div
-                                class="pf-v6-c-form__helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text"
-                                >
-                                  <div
-                                    class="pf-v6-c-helper-text__item"
-                                  >
-                                    <span
-                                      class="pf-v6-c-helper-text__item-text"
-                                    >
-                                      Max characters is 255.
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
+                        Extended support releases
+                      </label>
                     </div>
                   </div>
                 </div>
               </div>
-              <div
-                style="display: none;"
-              />
               <div
                 style="display: none;"
               />
@@ -2232,7 +2004,6 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                       data-ouia-component-id="OUIA-Generated-Button-secondary-2"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="button"
                     >
                       <span
@@ -2250,7 +2021,6 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                       data-ouia-component-id="OUIA-Generated-Button-primary-2"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="submit"
                     >
                       <span
@@ -2269,7 +2039,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-2"
+                      data-ouia-component-id="OUIA-Generated-Button-link-4"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -2380,10 +2150,10 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                 <span
                   class="pf-v6-c-wizard__toggle-num"
                 >
-                  1
+                  3
                 </span>
                  
-                Name and Description
+                System purpose
               </span>
             </span>
             <span
@@ -2422,8 +2192,8 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="step"
-                      class="pf-v6-c-wizard__nav-link pf-m-current"
+                      aria-current="false"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-9"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
@@ -2440,12 +2210,10 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-10"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="1"
                     >
                       <span
@@ -2459,13 +2227,11 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      aria-current="step"
+                      class="pf-v6-c-wizard__nav-link pf-m-current"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-11"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="2"
                     >
                       <span
@@ -2498,6 +2264,12 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                 </ol>
               </nav>
               <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
                 class="pf-v6-c-wizard__main"
                 tabindex="-1"
               >
@@ -2505,165 +2277,26 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                   class="pf-v6-c-wizard__main-body"
                 >
                   <div
-                    class="pf-l-grid pf-m-gutter"
+                    class="pf-v6-l-bullseye"
                   >
-                    <div
-                      class="pf-v6-u-mb-xl"
+                    <svg
+                      aria-label="Contents"
+                      aria-valuetext="Loading..."
+                      class="pf-v6-c-spinner pf-m-xl"
+                      role="progressbar"
+                      viewBox="0 0 100 100"
                     >
-                      <h2
-                        class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-3"
-                        data-ouia-component-type="PF6/Title"
-                        data-ouia-safe="true"
-                      >
-                        Name key
-                      </h2>
-                      <p
-                        class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-3"
-                        data-ouia-component-type="PF6/Content"
-                        data-ouia-safe="true"
-                        data-pf-content="true"
-                      >
-                        This name cannot be modified after the activation key is created.
-                      </p>
-                      <form
-                        class="pf-v6-c-form"
-                        novalidate=""
-                      >
-                        <div
-                          class="pf-v6-c-form__group"
-                        >
-                          <div
-                            class="pf-v6-c-form__group-label"
-                          >
-                            <label
-                              class="pf-v6-c-form__label"
-                              for="activation-key-name"
-                            >
-                              <span
-                                class="pf-v6-c-form__label-text"
-                              >
-                                Name
-                              </span>
-                              <span
-                                aria-hidden="true"
-                                class="pf-v6-c-form__label-required"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                              
-                          </div>
-                          <div
-                            class="pf-v6-c-form__group-control"
-                          >
-                            <span
-                              class="pf-v6-c-form-control"
-                            >
-                              <input
-                                aria-invalid="false"
-                                data-ouia-component-id="OUIA-Generated-TextInputBase-3"
-                                data-ouia-component-type="PF6/TextInput"
-                                data-ouia-safe="true"
-                                id="activation-key-name"
-                                required=""
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                            <div
-                              class="pf-v6-c-form__helper-text"
-                            >
-                              <div
-                                class="pf-v6-c-helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text__item"
-                                >
-                                  <span
-                                    class="pf-v6-c-helper-text__item-text"
-                                  >
-                                    Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                    <div
-                      class="pf-v6-u-mb-xl"
-                    >
-                      <div
-                        class="pf-v6-u-text-wrap"
-                      >
-                        <form
-                          class="pf-v6-c-form"
-                          novalidate=""
-                        >
-                          <div
-                            class="pf-v6-c-form__group"
-                          >
-                            <div
-                              class="pf-v6-c-form__group-label"
-                            >
-                              <label
-                                class="pf-v6-c-form__label"
-                                for="activation-key-description"
-                              >
-                                <span
-                                  class="pf-v6-c-form__label-text"
-                                >
-                                  Description
-                                </span>
-                              </label>
-                                
-                            </div>
-                            <div
-                              class="pf-v6-c-form__group-control"
-                            >
-                              <span
-                                class="pf-v6-c-form-control pf-m-textarea pf-m-resize-both"
-                              >
-                                <textarea
-                                  aria-invalid="false"
-                                  id="activation-key-description"
-                                />
-                              </span>
-                              <div
-                                class="pf-v6-c-form__helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text"
-                                >
-                                  <div
-                                    class="pf-v6-c-helper-text__item"
-                                  >
-                                    <span
-                                      class="pf-v6-c-helper-text__item-text"
-                                    >
-                                      Max characters is 255.
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
+                      <circle
+                        class="pf-v6-c-spinner__path"
+                        cx="50"
+                        cy="50"
+                        fill="none"
+                        r="45"
+                      />
+                    </svg>
                   </div>
                 </div>
               </div>
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
               <div
                 style="display: none;"
               />
@@ -2691,7 +2324,6 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                       data-ouia-component-id="OUIA-Generated-Button-secondary-3"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="button"
                     >
                       <span
@@ -2709,7 +2341,6 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                       data-ouia-component-id="OUIA-Generated-Button-primary-3"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="submit"
                     >
                       <span
@@ -2728,7 +2359,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-3"
+                      data-ouia-component-id="OUIA-Generated-Button-link-6"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -2839,10 +2470,10 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                 <span
                   class="pf-v6-c-wizard__toggle-num"
                 >
-                  1
+                  4
                 </span>
                  
-                Name and Description
+                Review
               </span>
             </span>
             <span
@@ -2881,8 +2512,8 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="step"
-                      class="pf-v6-c-wizard__nav-link pf-m-current"
+                      aria-current="false"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-13"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
@@ -2899,12 +2530,10 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-14"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="1"
                     >
                       <span
@@ -2919,12 +2548,10 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-15"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="2"
                     >
                       <span
@@ -2938,13 +2565,11 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      aria-current="step"
+                      class="pf-v6-c-wizard__nav-link pf-m-current"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-16"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="3"
                     >
                       <span
@@ -2957,175 +2582,206 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                 </ol>
               </nav>
               <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
                 class="pf-v6-c-wizard__main"
                 tabindex="-1"
               >
                 <div
                   class="pf-v6-c-wizard__main-body"
                 >
-                  <div
-                    class="pf-l-grid pf-m-gutter"
+                  <h2
+                    class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
+                    data-ouia-component-id="OUIA-Generated-Title-8"
+                    data-ouia-component-type="PF6/Title"
+                    data-ouia-safe="true"
+                  >
+                    Review
+                  </h2>
+                  <p
+                    class="pf-v6-c-content--p pf-v6-u-mb-xl"
+                    data-ouia-component-id="OUIA-Generated-Content-8"
+                    data-ouia-component-type="PF6/Content"
+                    data-ouia-safe="true"
+                    data-pf-content="true"
+                  >
+                    Review the following information and click Create to generate the activation key.
+                  </p>
+                  <dl
+                    class="pf-v6-c-description-list pf-m-horizontal"
                   >
                     <div
-                      class="pf-v6-u-mb-xl"
+                      class="pf-v6-c-description-list__group"
                     >
-                      <h2
-                        class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-4"
-                        data-ouia-component-type="PF6/Title"
-                        data-ouia-safe="true"
+                      <dt
+                        class="pf-v6-c-description-list__term"
+                        style="flex-basis: 35%;"
                       >
-                        Name key
-                      </h2>
-                      <p
-                        class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-4"
-                        data-ouia-component-type="PF6/Content"
-                        data-ouia-safe="true"
-                        data-pf-content="true"
-                      >
-                        This name cannot be modified after the activation key is created.
-                      </p>
-                      <form
-                        class="pf-v6-c-form"
-                        novalidate=""
+                        <span
+                          class="pf-v6-c-description-list__text"
+                        >
+                          Name
+                        </span>
+                      </dt>
+                      <dd
+                        class="pf-v6-c-description-list__description"
                       >
                         <div
-                          class="pf-v6-c-form__group"
+                          class="pf-v6-c-description-list__text"
                         >
-                          <div
-                            class="pf-v6-c-form__group-label"
+                          <span
+                            style="flex-basis: 45%;"
                           >
-                            <label
-                              class="pf-v6-c-form__label"
-                              for="activation-key-name"
-                            >
-                              <span
-                                class="pf-v6-c-form__label-text"
-                              >
-                                Name
-                              </span>
-                              <span
-                                aria-hidden="true"
-                                class="pf-v6-c-form__label-required"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                              
-                          </div>
-                          <div
-                            class="pf-v6-c-form__group-control"
-                          >
-                            <span
-                              class="pf-v6-c-form-control"
-                            >
-                              <input
-                                aria-invalid="false"
-                                data-ouia-component-id="OUIA-Generated-TextInputBase-4"
-                                data-ouia-component-type="PF6/TextInput"
-                                data-ouia-safe="true"
-                                id="activation-key-name"
-                                required=""
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                            <div
-                              class="pf-v6-c-form__helper-text"
-                            >
-                              <div
-                                class="pf-v6-c-helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text__item"
-                                >
-                                  <span
-                                    class="pf-v6-c-helper-text__item-text"
-                                  >
-                                    Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                            11111111-1111-1111-1111-111111111111
+                          </span>
                         </div>
-                      </form>
+                      </dd>
                     </div>
                     <div
-                      class="pf-v6-u-mb-xl"
+                      class="pf-v6-c-description-list__group"
                     >
-                      <div
-                        class="pf-v6-u-text-wrap"
+                      <dt
+                        class="pf-v6-c-description-list__term"
+                        style="flex-basis: 35%;"
                       >
-                        <form
-                          class="pf-v6-c-form"
-                          novalidate=""
+                        <span
+                          class="pf-v6-c-description-list__text"
                         >
-                          <div
-                            class="pf-v6-c-form__group"
+                          Description
+                        </span>
+                      </dt>
+                      <dd
+                        class="pf-v6-c-description-list__description"
+                      >
+                        <div
+                          class="pf-v6-c-description-list__text"
+                        >
+                          <span
+                            style="flex-basis: 45%;"
                           >
-                            <div
-                              class="pf-v6-c-form__group-label"
-                            >
-                              <label
-                                class="pf-v6-c-form__label"
-                                for="activation-key-description"
-                              >
-                                <span
-                                  class="pf-v6-c-form__label-text"
-                                >
-                                  Description
-                                </span>
-                              </label>
-                                
-                            </div>
-                            <div
-                              class="pf-v6-c-form__group-control"
-                            >
-                              <span
-                                class="pf-v6-c-form-control pf-m-textarea pf-m-resize-both"
-                              >
-                                <textarea
-                                  aria-invalid="false"
-                                  id="activation-key-description"
-                                />
-                              </span>
-                              <div
-                                class="pf-v6-c-form__helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text"
-                                >
-                                  <div
-                                    class="pf-v6-c-helper-text__item"
-                                  >
-                                    <span
-                                      class="pf-v6-c-helper-text__item-text"
-                                    >
-                                      Max characters is 255.
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
+                            Not Defined
+                          </span>
+                        </div>
+                      </dd>
                     </div>
-                  </div>
+                    <div
+                      class="pf-v6-c-description-list__group"
+                    >
+                      <dt
+                        class="pf-v6-c-description-list__term"
+                        style="flex-basis: 35%;"
+                      >
+                        <span
+                          class="pf-v6-c-description-list__text"
+                        >
+                          Workload
+                        </span>
+                      </dt>
+                      <dd
+                        class="pf-v6-c-description-list__description"
+                      >
+                        <div
+                          class="pf-v6-c-description-list__text"
+                        >
+                          <span
+                            style="flex-basis: 45%;"
+                          >
+                            Latest release
+                          </span>
+                        </div>
+                      </dd>
+                    </div>
+                    <div
+                      class="pf-v6-c-description-list__group"
+                    >
+                      <dt
+                        class="pf-v6-c-description-list__term"
+                        style="flex-basis: 35%;"
+                      >
+                        <span
+                          class="pf-v6-c-description-list__text"
+                        >
+                          Role
+                        </span>
+                      </dt>
+                      <dd
+                        class="pf-v6-c-description-list__description"
+                      >
+                        <div
+                          class="pf-v6-c-description-list__text"
+                        >
+                          <span
+                            style="flex-basis: 45%;"
+                          >
+                            Not Defined
+                          </span>
+                        </div>
+                      </dd>
+                    </div>
+                    <div
+                      class="pf-v6-c-description-list__group"
+                    >
+                      <dt
+                        class="pf-v6-c-description-list__term"
+                        style="flex-basis: 35%;"
+                      >
+                        <span
+                          class="pf-v6-c-description-list__text"
+                        >
+                          Service level agreement (SLA)
+                        </span>
+                      </dt>
+                      <dd
+                        class="pf-v6-c-description-list__description"
+                      >
+                        <div
+                          class="pf-v6-c-description-list__text"
+                        >
+                          <span
+                            style="flex-basis: 45%;"
+                          >
+                            Not Defined
+                          </span>
+                        </div>
+                      </dd>
+                    </div>
+                    <div
+                      class="pf-v6-c-description-list__group"
+                    >
+                      <dt
+                        class="pf-v6-c-description-list__term"
+                        style="flex-basis: 35%;"
+                      >
+                        <span
+                          class="pf-v6-c-description-list__text"
+                        >
+                          Usage
+                        </span>
+                      </dt>
+                      <dd
+                        class="pf-v6-c-description-list__description"
+                      >
+                        <div
+                          class="pf-v6-c-description-list__text"
+                        >
+                          <span
+                            style="flex-basis: 45%;"
+                          >
+                            Not Defined
+                          </span>
+                        </div>
+                      </dd>
+                    </div>
+                  </dl>
                 </div>
               </div>
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
               <div
                 style="display: none;"
               />
@@ -3150,7 +2806,6 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                       data-ouia-component-id="OUIA-Generated-Button-secondary-4"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="button"
                     >
                       <span
@@ -3168,13 +2823,12 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                       data-ouia-component-id="OUIA-Generated-Button-primary-4"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
-                      disabled=""
                       type="submit"
                     >
                       <span
                         class="pf-v6-c-button__text"
                       >
-                        Next
+                        Create
                       </span>
                     </button>
                   </div>
@@ -3187,7 +2841,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-4"
+                      data-ouia-component-id="OUIA-Generated-Button-link-8"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -3298,10 +2952,10 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                 <span
                   class="pf-v6-c-wizard__toggle-num"
                 >
-                  1
+                  5
                 </span>
                  
-                Name and Description
+                Finish
               </span>
             </span>
             <span
@@ -3340,8 +2994,8 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                     class="pf-v6-c-wizard__nav-item"
                   >
                     <button
-                      aria-current="step"
-                      class="pf-v6-c-wizard__nav-link pf-m-current"
+                      aria-current="false"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-17"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
@@ -3358,12 +3012,10 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-18"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="1"
                     >
                       <span
@@ -3378,12 +3030,10 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-19"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="2"
                     >
                       <span
@@ -3398,12 +3048,10 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                   >
                     <button
                       aria-current="false"
-                      aria-disabled="true"
-                      class="pf-v6-c-wizard__nav-link pf-m-disabled"
+                      class="pf-v6-c-wizard__nav-link"
                       data-ouia-component-id="OUIA-Generated-WizardNavItem-20"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
-                      disabled=""
                       id="3"
                     >
                       <span
@@ -3416,6 +3064,18 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                 </ol>
               </nav>
               <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
+                style="display: none;"
+              />
+              <div
                 class="pf-v6-c-wizard__main"
                 tabindex="-1"
               >
@@ -3423,154 +3083,83 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                   class="pf-v6-c-wizard__main-body"
                 >
                   <div
-                    class="pf-l-grid pf-m-gutter"
+                    class="pf-v6-l-bullseye"
                   >
                     <div
-                      class="pf-v6-u-mb-xl"
-                    >
-                      <h2
-                        class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-5"
-                        data-ouia-component-type="PF6/Title"
-                        data-ouia-safe="true"
-                      >
-                        Name key
-                      </h2>
-                      <p
-                        class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-5"
-                        data-ouia-component-type="PF6/Content"
-                        data-ouia-safe="true"
-                        data-pf-content="true"
-                      >
-                        This name cannot be modified after the activation key is created.
-                      </p>
-                      <form
-                        class="pf-v6-c-form"
-                        novalidate=""
-                      >
-                        <div
-                          class="pf-v6-c-form__group"
-                        >
-                          <div
-                            class="pf-v6-c-form__group-label"
-                          >
-                            <label
-                              class="pf-v6-c-form__label"
-                              for="activation-key-name"
-                            >
-                              <span
-                                class="pf-v6-c-form__label-text"
-                              >
-                                Name
-                              </span>
-                              <span
-                                aria-hidden="true"
-                                class="pf-v6-c-form__label-required"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                              
-                          </div>
-                          <div
-                            class="pf-v6-c-form__group-control"
-                          >
-                            <span
-                              class="pf-v6-c-form-control"
-                            >
-                              <input
-                                aria-invalid="false"
-                                data-ouia-component-id="OUIA-Generated-TextInputBase-5"
-                                data-ouia-component-type="PF6/TextInput"
-                                data-ouia-safe="true"
-                                id="activation-key-name"
-                                required=""
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                            <div
-                              class="pf-v6-c-form__helper-text"
-                            >
-                              <div
-                                class="pf-v6-c-helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text__item"
-                                >
-                                  <span
-                                    class="pf-v6-c-helper-text__item-text"
-                                  >
-                                    Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                    <div
-                      class="pf-v6-u-mb-xl"
+                      class="pf-v6-c-empty-state pf-m-success"
                     >
                       <div
-                        class="pf-v6-u-text-wrap"
+                        class="pf-v6-c-empty-state__content"
                       >
-                        <form
-                          class="pf-v6-c-form"
-                          novalidate=""
+                        <div
+                          class="pf-v6-c-empty-state__header"
                         >
                           <div
-                            class="pf-v6-c-form__group"
+                            class="pf-v6-c-empty-state__icon"
                           >
-                            <div
-                              class="pf-v6-c-form__group-label"
+                            <svg
+                              aria-hidden="true"
+                              class="pf-v6-svg"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              viewBox="0 0 512 512"
+                              width="1em"
                             >
-                              <label
-                                class="pf-v6-c-form__label"
-                                for="activation-key-description"
-                              >
-                                <span
-                                  class="pf-v6-c-form__label-text"
-                                >
-                                  Description
-                                </span>
-                              </label>
-                                
-                            </div>
-                            <div
-                              class="pf-v6-c-form__group-control"
+                              <path
+                                d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="pf-v6-c-empty-state__title"
+                          >
+                            <h4
+                              class="pf-v6-c-empty-state__title-text"
+                            >
+                              Activation key created
+                            </h4>
+                          </div>
+                        </div>
+                        <div
+                          class="pf-v6-c-empty-state__body"
+                        >
+                          11111111-1111-1111-1111-111111111111 is now available for use. Click "View activation key" to edit settings or add repositories.
+                        </div>
+                        <div
+                          class="pf-v6-c-empty-state__footer"
+                        >
+                          <button
+                            class="pf-v6-c-button pf-m-primary"
+                            data-ouia-component-id="OUIA-Generated-Button-primary-6"
+                            data-ouia-component-type="PF6/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <span
+                              class="pf-v6-c-button__text"
+                            >
+                              View activation key
+                            </span>
+                          </button>
+                          <div
+                            class="pf-v6-c-empty-state__actions"
+                          >
+                            <button
+                              class="pf-v6-c-button pf-m-link"
+                              data-ouia-component-id="OUIA-Generated-Button-link-11"
+                              data-ouia-component-type="PF6/Button"
+                              data-ouia-safe="true"
+                              type="button"
                             >
                               <span
-                                class="pf-v6-c-form-control pf-m-textarea pf-m-resize-both"
+                                class="pf-v6-c-button__text"
                               >
-                                <textarea
-                                  aria-invalid="false"
-                                  id="activation-key-description"
-                                />
+                                Close
                               </span>
-                              <div
-                                class="pf-v6-c-form__helper-text"
-                              >
-                                <div
-                                  class="pf-v6-c-helper-text"
-                                >
-                                  <div
-                                    class="pf-v6-c-helper-text__item"
-                                  >
-                                    <span
-                                      class="pf-v6-c-helper-text__item-text"
-                                    >
-                                      Max characters is 255.
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            </button>
                           </div>
-                        </form>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -3579,88 +3168,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
               <div
                 style="display: none;"
               />
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
-              <div
-                style="display: none;"
-              />
             </div>
-            <footer
-              class="pf-v6-c-wizard__footer"
-            >
-              <div
-                class="pf-v6-c-action-list"
-              >
-                <div
-                  class="pf-v6-c-action-list__group"
-                >
-                  <div
-                    class="pf-v6-c-action-list__item"
-                  >
-                    <button
-                      class="pf-v6-c-button pf-m-secondary"
-                      data-ouia-component-id="OUIA-Generated-Button-secondary-5"
-                      data-ouia-component-type="PF6/Button"
-                      data-ouia-safe="true"
-                      disabled=""
-                      type="button"
-                    >
-                      <span
-                        class="pf-v6-c-button__text"
-                      >
-                        Back
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="pf-v6-c-action-list__item"
-                  >
-                    <button
-                      class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-5"
-                      data-ouia-component-type="PF6/Button"
-                      data-ouia-safe="true"
-                      disabled=""
-                      type="submit"
-                    >
-                      <span
-                        class="pf-v6-c-button__text"
-                      >
-                        Next
-                      </span>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="pf-v6-c-action-list__group"
-                >
-                  <div
-                    class="pf-v6-c-action-list__item"
-                  >
-                    <button
-                      class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-5"
-                      data-ouia-component-type="PF6/Button"
-                      data-ouia-safe="true"
-                      type="button"
-                    >
-                      <span
-                        class="pf-v6-c-button__text"
-                      >
-                        Cancel
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </footer>
           </div>
         </div>
         <footer
