@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import { ActionGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
-
 import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { PageSection } from '@patternfly/react-core/dist/dynamic/components/Page';
-
-import { Flex } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
-import { FlexItem } from '@patternfly/react-core/dist/dynamic/layouts/Flex';
 import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import {
@@ -76,18 +71,21 @@ const ActivationKeys = () => {
       <PageHeader>
         <Split hasGutter className="page-title">
           <SplitItem isFilled>
-            <Flex>
-              <FlexItem spacer={{ default: 'spacerSm' }}>
+            <Split>
+              <SplitItem spacer={{ default: 'spacerSm' }}>
                 <PageHeaderTitle title="Activation Keys" />
-              </FlexItem>
-              <FlexItem>
+              </SplitItem>
+              <SplitItem>
                 <ActivationKeysDocsPopover
                   popoverContent={popoverContent}
                   title="Activation Keys"
                   position="right"
                 />
-              </FlexItem>
-            </Flex>
+              </SplitItem>
+            </Split>
+          </SplitItem>
+          <SplitItem className="pf-v5-u-align-self-flex-start">
+            <CreateActivationKeyButton onClick={handleModalToggle} />
           </SplitItem>
         </Split>
         <Content>
@@ -101,9 +99,6 @@ const ActivationKeys = () => {
           {isLoading && <Loading />}
           {!isLoading && !error && data.length > 0 && (
             <>
-              <ActionGroup>
-                <CreateActivationKeyButton onClick={handleModalToggle} />
-              </ActionGroup>
               <ActivationKeysTable
                 onDelete={handleDeleteActivationKeyModalToggle}
               />
