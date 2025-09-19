@@ -84,9 +84,11 @@ const ActivationKeys = () => {
               </SplitItem>
             </Split>
           </SplitItem>
-          <SplitItem className="pf-v5-u-align-self-flex-start">
-            <CreateActivationKeyButton onClick={handleModalToggle} />
-          </SplitItem>
+          {!isLoading && !error && data.length > 0 && (
+            <SplitItem className="pf-v5-u-align-self-flex-start">
+              <CreateActivationKeyButton onClick={handleModalToggle} />
+            </SplitItem>
+          )}
         </Split>
         <Content>
           <Content component={ContentVariants.p}>
