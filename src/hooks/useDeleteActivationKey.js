@@ -19,7 +19,9 @@ const deleteActivationKeyMutation = (token) => async (name) => {
 const useDeleteActivationKey = () => {
   const chrome = useChrome();
 
-  return useMutation(deleteActivationKeyMutation(chrome?.auth?.getToken()));
+  return useMutation({
+    mutationFn: deleteActivationKeyMutation(chrome?.auth?.getToken()),
+  });
 };
 
 export { useDeleteActivationKey as default };
