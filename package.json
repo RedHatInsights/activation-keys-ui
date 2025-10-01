@@ -104,7 +104,7 @@
     "prop-types": "15.8.1",
     "react-test-renderer": "^18.2.0",
     "stylelint": "16.10.0",
-    "stylelint-config-recommended-scss": "14.1.0",
+    "stylelint-config-recommended-scss": "16.0.2",
     "stylelint-scss": "6.8.1",
     "ts-patch": "^3.2.1",
     "typescript": "^5.9.2",
