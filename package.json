@@ -48,7 +48,7 @@
     "@patternfly/react-icons": "^6.2.2",
     "@patternfly/react-table": "^6.2.2",
     "@redhat-cloud-services/frontend-components": "^6.0.2",
-    "@redhat-cloud-services/frontend-components-config-utilities": "^4.5.1",
+    "@redhat-cloud-services/frontend-components-config-utilities": "^4.7.0",
     "@redhat-cloud-services/frontend-components-notifications": "^5.0.4",
     "@redhat-cloud-services/frontend-components-utilities": "^6.1.0",
     "@tanstack/react-query": "^4.29.7",
