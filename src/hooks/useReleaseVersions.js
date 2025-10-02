@@ -22,9 +22,10 @@ const getReleaseVersions = (token) => async (keyName) => {
 const useReleaseVersions = (keyName) => {
   const chrome = useChrome();
 
-  return useQuery([`activation_key_${keyName}`], () =>
-    getReleaseVersions(chrome?.auth?.getToken())(keyName)
-  );
+  return useQuery({
+    queryKey: [`activation_key_${keyName}`],
+    queryFn: () => getReleaseVersions(chrome?.auth?.getToken())(keyName),
+  });
 };
 
 export { useReleaseVersions as default };

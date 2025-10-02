@@ -29,7 +29,9 @@ const activationKeyMutation = (token) => async (data) => {
 
 const useUpdateActivationKey = () => {
   const chrome = useChrome();
-  return useMutation(activationKeyMutation(chrome.auth.getToken()));
+  return useMutation({
+    mutationFn: activationKeyMutation(chrome.auth.getToken()),
+  });
 };
 
 export { useUpdateActivationKey as default };

@@ -40,7 +40,9 @@ const additionalRepositoriesMutation = (token) => async (data) => {
 const useAddAdditionalRepositories = () => {
   const chrome = useChrome();
 
-  return useMutation(additionalRepositoriesMutation(chrome?.auth?.getToken()));
+  return useMutation({
+    mutationFn: additionalRepositoriesMutation(chrome?.auth?.getToken()),
+  });
 };
 
 export { useAddAdditionalRepositories as default };

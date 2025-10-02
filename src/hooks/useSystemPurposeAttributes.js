@@ -22,10 +22,10 @@ const getSystemPurposeAttributes = (token) => async () => {
 const useSystemPurposeAttributes = () => {
   const chrome = useChrome();
 
-  return useQuery(
-    ['organization_system_purpose_attributes'],
-    getSystemPurposeAttributes(chrome?.auth?.getToken())
-  );
+  return useQuery({
+    queryKey: ['organization_system_purpose_attributes'],
+    queryFn: getSystemPurposeAttributes(chrome?.auth?.getToken()),
+  });
 };
 
 export { useSystemPurposeAttributes as default };

@@ -6,9 +6,9 @@ const useUser = () => {
   const rbacPermissions = useRbacPermissions();
   const authenticateUser = useAuthenticateUser();
 
-  return useQuery(
-    ['user'],
-    () =>
+  return useQuery({
+    queryKey: ['user'],
+    queryFn: () =>
       Promise.all([authenticateUser, rbacPermissions]).then(
         ([userStatus, rbacPermissions]) => ({
           accountNumber: userStatus?.data.identity?.account_number,
@@ -16,10 +16,8 @@ const useUser = () => {
           rbacPermissions: rbacPermissions?.data,
         })
       ),
-    {
-      enabled: rbacPermissions.isSuccess,
-    }
-  );
+    enabled: rbacPermissions.isSuccess,
+  });
 };
 
 export default useUser;

@@ -26,9 +26,9 @@ const deleteAdditionalRepositoriesMutation =
 const useDeleteAdditionalRepositories = () => {
   const chrome = useChrome();
 
-  return useMutation(
-    deleteAdditionalRepositoriesMutation(chrome?.auth?.getToken())
-  );
+  return useMutation({
+    mutationFn: deleteAdditionalRepositoriesMutation(chrome?.auth?.getToken()),
+  });
 };
 
 export default useDeleteAdditionalRepositories;

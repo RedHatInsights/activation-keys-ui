@@ -67,11 +67,11 @@ const ActivationKeyWizard = ({
   const queryClient = useQueryClient();
   const {
     mutate: createActivationKey,
-    isLoading: createActivationKeyIsLoading,
+    isPending: createActivationKeyIsLoading,
   } = useCreateActivationKey();
   const {
     mutate: updateActivationKey,
-    isLoading: updateActivationKeyIsLoading,
+    isPending: updateActivationKeyIsLoading,
   } = useUpdateActivationKey();
   const {
     isLoading: attributesAreLoading,
@@ -80,11 +80,11 @@ const ActivationKeyWizard = ({
   } = useSystemPurposeAttributes();
   const {
     mutate: deleteAdditionalRepositories,
-    isLoading: isDeleteAdditionalRepositoriesLoading,
+    isPending: isDeleteAdditionalRepositoriesLoading,
   } = useDeleteAdditionalRepositories();
   const {
     mutate: addAdditionalRepositories,
-    isLoading: isAddAdditionRepositoriesLoading,
+    isPending: isAddAdditionRepositoriesLoading,
   } = useAddAdditionalRepositories();
   const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();

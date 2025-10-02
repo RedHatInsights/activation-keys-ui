@@ -51,7 +51,7 @@
     "@redhat-cloud-services/frontend-components-config-utilities": "^4.7.0",
     "@redhat-cloud-services/frontend-components-notifications": "^5.0.4",
     "@redhat-cloud-services/frontend-components-utilities": "^6.1.0",
-    "@tanstack/react-query": "^4.29.7",
+    "@tanstack/react-query": "^5.84.0",
     "@testing-library/dom": "^10.4.0",
     "@unleash/proxy-client-react": "^5.0.0",
     "axios": "^1.12.1",

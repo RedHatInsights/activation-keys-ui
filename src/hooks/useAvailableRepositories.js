@@ -59,8 +59,8 @@ const useAvailableRepositories = (
   const chrome = useChrome();
   const token = chrome?.auth?.getToken();
 
-  return useQuery(
-    [
+  return useQuery({
+    queryKey: [
       `activation_key_${keyName}_available_repositories`,
       page,
       pageSize,
@@ -68,7 +68,7 @@ const useAvailableRepositories = (
       sortBy,
       sortDirection,
     ],
-    () =>
+    queryFn: () =>
       fetchAdditionalRepositories(
         token,
         keyName,
@@ -77,8 +77,8 @@ const useAvailableRepositories = (
         filters,
         sortBy,
         sortDirection
-      )
-  );
+      ),
+  });
 };
 
 const usePrefetchAvailableRepositoriesNextPage = () => {
