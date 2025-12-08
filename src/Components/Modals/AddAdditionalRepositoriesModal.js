@@ -40,7 +40,7 @@ const AddAdditionalRepositoriesModal = (props) => {
             `activation_key_${keyName}_available_repositories`,
           ]);
           addSuccessNotification(
-            `Repositories have been added for '${keyName}'`
+            `Repositories have been added for '${keyName}'`,
           );
         },
         onError: () => {
@@ -49,7 +49,7 @@ const AddAdditionalRepositoriesModal = (props) => {
               'Your repositories could not be added. Please try again.',
           });
         },
-      }
+      },
     );
   };
 

@@ -13,12 +13,12 @@ const deleteAdditionalRepositoriesMutation =
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
-      }
+      },
     );
 
     if (!response.ok) {
       throw new Error(
-        `Status Code ${response.status}. Error deleting additional repository: ${response.statusText}.`
+        `Status Code ${response.status}. Error deleting additional repository: ${response.statusText}.`,
       );
     }
   };

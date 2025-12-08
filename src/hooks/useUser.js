@@ -14,7 +14,7 @@ const useUser = () => {
           accountNumber: userStatus?.data.identity?.account_number,
           orgId: userStatus?.data.identity?.internal?.org_id,
           rbacPermissions: rbacPermissions?.data,
-        })
+        }),
       ),
     enabled: rbacPermissions.isSuccess,
   });

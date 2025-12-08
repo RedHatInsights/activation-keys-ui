@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import PropTypes from 'prop-types';
@@ -90,7 +90,7 @@ const ActivationKeyWizard = ({
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
   const [description, setDescription] = useState(
-    activationKey?.description || ''
+    activationKey?.description || '',
   );
   const [extendedReleaseProduct, setExtendedReleaseProduct] = useState('');
   const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
@@ -105,7 +105,7 @@ const ActivationKeyWizard = ({
   const [workload, setWorkload] = useState(() =>
     isEditMode && activationKey?.releaseVersion
       ? 'Extended support releases'
-      : 'Latest release'
+      : 'Latest release',
   );
   const [mutationError, setMutationError] = useState(false);
 
@@ -156,10 +156,10 @@ const ActivationKeyWizard = ({
               c.version == activationKey.releaseVersion &&
               c.repositories.every((repo) =>
                 activationKey.additionalRepositories.find(
-                  (has) => has.repositoryLabel == repo
-                )
-              )
-          )
+                  (has) => has.repositoryLabel == repo,
+                ),
+              ),
+          ),
         )?.name;
 
         if (!inferredReleaseProduct) {
@@ -169,13 +169,13 @@ const ActivationKeyWizard = ({
         }
       }
       setExtendedReleaseProduct(
-        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name
+        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name,
       );
       setExtendedReleaseVersion(
         (prev) =>
           prev ||
           activationKey?.releaseVersion ||
-          releaseVersions[0]?.configurations[0]?.version
+          releaseVersions[0]?.configurations[0]?.version,
       );
     } else {
       setExtendedReleaseProduct('');
@@ -199,8 +199,8 @@ const ActivationKeyWizard = ({
         releaseVersions
           .find((product) => extendedReleaseProduct == product.name)
           .configurations.find(
-            (configuration) => extendedReleaseVersion == configuration.version
-          ).repositories
+            (configuration) => extendedReleaseVersion == configuration.version,
+          ).repositories,
       );
     } else {
       setExtendedReleaseRepositories([]);
@@ -248,7 +248,7 @@ const ActivationKeyWizard = ({
       const missing = extendedReleaseRepositories.filter((label) => {
         return (
           activationKey.additionalRepositories.findIndex(
-            (cur) => cur.repositoryLabel == label
+            (cur) => cur.repositoryLabel == label,
           ) == -1
         );
       });
@@ -257,7 +257,7 @@ const ActivationKeyWizard = ({
       const extra = activationKey.additionalRepositories.filter((repo) => {
         return (
           extendedReleaseRepositories.findIndex(
-            (label) => label == repo.repositoryLabel
+            (label) => label == repo.repositoryLabel,
           ) == -1
         );
       });
@@ -281,20 +281,20 @@ const ActivationKeyWizard = ({
                     selectedRepositories: extendedReleaseRepositories.map(
                       (r) => ({
                         repositoryLabel: r,
-                      })
+                      }),
                     ),
                   },
                   {
                     onError: () => {
                       addErrorNotification(
-                        'Error updating additional repositories'
+                        'Error updating additional repositories',
                       );
                     },
-                  }
+                  },
                 );
               }
             },
-          }
+          },
         );
       }
     }
@@ -304,7 +304,7 @@ const ActivationKeyWizard = ({
         addSuccessNotification(
           isEditMode
             ? `Changes saved for activation key "${activationKey.name}"`
-            : `Activation key "${name}" created`
+            : `Activation key "${name}" created`,
         );
         setMutationError(false);
       },
@@ -312,7 +312,7 @@ const ActivationKeyWizard = ({
         addErrorNotification(
           isEditMode
             ? `Error updating activation key ${activationKey.name}.`
-            : 'Something went wrong.'
+            : 'Something went wrong.',
         );
         setMutationError(true);
       },
@@ -446,8 +446,8 @@ const ActivationKeyWizard = ({
           isConfirmClose
             ? confirmCloseTitle
             : isEditMode
-            ? 'Edit activation key'
-            : 'Create activation key '
+              ? 'Edit activation key'
+              : 'Create activation key '
         }
       />
       {!isConfirmClose && (

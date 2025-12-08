@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render } from '@testing-library/react';
 import ActivationKeysTable from '../ActivationKeysTable';
 import useActivationKeys from '../../../hooks/useActivationKeys';
-import { get, def } from 'bdd-lazy-var';
+import { def, get } from 'bdd-lazy-var';
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
 jest.mock('../../../hooks/useActivationKeys');
@@ -28,7 +28,7 @@ const Table = () => (
 jest.mock(
   '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Unavailable</div>
+  () => () => <div>Unavailable</div>,
 );
 
 describe('ActivationKeysTable', () => {

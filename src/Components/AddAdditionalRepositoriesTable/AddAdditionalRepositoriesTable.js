@@ -11,7 +11,7 @@ import useAvailableRepositories, {
   usePrefetchAvailableRepositoriesNextPage,
 } from '../../hooks/useAvailableRepositories';
 import SearchIcon from '@patternfly/react-icons/dist/dynamic/icons/search-icon';
-import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
+import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import React, { useEffect, useState } from 'react';
 import Loading from '../LoadingState/Loading';
 import AddAdditionalRepositoriesToolbar from './AddAdditionalRepositoriesToolbar';
@@ -86,7 +86,7 @@ const AddAdditionalRepositoriesTable = (props) => {
         if (
           filter.value.length > 0 &&
           filter.value.filter((option) =>
-            repository[attrMap[k]].toLowerCase().includes(option.toLowerCase())
+            repository[attrMap[k]].toLowerCase().includes(option.toLowerCase()),
           ).length == 0
         ) {
           return false;
@@ -107,7 +107,7 @@ const AddAdditionalRepositoriesTable = (props) => {
       architecture: architectureFilter,
     },
     activeSortBy,
-    activeSortDirection
+    activeSortDirection,
   );
 
   const prefetchNextPage = usePrefetchAvailableRepositoriesNextPage();
@@ -129,7 +129,7 @@ const AddAdditionalRepositoriesTable = (props) => {
         architecture: architectureFilter,
       },
       activeSortBy,
-      activeSortDirection
+      activeSortDirection,
     );
   }, [page, perPage, JSON.stringify(filters)]);
 
@@ -148,7 +148,7 @@ const AddAdditionalRepositoriesTable = (props) => {
   });
 
   const filteredRepos = selectedRepositories.filter((repo) =>
-    matchFilters(repo)
+    matchFilters(repo),
   );
 
   const displayedSelectedRepos = filteredRepos
@@ -253,7 +253,8 @@ const AddAdditionalRepositoriesTable = (props) => {
                     isSelected:
                       selectedRepositories.find(
                         (selected) =>
-                          repository.repositoryLabel == selected.repositoryLabel
+                          repository.repositoryLabel ==
+                          selected.repositoryLabel,
                       ) != undefined,
                     onSelect: (_, isSelecting) => {
                       if (isSubmitting) {
@@ -264,7 +265,7 @@ const AddAdditionalRepositoriesTable = (props) => {
                           selectedRepositories.find(
                             (selected) =>
                               selected.repositoryLabel ==
-                              repository.repositoryLabel
+                              repository.repositoryLabel,
                           ) == undefined
                         ) {
                           setSelectedRepositories([
@@ -277,8 +278,8 @@ const AddAdditionalRepositoriesTable = (props) => {
                           selectedRepositories.filter(
                             (selectedRepository) =>
                               selectedRepository.repositoryLabel !==
-                              repository.repositoryLabel
-                          )
+                              repository.repositoryLabel,
+                          ),
                         );
                       }
                     },

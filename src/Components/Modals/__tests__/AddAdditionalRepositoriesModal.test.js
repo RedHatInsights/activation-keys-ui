@@ -20,7 +20,7 @@ describe('Add Additional Repositories Modal', () => {
         <QueryClientProvider client={queryClient}>
           <AddAdditionalRepositoriesModal {...props} />
         </QueryClientProvider>
-      </Provider>
+      </Provider>,
     );
     expect(screen.getByText('Add repositories')).toBeInTheDocument();
     expect(screen.getByText('Add repositories')).toBeInTheDocument();

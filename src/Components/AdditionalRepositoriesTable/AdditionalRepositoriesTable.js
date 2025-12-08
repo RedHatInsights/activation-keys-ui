@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
+import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import { Pagination } from '@patternfly/react-core/dist/dynamic/components/Pagination';
 import { PaginationVariant } from '@patternfly/react-core/dist/dynamic/components/Pagination';
 import propTypes from 'prop-types';
@@ -102,10 +102,10 @@ const AdditionalRepositoriesTable = (props) => {
 
   const handleDeleteAdditionalRepositoriesToggle = (
     repositoryName,
-    repositoryLabel
+    repositoryLabel,
   ) => {
     setisDeleteAdditionalRepositoriesModalOpen(
-      !isDeleteAdditionalRepositoriesModalOpen
+      !isDeleteAdditionalRepositoriesModalOpen,
     );
     setRepositoryNameToDelete(repositoryName);
     setRepositoryLabelToDelete(repositoryLabel);
@@ -139,7 +139,7 @@ const AdditionalRepositoriesTable = (props) => {
                     onClick={() =>
                       handleDeleteAdditionalRepositoriesToggle(
                         repository.repositoryName,
-                        repository.repositoryLabel
+                        repository.repositoryLabel,
                       )
                     }
                   />

@@ -43,5 +43,5 @@ jest.mock(
   () => ({
     __esModule: true,
     default: () => () => {},
-  })
+  }),
 );

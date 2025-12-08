@@ -8,7 +8,7 @@ const fetchAdditionalRepositories = async (
   offset = 0,
   filters = {},
   sortBy = '',
-  sortDirection = ''
+  sortDirection = '',
 ) => {
   if (!keyName) {
     return false;
@@ -37,7 +37,7 @@ const fetchAdditionalRepositories = async (
     `/api/rhsm/v2/activation_keys/${keyName}/available_repositories?default=Disabled&limit=${limit}&offset=${offset}&${filterQuery}&sort_by=${sortBy}&sort_direction=${sortDirection}`,
     {
       headers: { Authorization: `Bearer ${await token}` },
-    }
+    },
   );
 
   if (!response.ok) {
@@ -54,7 +54,7 @@ const useAvailableRepositories = (
   pageSize,
   filters,
   sortBy,
-  sortDirection
+  sortDirection,
 ) => {
   const chrome = useChrome();
   const token = chrome?.auth?.getToken();
@@ -76,7 +76,7 @@ const useAvailableRepositories = (
         (page - 1) * pageSize,
         filters,
         sortBy,
-        sortDirection
+        sortDirection,
       ),
   });
 };
@@ -91,7 +91,7 @@ const usePrefetchAvailableRepositoriesNextPage = () => {
     pageSize,
     filters,
     sortBy,
-    sortDirection
+    sortDirection,
   ) => {
     const token = chrome?.auth?.getToken();
 
@@ -112,7 +112,7 @@ const usePrefetchAvailableRepositoriesNextPage = () => {
           (page - 1) * pageSize,
           filters,
           sortBy,
-          sortDirection
+          sortDirection,
         ),
     });
   };

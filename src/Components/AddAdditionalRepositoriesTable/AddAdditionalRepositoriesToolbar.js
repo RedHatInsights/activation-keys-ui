@@ -96,7 +96,7 @@ const AddAdditionalRepositoriesToolbar = ({
                     icon={<FilterIcon />}
                     onClick={() =>
                       setIsMultiSelectOptionsExpanded(
-                        !isMultiSelectOptionsExanded
+                        !isMultiSelectOptionsExanded,
                       )
                     }
                     isExpanded={isMultiSelectOptionsExanded}
@@ -163,7 +163,7 @@ const AddAdditionalRepositoriesToolbar = ({
         <ToolbarGroup>
           {Object.entries(filters)
             .filter(([, v]) =>
-              Array.isArray(v.value) ? v.value.length > 0 : v.value !== ''
+              Array.isArray(v.value) ? v.value.length > 0 : v.value !== '',
             )
             .map(([k, v]) => (
               <ToolbarItem key={k}>

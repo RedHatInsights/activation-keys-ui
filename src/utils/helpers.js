@@ -3,7 +3,7 @@ export const pluralize = (count, str, fallback) =>
 
 export const downloadFile = (
   data,
-  filename = `${new Date().toISOString()}`
+  filename = `${new Date().toISOString()}`,
 ) => {
   const type = 'data:text/plain;charset=utf-8,';
   const blob = new Blob([data], { type });

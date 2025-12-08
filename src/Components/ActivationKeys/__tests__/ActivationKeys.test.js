@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import ActivationKeys from '../index';
 import { Provider } from 'react-redux';
 import Authentication from '../../../Components/Authentication';
@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { init } from '../../../store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import useUser from '../../../hooks/useUser';
-import { get, def } from 'bdd-lazy-var';
+import { def, get } from 'bdd-lazy-var';
 import useActivationKeys from '../../../hooks/useActivationKeys';
 import '@testing-library/jest-dom';
 jest.mock('../../../hooks/useActivationKeys');
@@ -59,13 +59,13 @@ jest.mock('../../../Components/ActivationKeysTable', () => () => (
 jest.mock(
   '@redhat-cloud-services/frontend-components/NotAuthorized',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Not Authorized</div>
+  () => () => <div>Not Authorized</div>,
 );
 
 jest.mock(
   '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Unavailable</div>
+  () => () => <div>Unavailable</div>,
 );
 
 describe('ActivationKeys', () => {
@@ -88,7 +88,7 @@ describe('ActivationKeys', () => {
     mockAuthenticateUser(
       get('isLoading'),
       get('isError'),
-      get('rbacPermissions')
+      get('rbacPermissions'),
     );
     useActivationKeys.mockReturnValue({
       isLoading: false,
@@ -136,7 +136,7 @@ describe('ActivationKeys', () => {
       render(<PageContainer />);
       await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
       expect(
-        screen.getByText('Create activation key').parentElement
+        screen.getByText('Create activation key').parentElement,
       ).toBeDisabled();
     });
   });

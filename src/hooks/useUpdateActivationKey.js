@@ -20,7 +20,7 @@ const activationKeyMutation = (token) => async (data) => {
   });
   if (!response.ok) {
     throw new Error(
-      `Status Code ${response.status}.  Error updating activation key: ${response.statusText}.`
+      `Status Code ${response.status}.  Error updating activation key: ${response.statusText}.`,
     );
   }
 

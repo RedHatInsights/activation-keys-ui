@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
 import fetch, { enableFetchMocks } from 'jest-fetch-mock';
 import { createQueryWrapper } from '../../utils/testHelpers';
 import useUpdateActivationKey from '../useUpdateActivationKey';

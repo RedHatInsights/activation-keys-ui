@@ -2,7 +2,7 @@ import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import useUser from '../../../hooks/useUser';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { get, def } from 'bdd-lazy-var';
+import { def, get } from 'bdd-lazy-var';
 import Authentication from '../Authentication';
 
 jest.mock('react-router-dom', () => ({
@@ -18,7 +18,7 @@ const queryClient = new QueryClient();
 const mockAuthenticateUser = (
   isLoading = true,
   isError = false,
-  rbacPermissions = {}
+  rbacPermissions = {},
 ) => {
   const user = {
     accountNumber: '123',
@@ -54,7 +54,7 @@ describe('Authentication', () => {
     mockAuthenticateUser(
       get('isLoading'),
       get('isError'),
-      get('rbacPermissions')
+      get('rbacPermissions'),
     );
   });
 

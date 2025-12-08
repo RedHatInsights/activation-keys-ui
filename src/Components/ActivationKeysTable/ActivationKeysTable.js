@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Table, Thead, Tr, Th, Tbody, Td } from '@patternfly/react-table';
+import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import useActivationKeys from '../../hooks/useActivationKeys';
 import Loading from '../LoadingState/Loading';
 import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';

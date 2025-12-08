@@ -11,7 +11,7 @@ const deleteActivationKeyMutation = (token) => async (name) => {
   });
   if (!response.ok) {
     throw new Error(
-      `Status Code ${response.status}.  Error deleting activation key: ${response.statusText}.`
+      `Status Code ${response.status}.  Error deleting activation key: ${response.statusText}.`,
     );
   }
 };

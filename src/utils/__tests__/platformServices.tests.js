@@ -4,7 +4,7 @@ import { renderHook, waitFor } from '@testing-library/react';
 import { createQueryWrapper } from '../../utils/testHelpers';
 
 jest.mock('@redhat-cloud-services/frontend-components/useChrome', () =>
-  jest.fn()
+  jest.fn(),
 );
 
 describe('Authenticate User method', () => {
@@ -49,7 +49,7 @@ describe('Authenticate User method', () => {
     expect(() =>
       renderHook(() => useAuthenticateUser(), {
         wrapper: createQueryWrapper(),
-      }).toThrow(Error('Error getting user'))
+      }).toThrow(Error('Error getting user')),
     );
   });
 });

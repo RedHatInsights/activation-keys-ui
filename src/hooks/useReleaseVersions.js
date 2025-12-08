@@ -6,7 +6,7 @@ const fetchReleaseVersions = (token) => async () => {
     `/api/rhsm/v2/products/RHEL/extended-update-support-versions`,
     {
       headers: { Authorization: `Bearer ${await token}` },
-    }
+    },
   );
 
   const releaseVersions = await response.json();
