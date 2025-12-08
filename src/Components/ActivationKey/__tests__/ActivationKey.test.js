@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import ActivationKey from '../index';
 import { Provider } from 'react-redux';
 import Authentication from '../../../Components/Authentication';
@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { init } from '../../../store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import useUser from '../../../hooks/useUser';
-import { get, def } from 'bdd-lazy-var/global';
+import { def, get } from 'bdd-lazy-var/global';
 import useActivationKey from '../../../hooks/useActivationKey';
 import '@testing-library/jest-dom';
 import useAvailableRepositories from '../../../hooks/useAvailableRepositories';
@@ -66,13 +66,13 @@ jest.mock('../../../Components/shared/breadcrumbs', () => () => (
 jest.mock(
   '@redhat-cloud-services/frontend-components/NotAuthorized',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Not Authorized</div>
+  () => () => <div>Not Authorized</div>,
 );
 
 jest.mock(
   '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Unavailable</div>
+  () => () => <div>Unavailable</div>,
 );
 
 describe('ActivationKey', () => {
@@ -97,7 +97,7 @@ describe('ActivationKey', () => {
     mockAuthenticateUser(
       get('isLoading'),
       get('isError'),
-      get('rbacPermissions')
+      get('rbacPermissions'),
     );
     useActivationKey.mockReturnValue({
       isLoading: false,
@@ -120,11 +120,11 @@ describe('ActivationKey', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <PageContainer />
-      </QueryClientProvider>
+      </QueryClientProvider>,
     );
 
     await waitFor(() =>
-      expect(screen.getByText('System Purpose')).toBeInTheDocument()
+      expect(screen.getByText('System Purpose')).toBeInTheDocument(),
     );
     expect(screen.getByText('Workload')).toBeInTheDocument();
     expect(screen.getByText('Additional repositories')).toBeInTheDocument();

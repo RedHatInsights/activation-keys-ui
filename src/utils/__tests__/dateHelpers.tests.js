@@ -13,7 +13,7 @@ jest.mock('react-router-dom', () => ({
 jest.mock(
   '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Unavailable</div>
+  () => () => <div>Unavailable</div>,
 );
 
 describe('printDate', () => {

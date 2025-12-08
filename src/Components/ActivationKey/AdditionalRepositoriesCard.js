@@ -23,7 +23,7 @@ const AdditionalRepositoriesCard = (props) => {
 
   const handleEditAdditionalRepositoriesToggle = () => {
     setisEditAdditionalRepositoriesModalOpen(
-      !isEditAdditionalRepositoriesModalOpen
+      !isEditAdditionalRepositoriesModalOpen,
     );
   };
 

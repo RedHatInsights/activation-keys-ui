@@ -49,14 +49,14 @@ const NotificationProvider = ({ children }) => {
     const newNotificationProps = buildNotificationProps(
       variant,
       message,
-      options
+      options,
     );
 
     let newNotifications = [...notifications, { ...newNotificationProps }];
 
     if (options && options.keyOfAlertToReplace) {
       newNotifications = newNotifications.filter(
-        (notification) => notification.key !== options.keyOfAlertToReplace
+        (notification) => notification.key !== options.keyOfAlertToReplace,
       );
     }
 
@@ -66,7 +66,7 @@ const NotificationProvider = ({ children }) => {
 
   const removeNotification = (key) => {
     setNotifications(
-      notifications.filter((notification) => notification.key !== key)
+      notifications.filter((notification) => notification.key !== key),
     );
   };
 

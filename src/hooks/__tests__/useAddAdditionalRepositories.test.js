@@ -1,4 +1,4 @@
-import { renderHook, waitFor, act } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import fetch, { enableFetchMocks } from 'jest-fetch-mock';
 import { createQueryWrapper } from '../../utils/testHelpers';
 import useAddAdditionalRepositories from '../useAddAdditionalRepositories';
@@ -8,7 +8,7 @@ enableFetchMocks();
 describe('useAddAdditionalRepositories', () => {
   it('adds additional repository to activationKey', async () => {
     fetch.mockResponseOnce(
-      JSON.stringify({ body: [{ repositoryLabel: 'repository-A' }] })
+      JSON.stringify({ body: [{ repositoryLabel: 'repository-A' }] }),
     );
     const keyParams = {
       selectedRepositories: [
@@ -21,7 +21,7 @@ describe('useAddAdditionalRepositories', () => {
       () => useAddAdditionalRepositories(keyParams.keyName),
       {
         wrapper: createQueryWrapper(),
-      }
+      },
     );
 
     await act(async () => {

@@ -19,7 +19,7 @@ const Breadcrumbs = (breadcrumbs) => {
           </BreadcrumbItem>
         ) : (
           '/'
-        )
+        ),
       )}
     </Breadcrumb>
   ) : null;

@@ -26,7 +26,7 @@ const DeleteAdditionalRepositoriesModal = (props) => {
   const deleteAdditionalRepositories = (
     name,
     repositoryNameToDelete,
-    repositoryLabelToDelete
+    repositoryLabelToDelete,
   ) => {
     const payload = [
       {
@@ -40,10 +40,10 @@ const DeleteAdditionalRepositoriesModal = (props) => {
       {
         onSuccess: (data, queryName) => {
           const updatedData = data?.filter(
-            (entry) => entry.repositoryName !== repositoryNameToDelete
+            (entry) => entry.repositoryName !== repositoryNameToDelete,
           );
           addSuccessNotification(
-            `Additional repository ${repositoryNameToDelete} deleted`
+            `Additional repository ${repositoryNameToDelete} deleted`,
           );
           queryClient.invalidateQueries(queryName, updatedData);
           handleModalToggle();
@@ -52,7 +52,7 @@ const DeleteAdditionalRepositoriesModal = (props) => {
           addErrorNotification('Something went wrong. Please try again');
           handleModalToggle();
         },
-      }
+      },
     );
   };
 
@@ -65,7 +65,7 @@ const DeleteAdditionalRepositoriesModal = (props) => {
         deleteAdditionalRepositories(
           name,
           repositoryNameToDelete,
-          repositoryLabelToDelete
+          repositoryLabelToDelete,
         )
       }
       isDisabled={isLoading}

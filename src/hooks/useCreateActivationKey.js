@@ -23,7 +23,7 @@ const activationKeyMutation = (token) => async (data) => {
 
   if (additionalRepositories) {
     body.additionalRepositories = additionalRepositories.map(
-      (repositoryLabel) => ({ repositoryLabel })
+      (repositoryLabel) => ({ repositoryLabel }),
     );
   }
 
@@ -37,7 +37,7 @@ const activationKeyMutation = (token) => async (data) => {
   });
   if (!response.ok) {
     throw new Error(
-      `Status Code ${response.status}.  Error creating activation key: ${response.statusText}.`
+      `Status Code ${response.status}.  Error creating activation key: ${response.statusText}.`,
     );
   }
   return response.json();

@@ -57,7 +57,7 @@ const ReviewActivationKeyPage = ({
         term: '',
         original: activationKey?.releaseVersion || 'Not Defined',
         updated: extendedReleaseVersion || 'Not Defined',
-      }
+      },
     );
   }
   rows.push(
@@ -75,7 +75,7 @@ const ReviewActivationKeyPage = ({
       term: 'Usage',
       original: activationKey?.usage || 'Not Defined',
       updated: usage || 'Not Defined',
-    }
+    },
   );
 
   return (

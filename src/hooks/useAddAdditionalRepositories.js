@@ -5,12 +5,12 @@ const additionalRepositoriesMutation = (token) => async (data) => {
   const { keyName, selectedRepositories } = data;
 
   const additionalRepositoryLabels = selectedRepositories.map(
-    (repository) => repository.repositoryLabel
+    (repository) => repository.repositoryLabel,
   );
 
   if (!keyName) {
     throw new Error(
-      `Activation Key name must be provided to add additional repositiories.`
+      `Activation Key name must be provided to add additional repositiories.`,
     );
   }
 
@@ -25,9 +25,9 @@ const additionalRepositoriesMutation = (token) => async (data) => {
       body: JSON.stringify(
         additionalRepositoryLabels.map((label) => ({
           repositoryLabel: label,
-        }))
+        })),
       ),
-    }
+    },
   );
 
   if (Math.floor(response.status / 100) !== 2) {

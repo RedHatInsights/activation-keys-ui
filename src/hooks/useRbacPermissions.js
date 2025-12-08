@@ -4,7 +4,7 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 const getUserRbacPermissions = (permissions) => {
   return permissions.then((rawRbacPermissions) => {
     const permissions = rawRbacPermissions.map(
-      (rawPermission) => rawPermission.permission
+      (rawPermission) => rawPermission.permission,
     );
     const rbacPermissions = {
       canReadActivationKeys:

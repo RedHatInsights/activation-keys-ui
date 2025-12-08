@@ -21,7 +21,7 @@ describe('Delete Activation Key Confirmation Modal', () => {
         <QueryClientProvider client={queryClient}>
           <DeleteActivationKeyConfirmationModal {...props} />
         </QueryClientProvider>
-      </Provider>
+      </Provider>,
     );
     expect(screen.getByText(activationKeyName)).toBeInTheDocument();
     expect(screen.getByText('Delete activation key?')).toBeInTheDocument();

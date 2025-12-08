@@ -9,7 +9,7 @@ import { FormHelperText } from '@patternfly/react-core/dist/dynamic/components/F
 import { HelperText } from '@patternfly/react-core/dist/dynamic/components/HelperText';
 import { HelperTextItem } from '@patternfly/react-core/dist/dynamic/components/HelperText';
 import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
-import { v4 as uuid, validate as isUUID } from 'uuid';
+import { validate as isUUID, v4 as uuid } from 'uuid';
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 
 const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
