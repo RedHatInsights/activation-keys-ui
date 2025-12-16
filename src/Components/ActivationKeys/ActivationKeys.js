@@ -46,7 +46,7 @@ const ActivationKeys = () => {
           rel="noopener noreferrer"
           href={'https://console.redhat.com/insights/subscriptions/rhel'}
         >
-          Subscription Watch.
+          Subscription Services.
         </a>
       </Content>
       <Content component="p">
