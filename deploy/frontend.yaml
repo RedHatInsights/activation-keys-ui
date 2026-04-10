@@ -24,7 +24,7 @@ objects:
         - id: activation-keys
           title: Activation Keys
           href: /insights/connector/activation-keys
-          description: Assign and manager activation keys.
+          description: Assign and manage activation keys.
           alt_title:
             - Subscription key
             - sca
