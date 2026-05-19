@@ -39,7 +39,7 @@
       "<rootDir>/config/setupTests.js"
     ],
     "transformIgnorePatterns": [
-      "/node_modules/(?!(lodash-es|@redhat-cloud-services|@openshift|@scalprum))"
+      "/node_modules/(?!(lodash-es|@redhat-cloud-services|@openshift|@scalprum|uuid))"
     ]
   },
   "dependencies": {
