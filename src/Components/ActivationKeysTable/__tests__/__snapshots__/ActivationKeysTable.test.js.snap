@@ -5,7 +5,7 @@ exports[`ActivationKeysTable renders correctly 1`] = `
   <table
     aria-label="ActivationKeys"
     class="pf-v6-c-table pf-m-grid-md"
-    data-ouia-component-id="OUIA-Generated-Table-2"
+    data-ouia-component-id="OUIA-Generated-Table-:r2:"
     data-ouia-component-type="PF6/Table"
     data-ouia-safe="true"
     role="grid"
@@ -15,7 +15,7 @@ exports[`ActivationKeysTable renders correctly 1`] = `
     >
       <tr
         class="pf-v6-c-table__tr"
-        data-ouia-component-id="OUIA-Generated-TableRow-2"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r3:"
         data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
@@ -73,12 +73,24 @@ exports[`ActivationKeysTable renders correctly 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 256 512"
                   width="1em"
                 >
-                  <path
-                    d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </div>
@@ -96,7 +108,7 @@ exports[`ActivationKeysTable renders correctly 1`] = `
     >
       <tr
         class="pf-v6-c-table__tr"
-        data-ouia-component-id="OUIA-Generated-TableRow-3"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r4:"
         data-ouia-component-type="PF6/TableRow"
         data-ouia-safe="true"
       >
@@ -149,7 +161,7 @@ exports[`ActivationKeysTable renders correctly 1`] = `
           >
             <button
               class="pf-v6-c-button pf-m-plain"
-              data-ouia-component-id="OUIA-Generated-Button-plain-1"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r6:"
               data-ouia-component-type="PF6/Button"
               data-ouia-safe="true"
               type="button"
@@ -163,12 +175,24 @@ exports[`ActivationKeysTable renders correctly 1`] = `
                   fill="currentColor"
                   height="1em"
                   role="img"
-                  viewBox="0 0 448 512"
                   width="1em"
                 >
-                  <path
-                    d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
-                  />
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M12 24v-8a1 1 0 1 1 2 0v8a1 1 0 1 1-2 0Zm7 1a1 1 0 0 0 1-1v-8a1 1 0 1 0-2 0v8a1 1 0 0 0 1 1Zm8-14a1 1 0 0 1-1 1h-1v16.5c0 .827-.673 1.5-1.5 1.5h-15c-.827 0-1.5-.673-1.5-1.5V12H6a1 1 0 1 1 0-2h20a1 1 0 0 1 1 1Zm-4 1H9v16h14V12ZM5 6a1 1 0 0 1 1-1h5.101c.465-2.279 2.484-4 4.899-4s4.434 1.721 4.899 4H26a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Zm8.184-1h5.631c-.414-1.161-1.514-2-2.816-2s-2.402.839-2.816 2Z"
+                    />
+                  </svg>
                 </svg>
               </span>
             </button>
