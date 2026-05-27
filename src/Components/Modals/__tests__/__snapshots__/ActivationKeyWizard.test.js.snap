@@ -18,7 +18,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
         aria-label="Create activation key wizard"
         aria-modal="true"
         class="pf-v6-c-modal-box pf-m-lg"
-        data-ouia-component-id="OUIA-Generated-Modal-large-7"
+        data-ouia-component-id="OUIA-Generated-Modal-large-:r4d:"
         data-ouia-component-type="PF6/ModalContent"
         data-ouia-safe="true"
         id="pf-modal-part-6"
@@ -30,7 +30,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
           <button
             aria-label="Close"
             class="pf-v6-c-button pf-m-plain"
-            data-ouia-component-id="OUIA-Generated-Modal-large-7-ModalBoxCloseButton"
+            data-ouia-component-id="OUIA-Generated-Modal-large-:r4d:-ModalBoxCloseButton"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             type="button"
@@ -44,11 +44,11 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 352 512"
+                viewBox="0 0 20 20"
                 width="1em"
               >
                 <path
-                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  d="M17.8 16.2 11.59 10l6.21-6.21c.42-.46.39-1.17-.07-1.59-.43-.4-1.09-.4-1.52 0l-6.2 6.2-6.22-6.19c-.44-.44-1.15-.44-1.59 0-.44.44-.44 1.15 0 1.59l6.2 6.21-6.2 6.2c-.42.46-.39 1.17.07 1.59.43.4 1.09.4 1.52 0L10 11.59l6.2 6.2c.44.44 1.15.44 1.59 0 .44-.45.44-1.16 0-1.6Z"
                 />
               </svg>
             </span>
@@ -100,12 +100,24 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 320 512"
                 width="1em"
               >
-                <path
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                />
+                <svg
+                  class="pf-v6-icon-default"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  />
+                </svg>
+                <svg
+                  class="pf-v6-icon-rh-ui"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    d="M16 24.792c-.384 0-.769-.146-1.061-.438L2.293 11.707a.999.999 0 1 1 1.414-1.414L16 22.586l12.293-12.293a.999.999 0 1 1 1.414 1.414L17.061 24.353a1.497 1.497 0 0 1-1.061.438Z"
+                  />
+                </svg>
               </svg>
             </span>
           </button>
@@ -129,7 +141,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-25"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r4f:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                     >
@@ -146,7 +158,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                     <button
                       aria-current="step"
                       class="pf-v6-c-wizard__nav-link pf-m-current"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-26"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r4g:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="1"
@@ -165,7 +177,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-27"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r4h:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -185,7 +197,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-28"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r4i:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -212,7 +224,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                 >
                   <h2
                     class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                    data-ouia-component-id="OUIA-Generated-Title-14"
+                    data-ouia-component-id="OUIA-Generated-Title-:r4t:"
                     data-ouia-component-type="PF6/Title"
                     data-ouia-safe="true"
                   >
@@ -220,7 +232,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                   </h2>
                   <p
                     class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                    data-ouia-component-id="OUIA-Generated-Content-14"
+                    data-ouia-component-id="OUIA-Generated-Content-:r4u:"
                     data-ouia-component-type="PF6/Content"
                     data-ouia-safe="true"
                     data-pf-content="true"
@@ -237,7 +249,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                         aria-invalid="false"
                         checked=""
                         class="pf-v6-c-radio__input"
-                        data-ouia-component-id="OUIA-Generated-Radio-9"
+                        data-ouia-component-id="OUIA-Generated-Radio-:r51:"
                         data-ouia-component-type="PF6/Radio"
                         data-ouia-safe="true"
                         id="Latest release"
@@ -261,7 +273,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                       <input
                         aria-invalid="false"
                         class="pf-v6-c-radio__input"
-                        data-ouia-component-id="OUIA-Generated-Radio-10"
+                        data-ouia-component-id="OUIA-Generated-Radio-:r54:"
                         data-ouia-component-type="PF6/Radio"
                         data-ouia-safe="true"
                         id="Extended support releases"
@@ -305,7 +317,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                   >
                     <button
                       class="pf-v6-c-button pf-m-secondary"
-                      data-ouia-component-id="OUIA-Generated-Button-secondary-7"
+                      data-ouia-component-id="OUIA-Generated-Button-secondary-:r4q:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -322,7 +334,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                   >
                     <button
                       class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-8"
+                      data-ouia-component-id="OUIA-Generated-Button-primary-:r4r:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="submit"
@@ -343,7 +355,7 @@ exports[`Create Activation Key Wizard Confirms on close one next has been clicke
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-15"
+                      data-ouia-component-id="OUIA-Generated-Button-link-:r4s:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -387,7 +399,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
         aria-label="Create activation key wizard"
         aria-modal="true"
         class="pf-v6-c-modal-box pf-m-lg"
-        data-ouia-component-id="OUIA-Generated-Modal-large-6"
+        data-ouia-component-id="OUIA-Generated-Modal-large-:r3s:"
         data-ouia-component-type="PF6/ModalContent"
         data-ouia-safe="true"
         id="pf-modal-part-5"
@@ -399,7 +411,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
           <button
             aria-label="Close"
             class="pf-v6-c-button pf-m-plain"
-            data-ouia-component-id="OUIA-Generated-Modal-large-6-ModalBoxCloseButton"
+            data-ouia-component-id="OUIA-Generated-Modal-large-:r3s:-ModalBoxCloseButton"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             type="button"
@@ -413,11 +425,11 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 352 512"
+                viewBox="0 0 20 20"
                 width="1em"
               >
                 <path
-                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  d="M17.8 16.2 11.59 10l6.21-6.21c.42-.46.39-1.17-.07-1.59-.43-.4-1.09-.4-1.52 0l-6.2 6.2-6.22-6.19c-.44-.44-1.15-.44-1.59 0-.44.44-.44 1.15 0 1.59l6.2 6.21-6.2 6.2c-.42.46-.39 1.17.07 1.59.43.4 1.09.4 1.52 0L10 11.59l6.2 6.2c.44.44 1.15.44 1.59 0 .44-.45.44-1.16 0-1.6Z"
                 />
               </svg>
             </span>
@@ -469,12 +481,24 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 320 512"
                 width="1em"
               >
-                <path
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                />
+                <svg
+                  class="pf-v6-icon-default"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  />
+                </svg>
+                <svg
+                  class="pf-v6-icon-rh-ui"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    d="M16 24.792c-.384 0-.769-.146-1.061-.438L2.293 11.707a.999.999 0 1 1 1.414-1.414L16 22.586l12.293-12.293a.999.999 0 1 1 1.414 1.414L17.061 24.353a1.497 1.497 0 0 1-1.061.438Z"
+                  />
+                </svg>
               </svg>
             </span>
           </button>
@@ -498,7 +522,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                     <button
                       aria-current="step"
                       class="pf-v6-c-wizard__nav-link pf-m-current"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-21"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r3u:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                     >
@@ -516,7 +540,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-22"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r3v:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -536,7 +560,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-23"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r40:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -556,7 +580,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-24"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r41:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -586,7 +610,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                     >
                       <h2
                         class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-12"
+                        data-ouia-component-id="OUIA-Generated-Title-:r42:"
                         data-ouia-component-type="PF6/Title"
                         data-ouia-safe="true"
                       >
@@ -594,7 +618,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                       </h2>
                       <p
                         class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-12"
+                        data-ouia-component-id="OUIA-Generated-Content-:r43:"
                         data-ouia-component-type="PF6/Content"
                         data-ouia-safe="true"
                         data-pf-content="true"
@@ -624,7 +648,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                                 aria-hidden="true"
                                 class="pf-v6-c-form__label-required"
                               >
-                                 
+                                 
                                 *
                               </span>
                             </label>
@@ -638,7 +662,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                             >
                               <input
                                 aria-invalid="false"
-                                data-ouia-component-id="OUIA-Generated-TextInputBase-6"
+                                data-ouia-component-id="OUIA-Generated-TextInputBase-:r46:"
                                 data-ouia-component-type="PF6/TextInput"
                                 data-ouia-safe="true"
                                 id="activation-key-name"
@@ -674,11 +698,11 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                                       fill="currentColor"
                                       height="1em"
                                       role="img"
-                                      viewBox="0 0 512 512"
+                                      viewBox="0 0 32 32"
                                       width="1em"
                                     >
                                       <path
-                                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                        d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm-1.5 8a1.5 1.5 0 1 1 3 0v7a1.5 1.5 0 1 1-3 0V9ZM16 25.001a2 2 0 1 1-.001-3.999A2 2 0 0 1 16 25.001Z"
                                       />
                                     </svg>
                                   </span>
@@ -689,7 +713,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                                      
                                     <button
                                       class="pf-v6-c-button pf-m-link pf-m-inline"
-                                      data-ouia-component-id="OUIA-Generated-Button-link-12"
+                                      data-ouia-component-id="OUIA-Generated-Button-link-:r47:"
                                       data-ouia-component-type="PF6/Button"
                                       data-ouia-safe="true"
                                       type="button"
@@ -811,7 +835,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                   >
                     <button
                       class="pf-v6-c-button pf-m-secondary"
-                      data-ouia-component-id="OUIA-Generated-Button-secondary-6"
+                      data-ouia-component-id="OUIA-Generated-Button-secondary-:r49:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       disabled=""
@@ -829,7 +853,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                   >
                     <button
                       class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-7"
+                      data-ouia-component-id="OUIA-Generated-Button-primary-:r4a:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="submit"
@@ -850,7 +874,7 @@ exports[`Create Activation Key Wizard Doesn't confirm on close when nothing has 
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-13"
+                      data-ouia-component-id="OUIA-Generated-Button-link-:r4b:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -894,7 +918,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
         aria-label="Create activation key wizard"
         aria-modal="true"
         class="pf-v6-c-modal-box pf-m-lg"
-        data-ouia-component-id="OUIA-Generated-Modal-large-8"
+        data-ouia-component-id="OUIA-Generated-Modal-large-:r56:"
         data-ouia-component-type="PF6/ModalContent"
         data-ouia-safe="true"
         id="pf-modal-part-7"
@@ -906,7 +930,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
           <button
             aria-label="Close"
             class="pf-v6-c-button pf-m-plain"
-            data-ouia-component-id="OUIA-Generated-Modal-large-8-ModalBoxCloseButton"
+            data-ouia-component-id="OUIA-Generated-Modal-large-:r56:-ModalBoxCloseButton"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             type="button"
@@ -920,11 +944,11 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 352 512"
+                viewBox="0 0 20 20"
                 width="1em"
               >
                 <path
-                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  d="M17.8 16.2 11.59 10l6.21-6.21c.42-.46.39-1.17-.07-1.59-.43-.4-1.09-.4-1.52 0l-6.2 6.2-6.22-6.19c-.44-.44-1.15-.44-1.59 0-.44.44-.44 1.15 0 1.59l6.2 6.21-6.2 6.2c-.42.46-.39 1.17.07 1.59.43.4 1.09.4 1.52 0L10 11.59l6.2 6.2c.44.44 1.15.44 1.59 0 .44-.45.44-1.16 0-1.6Z"
                 />
               </svg>
             </span>
@@ -976,12 +1000,24 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 320 512"
                 width="1em"
               >
-                <path
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                />
+                <svg
+                  class="pf-v6-icon-default"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  />
+                </svg>
+                <svg
+                  class="pf-v6-icon-rh-ui"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    d="M16 24.792c-.384 0-.769-.146-1.061-.438L2.293 11.707a.999.999 0 1 1 1.414-1.414L16 22.586l12.293-12.293a.999.999 0 1 1 1.414 1.414L17.061 24.353a1.497 1.497 0 0 1-1.061.438Z"
+                  />
+                </svg>
               </svg>
             </span>
           </button>
@@ -1005,7 +1041,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-29"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r58:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                     >
@@ -1022,7 +1058,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-30"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r59:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="1"
@@ -1040,7 +1076,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-31"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r5a:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="2"
@@ -1058,7 +1094,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-32"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r5b:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="3"
@@ -1112,11 +1148,11 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                               fill="currentColor"
                               height="1em"
                               role="img"
-                              viewBox="0 0 512 512"
+                              viewBox="0 0 32 32"
                               width="1em"
                             >
                               <path
-                                d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm7.795 11.795-8.646 8.646c-.317.317-.733.475-1.149.475s-.832-.158-1.149-.475l-4.646-4.646a1.126 1.126 0 0 1 1.591-1.591l4.205 4.205 8.205-8.205a1.126 1.126 0 0 1 1.591 1.591Z"
                               />
                             </svg>
                           </div>
@@ -1140,7 +1176,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                         >
                           <button
                             class="pf-v6-c-button pf-m-primary"
-                            data-ouia-component-id="OUIA-Generated-Button-primary-10"
+                            data-ouia-component-id="OUIA-Generated-Button-primary-:r60:"
                             data-ouia-component-type="PF6/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -1156,7 +1192,7 @@ exports[`Create Activation Key Wizard Saves data 1`] = `
                           >
                             <button
                               class="pf-v6-c-button pf-m-link"
-                              data-ouia-component-id="OUIA-Generated-Button-link-18"
+                              data-ouia-component-id="OUIA-Generated-Button-link-:r61:"
                               data-ouia-component-type="PF6/Button"
                               data-ouia-safe="true"
                               type="button"
@@ -1207,7 +1243,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
         aria-label="Create activation key wizard"
         aria-modal="true"
         class="pf-v6-c-modal-box pf-m-lg"
-        data-ouia-component-id="OUIA-Generated-Modal-large-1"
+        data-ouia-component-id="OUIA-Generated-Modal-large-:r1:"
         data-ouia-component-type="PF6/ModalContent"
         data-ouia-safe="true"
         id="pf-modal-part-0"
@@ -1219,7 +1255,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
           <button
             aria-label="Close"
             class="pf-v6-c-button pf-m-plain"
-            data-ouia-component-id="OUIA-Generated-Modal-large-1-ModalBoxCloseButton"
+            data-ouia-component-id="OUIA-Generated-Modal-large-:r1:-ModalBoxCloseButton"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             type="button"
@@ -1233,11 +1269,11 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 352 512"
+                viewBox="0 0 20 20"
                 width="1em"
               >
                 <path
-                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  d="M17.8 16.2 11.59 10l6.21-6.21c.42-.46.39-1.17-.07-1.59-.43-.4-1.09-.4-1.52 0l-6.2 6.2-6.22-6.19c-.44-.44-1.15-.44-1.59 0-.44.44-.44 1.15 0 1.59l6.2 6.21-6.2 6.2c-.42.46-.39 1.17.07 1.59.43.4 1.09.4 1.52 0L10 11.59l6.2 6.2c.44.44 1.15.44 1.59 0 .44-.45.44-1.16 0-1.6Z"
                 />
               </svg>
             </span>
@@ -1289,12 +1325,24 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 320 512"
                 width="1em"
               >
-                <path
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                />
+                <svg
+                  class="pf-v6-icon-default"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  />
+                </svg>
+                <svg
+                  class="pf-v6-icon-rh-ui"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    d="M16 24.792c-.384 0-.769-.146-1.061-.438L2.293 11.707a.999.999 0 1 1 1.414-1.414L16 22.586l12.293-12.293a.999.999 0 1 1 1.414 1.414L17.061 24.353a1.497 1.497 0 0 1-1.061.438Z"
+                  />
+                </svg>
               </svg>
             </span>
           </button>
@@ -1318,7 +1366,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                     <button
                       aria-current="step"
                       class="pf-v6-c-wizard__nav-link pf-m-current"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-1"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r3:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                     >
@@ -1336,7 +1384,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-2"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r4:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -1356,7 +1404,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-3"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r5:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -1376,7 +1424,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-4"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r6:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -1406,7 +1454,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                     >
                       <h2
                         class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                        data-ouia-component-id="OUIA-Generated-Title-1"
+                        data-ouia-component-id="OUIA-Generated-Title-:r7:"
                         data-ouia-component-type="PF6/Title"
                         data-ouia-safe="true"
                       >
@@ -1414,7 +1462,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                       </h2>
                       <p
                         class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                        data-ouia-component-id="OUIA-Generated-Content-1"
+                        data-ouia-component-id="OUIA-Generated-Content-:r8:"
                         data-ouia-component-type="PF6/Content"
                         data-ouia-safe="true"
                         data-pf-content="true"
@@ -1444,7 +1492,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                                 aria-hidden="true"
                                 class="pf-v6-c-form__label-required"
                               >
-                                 
+                                 
                                 *
                               </span>
                             </label>
@@ -1458,7 +1506,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                             >
                               <input
                                 aria-invalid="false"
-                                data-ouia-component-id="OUIA-Generated-TextInputBase-1"
+                                data-ouia-component-id="OUIA-Generated-TextInputBase-:rb:"
                                 data-ouia-component-type="PF6/TextInput"
                                 data-ouia-safe="true"
                                 id="activation-key-name"
@@ -1494,11 +1542,11 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                                       fill="currentColor"
                                       height="1em"
                                       role="img"
-                                      viewBox="0 0 512 512"
+                                      viewBox="0 0 32 32"
                                       width="1em"
                                     >
                                       <path
-                                        d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
+                                        d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm-1.5 8a1.5 1.5 0 1 1 3 0v7a1.5 1.5 0 1 1-3 0V9ZM16 25.001a2 2 0 1 1-.001-3.999A2 2 0 0 1 16 25.001Z"
                                       />
                                     </svg>
                                   </span>
@@ -1509,7 +1557,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                                      
                                     <button
                                       class="pf-v6-c-button pf-m-link pf-m-inline"
-                                      data-ouia-component-id="OUIA-Generated-Button-link-1"
+                                      data-ouia-component-id="OUIA-Generated-Button-link-:rc:"
                                       data-ouia-component-type="PF6/Button"
                                       data-ouia-safe="true"
                                       type="button"
@@ -1631,7 +1679,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-secondary"
-                      data-ouia-component-id="OUIA-Generated-Button-secondary-1"
+                      data-ouia-component-id="OUIA-Generated-Button-secondary-:re:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       disabled=""
@@ -1649,7 +1697,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-1"
+                      data-ouia-component-id="OUIA-Generated-Button-primary-:rf:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="submit"
@@ -1670,7 +1718,7 @@ exports[`Create Activation Key Wizard renders page 1 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-2"
+                      data-ouia-component-id="OUIA-Generated-Button-link-:rg:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -1714,7 +1762,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
         aria-label="Create activation key wizard"
         aria-modal="true"
         class="pf-v6-c-modal-box pf-m-lg"
-        data-ouia-component-id="OUIA-Generated-Modal-large-2"
+        data-ouia-component-id="OUIA-Generated-Modal-large-:ri:"
         data-ouia-component-type="PF6/ModalContent"
         data-ouia-safe="true"
         id="pf-modal-part-1"
@@ -1726,7 +1774,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
           <button
             aria-label="Close"
             class="pf-v6-c-button pf-m-plain"
-            data-ouia-component-id="OUIA-Generated-Modal-large-2-ModalBoxCloseButton"
+            data-ouia-component-id="OUIA-Generated-Modal-large-:ri:-ModalBoxCloseButton"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             type="button"
@@ -1740,11 +1788,11 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 352 512"
+                viewBox="0 0 20 20"
                 width="1em"
               >
                 <path
-                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  d="M17.8 16.2 11.59 10l6.21-6.21c.42-.46.39-1.17-.07-1.59-.43-.4-1.09-.4-1.52 0l-6.2 6.2-6.22-6.19c-.44-.44-1.15-.44-1.59 0-.44.44-.44 1.15 0 1.59l6.2 6.21-6.2 6.2c-.42.46-.39 1.17.07 1.59.43.4 1.09.4 1.52 0L10 11.59l6.2 6.2c.44.44 1.15.44 1.59 0 .44-.45.44-1.16 0-1.6Z"
                 />
               </svg>
             </span>
@@ -1796,12 +1844,24 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 320 512"
                 width="1em"
               >
-                <path
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                />
+                <svg
+                  class="pf-v6-icon-default"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  />
+                </svg>
+                <svg
+                  class="pf-v6-icon-rh-ui"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    d="M16 24.792c-.384 0-.769-.146-1.061-.438L2.293 11.707a.999.999 0 1 1 1.414-1.414L16 22.586l12.293-12.293a.999.999 0 1 1 1.414 1.414L17.061 24.353a1.497 1.497 0 0 1-1.061.438Z"
+                  />
+                </svg>
               </svg>
             </span>
           </button>
@@ -1825,7 +1885,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-5"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:rk:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                     >
@@ -1842,7 +1902,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                     <button
                       aria-current="step"
                       class="pf-v6-c-wizard__nav-link pf-m-current"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-6"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:rl:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="1"
@@ -1861,7 +1921,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-7"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:rm:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -1881,7 +1941,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-8"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:rn:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -1908,7 +1968,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                 >
                   <h2
                     class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                    data-ouia-component-id="OUIA-Generated-Title-3"
+                    data-ouia-component-id="OUIA-Generated-Title-:r12:"
                     data-ouia-component-type="PF6/Title"
                     data-ouia-safe="true"
                   >
@@ -1916,7 +1976,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                   </h2>
                   <p
                     class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                    data-ouia-component-id="OUIA-Generated-Content-3"
+                    data-ouia-component-id="OUIA-Generated-Content-:r13:"
                     data-ouia-component-type="PF6/Content"
                     data-ouia-safe="true"
                     data-pf-content="true"
@@ -1933,7 +1993,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                         aria-invalid="false"
                         checked=""
                         class="pf-v6-c-radio__input"
-                        data-ouia-component-id="OUIA-Generated-Radio-1"
+                        data-ouia-component-id="OUIA-Generated-Radio-:r16:"
                         data-ouia-component-type="PF6/Radio"
                         data-ouia-safe="true"
                         id="Latest release"
@@ -1957,7 +2017,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                       <input
                         aria-invalid="false"
                         class="pf-v6-c-radio__input"
-                        data-ouia-component-id="OUIA-Generated-Radio-2"
+                        data-ouia-component-id="OUIA-Generated-Radio-:r19:"
                         data-ouia-component-type="PF6/Radio"
                         data-ouia-safe="true"
                         id="Extended support releases"
@@ -2001,7 +2061,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-secondary"
-                      data-ouia-component-id="OUIA-Generated-Button-secondary-2"
+                      data-ouia-component-id="OUIA-Generated-Button-secondary-:rv:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -2018,7 +2078,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-2"
+                      data-ouia-component-id="OUIA-Generated-Button-primary-:r10:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="submit"
@@ -2039,7 +2099,7 @@ exports[`Create Activation Key Wizard renders page 2 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-4"
+                      data-ouia-component-id="OUIA-Generated-Button-link-:r11:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -2083,7 +2143,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
         aria-label="Create activation key wizard"
         aria-modal="true"
         class="pf-v6-c-modal-box pf-m-lg"
-        data-ouia-component-id="OUIA-Generated-Modal-large-3"
+        data-ouia-component-id="OUIA-Generated-Modal-large-:r1b:"
         data-ouia-component-type="PF6/ModalContent"
         data-ouia-safe="true"
         id="pf-modal-part-2"
@@ -2095,7 +2155,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
           <button
             aria-label="Close"
             class="pf-v6-c-button pf-m-plain"
-            data-ouia-component-id="OUIA-Generated-Modal-large-3-ModalBoxCloseButton"
+            data-ouia-component-id="OUIA-Generated-Modal-large-:r1b:-ModalBoxCloseButton"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             type="button"
@@ -2109,11 +2169,11 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 352 512"
+                viewBox="0 0 20 20"
                 width="1em"
               >
                 <path
-                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  d="M17.8 16.2 11.59 10l6.21-6.21c.42-.46.39-1.17-.07-1.59-.43-.4-1.09-.4-1.52 0l-6.2 6.2-6.22-6.19c-.44-.44-1.15-.44-1.59 0-.44.44-.44 1.15 0 1.59l6.2 6.21-6.2 6.2c-.42.46-.39 1.17.07 1.59.43.4 1.09.4 1.52 0L10 11.59l6.2 6.2c.44.44 1.15.44 1.59 0 .44-.45.44-1.16 0-1.6Z"
                 />
               </svg>
             </span>
@@ -2165,12 +2225,24 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 320 512"
                 width="1em"
               >
-                <path
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                />
+                <svg
+                  class="pf-v6-icon-default"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  />
+                </svg>
+                <svg
+                  class="pf-v6-icon-rh-ui"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    d="M16 24.792c-.384 0-.769-.146-1.061-.438L2.293 11.707a.999.999 0 1 1 1.414-1.414L16 22.586l12.293-12.293a.999.999 0 1 1 1.414 1.414L17.061 24.353a1.497 1.497 0 0 1-1.061.438Z"
+                  />
+                </svg>
               </svg>
             </span>
           </button>
@@ -2194,7 +2266,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-9"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r1d:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                     >
@@ -2211,7 +2283,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-10"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r1e:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="1"
@@ -2229,7 +2301,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                     <button
                       aria-current="step"
                       class="pf-v6-c-wizard__nav-link pf-m-current"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-11"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r1f:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="2"
@@ -2248,7 +2320,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                       aria-current="false"
                       aria-disabled="true"
                       class="pf-v6-c-wizard__nav-link pf-m-disabled"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-12"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r1g:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       disabled=""
@@ -2321,7 +2393,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-secondary"
-                      data-ouia-component-id="OUIA-Generated-Button-secondary-3"
+                      data-ouia-component-id="OUIA-Generated-Button-secondary-:r1o:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -2338,7 +2410,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-3"
+                      data-ouia-component-id="OUIA-Generated-Button-primary-:r1p:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="submit"
@@ -2359,7 +2431,7 @@ exports[`Create Activation Key Wizard renders page 3 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-6"
+                      data-ouia-component-id="OUIA-Generated-Button-link-:r1q:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -2403,7 +2475,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
         aria-label="Create activation key wizard"
         aria-modal="true"
         class="pf-v6-c-modal-box pf-m-lg"
-        data-ouia-component-id="OUIA-Generated-Modal-large-4"
+        data-ouia-component-id="OUIA-Generated-Modal-large-:r24:"
         data-ouia-component-type="PF6/ModalContent"
         data-ouia-safe="true"
         id="pf-modal-part-3"
@@ -2415,7 +2487,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
           <button
             aria-label="Close"
             class="pf-v6-c-button pf-m-plain"
-            data-ouia-component-id="OUIA-Generated-Modal-large-4-ModalBoxCloseButton"
+            data-ouia-component-id="OUIA-Generated-Modal-large-:r24:-ModalBoxCloseButton"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             type="button"
@@ -2429,11 +2501,11 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 352 512"
+                viewBox="0 0 20 20"
                 width="1em"
               >
                 <path
-                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  d="M17.8 16.2 11.59 10l6.21-6.21c.42-.46.39-1.17-.07-1.59-.43-.4-1.09-.4-1.52 0l-6.2 6.2-6.22-6.19c-.44-.44-1.15-.44-1.59 0-.44.44-.44 1.15 0 1.59l6.2 6.21-6.2 6.2c-.42.46-.39 1.17.07 1.59.43.4 1.09.4 1.52 0L10 11.59l6.2 6.2c.44.44 1.15.44 1.59 0 .44-.45.44-1.16 0-1.6Z"
                 />
               </svg>
             </span>
@@ -2485,12 +2557,24 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 320 512"
                 width="1em"
               >
-                <path
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                />
+                <svg
+                  class="pf-v6-icon-default"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  />
+                </svg>
+                <svg
+                  class="pf-v6-icon-rh-ui"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    d="M16 24.792c-.384 0-.769-.146-1.061-.438L2.293 11.707a.999.999 0 1 1 1.414-1.414L16 22.586l12.293-12.293a.999.999 0 1 1 1.414 1.414L17.061 24.353a1.497 1.497 0 0 1-1.061.438Z"
+                  />
+                </svg>
               </svg>
             </span>
           </button>
@@ -2514,7 +2598,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-13"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r26:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                     >
@@ -2531,7 +2615,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-14"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r27:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="1"
@@ -2549,7 +2633,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-15"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r28:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="2"
@@ -2567,7 +2651,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                     <button
                       aria-current="step"
                       class="pf-v6-c-wizard__nav-link pf-m-current"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-16"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r29:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="3"
@@ -2599,7 +2683,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                 >
                   <h2
                     class="pf-v6-c-title pf-m-h2 pf-v6-u-mb-sm"
-                    data-ouia-component-id="OUIA-Generated-Title-8"
+                    data-ouia-component-id="OUIA-Generated-Title-:r2s:"
                     data-ouia-component-type="PF6/Title"
                     data-ouia-safe="true"
                   >
@@ -2607,7 +2691,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                   </h2>
                   <p
                     class="pf-v6-c-content--p pf-v6-u-mb-xl"
-                    data-ouia-component-id="OUIA-Generated-Content-8"
+                    data-ouia-component-id="OUIA-Generated-Content-:r2t:"
                     data-ouia-component-type="PF6/Content"
                     data-ouia-safe="true"
                     data-pf-content="true"
@@ -2803,7 +2887,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-secondary"
-                      data-ouia-component-id="OUIA-Generated-Button-secondary-4"
+                      data-ouia-component-id="OUIA-Generated-Button-secondary-:r2h:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -2820,7 +2904,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-primary"
-                      data-ouia-component-id="OUIA-Generated-Button-primary-4"
+                      data-ouia-component-id="OUIA-Generated-Button-primary-:r2i:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="submit"
@@ -2841,7 +2925,7 @@ exports[`Create Activation Key Wizard renders page 4 correctly 1`] = `
                   >
                     <button
                       class="pf-v6-c-button pf-m-link"
-                      data-ouia-component-id="OUIA-Generated-Button-link-8"
+                      data-ouia-component-id="OUIA-Generated-Button-link-:r2j:"
                       data-ouia-component-type="PF6/Button"
                       data-ouia-safe="true"
                       type="button"
@@ -2885,7 +2969,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
         aria-label="Create activation key wizard"
         aria-modal="true"
         class="pf-v6-c-modal-box pf-m-lg"
-        data-ouia-component-id="OUIA-Generated-Modal-large-5"
+        data-ouia-component-id="OUIA-Generated-Modal-large-:r2v:"
         data-ouia-component-type="PF6/ModalContent"
         data-ouia-safe="true"
         id="pf-modal-part-4"
@@ -2897,7 +2981,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
           <button
             aria-label="Close"
             class="pf-v6-c-button pf-m-plain"
-            data-ouia-component-id="OUIA-Generated-Modal-large-5-ModalBoxCloseButton"
+            data-ouia-component-id="OUIA-Generated-Modal-large-:r2v:-ModalBoxCloseButton"
             data-ouia-component-type="PF6/Button"
             data-ouia-safe="true"
             type="button"
@@ -2911,11 +2995,11 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 352 512"
+                viewBox="0 0 20 20"
                 width="1em"
               >
                 <path
-                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                  d="M17.8 16.2 11.59 10l6.21-6.21c.42-.46.39-1.17-.07-1.59-.43-.4-1.09-.4-1.52 0l-6.2 6.2-6.22-6.19c-.44-.44-1.15-.44-1.59 0-.44.44-.44 1.15 0 1.59l6.2 6.21-6.2 6.2c-.42.46-.39 1.17.07 1.59.43.4 1.09.4 1.52 0L10 11.59l6.2 6.2c.44.44 1.15.44 1.59 0 .44-.45.44-1.16 0-1.6Z"
                 />
               </svg>
             </span>
@@ -2967,12 +3051,24 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                 fill="currentColor"
                 height="1em"
                 role="img"
-                viewBox="0 0 320 512"
                 width="1em"
               >
-                <path
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                />
+                <svg
+                  class="pf-v6-icon-default"
+                  viewBox="0 0 320 512"
+                >
+                  <path
+                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  />
+                </svg>
+                <svg
+                  class="pf-v6-icon-rh-ui"
+                  viewBox="0 0 32 32"
+                >
+                  <path
+                    d="M16 24.792c-.384 0-.769-.146-1.061-.438L2.293 11.707a.999.999 0 1 1 1.414-1.414L16 22.586l12.293-12.293a.999.999 0 1 1 1.414 1.414L17.061 24.353a1.497 1.497 0 0 1-1.061.438Z"
+                  />
+                </svg>
               </svg>
             </span>
           </button>
@@ -2996,7 +3092,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-17"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r31:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                     >
@@ -3013,7 +3109,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-18"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r32:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="1"
@@ -3031,7 +3127,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-19"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r33:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="2"
@@ -3049,7 +3145,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                     <button
                       aria-current="false"
                       class="pf-v6-c-wizard__nav-link"
-                      data-ouia-component-id="OUIA-Generated-WizardNavItem-20"
+                      data-ouia-component-id="OUIA-Generated-WizardNavItem-:r34:"
                       data-ouia-component-type="PF6/WizardNavItem"
                       data-ouia-safe="true"
                       id="3"
@@ -3103,11 +3199,11 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                               fill="currentColor"
                               height="1em"
                               role="img"
-                              viewBox="0 0 512 512"
+                              viewBox="0 0 32 32"
                               width="1em"
                             >
                               <path
-                                d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"
+                                d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm7.795 11.795-8.646 8.646c-.317.317-.733.475-1.149.475s-.832-.158-1.149-.475l-4.646-4.646a1.126 1.126 0 0 1 1.591-1.591l4.205 4.205 8.205-8.205a1.126 1.126 0 0 1 1.591 1.591Z"
                               />
                             </svg>
                           </div>
@@ -3131,7 +3227,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                         >
                           <button
                             class="pf-v6-c-button pf-m-primary"
-                            data-ouia-component-id="OUIA-Generated-Button-primary-6"
+                            data-ouia-component-id="OUIA-Generated-Button-primary-:r3p:"
                             data-ouia-component-type="PF6/Button"
                             data-ouia-safe="true"
                             type="button"
@@ -3147,7 +3243,7 @@ exports[`Create Activation Key Wizard renders page 5 correctly 1`] = `
                           >
                             <button
                               class="pf-v6-c-button pf-m-link"
-                              data-ouia-component-id="OUIA-Generated-Button-link-11"
+                              data-ouia-component-id="OUIA-Generated-Button-link-:r3q:"
                               data-ouia-component-type="PF6/Button"
                               data-ouia-safe="true"
                               type="button"
