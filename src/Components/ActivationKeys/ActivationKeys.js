@@ -35,6 +35,9 @@ const ActivationKeys = () => {
     setisOpen(!isOpen);
   };
 
+  const registrationDocs =
+    'https://docs.redhat.com/en/documentation/subscription_central/1-latest/html-single/getting_started_with_rhel_system_registration/index#basic-reg-rhel-cli';
+
   const popoverContent = (
     <Content className="pf-v6-u-font-size-sm">
       <Content component="p">
@@ -46,7 +49,10 @@ const ActivationKeys = () => {
           rel="noopener noreferrer"
           href={'https://console.redhat.com/insights/subscriptions/rhel'}
         >
-          Subscription Services.
+          Subscription Services.{' '}
+        </a>
+        <a href={registrationDocs} target="_blank" rel="noopener noreferrer">
+          Learn more about registering systems.
         </a>
       </Content>
       <Content component="p">
