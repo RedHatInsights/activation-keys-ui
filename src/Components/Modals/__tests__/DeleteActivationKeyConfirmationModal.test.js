@@ -1,12 +1,9 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { init } from '../../../store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import DeleteActivationKeyConfirmationModal from '../DeleteActivationKeyConfirmationModal';
 import '@testing-library/jest-dom';
 const queryClient = new QueryClient();
-const registry = init();
 
 describe('Delete Activation Key Confirmation Modal', () => {
   const activationKeyName = 'Test Modal';
@@ -17,11 +14,9 @@ describe('Delete Activation Key Confirmation Modal', () => {
       name: activationKeyName,
     };
     render(
-      <Provider store={registry.getStore()}>
-        <QueryClientProvider client={queryClient}>
-          <DeleteActivationKeyConfirmationModal {...props} />
-        </QueryClientProvider>
-      </Provider>,
+      <QueryClientProvider client={queryClient}>
+        <DeleteActivationKeyConfirmationModal {...props} />
+      </QueryClientProvider>,
     );
     expect(screen.getByText(activationKeyName)).toBeInTheDocument();
     expect(screen.getByText('Delete activation key?')).toBeInTheDocument();

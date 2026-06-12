@@ -1,8 +1,6 @@
 import React from 'react';
 import ActivationKeyForm from '../ActivationKeyForm';
 import useSystemPurposeAttributes from '../../../hooks/useSystemPurposeAttributes';
-import { Provider } from 'react-redux';
-import { init } from '../../../store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -18,7 +16,6 @@ const ActivationKeyFormProps = {
   isError: null,
 };
 
-const registry = init();
 const props = { ...ActivationKeyFormProps };
 
 jest.mock('../../../hooks/useSystemPurposeAttributes');
@@ -37,11 +34,9 @@ describe('Activation Key Form', () => {
 
   it('renders correctly when data is loaded', () => {
     const { container } = render(
-      <Provider store={registry.getStore()}>
-        <QueryClientProvider client={queryClient}>
-          <ActivationKeyForm {...props} />
-        </QueryClientProvider>
-      </Provider>,
+      <QueryClientProvider client={queryClient}>
+        <ActivationKeyForm {...props} />
+      </QueryClientProvider>,
     );
     expect(container).toMatchSnapshot();
   });
@@ -49,11 +44,9 @@ describe('Activation Key Form', () => {
   it('validates name field', () => {
     const props = { ...ActivationKeyFormProps };
     const { container } = render(
-      <Provider store={registry.getStore()}>
-        <QueryClientProvider client={queryClient}>
-          <ActivationKeyForm {...props} />
-        </QueryClientProvider>
-      </Provider>,
+      <QueryClientProvider client={queryClient}>
+        <ActivationKeyForm {...props} />
+      </QueryClientProvider>,
     );
     const nameInput = container.querySelector('#activation-key-name');
     fireEvent.change(nameInput, { target: { value: '!123' } });
@@ -67,11 +60,9 @@ describe('Activation Key Form', () => {
   it('validates name length', () => {
     const props = { ...ActivationKeyFormProps };
     const { container } = render(
-      <Provider store={registry.getStore()}>
-        <QueryClientProvider client={queryClient}>
-          <ActivationKeyForm {...props} />
-        </QueryClientProvider>
-      </Provider>,
+      <QueryClientProvider client={queryClient}>
+        <ActivationKeyForm {...props} />
+      </QueryClientProvider>,
     );
     const validLength = Array(256).join('a');
     const invalidLength = Array(257).join('b');
@@ -96,11 +87,9 @@ describe('Activation Key Form', () => {
       activationKey: activationKey,
     };
     render(
-      <Provider store={registry.getStore()}>
-        <QueryClientProvider client={queryClient}>
-          <ActivationKeyForm {...props} />
-        </QueryClientProvider>
-      </Provider>,
+      <QueryClientProvider client={queryClient}>
+        <ActivationKeyForm {...props} />
+      </QueryClientProvider>,
     );
     const submitButton = screen.getByTestId('activation-key-submit-button');
     expect(submitButton).toBeDisabled();
@@ -110,11 +99,9 @@ describe('Activation Key Form', () => {
     const props = { ...ActivationKeyFormProps };
 
     const { container } = render(
-      <Provider store={registry.getStore()}>
-        <QueryClientProvider client={queryClient}>
-          <ActivationKeyForm {...props} />
-        </QueryClientProvider>
-      </Provider>,
+      <QueryClientProvider client={queryClient}>
+        <ActivationKeyForm {...props} />
+      </QueryClientProvider>,
     );
     const form = container.querySelector('#activation-key-form');
     const nameInput = container.querySelector('#activation-key-name');
@@ -127,11 +114,9 @@ describe('Activation Key Form', () => {
     const props = { ...ActivationKeyFormProps, isSuccess: true };
 
     render(
-      <Provider store={registry.getStore()}>
-        <QueryClientProvider client={queryClient}>
-          <ActivationKeyForm {...props} />
-        </QueryClientProvider>
-      </Provider>,
+      <QueryClientProvider client={queryClient}>
+        <ActivationKeyForm {...props} />
+      </QueryClientProvider>,
     );
 
     expect(handleModalToggle).toHaveBeenCalledTimes(1);

@@ -1,10 +1,8 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import ActivationKeys from '../index';
-import { Provider } from 'react-redux';
 import Authentication from '../../../Components/Authentication';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { init } from '../../../store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import useUser from '../../../hooks/useUser';
 import { def, get } from 'bdd-lazy-var';
@@ -24,11 +22,9 @@ const queryClient = new QueryClient();
 const PageContainer = () => (
   <QueryClientProvider client={queryClient}>
     <Authentication>
-      <Provider store={init().getStore()}>
-        <Router>
-          <ActivationKeys />
-        </Router>
-      </Provider>
+      <Router>
+        <ActivationKeys />
+      </Router>
     </Authentication>
   </QueryClientProvider>
 );
