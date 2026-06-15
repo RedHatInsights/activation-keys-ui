@@ -1,12 +1,9 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { init } from '../../../store';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AddAdditionalRepositoriesModal from '../AddAdditionalRepositoriesModal';
 const queryClient = new QueryClient();
-const registry = init();
 
 describe('Add Additional Repositories Modal', () => {
   it('renders correctly', () => {
@@ -16,11 +13,9 @@ describe('Add Additional Repositories Modal', () => {
       repositories: [],
     };
     render(
-      <Provider store={registry.getStore()}>
-        <QueryClientProvider client={queryClient}>
-          <AddAdditionalRepositoriesModal {...props} />
-        </QueryClientProvider>
-      </Provider>,
+      <QueryClientProvider client={queryClient}>
+        <AddAdditionalRepositoriesModal {...props} />
+      </QueryClientProvider>,
     );
     expect(screen.getByText('Add repositories')).toBeInTheDocument();
     expect(screen.getByText('Add repositories')).toBeInTheDocument();
