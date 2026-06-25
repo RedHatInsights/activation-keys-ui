@@ -4,11 +4,12 @@ import ActivationKey from '../index';
 import Authentication from '../../../Components/Authentication';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import useUser from '../../../hooks/useUser';
 import { def, get } from 'bdd-lazy-var/global';
 import useActivationKey from '../../../hooks/useActivationKey';
 import '@testing-library/jest-dom';
 import useAvailableRepositories from '../../../hooks/useAvailableRepositories';
+import { Relation, useHasRelation } from '../../../hooks/useHasRelation';
+import useUser from '../../../hooks/useUser';
 
 jest.mock('../../../hooks/useAvailableRepositories');
 jest.mock('../../../hooks/useActivationKey');
@@ -19,6 +20,7 @@ jest.mock('react-router-dom', () => ({
     pathname: '/',
   }),
 }));
+jest.mock('../../../hooks/useHasRelation');
 
 const queryClient = new QueryClient();
 
@@ -32,11 +34,10 @@ const PageContainer = () => (
   </QueryClientProvider>
 );
 
-const mockAuthenticateUser = (isLoading, isError, rbacPermissions) => {
+const mockAuthenticateUser = (isLoading, isError) => {
   const user = {
     accountNumber: '123',
     orgId: '123',
-    rbacPermissions: rbacPermissions,
   };
   useUser.mockReturnValue({
     isLoading: isLoading,
@@ -48,6 +49,13 @@ const mockAuthenticateUser = (isLoading, isError, rbacPermissions) => {
   if (isError === false) {
     queryClient.setQueryData(['user'], user);
   }
+};
+
+const mockRelation = (map) => {
+  useHasRelation.mockImplementation((r) => ({
+    has: map?.[r] || false,
+    isLoading: false,
+  }));
 };
 
 // eslint-disable-next-line react/display-name
@@ -72,10 +80,8 @@ jest.mock(
 );
 
 describe('ActivationKey', () => {
-  def('isLoading', () => false);
-  def('isError', () => false);
-  def('rbacPermissions', () => {
-    return { canReadActivationKeys: true, canWriteActivationKeys: true };
+  def('relations', () => {
+    return { [Relation.KEYS_VIEW]: true, [Relation.KEYS_EDIT]: true };
   });
   def('keyData', () => {
     return {
@@ -95,6 +101,7 @@ describe('ActivationKey', () => {
       get('isError'),
       get('rbacPermissions'),
     );
+    mockRelation(get('relations'));
     useActivationKey.mockReturnValue({
       isLoading: false,
       isFetching: false,
@@ -137,14 +144,15 @@ describe('ActivationKey', () => {
   });
 
   describe('when the user does not have proper permissions', () => {
-    def('rbacPermissions', () => {
-      return { canReadActivationKeys: false };
+    def('relations', () => {
+      return { [Relation.KEYS_VIEW]: false, [Relation.KEYS_EDIT]: false };
     });
 
     it('redirects to not authorized page', async () => {
       render(<PageContainer />);
-      await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
-      expect(screen.getByText('Not Authorized')).toBeInTheDocument();
+      await waitFor(() =>
+        expect(screen.getByText('Not Authorized')).toBeInTheDocument(),
+      );
     });
   });
 });

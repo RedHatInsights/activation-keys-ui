@@ -5,6 +5,7 @@ import AdditionalRepositoriesTable from '../AdditionalRepositoriesTable';
 import { def, get } from 'bdd-lazy-var';
 import '@testing-library/jest-dom';
 import useAvailableRepositories from '../../../hooks/useAvailableRepositories';
+import { Relation, useHasRelation } from '../../../hooks/useHasRelation';
 jest.mock('../../../hooks/useAvailableRepositories');
 jest.mock('uuid', () => {
   return { v4: jest.fn(() => '00000000-0000-0000-0000-000000000000') };
@@ -14,17 +15,20 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useRouteMatch: () => ({ url: '/' }),
 }));
+jest.mock('../../../hooks/useHasRelation');
 
 const queryClient = new QueryClient();
 
+const mockRelation = (map) => {
+  useHasRelation.mockImplementation((r) => ({
+    has: map?.[r] || false,
+    isLoading: false,
+  }));
+};
+
 describe('AdditionalRepositoriesTable', () => {
-  def('rbacPermissions', () => {
-    return {
-      rbacPermissions: {
-        canReadActivationKeys: true,
-        canWriteActivationKeys: true,
-      },
-    };
+  def('relations', () => {
+    return { [Relation.KEYS_VIEW]: true, [Relation.KEYS_EDIT]: true };
   });
   def('loading', () => false);
   def('error', () => false);
@@ -37,14 +41,12 @@ describe('AdditionalRepositoriesTable', () => {
     },
   ]);
   beforeEach(() => {
-    jest
-      .spyOn(queryClient, 'getQueryData')
-      .mockReturnValue(get('rbacPermissions'));
     useAvailableRepositories.mockReturnValue({
       isLoading: get('loading'),
       error: get('error'),
       data: get('data'),
     });
+    mockRelation(get('relations'));
   });
   const repositories = [
     {

@@ -1,39 +1,27 @@
-import React, { useEffect } from 'react';
-import { useQueryClient } from '@tanstack/react-query';
-import { useLocation } from 'react-router-dom';
-import useUser from '../../hooks/useUser';
+import React from 'react';
 import Loading from '../LoadingState/Loading';
-import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 import propTypes from 'prop-types';
 import NotAuthorized from '@redhat-cloud-services/frontend-components/NotAuthorized';
+import { Relation, useHasRelation } from '../../hooks/useHasRelation';
+import useUser from '../../hooks/useUser';
+import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 
 const Authentication = ({ children }) => {
-  const queryClient = useQueryClient();
-  const location = useLocation();
-  const { isLoading, isFetching, isSuccess, isError, data } = useUser();
-  const hasAnyPermission =
-    data?.rbacPermissions &&
-    (data.rbacPermissions.canReadActivationKeys ||
-      data.rbacPermissions.canWriteActivationKeys);
+  const {
+    has: canReadActivationKeys,
+    isLoading: canReadActivationKeysIsLoading,
+  } = useHasRelation(Relation.KEYS_VIEW);
 
-  useEffect(() => {
-    /**
-     * On every rerender, based on URL change (location.pathname),
-     * reset the user's status to loading before authenticating again.
-     */
-    queryClient.invalidateQueries(['user']);
-  }, [location.pathname]);
+  const { isLoading, isFetching, isError } = useUser();
 
-  if (isError === true) {
+  if (isError) {
     return <Unavailable />;
-  } else if (isLoading === true || isFetching === true) {
-    return <Loading />;
-  } else if (isSuccess === true && !hasAnyPermission) {
+  } else if (!canReadActivationKeys && !canReadActivationKeysIsLoading) {
     return <NotAuthorized serviceName="Activation Keys" />;
-  } else if (isSuccess === true) {
-    return <>{children}</>;
-  } else {
+  } else if (canReadActivationKeysIsLoading || isLoading || isFetching) {
     return <Loading />;
+  } else {
+    return <>{children}</>;
   }
 };
 

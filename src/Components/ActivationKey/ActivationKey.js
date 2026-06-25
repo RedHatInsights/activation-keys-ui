@@ -15,7 +15,6 @@ import {
   PageHeaderTitle,
 } from '@redhat-cloud-services/frontend-components/PageHeader';
 import AdditionalRepositoriesCard from './AdditionalRepositoriesCard';
-import { useQueryClient } from '@tanstack/react-query';
 import NoAccessPopover from '../NoAccessPopover';
 import useActivationKey from '../../hooks/useActivationKey';
 import Loading from '../LoadingState/Loading';
@@ -23,11 +22,15 @@ import SystemPurposeCard from './SystemPurposeCard';
 import WorkloadCard from './WorkloadCard';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
 import EditAndDeleteDropdown from './EditAndDeleteDropdown';
+import { Relation, useHasRelation } from '../../hooks/useHasRelation';
 
 const ActivationKey = () => {
   const { id } = useParams();
-  const queryClient = useQueryClient();
-  const user = queryClient.getQueryData(['user']);
+
+  const {
+    has: canWriteActivationKeys,
+    isLoading: canWriteActivationKeysIsLoading,
+  } = useHasRelation(Relation.KEYS_EDIT);
 
   const breadcrumbs = [
     { title: 'Activation Keys', to: '..' },
@@ -60,7 +63,8 @@ const ActivationKey = () => {
             </DescriptionListGroup>
           </LevelItem>
           <LevelItem className="pf-v6-u-mb-sm">
-            {!isKeyLoading && user.rbacPermissions.canWriteActivationKeys ? (
+            {!(isKeyLoading || canWriteActivationKeysIsLoading) &&
+            canWriteActivationKeys ? (
               <EditAndDeleteDropdown
                 onClick={handleEditActivationKeyWizardToggle}
                 activationKey={activationKey}
@@ -71,7 +75,7 @@ const ActivationKey = () => {
           </LevelItem>
         </Level>
       </PageHeader>
-      {isKeyLoading && !keyError ? (
+      {(isKeyLoading || canWriteActivationKeysIsLoading) && !keyError ? (
         <Loading />
       ) : (
         <React.Fragment>

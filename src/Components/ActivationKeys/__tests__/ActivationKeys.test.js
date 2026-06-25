@@ -8,6 +8,8 @@ import useUser from '../../../hooks/useUser';
 import { def, get } from 'bdd-lazy-var';
 import useActivationKeys from '../../../hooks/useActivationKeys';
 import '@testing-library/jest-dom';
+import { Relation, useHasRelation } from '../../../hooks/useHasRelation';
+
 jest.mock('../../../hooks/useActivationKeys');
 jest.mock('../../../hooks/useUser');
 jest.mock('react-router-dom', () => ({
@@ -16,6 +18,7 @@ jest.mock('react-router-dom', () => ({
     pathname: '/',
   }),
 }));
+jest.mock('../../../hooks/useHasRelation');
 
 const queryClient = new QueryClient();
 
@@ -29,11 +32,17 @@ const PageContainer = () => (
   </QueryClientProvider>
 );
 
-const mockAuthenticateUser = (isLoading, isError, rbacPermissions) => {
+const mockRelation = (map) => {
+  useHasRelation.mockImplementation((r) => ({
+    has: map?.[r] || false,
+    isLoading: false,
+  }));
+};
+
+const mockAuthenticateUser = (isLoading, isError) => {
   const user = {
     accountNumber: '123',
     orgId: '123',
-    rbacPermissions: rbacPermissions,
   };
   useUser.mockReturnValue({
     isLoading: isLoading,
@@ -67,8 +76,8 @@ jest.mock(
 describe('ActivationKeys', () => {
   def('isLoading', () => false);
   def('isError', () => false);
-  def('rbacPermissions', () => {
-    return { canReadActivationKeys: true, canWriteActivationKeys: true };
+  def('relations', () => {
+    return { [Relation.KEYS_VIEW]: true, [Relation.KEYS_EDIT]: true };
   });
   def('keysData', () => [
     {
@@ -81,11 +90,8 @@ describe('ActivationKeys', () => {
 
   beforeEach(() => {
     jest.resetAllMocks();
-    mockAuthenticateUser(
-      get('isLoading'),
-      get('isError'),
-      get('rbacPermissions'),
-    );
+    mockRelation(get('relations'));
+    mockAuthenticateUser(get('isLoading'), get('isError'));
     useActivationKeys.mockReturnValue({
       isLoading: false,
       isFetching: false,
@@ -97,8 +103,7 @@ describe('ActivationKeys', () => {
 
   it('renders correctly', async () => {
     const { container } = render(<PageContainer />);
-    await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
-    expect(container).toMatchSnapshot();
+    await waitFor(() => expect(container).toMatchSnapshot());
   });
 
   describe('when the user call fails', () => {
@@ -112,8 +117,8 @@ describe('ActivationKeys', () => {
   });
 
   describe('when the user does not have proper permissions', () => {
-    def('rbacPermissions', () => {
-      return { canReadActivationKeys: false };
+    def('relations', () => {
+      return { [Relation.KEYS_VIEW]: false };
     });
 
     it('redirects to not authorized page', async () => {
@@ -124,16 +129,17 @@ describe('ActivationKeys', () => {
   });
 
   describe('when the user have only read permissions', () => {
-    def('rbacPermissions', () => {
-      return { canReadActivationKeys: true, canWriteActivationKeys: false };
+    def('relations', () => {
+      return { [Relation.KEYS_VIEW]: true, [Relation.KEYS_EDIT]: false };
     });
 
     it('create activation key button is disabled', async () => {
       render(<PageContainer />);
-      await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
-      expect(
-        screen.getByText('Create activation key').parentElement,
-      ).toBeDisabled();
+      await waitFor(() =>
+        expect(
+          screen.getByText('Create activation key').parentElement,
+        ).toBeDisabled(),
+      );
     });
   });
 
