@@ -208,10 +208,11 @@ const ActivationKeyWizard = ({
   }, [releaseVersions, extendedReleaseProduct, extendedReleaseVersion]);
 
   const onClose = () => {
-    queryClient.invalidateQueries(['activation_keys']);
+    queryClient.invalidateQueries({ queryKey: ['activation_keys'] });
     if (activationKey?.name) {
-      queryClient.invalidateQueries([`activation_key_${activationKey.name}`]);
-      queryClient.resetQueries([`activation_key_${activationKey.name}`]);
+      queryClient.invalidateQueries({
+        queryKey: [`activation_key_${activationKey.name}`],
+      });
     }
     handleModalToggle();
   };

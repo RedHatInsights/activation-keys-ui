@@ -35,13 +35,16 @@ const AddAdditionalRepositoriesModal = (props) => {
       { selectedRepositories, keyName },
       {
         onSuccess: () => {
-          queryClient.resetQueries([`activation_key_${keyName}`]);
-          queryClient.resetQueries([
-            `activation_key_${keyName}_available_repositories`,
-          ]);
+          queryClient.invalidateQueries({
+            queryKey: [`activation_key_${keyName}`],
+          });
+          queryClient.invalidateQueries({
+            queryKey: [`activation_key_${keyName}_available_repositories`],
+          });
           addSuccessNotification(
             `Repositories have been added for '${keyName}'`,
           );
+          handleModalToggle();
         },
         onError: () => {
           addErrorNotification('Something went wrong', {
