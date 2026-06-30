@@ -12,6 +12,9 @@ const Authentication = ({ children }) => {
     isLoading: canReadActivationKeysIsLoading,
   } = useHasRelation(Relation.KEYS_VIEW);
 
+  // Preload edit for later
+  useHasRelation(Relation.KEYS_EDIT);
+
   const { isLoading, isFetching, isError } = useUser();
 
   if (isError) {

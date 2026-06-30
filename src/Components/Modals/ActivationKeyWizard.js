@@ -211,7 +211,6 @@ const ActivationKeyWizard = ({
     queryClient.invalidateQueries(['activation_keys']);
     if (activationKey?.name) {
       queryClient.invalidateQueries([`activation_key_${activationKey.name}`]);
-      queryClient.resetQueries([`activation_key_${activationKey.name}`]);
     }
     handleModalToggle();
   };
