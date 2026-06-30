@@ -210,7 +210,9 @@ const ActivationKeyWizard = ({
   const onClose = () => {
     queryClient.invalidateQueries({ queryKey: ['activation_keys'] });
     if (activationKey?.name) {
-      queryClient.invalidateQueries({ queryKey: [`activation_key_${activationKey.name}`] });
+      queryClient.invalidateQueries({
+        queryKey: [`activation_key_${activationKey.name}`],
+      });
     }
     handleModalToggle();
   };
