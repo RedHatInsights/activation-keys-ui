@@ -1,9 +1,9 @@
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 import React from 'react';
-import { useQueryClient } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
 import NoAccessPopover from '../NoAccessPopover';
 import { Tooltip } from '@patternfly/react-core/dist/dynamic/components/Tooltip';
+import { Relation, useHasRelation } from '../../hooks/useHasRelation';
 
 const WriteOnlyButton = (props) => {
   const {
@@ -13,9 +13,9 @@ const WriteOnlyButton = (props) => {
     ...buttonProps
   } = props;
 
-  const queryClient = useQueryClient();
-  const user = queryClient.getQueryData(['user']);
-  const isDisabled = !user?.rbacPermissions.canWriteActivationKeys;
+  const { has: canWriteActivationKeys } = useHasRelation(Relation.KEYS_EDIT);
+
+  const isDisabled = !canWriteActivationKeys;
 
   const showEnabledTooltip = enabledTooltip && !isDisabled;
 

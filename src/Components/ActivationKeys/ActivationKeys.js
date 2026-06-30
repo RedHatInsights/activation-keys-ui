@@ -10,7 +10,6 @@ import {
 } from '@redhat-cloud-services/frontend-components/PageHeader';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import ActivationKeysTable from '../ActivationKeysTable';
-import { useQueryClient } from '@tanstack/react-query';
 import NoActivationKeysFound from '../EmptyState';
 import ActivationKeyWizard from '../Modals/ActivationKeyWizard';
 import useActivationKeys from '../../hooks/useActivationKeys';
@@ -19,15 +18,15 @@ import CreateActivationKeyButton from './CreateActivationKeyButton';
 import DeleteActivationKeyConfirmationModal from '../Modals/DeleteActivationKeyConfirmationModal';
 import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
+import useUser from '../../hooks/useUser';
 
 const ActivationKeys = () => {
   const { updateDocumentTitle } = useChrome();
   updateDocumentTitle?.('Activation Keys - System Configuration | RHEL', true);
-  const queryClient = useQueryClient();
-  const user = queryClient.getQueryData(['user']);
   const { isLoading, error, data } = useActivationKeys();
   const [isOpen, setisOpen] = useState(false);
   const [currentKeyName, setCurrentKeyName] = useState('');
+  const { data: user } = useUser();
 
   const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] =
     useState(false);

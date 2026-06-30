@@ -4,6 +4,7 @@ import useUser from '../../../hooks/useUser';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { def, get } from 'bdd-lazy-var';
 import Authentication from '../Authentication';
+import { Relation, useHasRelation } from '../../../hooks/useHasRelation';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -12,18 +13,14 @@ jest.mock('react-router-dom', () => ({
   }),
 }));
 jest.mock('../../../hooks/useUser');
+jest.mock('../../../hooks/useHasRelation');
 
 const queryClient = new QueryClient();
 
-const mockAuthenticateUser = (
-  isLoading = true,
-  isError = false,
-  rbacPermissions = {},
-) => {
+const mockAuthenticateUser = (isLoading = true, isError = false) => {
   const user = {
     accountNumber: '123',
     orgId: '123',
-    rbacPermissions: rbacPermissions,
   };
   useUser.mockReturnValue({
     isLoading: isLoading,
@@ -38,6 +35,13 @@ const mockAuthenticateUser = (
   }
 };
 
+const mockRelation = (map) => {
+  useHasRelation.mockImplementation((r) => ({
+    has: map?.[r] || false,
+    isLoading: false,
+  }));
+};
+
 const PageContainer = () => (
   <QueryClientProvider client={queryClient}>
     <Authentication>Authentication Test Content</Authentication>
@@ -47,7 +51,9 @@ const PageContainer = () => (
 describe('Authentication', () => {
   def('isLoading', () => false);
   def('isError', () => false);
-  def('rbacPermissions', () => ({}));
+  def('relations', () => {
+    return { [Relation.KEYS_VIEW]: true, [Relation.KEYS_EDIT]: true };
+  });
 
   beforeEach(() => {
     jest.resetAllMocks();
@@ -56,13 +62,10 @@ describe('Authentication', () => {
       get('isError'),
       get('rbacPermissions'),
     );
+    mockRelation(get('relations'));
   });
 
   describe('with all permissions', () => {
-    def('rbacPermissions', () => {
-      return { canReadActivationKeys: false, canWriteActivationKeys: true };
-    });
-
     it('renders correctly with all permissions', async () => {
       const { container } = render(<PageContainer />);
       await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
@@ -71,8 +74,8 @@ describe('Authentication', () => {
   });
 
   describe('when user has some permissions', () => {
-    def('rbacPermissions', () => {
-      return { canReadActivationKeys: false, canWriteActivationKeys: true };
+    def('relations', () => {
+      return { [Relation.KEYS_VIEW]: true, [Relation.KEYS_EDIT]: false };
     });
 
     it('renders content correctly', async () => {
@@ -83,8 +86,8 @@ describe('Authentication', () => {
   });
 
   describe('when user has no permissions', () => {
-    def('rbacPermissions', () => {
-      return { canReadActivationKeys: false, canWriteActivationKeys: false };
+    def('relations', () => {
+      return { [Relation.KEYS_VIEW]: false, [Relation.KEYS_EDIT]: false };
     });
 
     it('renders the NotAuthorized', async () => {

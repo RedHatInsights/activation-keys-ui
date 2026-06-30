@@ -2,6 +2,7 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
 import Authentication from './Components/Authentication/Authentication';
+import { AccessCheck } from '@project-kessel/react-kessel-access-check';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,9 +19,14 @@ const queryClient = new QueryClient({
 const AppEntry = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Authentication>
-        <App />
-      </Authentication>
+      <AccessCheck.Provider
+        baseUrl={window.location.origin}
+        apiPath="/api/kessel/v1beta2"
+      >
+        <Authentication>
+          <App />
+        </Authentication>
+      </AccessCheck.Provider>
     </QueryClientProvider>
   );
 };
