@@ -85,7 +85,7 @@
     "npm-run-all2": "9.0.2",
     "prop-types": "15.8.1",
     "stylelint": "^16.10.0",
-    "stylelint-config-recommended-scss": "16.0.2",
+    "stylelint-config-recommended-scss": "17.0.1",
     "stylelint-scss": "6.14.0",
     "ts-patch": "^3.2.1",
     "typescript": "^5.9.2",
