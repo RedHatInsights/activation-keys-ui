@@ -12,7 +12,7 @@ const useAuthenticateUser = () => {
       } catch (e) {
         throw new Error(`Error authenticating user: ${e.message}`);
       }
-    },
+    }
   });
 };
 

@@ -3,7 +3,7 @@ import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const fetchActivationKeysData = (token) => async () => {
   const response = await fetch('/api/rhsm/v2/activation_keys', {
-    headers: { Authorization: `Bearer ${await token}` },
+    headers: { Authorization: `Bearer ${await token}` }
   });
 
   const activationKeysData = await response.json();
@@ -21,7 +21,7 @@ const useActivationKeys = () => {
 
   return useQuery({
     queryKey: ['activation_keys'],
-    queryFn: getActivationKeys(chrome?.auth?.getToken()),
+    queryFn: getActivationKeys(chrome?.auth?.getToken())
   });
 };
 

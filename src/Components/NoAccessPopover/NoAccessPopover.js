@@ -5,9 +5,7 @@ import propTypes from 'prop-types';
 const NoAccessPopover = ({ content: Button }) => {
   return (
     <React.Fragment>
-      <Tooltip
-        content={<div>For editing access, contact your administrator.</div>}
-      >
+      <Tooltip content={<div>For editing access, contact your administrator.</div>}>
         <div className="pf-v6-u-display-inline-block">
           <Button />
         </div>
@@ -17,7 +15,7 @@ const NoAccessPopover = ({ content: Button }) => {
 };
 
 NoAccessPopover.propTypes = {
-  content: propTypes.elementType.isRequired,
+  content: propTypes.elementType.isRequired
 };
 
 export default NoAccessPopover;

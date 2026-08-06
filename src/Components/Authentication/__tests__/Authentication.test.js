@@ -9,8 +9,8 @@ import { Relation, useHasRelation } from '../../../hooks/useHasRelation';
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: () => ({
-    pathname: '/',
-  }),
+    pathname: '/'
+  })
 }));
 jest.mock('../../../hooks/useUser');
 jest.mock('../../../hooks/useHasRelation');
@@ -20,14 +20,14 @@ const queryClient = new QueryClient();
 const mockAuthenticateUser = (isLoading = true, isError = false) => {
   const user = {
     accountNumber: '123',
-    orgId: '123',
+    orgId: '123'
   };
   useUser.mockReturnValue({
     isLoading: isLoading,
     isFetching: false,
     isSuccess: true,
     isError: isError,
-    data: user,
+    data: user
   });
 
   if (isError === false) {
@@ -38,7 +38,7 @@ const mockAuthenticateUser = (isLoading = true, isError = false) => {
 const mockRelation = (map) => {
   useHasRelation.mockImplementation((r) => ({
     has: map?.[r] || false,
-    isLoading: false,
+    isLoading: false
   }));
 };
 
@@ -57,11 +57,7 @@ describe('Authentication', () => {
 
   beforeEach(() => {
     jest.resetAllMocks();
-    mockAuthenticateUser(
-      get('isLoading'),
-      get('isError'),
-      get('rbacPermissions'),
-    );
+    mockAuthenticateUser(get('isLoading'), get('isError'), get('rbacPermissions'));
     mockRelation(get('relations'));
   });
 

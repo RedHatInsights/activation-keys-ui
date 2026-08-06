@@ -17,8 +17,8 @@ jest.mock('../../../hooks/useUser');
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: () => ({
-    pathname: '/',
-  }),
+    pathname: '/'
+  })
 }));
 jest.mock('../../../hooks/useHasRelation');
 
@@ -37,14 +37,14 @@ const PageContainer = () => (
 const mockAuthenticateUser = (isLoading, isError) => {
   const user = {
     accountNumber: '123',
-    orgId: '123',
+    orgId: '123'
   };
   useUser.mockReturnValue({
     isLoading: isLoading,
     isFetching: false,
     isSuccess: true,
     isError: isError,
-    data: user,
+    data: user
   });
   if (isError === false) {
     queryClient.setQueryData(['user'], user);
@@ -54,7 +54,7 @@ const mockAuthenticateUser = (isLoading, isError) => {
 const mockRelation = (map) => {
   useHasRelation.mockImplementation((r) => ({
     has: map?.[r] || false,
-    isLoading: false,
+    isLoading: false
   }));
 };
 
@@ -63,20 +63,18 @@ jest.mock('../../../Components/AdditionalRepositoriesTable', () => () => (
   <div>Additional Repositories Table</div>
 ));
 // eslint-disable-next-line react/display-name
-jest.mock('../../../Components/shared/breadcrumbs', () => () => (
-  <div>Breadcrumbs</div>
-));
+jest.mock('../../../Components/shared/breadcrumbs', () => () => <div>Breadcrumbs</div>);
 
 jest.mock(
   '@redhat-cloud-services/frontend-components/NotAuthorized',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Not Authorized</div>,
+  () => () => <div>Not Authorized</div>
 );
 
 jest.mock(
   '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Unavailable</div>,
+  () => () => <div>Unavailable</div>
 );
 
 describe('ActivationKey', () => {
@@ -90,24 +88,20 @@ describe('ActivationKey', () => {
       serviceLevel: 'C',
       usage: 'D',
       additionalRepositories: [],
-      releaseVersion: 1,
+      releaseVersion: 1
     };
   });
 
   beforeEach(() => {
     jest.resetAllMocks();
-    mockAuthenticateUser(
-      get('isLoading'),
-      get('isError'),
-      get('rbacPermissions'),
-    );
+    mockAuthenticateUser(get('isLoading'), get('isError'), get('rbacPermissions'));
     mockRelation(get('relations'));
     useActivationKey.mockReturnValue({
       isLoading: false,
       isFetching: false,
       isError: false,
       isSuccess: true,
-      data: get('keyData'),
+      data: get('keyData')
     });
   });
 
@@ -117,18 +111,16 @@ describe('ActivationKey', () => {
       isFetching: false,
       isError: false,
       isSuccess: true,
-      data: [], // Mock the data that the hook returns
+      data: [] // Mock the data that the hook returns
     });
 
     render(
       <QueryClientProvider client={queryClient}>
         <PageContainer />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
 
-    await waitFor(() =>
-      expect(screen.getByText('System Purpose')).toBeInTheDocument(),
-    );
+    await waitFor(() => expect(screen.getByText('System Purpose')).toBeInTheDocument());
     expect(screen.getByText('Workload')).toBeInTheDocument();
     expect(screen.getByText('Additional repositories')).toBeInTheDocument();
   });
@@ -150,9 +142,7 @@ describe('ActivationKey', () => {
 
     it('redirects to not authorized page', async () => {
       render(<PageContainer />);
-      await waitFor(() =>
-        expect(screen.getByText('Not Authorized')).toBeInTheDocument(),
-      );
+      await waitFor(() => expect(screen.getByText('Not Authorized')).toBeInTheDocument());
     });
   });
 });

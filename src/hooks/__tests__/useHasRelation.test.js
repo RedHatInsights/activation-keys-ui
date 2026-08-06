@@ -1,6 +1,6 @@
 import {
   // fetchDefaultWorkspace, TODO: Add back once the sdk is fixed
-  useAccessCheckContext,
+  useAccessCheckContext
 } from '@project-kessel/react-kessel-access-check';
 import { checkSelf } from '@project-kessel/react-kessel-access-check/core/api-client';
 import { renderHook, waitFor } from '@testing-library/react';
@@ -31,7 +31,7 @@ describe('useHasRelation hook', () => {
     checkSelf.mockReturnValue({ allowed: 'ALLOWED_TRUE' });
 
     const { result } = renderHook(() => useHasRelation(Relation.KEYS_VIEW), {
-      wrapper: createQueryWrapper(),
+      wrapper: createQueryWrapper()
     });
 
     await waitFor(() => expect(result.current.has).toBe(true));
@@ -41,7 +41,7 @@ describe('useHasRelation hook', () => {
     checkSelf.mockReturnValue({ allowed: 'ALLOWED_TRUE' });
 
     const { result } = renderHook(() => useHasRelation(Relation.KEYS_VIEW), {
-      wrapper: createQueryWrapper(),
+      wrapper: createQueryWrapper()
     });
 
     expect(result.current.isLoading).toBe(true);
@@ -52,7 +52,7 @@ describe('useHasRelation hook', () => {
     checkSelf.mockReturnValue({ allowed: 'ALLOWED_FALSE' });
 
     const { result } = renderHook(() => useHasRelation(Relation.KEYS_VIEW), {
-      wrapper: createQueryWrapper(),
+      wrapper: createQueryWrapper()
     });
 
     await waitFor(() => expect(result.current.isLoading).toBe(false));
@@ -65,7 +65,7 @@ describe('useHasRelation hook', () => {
     });
 
     const { result } = renderHook(() => useHasRelation(Relation.KEYS_VIEW), {
-      wrapper: createQueryWrapper(),
+      wrapper: createQueryWrapper()
     });
 
     await waitFor(() => expect(result.current.isLoading).toBe(false));
@@ -77,7 +77,7 @@ describe('useHasRelation hook', () => {
       checkSelf.mockReturnValue({});
 
       const { result } = renderHook(() => useHasRelation(Relation.KEYS_VIEW), {
-        wrapper: createQueryWrapper(),
+        wrapper: createQueryWrapper()
       });
 
       await waitFor(() => expect(result.current.isLoading).toBe(false));
@@ -88,7 +88,7 @@ describe('useHasRelation hook', () => {
       checkSelf.mockReturnValue({ allowed: 'A_WEIRD_VALUE' });
 
       const { result } = renderHook(() => useHasRelation(Relation.KEYS_VIEW), {
-        wrapper: createQueryWrapper(),
+        wrapper: createQueryWrapper()
       });
 
       await waitFor(() => expect(result.current.isLoading).toBe(false));
@@ -100,7 +100,7 @@ describe('useHasRelation hook', () => {
       fetchDefaultWorkspace.mockRejectedValue('oops!');
 
       const { result } = renderHook(() => useHasRelation(Relation.KEYS_VIEW), {
-        wrapper: createQueryWrapper(),
+        wrapper: createQueryWrapper()
       });
 
       await waitFor(() => expect(result.current.isLoading).toBe(false));

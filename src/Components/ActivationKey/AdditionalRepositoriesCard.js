@@ -16,15 +16,11 @@ import AddAdditionalRepositoriesModal from '../Modals/AddAdditionalRepositoriesM
 const AdditionalRepositoriesCard = (props) => {
   const { activationKey } = props;
 
-  const [
-    isEditAdditionalRepositoriesModalOpen,
-    setisEditAdditionalRepositoriesModalOpen,
-  ] = useState(false);
+  const [isEditAdditionalRepositoriesModalOpen, setisEditAdditionalRepositoriesModalOpen] =
+    useState(false);
 
   const handleEditAdditionalRepositoriesToggle = () => {
-    setisEditAdditionalRepositoriesModalOpen(
-      !isEditAdditionalRepositoriesModalOpen,
-    );
+    setisEditAdditionalRepositoriesModalOpen(!isEditAdditionalRepositoriesModalOpen);
   };
 
   return (
@@ -37,13 +33,11 @@ const AdditionalRepositoriesCard = (props) => {
       <CardBody>
         <Content>
           <Content component={ContentVariants.p}>
-            The core repositories for your operating system version, for example
-            BaseOS and AppStream, are always enabled and do not need to be
-            explicitly added to the activation key.
+            The core repositories for your operating system version, for example BaseOS and
+            AppStream, are always enabled and do not need to be explicitly added to the activation
+            key.
           </Content>
-          <AddAdditionalRepositoriesButton
-            onClick={handleEditAdditionalRepositoriesToggle}
-          />
+          <AddAdditionalRepositoriesButton onClick={handleEditAdditionalRepositoriesToggle} />
           <AddAdditionalRepositoriesModal
             isOpen={isEditAdditionalRepositoriesModalOpen}
             handleModalToggle={handleEditAdditionalRepositoriesToggle}
@@ -62,7 +56,7 @@ const AdditionalRepositoriesCard = (props) => {
 AdditionalRepositoriesCard.propTypes = {
   activationKey: propTypes.object,
   isLoading: propTypes.bool,
-  error: propTypes.bool,
+  error: propTypes.bool
 };
 
 export default AdditionalRepositoriesCard;

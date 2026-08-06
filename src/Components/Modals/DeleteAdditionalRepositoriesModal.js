@@ -12,44 +12,33 @@ import { useQueryClient } from '@tanstack/react-query';
 import useDeleteAdditionalRepositories from '../../hooks/useDeleteAdditionalRepositories';
 
 const DeleteAdditionalRepositoriesModal = (props) => {
-  const {
-    isOpen,
-    handleModalToggle,
-    name,
-    repositoryNameToDelete,
-    repositoryLabelToDelete,
-  } = props;
+  const { isOpen, handleModalToggle, name, repositoryNameToDelete, repositoryLabelToDelete } =
+    props;
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const { mutate, isLoading } = useDeleteAdditionalRepositories();
   const queryClient = useQueryClient();
 
-  const deleteAdditionalRepositories = (
-    name,
-    repositoryNameToDelete,
-    repositoryLabelToDelete,
-  ) => {
+  const deleteAdditionalRepositories = (name, repositoryNameToDelete, repositoryLabelToDelete) => {
     const payload = [
       {
         repositoryLabel: repositoryLabelToDelete,
-        repositoryName: repositoryNameToDelete,
-      },
+        repositoryName: repositoryNameToDelete
+      }
     ];
 
     mutate(
       { name, payload },
       {
         onSuccess: (_data, queryName) => {
-          addSuccessNotification(
-            `Additional repository ${repositoryNameToDelete} deleted`,
-          );
+          addSuccessNotification(`Additional repository ${repositoryNameToDelete} deleted`);
           queryClient.invalidateQueries({ queryKey: [queryName] });
           handleModalToggle();
         },
         onError: () => {
           addErrorNotification('Something went wrong. Please try again');
           handleModalToggle();
-        },
-      },
+        }
+      }
     );
   };
 
@@ -59,25 +48,16 @@ const DeleteAdditionalRepositoriesModal = (props) => {
       variant="danger"
       isLoading={isLoading}
       onClick={() =>
-        deleteAdditionalRepositories(
-          name,
-          repositoryNameToDelete,
-          repositoryLabelToDelete,
-        )
+        deleteAdditionalRepositories(name, repositoryNameToDelete, repositoryLabelToDelete)
       }
       isDisabled={isLoading}
       spinnerAriaValueText="Removing repository"
     >
       {isLoading ? 'Removing repository' : 'Remove repository'}
     </Button>,
-    <Button
-      key="cancel"
-      variant="link"
-      onClick={handleModalToggle}
-      isDisabled={isLoading}
-    >
+    <Button key="cancel" variant="link" onClick={handleModalToggle} isDisabled={isLoading}>
       Cancel
-    </Button>,
+    </Button>
   ];
 
   const title = (
@@ -95,8 +75,8 @@ const DeleteAdditionalRepositoriesModal = (props) => {
     <>
       <Content>
         <Content component={ContentVariants.p}>
-          <b>{repositoryNameToDelete}</b> will no longer be enabled when
-          registering with this activation key.
+          <b>{repositoryNameToDelete}</b> will no longer be enabled when registering with this
+          activation key.
         </Content>
       </Content>
     </>
@@ -121,7 +101,7 @@ DeleteAdditionalRepositoriesModal.propTypes = {
   handleModalToggle: propTypes.func.isRequired,
   repositoryNameToDelete: propTypes.string.isRequired,
   repositoryLabelToDelete: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
+  name: propTypes.string.isRequired
 };
 
 export default DeleteAdditionalRepositoriesModal;

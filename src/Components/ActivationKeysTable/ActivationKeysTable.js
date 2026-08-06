@@ -15,7 +15,7 @@ const ActivationKeysTable = (props) => {
     role: 'Role',
     serviceLevel: 'SLA',
     usage: 'Usage',
-    updatedAt: 'Updated Date',
+    updatedAt: 'Updated Date'
   };
   const { isLoading, error, data } = useActivationKeys();
   const [activeSortIndex, setActiveSortIndex] = React.useState(null);
@@ -32,12 +32,12 @@ const ActivationKeysTable = (props) => {
   const getSortParams = () => ({
     sortBy: {
       index: activeSortIndex,
-      direction: sortDirection,
+      direction: sortDirection
     },
     onSort: (_event, index, direction) => {
       setActiveSortIndex(index);
       setSortDirection(direction);
-    },
+    }
   });
 
   const Results = () => {
@@ -63,19 +63,13 @@ const ActivationKeysTable = (props) => {
                   <Link to={`${datum.name}`}> {datum.name}</Link>
                 </Td>
                 <Td dataLabel={columnNames.role}>{datum.role}</Td>
-                <Td dataLabel={columnNames.serviceLevel}>
-                  {datum.serviceLevel}
-                </Td>
+                <Td dataLabel={columnNames.serviceLevel}>{datum.serviceLevel}</Td>
                 <Td dataLabel={columnNames.usage}>{datum.usage}</Td>
                 <Td dataLabel={columnNames.updatedAt}>
-                  {datum.updatedAt
-                    ? printDate(datum.updatedAt)
-                    : 'Not Available'}
+                  {datum.updatedAt ? printDate(datum.updatedAt) : 'Not Available'}
                 </Td>
                 <Td>
-                  <DeleteActivationKeyButton
-                    onClick={() => onDelete(datum.name)}
-                  />
+                  <DeleteActivationKeyButton onClick={() => onDelete(datum.name)} />
                 </Td>
               </Tr>
             );
@@ -95,7 +89,7 @@ const ActivationKeysTable = (props) => {
 };
 
 ActivationKeysTable.propTypes = {
-  onDelete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired
 };
 
 export default ActivationKeysTable;

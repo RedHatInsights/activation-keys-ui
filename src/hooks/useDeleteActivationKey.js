@@ -6,12 +6,12 @@ const deleteActivationKeyMutation = (token) => async (name) => {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${await token}`,
-      'Content-Type': 'application/json',
-    },
+      'Content-Type': 'application/json'
+    }
   });
   if (!response.ok) {
     throw new Error(
-      `Status Code ${response.status}.  Error deleting activation key: ${response.statusText}.`,
+      `Status Code ${response.status}.  Error deleting activation key: ${response.statusText}.`
     );
   }
 };
@@ -20,7 +20,7 @@ const useDeleteActivationKey = () => {
   const chrome = useChrome();
 
   return useMutation({
-    mutationFn: deleteActivationKeyMutation(chrome?.auth?.getToken()),
+    mutationFn: deleteActivationKeyMutation(chrome?.auth?.getToken())
   });
 };
 

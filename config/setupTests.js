@@ -15,33 +15,33 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
             account_number: '0',
             type: 'User',
             user: {
-              is_org_admin: true,
-            },
+              is_org_admin: true
+            }
           },
           entitlements: {
             hybrid_cloud: { is_entitled: true },
             insights: { is_entitled: true },
             openshift: { is_entitled: true },
-            smart_management: { is_entitled: false },
-          },
-        }),
+            smart_management: { is_entitled: false }
+          }
+        })
     },
     appAction: jest.fn(),
     appObjectId: jest.fn(),
     on: jest.fn(),
-    getUserPermissions: () => Promise.resolve(['inventory:*:*']),
-  }),
+    getUserPermissions: () => Promise.resolve(['inventory:*:*'])
+  })
 }));
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useNavigate: () => () => {},
+  useNavigate: () => () => {}
 }));
 
 jest.mock(
   '@redhat-cloud-services/frontend-components-utilities/useInsightsNavigate/useInsightsNavigate',
   () => ({
     __esModule: true,
-    default: () => () => {},
-  }),
+    default: () => () => {}
+  })
 );

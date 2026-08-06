@@ -17,10 +17,9 @@ const SystemPurposeCard = ({ activationKey }) => {
   const docsPopoverContent = (
     <Content>
       <Content component="p">
-        System purpose values are used by the subscriptions service to help
-        filter and identify hosts. Setting values for these attributes is
-        optional, but doing so ensures that subscriptions reporting accurately
-        reflects the system.
+        System purpose values are used by the subscriptions service to help filter and identify
+        hosts. Setting values for these attributes is optional, but doing so ensures that
+        subscriptions reporting accurately reflects the system.
       </Content>
     </Content>
   );
@@ -30,10 +29,7 @@ const SystemPurposeCard = ({ activationKey }) => {
         <CardTitle>
           <Title headingLevel="h2">
             System Purpose{' '}
-            <ActivationKeysDocsPopover
-              popoverContent={docsPopoverContent}
-              position="top"
-            />{' '}
+            <ActivationKeysDocsPopover popoverContent={docsPopoverContent} position="top" />{' '}
           </Title>
         </CardTitle>
       </CardHeader>
@@ -42,9 +38,7 @@ const SystemPurposeCard = ({ activationKey }) => {
           <Content component={ContentVariants.dl}>
             <Content component={ContentVariants.dt}>Role</Content>
             <Content component={ContentVariants.dd}>
-              {activationKey && activationKey.role
-                ? activationKey.role
-                : notDefinedText}
+              {activationKey && activationKey.role ? activationKey.role : notDefinedText}
             </Content>
             <Content component={ContentVariants.dt}>SLA</Content>
             <Content component={ContentVariants.dd}>
@@ -54,9 +48,7 @@ const SystemPurposeCard = ({ activationKey }) => {
             </Content>
             <Content component={ContentVariants.dt}>Usage</Content>
             <Content component={ContentVariants.dd}>
-              {activationKey && activationKey.usage
-                ? activationKey.usage
-                : notDefinedText}
+              {activationKey && activationKey.usage ? activationKey.usage : notDefinedText}
             </Content>
           </Content>
         </Content>
@@ -66,7 +58,7 @@ const SystemPurposeCard = ({ activationKey }) => {
 };
 
 SystemPurposeCard.propTypes = {
-  activationKey: propTypes.object,
+  activationKey: propTypes.object
 };
 
 export default SystemPurposeCard;

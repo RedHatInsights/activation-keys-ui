@@ -12,14 +12,14 @@ describe('useActivationKeys', () => {
         name: 'A',
         role: 'role',
         sla: 'sla',
-        usage: 'usage',
-      },
+        usage: 'usage'
+      }
     ];
 
     fetch.mockResponseOnce(JSON.stringify({ body: [...keyData] }));
 
     const { result } = renderHook(() => useActivationKeys(), {
-      wrapper: createQueryWrapper(),
+      wrapper: createQueryWrapper()
     });
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));

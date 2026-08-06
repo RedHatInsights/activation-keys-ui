@@ -10,9 +10,9 @@ const queryClient = new QueryClient({
       retryDelay: 10 * 1000,
       staleTime: Infinity,
       refetchOnWindowFocus: false,
-      refetchOnMount: false,
-    },
-  },
+      refetchOnMount: false
+    }
+  }
 });
 
 const CreateActivationKeyWizardWithContext = (props) => {

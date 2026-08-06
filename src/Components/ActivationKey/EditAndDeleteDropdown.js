@@ -20,10 +20,8 @@ export const EditAndDeleteDropdown = ({ activationKey, onClick }) => {
     setIsOpen(false);
   };
 
-  const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] =
-    useState(false);
-  const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] =
-    useState(false);
+  const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] = useState(false);
+  const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] = useState(false);
 
   const handleDeleteActivationKeysModalToggle = (keyDeleted) => {
     setIsDeleteActivationKeyModalOpen(!isDeleteActivationKeyModalOpen);
@@ -46,11 +44,7 @@ export const EditAndDeleteDropdown = ({ activationKey, onClick }) => {
         onSelect={onSelect}
         onOpenChange={(isOpen) => setIsOpen(isOpen)}
         toggle={(toggleRef) => (
-          <MenuToggle
-            ref={toggleRef}
-            onClick={onToggleClick}
-            isExpanded={isOpen}
-          >
+          <MenuToggle ref={toggleRef} onClick={onToggleClick} isExpanded={isOpen}>
             Actions
           </MenuToggle>
         )}
@@ -100,7 +94,7 @@ export const EditAndDeleteDropdown = ({ activationKey, onClick }) => {
 EditAndDeleteDropdown.propTypes = {
   onClick: propTypes.func.isRequired,
   activationKey: propTypes.object,
-  activationKeyName: propTypes.string,
+  activationKeyName: propTypes.string
 };
 
 export default EditAndDeleteDropdown;

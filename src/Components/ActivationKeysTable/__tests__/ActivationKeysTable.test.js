@@ -13,7 +13,7 @@ jest.mock('uuid', () => {
 });
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useLocation: () => ({ pathname: '/connector/test-key' }),
+  useLocation: () => ({ pathname: '/connector/test-key' })
 }));
 jest.mock('../../../hooks/useHasRelation');
 
@@ -22,7 +22,7 @@ const queryClient = new QueryClient();
 const mockRelation = (map) => {
   useHasRelation.mockImplementation((r) => ({
     has: map?.[r] || false,
-    isLoading: false,
+    isLoading: false
   }));
 };
 
@@ -37,7 +37,7 @@ const Table = () => (
 jest.mock(
   '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Unavailable</div>,
+  () => () => <div>Unavailable</div>
 );
 
 describe('ActivationKeysTable', () => {
@@ -51,15 +51,15 @@ describe('ActivationKeysTable', () => {
       name: 'A',
       role: 'B',
       serviceLevel: 'C',
-      usage: 'D',
-    },
+      usage: 'D'
+    }
   ]);
 
   beforeEach(() => {
     useActivationKeys.mockReturnValue({
       isLoading: get('loading'),
       error: get('error'),
-      data: get('data'),
+      data: get('data')
     });
     mockRelation(get('relations'));
   });

@@ -3,8 +3,7 @@ import propTypes from 'prop-types';
 import ActivationKeyWizard from '../Modals/ActivationKeyWizard';
 
 const EditButton = ({ activationKey, releaseVersions }) => {
-  const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] =
-    useState(false);
+  const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] = useState(false);
 
   const handleEditActivationKeyWizardToggle = () => {
     setIsEditActivationKeyWizardOpen(!isEditActivationKeyWizardOpen);
@@ -25,7 +24,7 @@ const EditButton = ({ activationKey, releaseVersions }) => {
 
 EditButton.propTypes = {
   activationKey: propTypes.object,
-  releaseVersions: propTypes.array,
+  releaseVersions: propTypes.array
 };
 
 export default EditButton;

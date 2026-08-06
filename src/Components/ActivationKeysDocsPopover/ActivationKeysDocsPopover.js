@@ -11,7 +11,7 @@ const ActivationKeysDocsPopover = (props) => {
     right: PopoverPosition.rightStart,
     left: PopoverPosition.leftStart,
     top: PopoverPosition.top,
-    bottom: PopoverPosition.bottom,
+    bottom: PopoverPosition.bottom
   };
   return (
     <Popover
@@ -35,5 +35,5 @@ export default ActivationKeysDocsPopover;
 ActivationKeysDocsPopover.propTypes = {
   popoverContent: propTypes.object,
   title: propTypes.string,
-  position: propTypes.string,
+  position: propTypes.string
 };

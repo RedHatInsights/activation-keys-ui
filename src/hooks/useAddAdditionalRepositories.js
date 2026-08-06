@@ -5,30 +5,25 @@ const additionalRepositoriesMutation = (token) => async (data) => {
   const { keyName, selectedRepositories } = data;
 
   const additionalRepositoryLabels = selectedRepositories.map(
-    (repository) => repository.repositoryLabel,
+    (repository) => repository.repositoryLabel
   );
 
   if (!keyName) {
-    throw new Error(
-      `Activation Key name must be provided to add additional repositiories.`,
-    );
+    throw new Error(`Activation Key name must be provided to add additional repositiories.`);
   }
 
-  const response = await fetch(
-    `/api/rhsm/v2/activation_keys/${keyName}/additional_repositories`,
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${await token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(
-        additionalRepositoryLabels.map((label) => ({
-          repositoryLabel: label,
-        })),
-      ),
+  const response = await fetch(`/api/rhsm/v2/activation_keys/${keyName}/additional_repositories`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${await token}`,
+      'Content-Type': 'application/json'
     },
-  );
+    body: JSON.stringify(
+      additionalRepositoryLabels.map((label) => ({
+        repositoryLabel: label
+      }))
+    )
+  });
 
   if (Math.floor(response.status / 100) !== 2) {
     throw new Error();
@@ -41,7 +36,7 @@ const useAddAdditionalRepositories = () => {
   const chrome = useChrome();
 
   return useMutation({
-    mutationFn: additionalRepositoriesMutation(chrome?.auth?.getToken()),
+    mutationFn: additionalRepositoriesMutation(chrome?.auth?.getToken())
   });
 };
 

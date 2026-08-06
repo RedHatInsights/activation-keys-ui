@@ -7,10 +7,9 @@ import useUser from '../../hooks/useUser';
 import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 
 const Authentication = ({ children }) => {
-  const {
-    has: canReadActivationKeys,
-    isLoading: canReadActivationKeysIsLoading,
-  } = useHasRelation(Relation.KEYS_VIEW);
+  const { has: canReadActivationKeys, isLoading: canReadActivationKeysIsLoading } = useHasRelation(
+    Relation.KEYS_VIEW
+  );
 
   // Preload edit for later
   useHasRelation(Relation.KEYS_EDIT);
@@ -29,7 +28,7 @@ const Authentication = ({ children }) => {
 };
 
 Authentication.propTypes = {
-  children: propTypes.node,
+  children: propTypes.node
 };
 
 export default Authentication;

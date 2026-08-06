@@ -45,7 +45,7 @@ const AppRoutes = () => {
 };
 
 SuspenseWrapped.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element.isRequired
 };
 
 export default AppRoutes;

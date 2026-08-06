@@ -22,7 +22,7 @@ const DeleteActivationKeyConfirmationModal = (props) => {
     mutate(name, {
       onSuccess: (_data, name) => {
         queryClient.setQueryData(['activation_keys'], (oldData) =>
-          oldData.filter((entry) => entry.name != name),
+          oldData.filter((entry) => entry.name != name)
         );
         addSuccessNotification(`Activation key ${name} deleted`);
         handleModalToggle(true);
@@ -30,7 +30,7 @@ const DeleteActivationKeyConfirmationModal = (props) => {
       onError: () => {
         addErrorNotification('Something went wrong. Please try again');
         handleModalToggle();
-      },
+      }
     });
     mutate;
   };
@@ -45,15 +45,14 @@ const DeleteActivationKeyConfirmationModal = (props) => {
     </Button>,
     <Button key="cancel" variant="link" onClick={handleModalToggle}>
       Cancel
-    </Button>,
+    </Button>
   ];
 
   const title = (
     <>
       <Content>
         <Content component={ContentVariants.h2}>
-          <ExclamationTriangleIcon size="md" color="#F0AB00" /> Delete
-          activation key?
+          <ExclamationTriangleIcon size="md" color="#F0AB00" /> Delete activation key?
         </Content>
       </Content>
     </>
@@ -65,8 +64,7 @@ const DeleteActivationKeyConfirmationModal = (props) => {
       return (
         <Content>
           <Content component={ContentVariants.p}>
-            <b>{name}</b> will no longer be available for use. This operation
-            cannot be undone.
+            <b>{name}</b> will no longer be available for use. This operation cannot be undone.
           </Content>
         </Content>
       );
@@ -89,7 +87,7 @@ const DeleteActivationKeyConfirmationModal = (props) => {
 DeleteActivationKeyConfirmationModal.propTypes = {
   isOpen: propTypes.bool.isRequired,
   handleModalToggle: propTypes.func.isRequired,
-  name: propTypes.string.Required,
+  name: propTypes.string.Required
 };
 
 export default DeleteActivationKeyConfirmationModal;

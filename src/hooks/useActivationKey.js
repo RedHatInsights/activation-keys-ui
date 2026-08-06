@@ -7,7 +7,7 @@ const fetchActivationKeyData = (token) => async (keyName) => {
   }
 
   const response = await fetch(`/api/rhsm/v2/activation_keys/${keyName}`, {
-    headers: { Authorization: `Bearer ${await token}` },
+    headers: { Authorization: `Bearer ${await token}` }
   });
 
   const activationKeysData = await response.json();
@@ -25,7 +25,7 @@ const useActivationKey = (keyName) => {
 
   return useQuery({
     queryKey: [`activation_key_${keyName}`],
-    queryFn: () => getActivationKey(chrome?.auth?.getToken())(keyName),
+    queryFn: () => getActivationKey(chrome?.auth?.getToken())(keyName)
   });
 };
 

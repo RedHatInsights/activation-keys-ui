@@ -8,19 +8,19 @@ const activationKeyMutation = (token) => async (data) => {
     method: 'PUT',
     headers: {
       Authorization: `Bearer ${await token}`,
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       role,
       serviceLevel,
       usage,
       releaseVersion,
-      description,
-    }),
+      description
+    })
   });
   if (!response.ok) {
     throw new Error(
-      `Status Code ${response.status}.  Error updating activation key: ${response.statusText}.`,
+      `Status Code ${response.status}.  Error updating activation key: ${response.statusText}.`
     );
   }
 
@@ -30,7 +30,7 @@ const activationKeyMutation = (token) => async (data) => {
 const useUpdateActivationKey = () => {
   const chrome = useChrome();
   return useMutation({
-    mutationFn: activationKeyMutation(chrome.auth.getToken()),
+    mutationFn: activationKeyMutation(chrome.auth.getToken())
   });
 };
 

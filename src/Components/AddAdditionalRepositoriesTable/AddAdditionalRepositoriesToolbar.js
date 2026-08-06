@@ -6,10 +6,7 @@ import { ToolbarContent } from '@patternfly/react-core/dist/dynamic/components/T
 import { ToolbarGroup } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
 import { ToolbarItem } from '@patternfly/react-core/dist/dynamic/components/Toolbar';
 import { ToggleGroup } from '@patternfly/react-core/dist/dynamic/components/ToggleGroup';
-import {
-  Select,
-  SelectList,
-} from '@patternfly/react-core/dist/dynamic/components/Select';
+import { Select, SelectList } from '@patternfly/react-core/dist/dynamic/components/Select';
 import { SelectOption } from '@patternfly/react-core/dist/dynamic/components/Select';
 import FilterIcon from '@patternfly/react-icons/dist/dynamic/icons/filter-icon';
 import propTypes from 'prop-types';
@@ -25,13 +22,11 @@ const AddAdditionalRepositoriesToolbar = ({
   dropdownSelectisDisabled,
   pagination,
   onlyShowSelectedRepositories,
-  setOnlyShowSelectedRepositories,
+  setOnlyShowSelectedRepositories
 }) => {
-  const [isSelectFilterByExpanded, setIsSelectFilterByExpanded] =
-    useState(false);
+  const [isSelectFilterByExpanded, setIsSelectFilterByExpanded] = useState(false);
 
-  const [isMultiSelectOptionsExanded, setIsMultiSelectOptionsExpanded] =
-    useState(false);
+  const [isMultiSelectOptionsExanded, setIsMultiSelectOptionsExpanded] = useState(false);
 
   const [activeFilter, setActiveFilter] = useState(Object.keys(filters)[0]);
 
@@ -46,9 +41,7 @@ const AddAdditionalRepositoriesToolbar = ({
                 <MenuToggle
                   ref={toggleRef}
                   icon={<FilterIcon />}
-                  onClick={() =>
-                    setIsSelectFilterByExpanded(!isSelectFilterByExpanded)
-                  }
+                  onClick={() => setIsSelectFilterByExpanded(!isSelectFilterByExpanded)}
                   isExpanded={isSelectFilterByExpanded}
                 >
                   {friendlyNameMap[activeFilter]}
@@ -64,11 +57,7 @@ const AddAdditionalRepositoriesToolbar = ({
               <SelectList>
                 {Object.entries(filters).map(([k, v]) => {
                   return (
-                    <SelectOption
-                      value={[k, v]}
-                      key={k}
-                      isFocused={activeFilter == k}
-                    >
+                    <SelectOption value={[k, v]} key={k} isFocused={activeFilter == k}>
                       {friendlyNameMap[k]}
                     </SelectOption>
                   );
@@ -94,21 +83,14 @@ const AddAdditionalRepositoriesToolbar = ({
                   <MenuToggle
                     ref={toggleRef}
                     icon={<FilterIcon />}
-                    onClick={() =>
-                      setIsMultiSelectOptionsExpanded(
-                        !isMultiSelectOptionsExanded,
-                      )
-                    }
+                    onClick={() => setIsMultiSelectOptionsExpanded(!isMultiSelectOptionsExanded)}
                     isExpanded={isMultiSelectOptionsExanded}
                   >
                     {filters[activeFilter].placeholder}
                   </MenuToggle>
                 )}
                 onSelect={(_, value) => {
-                  filters[activeFilter].set([
-                    ...filters[activeFilter].value,
-                    value,
-                  ]);
+                  filters[activeFilter].set([...filters[activeFilter].value, value]);
                   setIsMultiSelectOptionsExpanded(false);
                 }}
                 onOpenChange={(isOpen) => {
@@ -162,9 +144,7 @@ const AddAdditionalRepositoriesToolbar = ({
       <ToolbarContent>
         <ToolbarGroup>
           {Object.entries(filters)
-            .filter(([, v]) =>
-              Array.isArray(v.value) ? v.value.length > 0 : v.value !== '',
-            )
+            .filter(([, v]) => (Array.isArray(v.value) ? v.value.length > 0 : v.value !== ''))
             .map(([k, v]) => (
               <ToolbarItem key={k}>
                 <LabelGroup categoryName={friendlyNameMap[k]}>
@@ -205,7 +185,7 @@ AddAdditionalRepositoriesToolbar.propTypes = {
   pagination: propTypes.object.isRequired,
   onlyShowSelectedRepositories: propTypes.bool.isRequired,
   setOnlyShowSelectedRepositories: propTypes.func.isRequired,
-  dropdownSelectisDisabled: propTypes.bool.isRequired,
+  dropdownSelectisDisabled: propTypes.bool.isRequired
 };
 
 export default AddAdditionalRepositoriesToolbar;

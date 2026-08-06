@@ -10,10 +10,7 @@ import { Level } from '@patternfly/react-core/dist/dynamic/layouts/Level';
 import { LevelItem } from '@patternfly/react-core/dist/dynamic/layouts/Level';
 import { DescriptionListGroup } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
 import { DescriptionListTerm } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
-import {
-  PageHeader,
-  PageHeaderTitle,
-} from '@redhat-cloud-services/frontend-components/PageHeader';
+import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import AdditionalRepositoriesCard from './AdditionalRepositoriesCard';
 import NoAccessPopover from '../NoAccessPopover';
 import useActivationKey from '../../hooks/useActivationKey';
@@ -27,22 +24,15 @@ import { Relation, useHasRelation } from '../../hooks/useHasRelation';
 const ActivationKey = () => {
   const { id } = useParams();
 
-  const {
-    has: canWriteActivationKeys,
-    isLoading: canWriteActivationKeysIsLoading,
-  } = useHasRelation(Relation.KEYS_EDIT);
+  const { has: canWriteActivationKeys, isLoading: canWriteActivationKeysIsLoading } =
+    useHasRelation(Relation.KEYS_EDIT);
 
   const breadcrumbs = [
     { title: 'Activation Keys', to: '..' },
-    { title: id, isActive: true },
+    { title: id, isActive: true }
   ];
-  const {
-    isLoading: isKeyLoading,
-    error: keyError,
-    data: activationKey,
-  } = useActivationKey(id);
-  const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] =
-    useState(false);
+  const { isLoading: isKeyLoading, error: keyError, data: activationKey } = useActivationKey(id);
+  const [isEditActivationKeyWizardOpen, setIsEditActivationKeyWizardOpen] = useState(false);
   const handleEditActivationKeyWizardToggle = () => {
     setIsEditActivationKeyWizardOpen(!isEditActivationKeyWizardOpen);
   };
@@ -63,8 +53,7 @@ const ActivationKey = () => {
             </DescriptionListGroup>
           </LevelItem>
           <LevelItem className="pf-v6-u-mb-sm">
-            {!(isKeyLoading || canWriteActivationKeysIsLoading) &&
-            canWriteActivationKeys ? (
+            {!(isKeyLoading || canWriteActivationKeysIsLoading) && canWriteActivationKeys ? (
               <EditAndDeleteDropdown
                 onClick={handleEditActivationKeyWizardToggle}
                 activationKey={activationKey}
@@ -85,7 +74,7 @@ const ActivationKey = () => {
                 <Gallery
                   hasGutter
                   minWidths={{
-                    default: '40%',
+                    default: '40%'
                   }}
                 >
                   <GalleryItem>

@@ -18,8 +18,7 @@ import PropTypes from 'prop-types';
 import useNotifications from '../../hooks/useNotifications';
 
 const ActivationKeyForm = (props) => {
-  const { handleModalToggle, submitForm, isSuccess, isError, activationKey } =
-    props;
+  const { handleModalToggle, submitForm, isSuccess, isError, activationKey } = props;
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const { isLoading, error, data } = useSystemPurposeAttributes();
   const [name, setName] = useState('');
@@ -38,7 +37,7 @@ const ActivationKeyForm = (props) => {
         name: name,
         role: role,
         serviceLevel: serviceLevel,
-        usage: usage,
+        usage: usage
       });
     } else {
       setValidated('error');
@@ -72,9 +71,7 @@ const ActivationKeyForm = (props) => {
         activationKey.usage === usage
       );
     } else {
-      return (
-        validated === 'error' || name.length === 0 || !name.match(nameRegex)
-      );
+      return validated === 'error' || name.length === 0 || !name.match(nameRegex);
     }
   };
 
@@ -83,7 +80,7 @@ const ActivationKeyForm = (props) => {
       ? `Activation key ${activationKey.name} updated successfully.`
       : 'Activation key created successfully.';
     addSuccessNotification(successMessage, {
-      timeout: false,
+      timeout: false
     });
     handleModalToggle();
   } else if (isError) {
@@ -91,7 +88,7 @@ const ActivationKeyForm = (props) => {
       ? `Error updating activation key ${activationKey.name}.`
       : 'Activation Key was not created, please try again.';
     addErrorNotification(errorMessage, {
-      timeout: 8000,
+      timeout: 8000
     });
     handleModalToggle();
   }
@@ -111,9 +108,7 @@ const ActivationKeyForm = (props) => {
           />
           <FormHelperText>
             <HelperText>
-              <HelperTextItem variant={validated}>
-                {validationText}
-              </HelperTextItem>
+              <HelperTextItem variant={validated}>{validationText}</HelperTextItem>
             </HelperText>
           </FormHelperText>
         </FormGroup>
@@ -138,12 +133,10 @@ const ActivationKeyForm = (props) => {
               bodyContent={
                 <Content>
                   <Content component={ContentVariants.p}>
-                    Role is used to categorize systems by the workload on the
-                    system
+                    Role is used to categorize systems by the workload on the system
                   </Content>
                   <Content component={ContentVariants.p}>
-                    Subscription Watch can help you filter and report by these
-                    items.
+                    Subscription Watch can help you filter and report by these items.
                   </Content>
                   <Content component={ContentVariants.p}>
                     Only roles available to your account are shown.
@@ -171,8 +164,8 @@ const ActivationKeyForm = (props) => {
               bodyContent={
                 <Content>
                   <Content component={ContentVariants.p}>
-                    Service Level Agreement (SLA) determines the level of
-                    support for systems registered with this activation key.
+                    Service Level Agreement (SLA) determines the level of support for systems
+                    registered with this activation key.
                   </Content>
                 </Content>
               }
@@ -197,12 +190,11 @@ const ActivationKeyForm = (props) => {
               bodyContent={
                 <Content>
                   <Content component={ContentVariants.p}>
-                    Usage is used to categorize systems by how they are meant to
-                    be used, and therefore supported.
+                    Usage is used to categorize systems by how they are meant to be used, and
+                    therefore supported.
                   </Content>
                   <Content component={ContentVariants.p}>
-                    Subscription Watch can help you filter and report by these
-                    items.
+                    Subscription Watch can help you filter and report by these items.
                   </Content>
                 </Content>
               }
@@ -243,7 +235,7 @@ ActivationKeyForm.propTypes = {
   submitForm: PropTypes.func.isRequired,
   isSuccess: PropTypes.bool,
   isError: PropTypes.bool,
-  activationKey: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  activationKey: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
 };
 
 export default ActivationKeyForm;
