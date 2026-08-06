@@ -18,7 +18,7 @@ const ActivationKeysFormSelect = (props) => {
     name,
     value,
     placeholderValue,
-    disableDefaultValues,
+    disableDefaultValues
   } = props;
   const [selected, setSelected] = useState('');
   const options = data.map((role) => {
@@ -62,7 +62,7 @@ ActivationKeysFormSelect.propTypes = {
   name: PropTypes.string,
   placeholderValue: PropTypes.string,
   value: PropTypes.string,
-  disableDefaultValues: PropTypes.bool,
+  disableDefaultValues: PropTypes.bool
 };
 
 export default ActivationKeysFormSelect;

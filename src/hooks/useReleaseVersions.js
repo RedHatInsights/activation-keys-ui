@@ -2,12 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const fetchReleaseVersions = (token) => async () => {
-  const response = await fetch(
-    `/api/rhsm/v2/products/RHEL/extended-update-support-versions`,
-    {
-      headers: { Authorization: `Bearer ${await token}` },
-    },
-  );
+  const response = await fetch(`/api/rhsm/v2/products/RHEL/extended-update-support-versions`, {
+    headers: { Authorization: `Bearer ${await token}` }
+  });
 
   const releaseVersions = await response.json();
 
@@ -24,7 +21,7 @@ const useReleaseVersions = (keyName) => {
 
   return useQuery({
     queryKey: [`activation_key_${keyName}`],
-    queryFn: () => getReleaseVersions(chrome?.auth?.getToken())(keyName),
+    queryFn: () => getReleaseVersions(chrome?.auth?.getToken())(keyName)
   });
 };
 

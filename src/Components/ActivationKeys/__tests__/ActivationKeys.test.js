@@ -15,8 +15,8 @@ jest.mock('../../../hooks/useUser');
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: () => ({
-    pathname: '/',
-  }),
+    pathname: '/'
+  })
 }));
 jest.mock('../../../hooks/useHasRelation');
 
@@ -35,21 +35,21 @@ const PageContainer = () => (
 const mockRelation = (map) => {
   useHasRelation.mockImplementation((r) => ({
     has: map?.[r] || false,
-    isLoading: false,
+    isLoading: false
   }));
 };
 
 const mockAuthenticateUser = (isLoading, isError) => {
   const user = {
     accountNumber: '123',
-    orgId: '123',
+    orgId: '123'
   };
   useUser.mockReturnValue({
     isLoading: isLoading,
     isFetching: false,
     isSuccess: true,
     isError: isError,
-    data: user,
+    data: user
   });
 
   if (isError === false) {
@@ -58,19 +58,17 @@ const mockAuthenticateUser = (isLoading, isError) => {
 };
 
 // eslint-disable-next-line react/display-name
-jest.mock('../../../Components/ActivationKeysTable', () => () => (
-  <div>Activation Keys Table</div>
-));
+jest.mock('../../../Components/ActivationKeysTable', () => () => <div>Activation Keys Table</div>);
 jest.mock(
   '@redhat-cloud-services/frontend-components/NotAuthorized',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Not Authorized</div>,
+  () => () => <div>Not Authorized</div>
 );
 
 jest.mock(
   '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Unavailable</div>,
+  () => () => <div>Unavailable</div>
 );
 
 describe('ActivationKeys', () => {
@@ -84,8 +82,8 @@ describe('ActivationKeys', () => {
       name: 'A',
       role: 'B',
       serviceLevel: 'C',
-      usage: 'D',
-    },
+      usage: 'D'
+    }
   ]);
 
   beforeEach(() => {
@@ -97,7 +95,7 @@ describe('ActivationKeys', () => {
       isFetching: false,
       isError: false,
       isSuccess: true,
-      data: get('keysData'),
+      data: get('keysData')
     });
   });
 
@@ -136,9 +134,7 @@ describe('ActivationKeys', () => {
     it('create activation key button is disabled', async () => {
       render(<PageContainer />);
       await waitFor(() =>
-        expect(
-          screen.getByText('Create activation key').parentElement,
-        ).toBeDisabled(),
+        expect(screen.getByText('Create activation key').parentElement).toBeDisabled()
       );
     });
   });

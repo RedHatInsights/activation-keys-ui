@@ -8,7 +8,7 @@ const fetchAdditionalRepositories = async (
   offset = 0,
   filters = {},
   sortBy = '',
-  sortDirection = '',
+  sortDirection = ''
 ) => {
   if (!keyName) {
     return false;
@@ -36,8 +36,8 @@ const fetchAdditionalRepositories = async (
   const response = await fetch(
     `/api/rhsm/v2/activation_keys/${keyName}/available_repositories?default=Disabled&limit=${limit}&offset=${offset}&${filterQuery}&sort_by=${sortBy}&sort_direction=${sortDirection}`,
     {
-      headers: { Authorization: `Bearer ${await token}` },
-    },
+      headers: { Authorization: `Bearer ${await token}` }
+    }
   );
 
   if (!response.ok) {
@@ -48,14 +48,7 @@ const fetchAdditionalRepositories = async (
   return repositoriesData;
 };
 
-const useAvailableRepositories = (
-  keyName,
-  page,
-  pageSize,
-  filters,
-  sortBy,
-  sortDirection,
-) => {
+const useAvailableRepositories = (keyName, page, pageSize, filters, sortBy, sortDirection) => {
   const chrome = useChrome();
   const token = chrome?.auth?.getToken();
 
@@ -66,7 +59,7 @@ const useAvailableRepositories = (
       pageSize,
       filters,
       sortBy,
-      sortDirection,
+      sortDirection
     ],
     queryFn: () =>
       fetchAdditionalRepositories(
@@ -76,23 +69,15 @@ const useAvailableRepositories = (
         (page - 1) * pageSize,
         filters,
         sortBy,
-        sortDirection,
-      ),
+        sortDirection
+      )
   });
 };
 
 const usePrefetchAvailableRepositoriesNextPage = () => {
   const chrome = useChrome();
 
-  return async (
-    queryClient,
-    keyName,
-    page,
-    pageSize,
-    filters,
-    sortBy,
-    sortDirection,
-  ) => {
+  return async (queryClient, keyName, page, pageSize, filters, sortBy, sortDirection) => {
     const token = chrome?.auth?.getToken();
 
     queryClient.prefetchQuery({
@@ -102,7 +87,7 @@ const usePrefetchAvailableRepositoriesNextPage = () => {
         pageSize,
         filters,
         sortBy,
-        sortDirection,
+        sortDirection
       ],
       queryFn: () =>
         fetchAdditionalRepositories(
@@ -112,13 +97,10 @@ const usePrefetchAvailableRepositoriesNextPage = () => {
           (page - 1) * pageSize,
           filters,
           sortBy,
-          sortDirection,
-        ),
+          sortDirection
+        )
     });
   };
 };
 
-export {
-  useAvailableRepositories as default,
-  usePrefetchAvailableRepositoriesNextPage,
-};
+export { useAvailableRepositories as default, usePrefetchAvailableRepositoriesNextPage };

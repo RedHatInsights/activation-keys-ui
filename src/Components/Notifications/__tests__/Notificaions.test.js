@@ -11,8 +11,8 @@ describe('Notifications', () => {
       notifications: [
         { message: 'Some stuff went well!', variant: 'success', key: '123' },
         { message: 'Some other stuff did not.', variant: 'danger', key: '456' },
-        { message: 'And this happened.', variant: 'info', key: '789' },
-      ],
+        { message: 'And this happened.', variant: 'info', key: '789' }
+      ]
     });
     render(<Notifications />);
     expect(document.body).toMatchSnapshot();
@@ -21,10 +21,8 @@ describe('Notifications', () => {
   it('calls the remove notifications method on click of the X', () => {
     const mockRemoveNotification = jest.fn();
     useNotifications.mockReturnValue({
-      notifications: [
-        { message: 'Some stuff went well!', variant: 'success', key: '123' },
-      ],
-      removeNotification: mockRemoveNotification,
+      notifications: [{ message: 'Some stuff went well!', variant: 'success', key: '123' }],
+      removeNotification: mockRemoveNotification
     });
     const { getByTestId } = render(<Notifications />);
     fireEvent.click(getByTestId('notification-close-btn-0'));
@@ -41,10 +39,10 @@ describe('Notifications', () => {
           message: 'Some stuff went well!',
           variant: 'success',
           key: '123',
-          downloadHref: 'foo.com',
-        },
+          downloadHref: 'foo.com'
+        }
       ],
-      removeNotification: mockRemoveNotification,
+      removeNotification: mockRemoveNotification
     });
     const { getByTestId } = render(<Notifications />);
     fireEvent.click(getByTestId('notification-close-btn-0'));

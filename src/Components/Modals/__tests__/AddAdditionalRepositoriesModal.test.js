@@ -10,12 +10,12 @@ describe('Add Additional Repositories Modal', () => {
     const props = {
       handleModalToggle: jest.fn(),
       isOpen: true,
-      repositories: [],
+      repositories: []
     };
     render(
       <QueryClientProvider client={queryClient}>
         <AddAdditionalRepositoriesModal {...props} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
     expect(screen.getByText('Add repositories')).toBeInTheDocument();
     expect(screen.getByText('Add repositories')).toBeInTheDocument();

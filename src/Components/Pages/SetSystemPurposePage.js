@@ -20,7 +20,7 @@ const SetSystemPurposePage = ({
   setUsage,
   data,
   isLoading,
-  isError,
+  isError
 }) => {
   useEffect(() => {
     setRole(activationKey?.role || '');
@@ -35,11 +35,9 @@ const SetSystemPurposePage = ({
     </>
   );
   Options.propTypes = {
-    options: PropTypes.array.isRequired,
+    options: PropTypes.array.isRequired
   };
-  const Placeholder = () => (
-    <FormSelectOption label="Not defined" isPlaceholder />
-  );
+  const Placeholder = () => <FormSelectOption label="Not defined" isPlaceholder />;
   if (isLoading) return <Loading />;
   if (isError) return null;
   return (
@@ -48,18 +46,13 @@ const SetSystemPurposePage = ({
         {isEditMode ? 'Edit system purpose' : 'Select system purpose'}{' '}
       </Title>
       <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
-        System purpose values are used by the subscriptions service to help
-        filter and identify hosts. Setting values for these attributes is an
-        optional step, but doing so ensures that subscriptions reporting
-        accurately reflects the system. Only those values available to your
+        System purpose values are used by the subscriptions service to help filter and identify
+        hosts. Setting values for these attributes is an optional step, but doing so ensures that
+        subscriptions reporting accurately reflects the system. Only those values available to your
         account are shown.
       </Content>
       <Form>
-        <FormGroup
-          label="Role"
-          className="pf-v6-u-mb-sm"
-          fieldId="activation-key-role"
-        >
+        <FormGroup label="Role" className="pf-v6-u-mb-sm" fieldId="activation-key-role">
           <FormSelect
             onChange={(_event, value) => setRole(value)}
             value={role}
@@ -83,11 +76,7 @@ const SetSystemPurposePage = ({
             <Placeholder />
           </FormSelect>
         </FormGroup>
-        <FormGroup
-          label="Usage"
-          className="pf-v6-u-mb-sm"
-          fieldId="activation-key-usage"
-        >
+        <FormGroup label="Usage" className="pf-v6-u-mb-sm" fieldId="activation-key-usage">
           <FormSelect
             onChange={(_event, value) => setUsage(value)}
             value={usage}
@@ -114,9 +103,9 @@ SetSystemPurposePage.propTypes = {
   data: PropTypes.shape({
     roles: PropTypes.array.isRequired,
     serviceLevel: PropTypes.array,
-    usage: PropTypes.array,
+    usage: PropTypes.array
   }).isRequired,
   isLoading: PropTypes.bool.isRequired,
-  isError: PropTypes.bool,
+  isError: PropTypes.bool
 };
 export default SetSystemPurposePage;

@@ -2,12 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 
 const fetchEusVersions = (token) => async () => {
-  const response = await fetch(
-    '/api/rhsm/v2/products/RHEL/extended-update-support-products',
-    {
-      headers: { Authorization: `Bearer ${await token}` },
-    },
-  );
+  const response = await fetch('/api/rhsm/v2/products/RHEL/extended-update-support-products', {
+    headers: { Authorization: `Bearer ${await token}` }
+  });
 
   if (!response.ok) {
     return Promise.reject(response.status);
@@ -29,7 +26,7 @@ const useEusVersions = () => {
         return true;
       }
       return false;
-    },
+    }
   });
 };
 

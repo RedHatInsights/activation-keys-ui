@@ -7,13 +7,13 @@ jest.mock('uuid', () => {
 });
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useLocation: () => ({ pathname: '/connector/test-key' }),
+  useLocation: () => ({ pathname: '/connector/test-key' })
 }));
 
 jest.mock(
   '@redhat-cloud-services/frontend-components/Unavailable',
   // eslint-disable-next-line react/display-name
-  () => () => <div>Unavailable</div>,
+  () => () => <div>Unavailable</div>
 );
 
 describe('printDate', () => {
@@ -39,7 +39,7 @@ describe('sortActivationKeys', () => {
   const mockData = [
     { name: 'Key1', updatedAt: '2023-10-21T10:30:00Z' },
     { name: 'Key2', updatedAt: '2023-10-19T10:30:00Z' },
-    { name: 'Key3', updatedAt: '2023-10-20T10:30:00Z' },
+    { name: 'Key3', updatedAt: '2023-10-20T10:30:00Z' }
   ];
   const mockColumnNames = ['name', 'role', 'SLA', 'Usage', 'updatedAt'];
 

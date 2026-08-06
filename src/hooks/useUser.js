@@ -9,8 +9,8 @@ const useUser = () => {
     queryFn: () =>
       Promise.all([authenticateUser]).then(([userStatus]) => ({
         accountNumber: userStatus?.data.identity?.account_number,
-        orgId: userStatus?.data.identity?.internal?.org_id,
-      })),
+        orgId: userStatus?.data.identity?.internal?.org_id
+      }))
   });
 };
 

@@ -20,7 +20,7 @@ const ReviewActivationKeyPage = ({
   isLoading,
   activationKey,
   extendedReleaseProduct,
-  extendedReleaseVersion,
+  extendedReleaseVersion
 }) => {
   if (isLoading) return <Loading />;
 
@@ -30,12 +30,12 @@ const ReviewActivationKeyPage = ({
     {
       term: 'Name',
       original: activationKey?.name,
-      updated: name || 'Not Defined',
+      updated: name || 'Not Defined'
     },
     {
       term: 'Description',
       original: activationKey?.description || 'Not Defined',
-      updated: description || 'Not Defined',
+      updated: description || 'Not Defined'
     },
     {
       term: 'Workload',
@@ -43,39 +43,39 @@ const ReviewActivationKeyPage = ({
         isEditMode && activationKey?.releaseVersion
           ? 'Extended support releases'
           : 'Latest release',
-      updated: workload || 'Not Defined',
-    },
+      updated: workload || 'Not Defined'
+    }
   ];
   if (workload === 'Extended support releases') {
     rows.push(
       {
         term: '',
         original: activationKey?.releaseProduct || 'Not Defined',
-        updated: extendedReleaseProduct || 'Not Defined',
+        updated: extendedReleaseProduct || 'Not Defined'
       },
       {
         term: '',
         original: activationKey?.releaseVersion || 'Not Defined',
-        updated: extendedReleaseVersion || 'Not Defined',
-      },
+        updated: extendedReleaseVersion || 'Not Defined'
+      }
     );
   }
   rows.push(
     {
       term: 'Role',
       original: activationKey?.role || 'Not Defined',
-      updated: role || 'Not Defined',
+      updated: role || 'Not Defined'
     },
     {
       term: 'Service level agreement (SLA)',
       original: activationKey?.serviceLevel || 'Not Defined',
-      updated: sla || 'Not Defined',
+      updated: sla || 'Not Defined'
     },
     {
       term: 'Usage',
       original: activationKey?.usage || 'Not Defined',
-      updated: usage || 'Not Defined',
-    },
+      updated: usage || 'Not Defined'
+    }
   );
 
   return (
@@ -91,14 +91,10 @@ const ReviewActivationKeyPage = ({
       <DescriptionList isHorizontal>
         {rows.map((row, index) => (
           <DescriptionListGroup key={index}>
-            <DescriptionListTerm style={{ flexBasis: '35%' }}>
-              {row.term}
-            </DescriptionListTerm>
+            <DescriptionListTerm style={{ flexBasis: '35%' }}>{row.term}</DescriptionListTerm>
             <DescriptionListDescription>
               {isEditMode ? (
-                <div
-                  style={{ display: 'flex', justifyContent: 'space-between' }}
-                >
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ flexBasis: '45%' }}>{row.original}</span>
                   <span style={{ flexBasis: '45%' }}>{row.updated}</span>
                 </div>
@@ -123,7 +119,7 @@ ReviewActivationKeyPage.propTypes = {
     serviceLevel: PropTypes.string,
     usage: PropTypes.string,
     releaseVersion: PropTypes.string,
-    releaseProduct: PropTypes.string,
+    releaseProduct: PropTypes.string
   }),
   name: PropTypes.string.isRequired,
   description: PropTypes.string,
@@ -133,6 +129,6 @@ ReviewActivationKeyPage.propTypes = {
   usage: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
   extendedReleaseProduct: PropTypes.string,
-  extendedReleaseVersion: PropTypes.string,
+  extendedReleaseVersion: PropTypes.string
 };
 export default ReviewActivationKeyPage;

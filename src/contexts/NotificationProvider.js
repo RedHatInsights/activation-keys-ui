@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const NotificationContext = React.createContext({
   notifications: [],
   addNotification: () => null,
-  removeNotification: () => null,
+  removeNotification: () => null
 });
 
 const NotificationProvider = ({ children }) => {
@@ -19,13 +19,11 @@ const NotificationProvider = ({ children }) => {
       message: message,
       key: notificationKey,
       timeout: options?.hasTimeout ?? true,
-      description: options?.description,
+      description: options?.description
     };
 
     if (options && options.alertLinkText && options.alertLinkHref) {
-      const linkAttributes = options.alertLinkIsDownload
-        ? { download: '' }
-        : {};
+      const linkAttributes = options.alertLinkIsDownload ? { download: '' } : {};
       const alertLink = (
         <>
           <AlertActionLink>
@@ -46,17 +44,13 @@ const NotificationProvider = ({ children }) => {
   };
 
   const addNotification = (variant, message, options) => {
-    const newNotificationProps = buildNotificationProps(
-      variant,
-      message,
-      options,
-    );
+    const newNotificationProps = buildNotificationProps(variant, message, options);
 
     let newNotifications = [...notifications, { ...newNotificationProps }];
 
     if (options && options.keyOfAlertToReplace) {
       newNotifications = newNotifications.filter(
-        (notification) => notification.key !== options.keyOfAlertToReplace,
+        (notification) => notification.key !== options.keyOfAlertToReplace
       );
     }
 
@@ -65,9 +59,7 @@ const NotificationProvider = ({ children }) => {
   };
 
   const removeNotification = (key) => {
-    setNotifications(
-      notifications.filter((notification) => notification.key !== key),
-    );
+    setNotifications(notifications.filter((notification) => notification.key !== key));
   };
 
   const contextValue = {
@@ -75,18 +67,16 @@ const NotificationProvider = ({ children }) => {
     addNotification: (variant, message, options) => {
       return addNotification(variant, message, options);
     },
-    removeNotification: (key) => removeNotification(key),
+    removeNotification: (key) => removeNotification(key)
   };
 
   return (
-    <NotificationContext.Provider value={contextValue}>
-      {children}
-    </NotificationContext.Provider>
+    <NotificationContext.Provider value={contextValue}>{children}</NotificationContext.Provider>
   );
 };
 
 NotificationProvider.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export { NotificationContext, NotificationProvider as default };

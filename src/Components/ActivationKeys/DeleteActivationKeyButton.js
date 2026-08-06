@@ -16,7 +16,7 @@ const DeleteActivationKeyButton = ({ onClick }) => {
 };
 
 DeleteActivationKeyButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default DeleteActivationKeyButton;

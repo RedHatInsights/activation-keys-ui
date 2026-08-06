@@ -17,7 +17,7 @@ describe('useAvailableRepositories', () => {
 
       useQuery.mockReturnValueOnce({
         isLoading: false,
-        data: repositories,
+        data: repositories
       });
 
       const result = useAvailableRepositories(keyName);
@@ -30,7 +30,7 @@ describe('useAvailableRepositories', () => {
   test('should handle error during fetch correctly', async () => {
     useQuery.mockReturnValueOnce({
       isLoading: false,
-      error: new Error('Fetch failed'),
+      error: new Error('Fetch failed')
     });
 
     const result = useAvailableRepositories(keyName);

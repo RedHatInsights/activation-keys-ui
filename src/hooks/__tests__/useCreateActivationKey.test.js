@@ -13,10 +13,10 @@ describe('useActivationKeys', () => {
       description: 'description',
       role: 'role',
       serviceLevel: 'sla',
-      usage: 'usage',
+      usage: 'usage'
     };
     const { result } = renderHook(() => useCreateActivationKey(), {
-      wrapper: createQueryWrapper(),
+      wrapper: createQueryWrapper()
     });
     await act(async () => {
       result.current.mutate(keyParams);

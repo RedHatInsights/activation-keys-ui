@@ -13,7 +13,7 @@ jest.mock('uuid', () => {
 jest.mock('../../../hooks/useUser');
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useRouteMatch: () => ({ url: '/' }),
+  useRouteMatch: () => ({ url: '/' })
 }));
 jest.mock('../../../hooks/useHasRelation');
 
@@ -22,7 +22,7 @@ const queryClient = new QueryClient();
 const mockRelation = (map) => {
   useHasRelation.mockImplementation((r) => ({
     has: map?.[r] || false,
-    isLoading: false,
+    isLoading: false
   }));
 };
 
@@ -37,24 +37,24 @@ describe('AdditionalRepositoriesTable', () => {
       name: 'A',
       role: 'B',
       serviceLevel: 'C',
-      usage: 'D',
-    },
+      usage: 'D'
+    }
   ]);
   beforeEach(() => {
     useAvailableRepositories.mockReturnValue({
       isLoading: get('loading'),
       error: get('error'),
-      data: get('data'),
+      data: get('data')
     });
     mockRelation(get('relations'));
   });
   const repositories = [
     {
-      repositoryLabel: 'label-a',
+      repositoryLabel: 'label-a'
     },
     {
-      repositoryLabel: 'label-b',
-    },
+      repositoryLabel: 'label-b'
+    }
   ];
 
   jest.mock('../../../hooks/useUser', () => ({
@@ -67,10 +67,10 @@ describe('AdditionalRepositoriesTable', () => {
       data: {
         rbacPermissions: {
           canReadActivationKeys: true,
-          canWriteActivationKeys: true,
-        },
-      },
-    }),
+          canWriteActivationKeys: true
+        }
+      }
+    })
   }));
 
   it('renders correctly', () => {
@@ -88,14 +88,14 @@ describe('AdditionalRepositoriesTable', () => {
   describe('when row column headings are clicked', () => {
     const repositories = [
       {
-        repositoryLabel: 'label-a',
+        repositoryLabel: 'label-a'
       },
       {
-        repositoryLabel: 'label-b',
+        repositoryLabel: 'label-b'
       },
       {
-        repositoryLabel: 'label-c',
-      },
+        repositoryLabel: 'label-c'
+      }
     ];
 
     it('can sort by name', () => {
@@ -155,7 +155,7 @@ describe('AdditionalRepositoriesTable', () => {
 
   describe('when using pagination', () => {
     const repositories = [...Array(12).keys()].map((id) => ({
-      repositoryLabel: `label-${id}`,
+      repositoryLabel: `label-${id}`
     }));
     it('can change page', () => {
       const Table = () => (

@@ -104,7 +104,7 @@ SystemPurposeForm.propTypes = {
   submitForm: PropTypes.func.isRequired,
   isSuccess: PropTypes.bool,
   isError: PropTypes.bool,
-  activationKey: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  activationKey: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
 };
 
 export default SystemPurposeForm;

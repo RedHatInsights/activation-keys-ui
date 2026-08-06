@@ -11,12 +11,12 @@ describe('Delete Activation Key Confirmation Modal', () => {
     const props = {
       handleModalToggle: jest.fn(),
       isOpen: true,
-      name: activationKeyName,
+      name: activationKeyName
     };
     render(
       <QueryClientProvider client={queryClient}>
         <DeleteActivationKeyConfirmationModal {...props} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
     expect(screen.getByText(activationKeyName)).toBeInTheDocument();
     expect(screen.getByText('Delete activation key?')).toBeInTheDocument();

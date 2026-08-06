@@ -16,7 +16,7 @@ const queryClient = new QueryClient();
 const mutate = jest.fn();
 useCreateActivationKey.mockReturnValue({
   mutate,
-  error: false,
+  error: false
 });
 useEusVersions.mockReturnValue({});
 useReleaseVersions.mockReturnValue({});
@@ -24,7 +24,7 @@ useReleaseVersions.mockReturnValue({});
 jest.mock('uuid', () => ({
   __esModule: true,
   ...jest.requireActual('uuid'),
-  v4: jest.fn(() => '11111111-1111-1111-1111-111111111111'),
+  v4: jest.fn(() => '11111111-1111-1111-1111-111111111111')
 }));
 
 describe('Create Activation Key Wizard', () => {
@@ -34,7 +34,7 @@ describe('Create Activation Key Wizard', () => {
       render(
         <QueryClientProvider client={queryClient}>
           <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
-        </QueryClientProvider>,
+        </QueryClientProvider>
       );
       for (let i = 1; i < page; i++) {
         const nextStepBtn = screen.getByText(i < 4 ? 'Next' : 'Create');
@@ -48,11 +48,9 @@ describe('Create Activation Key Wizard', () => {
     const { container } = render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
-    fireEvent.click(
-      container.nextSibling.querySelector('.pf-v6-c-modal-box__close'),
-    );
+    fireEvent.click(container.nextSibling.querySelector('.pf-v6-c-modal-box__close'));
     expect(document.body).toMatchSnapshot();
   });
 
@@ -60,14 +58,12 @@ describe('Create Activation Key Wizard', () => {
     const { container } = render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
 
     const nextStepBtn = screen.getByText('Next');
     fireEvent.click(nextStepBtn);
-    fireEvent.click(
-      container.nextSibling.querySelector('.pf-v6-c-modal-box__close'),
-    );
+    fireEvent.click(container.nextSibling.querySelector('.pf-v6-c-modal-box__close'));
     expect(document.body).toMatchSnapshot();
   });
 
@@ -75,7 +71,7 @@ describe('Create Activation Key Wizard', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyWizard handleModalToggle={() => {}} isOpen={true} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
     for (let i = 1; i < 5; i++) {
       const nextStepBtn = screen.getByText(i < 4 ? 'Next' : 'Create');

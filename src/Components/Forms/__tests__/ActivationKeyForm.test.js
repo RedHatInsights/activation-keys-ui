@@ -13,7 +13,7 @@ const ActivationKeyFormProps = {
   handleModalToggle,
   submitForm: submitForm,
   isSuccess: null,
-  isError: null,
+  isError: null
 };
 
 const props = { ...ActivationKeyFormProps };
@@ -27,8 +27,8 @@ describe('Activation Key Form', () => {
       data: {
         roles: ['role'],
         serviceLevel: ['serviceLevel'],
-        usage: ['usage'],
-      },
+        usage: ['usage']
+      }
     });
   });
 
@@ -36,7 +36,7 @@ describe('Activation Key Form', () => {
     const { container } = render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyForm {...props} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -46,7 +46,7 @@ describe('Activation Key Form', () => {
     const { container } = render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyForm {...props} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
     const nameInput = container.querySelector('#activation-key-name');
     fireEvent.change(nameInput, { target: { value: '!123' } });
@@ -62,7 +62,7 @@ describe('Activation Key Form', () => {
     const { container } = render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyForm {...props} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
     const validLength = Array(256).join('a');
     const invalidLength = Array(257).join('b');
@@ -80,16 +80,16 @@ describe('Activation Key Form', () => {
       name: 'test',
       usage: 'test',
       serviceLevel: 'test',
-      role: 'test',
+      role: 'test'
     };
     const props = {
       ...ActivationKeyFormProps,
-      activationKey: activationKey,
+      activationKey: activationKey
     };
     render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyForm {...props} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
     const submitButton = screen.getByTestId('activation-key-submit-button');
     expect(submitButton).toBeDisabled();
@@ -101,7 +101,7 @@ describe('Activation Key Form', () => {
     const { container } = render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyForm {...props} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
     const form = container.querySelector('#activation-key-form');
     const nameInput = container.querySelector('#activation-key-name');
@@ -116,7 +116,7 @@ describe('Activation Key Form', () => {
     render(
       <QueryClientProvider client={queryClient}>
         <ActivationKeyForm {...props} />
-      </QueryClientProvider>,
+      </QueryClientProvider>
     );
 
     expect(handleModalToggle).toHaveBeenCalledTimes(1);

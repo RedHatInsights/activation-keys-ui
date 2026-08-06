@@ -17,10 +17,10 @@ const WorkloadCard = ({ activationKey }) => {
   const docsPopoverContent = (
     <Content>
       <Content component="p">
-        A release version enables you to configure your system to use a specific
-        minor release of Red Hat Enterprise Linux. Setting a release version is
-        useful if you are using an extended release of software, such as
-        Extended Update Support. Most users will not set a release version.
+        A release version enables you to configure your system to use a specific minor release of
+        Red Hat Enterprise Linux. Setting a release version is useful if you are using an extended
+        release of software, such as Extended Update Support. Most users will not set a release
+        version.
       </Content>
     </Content>
   );
@@ -30,10 +30,7 @@ const WorkloadCard = ({ activationKey }) => {
         <CardTitle>
           <Title headingLevel="h2">
             Workload{' '}
-            <ActivationKeysDocsPopover
-              popoverContent={docsPopoverContent}
-              position="top"
-            />
+            <ActivationKeysDocsPopover popoverContent={docsPopoverContent} position="top" />
           </Title>
         </CardTitle>
       </CardHeader>
@@ -54,7 +51,7 @@ const WorkloadCard = ({ activationKey }) => {
 };
 
 WorkloadCard.propTypes = {
-  activationKey: propTypes.object,
+  activationKey: propTypes.object
 };
 
 export default WorkloadCard;

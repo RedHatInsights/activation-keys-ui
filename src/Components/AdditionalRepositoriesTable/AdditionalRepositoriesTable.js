@@ -15,13 +15,11 @@ const AdditionalRepositoriesTable = (props) => {
   const [activeSortDirection, setActiveSortDirection] = useState(null);
   const [repositoryNameToDelete, setRepositoryNameToDelete] = useState('');
   const [repositoryLabelToDelete, setRepositoryLabelToDelete] = useState('');
-  const [
-    isDeleteAdditionalRepositoriesModalOpen,
-    setisDeleteAdditionalRepositoriesModalOpen,
-  ] = useState(false);
+  const [isDeleteAdditionalRepositoriesModalOpen, setisDeleteAdditionalRepositoriesModalOpen] =
+    useState(false);
   const columnNames = {
     repositoryLabel: 'Label',
-    repositoryName: 'Name',
+    repositoryName: 'Name'
   };
 
   const getSortableRowValues = (repo) => {
@@ -33,13 +31,13 @@ const AdditionalRepositoriesTable = (props) => {
     sortBy: {
       index: activeSortIndex,
       direction: activeSortDirection,
-      defaultDirection: 'asc',
+      defaultDirection: 'asc'
     },
     onSort: (_event, index, direction) => {
       setActiveSortIndex(index);
       setActiveSortDirection(direction);
     },
-    columnIndex,
+    columnIndex
   });
 
   const sortRepos = (repositories, sortIndex) => {
@@ -100,13 +98,8 @@ const AdditionalRepositoriesTable = (props) => {
   const sortedRepositories = sortRepos(repositories, activeSortIndex);
   const paginatedRepos = getPage(sortedRepositories);
 
-  const handleDeleteAdditionalRepositoriesToggle = (
-    repositoryName,
-    repositoryLabel,
-  ) => {
-    setisDeleteAdditionalRepositoriesModalOpen(
-      !isDeleteAdditionalRepositoriesModalOpen,
-    );
+  const handleDeleteAdditionalRepositoriesToggle = (repositoryName, repositoryLabel) => {
+    setisDeleteAdditionalRepositoriesModalOpen(!isDeleteAdditionalRepositoriesModalOpen);
     setRepositoryNameToDelete(repositoryName);
     setRepositoryLabelToDelete(repositoryLabel);
   };
@@ -128,18 +121,14 @@ const AdditionalRepositoriesTable = (props) => {
           {paginatedRepos?.map((repository, rowIndex) => {
             return (
               <Tr key={rowIndex} ouiaSafe={true}>
-                <Td dataLabel={columnNames.repositoryName}>
-                  {repository.repositoryName}
-                </Td>
-                <Td dataLabel={columnNames.repositoryLabel}>
-                  {repository.repositoryLabel}
-                </Td>
+                <Td dataLabel={columnNames.repositoryName}>{repository.repositoryName}</Td>
+                <Td dataLabel={columnNames.repositoryLabel}>{repository.repositoryLabel}</Td>
                 <Td>
                   <RemoveAdditionalRepositoriesButton
                     onClick={() =>
                       handleDeleteAdditionalRepositoriesToggle(
                         repository.repositoryName,
-                        repository.repositoryLabel,
+                        repository.repositoryLabel
                       )
                     }
                   />
@@ -171,7 +160,7 @@ const AdditionalRepositoriesTable = (props) => {
 
 AdditionalRepositoriesTable.propTypes = {
   repositories: propTypes.array.isRequired,
-  name: propTypes.string.isRequired,
+  name: propTypes.string.isRequired
 };
 
 export default AdditionalRepositoriesTable;

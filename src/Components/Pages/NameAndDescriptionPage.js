@@ -11,7 +11,7 @@ const NameAndDescriptionPage = ({
   description,
   setDescription,
   descriptionIsValid,
-  isNameDisabled,
+  isNameDisabled
 }) => {
   return (
     <div className="pf-l-grid pf-m-gutter">
@@ -46,6 +46,6 @@ NameAndDescriptionPage.propTypes = {
   description: PropTypes.string,
   setDescription: PropTypes.func.isRequired,
   descriptionIsValid: PropTypes.bool.isRequired,
-  isNameDisabled: PropTypes.bool.isRequired,
+  isNameDisabled: PropTypes.bool.isRequired
 };
 export default NameAndDescriptionPage;

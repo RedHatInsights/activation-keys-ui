@@ -19,14 +19,14 @@ const Breadcrumbs = (breadcrumbs) => {
           </BreadcrumbItem>
         ) : (
           '/'
-        ),
+        )
       )}
     </Breadcrumb>
   ) : null;
 };
 
 Breadcrumbs.propTypes = {
-  breadcrumbs: PropTypes.object,
+  breadcrumbs: PropTypes.object
 };
 
 export default Breadcrumbs;

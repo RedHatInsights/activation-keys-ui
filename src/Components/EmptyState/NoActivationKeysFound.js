@@ -11,15 +11,10 @@ const NoActivationKeysFound = (props) => {
   const { handleModalToggle } = props;
   return (
     <>
-      <EmptyState
-        headingLevel="h5"
-        icon={AddCircleOIcon}
-        titleText="No activation keys"
-      >
+      <EmptyState headingLevel="h5" icon={AddCircleOIcon} titleText="No activation keys">
         <EmptyStateBody>
-          You currently have no activation keys to display. Activation keys
-          allow you to register a system with system purpose, role and usage
-          attached.
+          You currently have no activation keys to display. Activation keys allow you to register a
+          system with system purpose, role and usage attached.
         </EmptyStateBody>
         <EmptyStateFooter>
           <CreateActivationKeyButton onClick={handleModalToggle} />
@@ -30,7 +25,7 @@ const NoActivationKeysFound = (props) => {
 };
 
 NoActivationKeysFound.propTypes = {
-  handleModalToggle: PropTypes.func.isRequired,
+  handleModalToggle: PropTypes.func.isRequired
 };
 
 export default NoActivationKeysFound;

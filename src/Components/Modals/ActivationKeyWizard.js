@@ -52,50 +52,27 @@ const nameValidator = (newName, keyNames) => {
 };
 const descriptionValidator = (description) => {
   const trimmedDescription = description.trim();
-  return (
-    description === '' ||
-    (trimmedDescription.length > 0 && trimmedDescription.length <= 255)
-  );
+  return description === '' || (trimmedDescription.length > 0 && trimmedDescription.length <= 255);
 };
 
-const ActivationKeyWizard = ({
-  isEditMode,
-  activationKey,
-  handleModalToggle,
-  isOpen,
-}) => {
+const ActivationKeyWizard = ({ isEditMode, activationKey, handleModalToggle, isOpen }) => {
   const queryClient = useQueryClient();
-  const {
-    mutate: createActivationKey,
-    isPending: createActivationKeyIsLoading,
-  } = useCreateActivationKey();
-  const {
-    mutate: updateActivationKey,
-    isPending: updateActivationKeyIsLoading,
-  } = useUpdateActivationKey();
-  const {
-    isLoading: attributesAreLoading,
-    error,
-    data,
-  } = useSystemPurposeAttributes();
-  const {
-    mutate: deleteAdditionalRepositories,
-    isPending: isDeleteAdditionalRepositoriesLoading,
-  } = useDeleteAdditionalRepositories();
-  const {
-    mutate: addAdditionalRepositories,
-    isPending: isAddAdditionRepositoriesLoading,
-  } = useAddAdditionalRepositories();
+  const { mutate: createActivationKey, isPending: createActivationKeyIsLoading } =
+    useCreateActivationKey();
+  const { mutate: updateActivationKey, isPending: updateActivationKeyIsLoading } =
+    useUpdateActivationKey();
+  const { isLoading: attributesAreLoading, error, data } = useSystemPurposeAttributes();
+  const { mutate: deleteAdditionalRepositories, isPending: isDeleteAdditionalRepositoriesLoading } =
+    useDeleteAdditionalRepositories();
+  const { mutate: addAdditionalRepositories, isPending: isAddAdditionRepositoriesLoading } =
+    useAddAdditionalRepositories();
   const { data: activationKeys } = useActivationKeys();
   const { addSuccessNotification, addErrorNotification } = useNotifications();
   const [name, setName] = useState('');
-  const [description, setDescription] = useState(
-    activationKey?.description || '',
-  );
+  const [description, setDescription] = useState(activationKey?.description || '');
   const [extendedReleaseProduct, setExtendedReleaseProduct] = useState('');
   const [extendedReleaseVersion, setExtendedReleaseVersion] = useState('');
-  const [extendedReleaseRepositories, setExtendedReleaseRepositories] =
-    useState([]);
+  const [extendedReleaseRepositories, setExtendedReleaseRepositories] = useState([]);
   const [role, setRole] = useState(activationKey?.role);
   const [sla, setSla] = useState(activationKey?.serviceLevel);
   const [usage, setUsage] = useState(activationKey?.usage);
@@ -103,9 +80,7 @@ const ActivationKeyWizard = ({
   const [shouldConfirmClose, setShouldConfirmClose] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [workload, setWorkload] = useState(() =>
-    isEditMode && activationKey?.releaseVersion
-      ? 'Extended support releases'
-      : 'Latest release',
+    isEditMode && activationKey?.releaseVersion ? 'Extended support releases' : 'Latest release'
   );
   const [mutationError, setMutationError] = useState(false);
 
@@ -130,7 +105,7 @@ const ActivationKeyWizard = ({
   const {
     isLoading: isReleaseVersionsLoading,
     error: eusError,
-    data: releaseVersions,
+    data: releaseVersions
   } = useEusVersions();
   const [inferredReleaseProduct, setInferredReleaseProduct] = useState('');
   const [errorInferringProduct, setErrorInferringProduct] = useState(false);
@@ -155,11 +130,9 @@ const ActivationKeyWizard = ({
             (c) =>
               c.version == activationKey.releaseVersion &&
               c.repositories.every((repo) =>
-                activationKey.additionalRepositories.find(
-                  (has) => has.repositoryLabel == repo,
-                ),
-              ),
-          ),
+                activationKey.additionalRepositories.find((has) => has.repositoryLabel == repo)
+              )
+          )
         )?.name;
 
         if (!inferredReleaseProduct) {
@@ -169,13 +142,11 @@ const ActivationKeyWizard = ({
         }
       }
       setExtendedReleaseProduct(
-        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name,
+        (prev) => inferredReleaseProduct || prev || releaseVersions[0]?.name
       );
       setExtendedReleaseVersion(
         (prev) =>
-          prev ||
-          activationKey?.releaseVersion ||
-          releaseVersions[0]?.configurations[0]?.version,
+          prev || activationKey?.releaseVersion || releaseVersions[0]?.configurations[0]?.version
       );
     } else {
       setExtendedReleaseProduct('');
@@ -190,17 +161,12 @@ const ActivationKeyWizard = ({
    * applicable repos
    */
   useEffect(() => {
-    if (
-      releaseVersions &&
-      workload.includes('Extended') &&
-      extendedReleaseProduct
-    ) {
+    if (releaseVersions && workload.includes('Extended') && extendedReleaseProduct) {
       setExtendedReleaseRepositories(
         releaseVersions
           .find((product) => extendedReleaseProduct == product.name)
-          .configurations.find(
-            (configuration) => extendedReleaseVersion == configuration.version,
-          ).repositories,
+          .configurations.find((configuration) => extendedReleaseVersion == configuration.version)
+          .repositories
       );
     } else {
       setExtendedReleaseRepositories([]);
@@ -211,7 +177,7 @@ const ActivationKeyWizard = ({
     queryClient.invalidateQueries({ queryKey: ['activation_keys'] });
     if (activationKey?.name) {
       queryClient.invalidateQueries({
-        queryKey: [`activation_key_${activationKey.name}`],
+        queryKey: [`activation_key_${activationKey.name}`]
       });
     }
     handleModalToggle();
@@ -238,28 +204,23 @@ const ActivationKeyWizard = ({
       serviceLevel: sla,
       usage,
       additionalRepositories:
-        workload.includes('Extended') && !isEditMode
-          ? extendedReleaseRepositories
-          : undefined,
-      releaseVersion: extendedReleaseVersion,
+        workload.includes('Extended') && !isEditMode ? extendedReleaseRepositories : undefined,
+      releaseVersion: extendedReleaseVersion
     };
 
     if (isEditMode) {
       // missing repos it should have
       const missing = extendedReleaseRepositories.filter((label) => {
         return (
-          activationKey.additionalRepositories.findIndex(
-            (cur) => cur.repositoryLabel == label,
-          ) == -1
+          activationKey.additionalRepositories.findIndex((cur) => cur.repositoryLabel == label) ==
+          -1
         );
       });
 
       // has repos it shouldn't have
       const extra = activationKey.additionalRepositories.filter((repo) => {
         return (
-          extendedReleaseRepositories.findIndex(
-            (label) => label == repo.repositoryLabel,
-          ) == -1
+          extendedReleaseRepositories.findIndex((label) => label == repo.repositoryLabel) == -1
         );
       });
 
@@ -268,7 +229,7 @@ const ActivationKeyWizard = ({
         deleteAdditionalRepositories(
           {
             name: activationKey.name,
-            payload: activationKey.additionalRepositories,
+            payload: activationKey.additionalRepositories
           },
           {
             onError: () => {
@@ -279,23 +240,19 @@ const ActivationKeyWizard = ({
                 addAdditionalRepositories(
                   {
                     keyName: activationKey.name,
-                    selectedRepositories: extendedReleaseRepositories.map(
-                      (r) => ({
-                        repositoryLabel: r,
-                      }),
-                    ),
+                    selectedRepositories: extendedReleaseRepositories.map((r) => ({
+                      repositoryLabel: r
+                    }))
                   },
                   {
                     onError: () => {
-                      addErrorNotification(
-                        'Error updating additional repositories',
-                      );
-                    },
-                  },
+                      addErrorNotification('Error updating additional repositories');
+                    }
+                  }
                 );
               }
-            },
-          },
+            }
+          }
         );
       }
     }
@@ -305,7 +262,7 @@ const ActivationKeyWizard = ({
         addSuccessNotification(
           isEditMode
             ? `Changes saved for activation key "${activationKey.name}"`
-            : `Activation key "${name}" created`,
+            : `Activation key "${name}" created`
         );
         setMutationError(false);
       },
@@ -313,10 +270,10 @@ const ActivationKeyWizard = ({
         addErrorNotification(
           isEditMode
             ? `Error updating activation key ${activationKey.name}.`
-            : 'Something went wrong.',
+            : 'Something went wrong.'
         );
         setMutationError(true);
-      },
+      }
     });
   };
 
@@ -338,10 +295,8 @@ const ActivationKeyWizard = ({
         />
       ),
       customFooter: {
-        isNextDisabled: isEditMode
-          ? !descriptionIsValid
-          : !nameIsValid || !descriptionIsValid,
-      },
+        isNextDisabled: isEditMode ? !descriptionIsValid : !nameIsValid || !descriptionIsValid
+      }
     },
     {
       name: 'Workload',
@@ -364,7 +319,7 @@ const ActivationKeyWizard = ({
           inferredReleaseProduct={inferredReleaseProduct}
         />
       ),
-      isDisabled: !isEditMode && !nameIsValid,
+      isDisabled: !isEditMode && !nameIsValid
     },
     {
       name: 'System purpose',
@@ -383,7 +338,7 @@ const ActivationKeyWizard = ({
           isError={error}
         />
       ),
-      isDisabled: !isEditMode && !nameIsValid,
+      isDisabled: !isEditMode && !nameIsValid
     },
     {
       name: 'Review',
@@ -397,17 +352,15 @@ const ActivationKeyWizard = ({
           role={role}
           sla={sla}
           usage={usage}
-          isLoading={
-            createActivationKeyIsLoading || updateActivationKeyIsLoading
-          }
+          isLoading={createActivationKeyIsLoading || updateActivationKeyIsLoading}
           extendedReleaseProduct={extendedReleaseProduct}
           extendedReleaseVersion={extendedReleaseVersion}
         />
       ),
       isDisabled: !isEditMode && !nameIsValid,
       customFooter: {
-        nextButtonText: isEditMode ? 'Update' : 'Create',
-      },
+        nextButtonText: isEditMode ? 'Update' : 'Create'
+      }
     },
     {
       name: 'Finish',
@@ -426,19 +379,15 @@ const ActivationKeyWizard = ({
         />
       ),
       customNav: <></>,
-      customFooter: <></>,
-    },
+      customFooter: <></>
+    }
   ];
 
   return (
     <Modal
       variant={isConfirmClose ? ModalVariant.small : ModalVariant.large}
       isOpen={isOpen}
-      aria-label={
-        isEditMode
-          ? 'Edit activation key wizard'
-          : 'Create activation key wizard'
-      }
+      aria-label={isEditMode ? 'Edit activation key wizard' : 'Create activation key wizard'}
       onClose={isConfirmClose ? undefined : confirmClose}
     >
       <ModalHeader
@@ -485,10 +434,7 @@ const ActivationKeyWizard = ({
       {isConfirmClose && confirmCloseBody}
       <ModalFooter>
         {isConfirmClose ? (
-          <ConfirmCloseFooter
-            onClose={onClose}
-            returnToWizard={returnToWizard}
-          />
+          <ConfirmCloseFooter onClose={onClose} returnToWizard={returnToWizard} />
         ) : undefined}
       </ModalFooter>
     </Modal>
@@ -497,7 +443,7 @@ const ActivationKeyWizard = ({
 
 ConfirmCloseFooter.propTypes = {
   onClose: PropTypes.func.isRequired,
-  returnToWizard: PropTypes.func.isRequired,
+  returnToWizard: PropTypes.func.isRequired
 };
 
 ActivationKeyWizard.propTypes = {
@@ -505,7 +451,7 @@ ActivationKeyWizard.propTypes = {
   activationKey: PropTypes.object,
   handleModalToggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  CustomSuccessPage: PropTypes.node,
+  CustomSuccessPage: PropTypes.node
 };
 
 export default ActivationKeyWizard;

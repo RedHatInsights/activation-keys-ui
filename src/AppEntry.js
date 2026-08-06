@@ -11,18 +11,15 @@ const queryClient = new QueryClient({
       retryDelay: 1 * 1000,
       staleTime: Infinity,
       refetchOnWindowFocus: false,
-      refetchOnMount: false,
-    },
-  },
+      refetchOnMount: false
+    }
+  }
 });
 
 const AppEntry = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <AccessCheck.Provider
-        baseUrl={window.location.origin}
-        apiPath="/api/kessel/v1beta2"
-      >
+      <AccessCheck.Provider baseUrl={window.location.origin} apiPath="/api/kessel/v1beta2">
         <Authentication>
           <App />
         </Authentication>

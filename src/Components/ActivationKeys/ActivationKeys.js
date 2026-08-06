@@ -4,10 +4,7 @@ import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/
 import { PageSection } from '@patternfly/react-core/dist/dynamic/components/Page';
 import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
-import {
-  PageHeader,
-  PageHeaderTitle,
-} from '@redhat-cloud-services/frontend-components/PageHeader';
+import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
 import ActivationKeysTable from '../ActivationKeysTable';
 import NoActivationKeysFound from '../EmptyState';
@@ -28,8 +25,7 @@ const ActivationKeys = () => {
   const [currentKeyName, setCurrentKeyName] = useState('');
   const { data: user } = useUser();
 
-  const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] =
-    useState(false);
+  const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] = useState(false);
   const handleModalToggle = () => {
     setisOpen(!isOpen);
   };
@@ -40,9 +36,9 @@ const ActivationKeys = () => {
   const popoverContent = (
     <Content className="pf-v6-u-font-size-sm">
       <Content component="p">
-        Activation keys assist you in registering systems. Metadata such as
-        role, system purpose, and usage can be automatically attached to systems
-        via an activation key, and monitored with &nbsp;
+        Activation keys assist you in registering systems. Metadata such as role, system purpose,
+        and usage can be automatically attached to systems via an activation key, and monitored with
+        &nbsp;
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -55,8 +51,7 @@ const ActivationKeys = () => {
         </a>
       </Content>
       <Content component="p">
-        To register with an activation key, you will need your organization ID:{' '}
-        <b>{user.orgId}</b>
+        To register with an activation key, you will need your organization ID: <b>{user.orgId}</b>
       </Content>
     </Content>
   );
@@ -96,9 +91,7 @@ const ActivationKeys = () => {
           )}
         </Split>
         <Content>
-          <Content component={ContentVariants.p}>
-            Organization ID: {user.orgId}
-          </Content>
+          <Content component={ContentVariants.p}>Organization ID: {user.orgId}</Content>
         </Content>
       </PageHeader>
       <Main>
@@ -106,9 +99,7 @@ const ActivationKeys = () => {
           {isLoading && <Loading />}
           {!isLoading && !error && data.length > 0 && (
             <>
-              <ActivationKeysTable
-                onDelete={handleDeleteActivationKeyModalToggle}
-              />
+              <ActivationKeysTable onDelete={handleDeleteActivationKeyModalToggle} />
             </>
           )}
           {!isLoading && !error && !data.length && (
@@ -116,11 +107,7 @@ const ActivationKeys = () => {
           )}
         </PageSection>
       </Main>
-      <ActivationKeyWizard
-        key={isOpen}
-        isOpen={isOpen}
-        handleModalToggle={handleModalToggle}
-      />
+      <ActivationKeyWizard key={isOpen} isOpen={isOpen} handleModalToggle={handleModalToggle} />
       <DeleteActivationKeyConfirmationModal
         handleModalToggle={handleDeleteActivationKeyModalToggle}
         isOpen={isDeleteActivationKeyModalOpen}

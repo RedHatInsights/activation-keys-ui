@@ -13,13 +13,11 @@ import { validate as isUUID, v4 as uuid } from 'uuid';
 import { Button } from '@patternfly/react-core/dist/dynamic/components/Button';
 
 const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
-  const [enableValidationFeedback, setEnableValidationFeedback] =
-    useState(false);
+  const [enableValidationFeedback, setEnableValidationFeedback] = useState(false);
 
   const helperText =
     'Your activation key name must be unique and must contain only numbers, letters, underscores, and hyphens.';
-  const validated =
-    nameIsValid || !enableValidationFeedback ? 'default' : 'error';
+  const validated = nameIsValid || !enableValidationFeedback ? 'default' : 'error';
   const helperTextInvalid = `Name requirements have not been met. ${helperText}`;
 
   useEffect(() => {
@@ -59,14 +57,9 @@ const SetNamePage = ({ name, setName, nameIsValid, isNameDisabled }) => {
               </HelperTextItem>
               {!isUUID(name) && !isNameDisabled && (
                 <HelperTextItem variant="error">
-                  Custom activation key names may be guessable and insecure. We
-                  suggest using the default name provided or provide a long,
-                  unguessable value.{' '}
-                  <Button
-                    variant="link"
-                    isInline
-                    onClick={() => setName(uuid())}
-                  >
+                  Custom activation key names may be guessable and insecure. We suggest using the
+                  default name provided or provide a long, unguessable value.{' '}
+                  <Button variant="link" isInline onClick={() => setName(uuid())}>
                     Click here
                   </Button>{' '}
                   to regenerate a secure name.
@@ -84,7 +77,7 @@ SetNamePage.propTypes = {
   name: PropTypes.string.isRequired,
   setName: PropTypes.func.isRequired,
   nameIsValid: PropTypes.bool.isRequired,
-  isNameDisabled: PropTypes.bool.isRequired,
+  isNameDisabled: PropTypes.bool.isRequired
 };
 
 export default SetNamePage;

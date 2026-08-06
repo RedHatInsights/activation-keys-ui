@@ -26,7 +26,7 @@ const SetWorkloadPage = ({
   error,
   releaseVersions,
   errorInferringProduct,
-  inferredReleaseProduct,
+  inferredReleaseProduct
 }) => {
   return (
     <>
@@ -34,9 +34,8 @@ const SetWorkloadPage = ({
         {isEditMode ? 'Edit Workload' : 'Select Workload'}
       </Title>
       <Content component={ContentVariants.p} className="pf-v6-u-mb-xl">
-        Choose a workload option to associate an appropriate selection of
-        repositories to the activation key. Repositories can be edited on the
-        activation key detail page.
+        Choose a workload option to associate an appropriate selection of repositories to the
+        activation key. Repositories can be edited on the activation key detail page.
       </Content>
       {!isLoading ? (
         workloadOptions.map((wl, i) => {
@@ -51,14 +50,10 @@ const SetWorkloadPage = ({
                   'Activation key will use the latest RHEL release'
                 ) : (
                   <Content>
-                    <Content
-                      className="pf-v6-u-color-light-100"
-                      component={ContentVariants.small}
-                    >
-                      Activation key can be version locked to a specific version
-                      of RHEL. You can only version lock an activation key to a
-                      RHEL release that has the option of Extended Update
-                      Support (EUS). For more information, please refer to:
+                    <Content className="pf-v6-u-color-light-100" component={ContentVariants.small}>
+                      Activation key can be version locked to a specific version of RHEL. You can
+                      only version lock an activation key to a RHEL release that has the option of
+                      Extended Update Support (EUS). For more information, please refer to:
                       <a
                         href="https://access.redhat.com/articles/rhel-eus#c9"
                         target="_blank"
@@ -96,34 +91,20 @@ const SetWorkloadPage = ({
               id="product"
             >
               {releaseVersions.map((product, i) => {
-                return (
-                  <FormSelectOption
-                    key={i}
-                    value={product.name}
-                    label={product.name}
-                  />
-                );
+                return <FormSelectOption key={i} value={product.name} label={product.name} />;
               })}
             </FormSelect>
             {errorInferringProduct && (
-              <Content
-                component="small"
-                className="pf-v6-u-text-color-status-danger"
-              >
-                Unable to infer product based on current additional
-                repositories. &quot;{extendedReleaseProduct}&quot; has been
-                selected by default.
+              <Content component="small" className="pf-v6-u-text-color-status-danger">
+                Unable to infer product based on current additional repositories. &quot;
+                {extendedReleaseProduct}&quot; has been selected by default.
               </Content>
             )}
           </FormGroup>
           <FormGroup label="Version">
             <FormSelect
               onChange={(_event, v) => setExtendedReleaseVersion(v)}
-              value={
-                extendedReleaseVersion ||
-                activationKey?.releaseVersion ||
-                'Not Defined'
-              }
+              value={extendedReleaseVersion || activationKey?.releaseVersion || 'Not Defined'}
               id="version"
             >
               {releaseVersions
@@ -141,18 +122,12 @@ const SetWorkloadPage = ({
       )}
       {!isLoading &&
         isEditMode &&
-        !(
-          activationKey?.releaseVersion == undefined &&
-          extendedReleaseVersion == ''
-        ) &&
+        !(activationKey?.releaseVersion == undefined && extendedReleaseVersion == '') &&
         (activationKey?.releaseVersion != extendedReleaseVersion ||
           inferredReleaseProduct != extendedReleaseProduct) && (
-          <Content
-            component="small"
-            className="pf-v6-u-text-color-status-danger"
-          >
-            Editing the release version or product may remove all existing
-            additional repositories from this key.
+          <Content component="small" className="pf-v6-u-text-color-status-danger">
+            Editing the release version or product may remove all existing additional repositories
+            from this key.
           </Content>
         )}
     </>
@@ -174,6 +149,6 @@ SetWorkloadPage.propTypes = {
   error: PropTypes.object.isRequired,
   releaseVersions: PropTypes.arrayOf(PropTypes.object).isRequired,
   errorInferringProduct: PropTypes.bool.isRequired,
-  inferredReleaseProduct: PropTypes.string.isRequired,
+  inferredReleaseProduct: PropTypes.string.isRequired
 };
 export default SetWorkloadPage;

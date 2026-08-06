@@ -6,12 +6,7 @@ import { Tooltip } from '@patternfly/react-core/dist/dynamic/components/Tooltip'
 import { Relation, useHasRelation } from '../../hooks/useHasRelation';
 
 const WriteOnlyButton = (props) => {
-  const {
-    children,
-    enabledTooltip,
-    disabledTooltip = 'Disabled',
-    ...buttonProps
-  } = props;
+  const { children, enabledTooltip, disabledTooltip = 'Disabled', ...buttonProps } = props;
 
   const { has: canWriteActivationKeys } = useHasRelation(Relation.KEYS_EDIT);
 
@@ -24,11 +19,7 @@ const WriteOnlyButton = (props) => {
       {isDisabled ? (
         <NoAccessPopover
           content={() => (
-            <Tooltip
-              position="top"
-              content={disabledTooltip}
-              trigger="mouseenter"
-            >
+            <Tooltip position="top" content={disabledTooltip} trigger="mouseenter">
               <Button {...buttonProps} isDisabled>
                 {children}
               </Button>
@@ -38,11 +29,7 @@ const WriteOnlyButton = (props) => {
       ) : (
         <>
           {showEnabledTooltip && (
-            <Tooltip
-              position="top"
-              content={enabledTooltip}
-              trigger="mouseenter"
-            >
+            <Tooltip position="top" content={enabledTooltip} trigger="mouseenter">
               <Button {...buttonProps}>{children}</Button>
             </Tooltip>
           )}
@@ -56,7 +43,7 @@ const WriteOnlyButton = (props) => {
 WriteOnlyButton.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   enabledTooltip: PropTypes.string,
-  disabledTooltip: PropTypes.string,
+  disabledTooltip: PropTypes.string
 };
 
 export default WriteOnlyButton;
