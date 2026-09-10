@@ -24,13 +24,9 @@
     {
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch",
-      "matchPackageNames": [
-        "*"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ]
+      "matchPackageNames": ["*"],
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"]
     }
   ],
   "labels": ["dependency", "konflux"]
