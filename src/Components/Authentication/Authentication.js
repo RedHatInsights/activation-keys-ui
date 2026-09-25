@@ -3,7 +3,7 @@ import Loading from '../LoadingState/Loading';
 import propTypes from 'prop-types';
 import NotAuthorized from '@redhat-cloud-services/frontend-components/NotAuthorized';
 import { Relation, useHasRelation } from '../../hooks/useHasRelation';
-import useUser from '../../hooks/useUser';
+import useOrgID from '../../hooks/useOrgID';
 import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 
 const Authentication = ({ children }) => {
@@ -14,7 +14,7 @@ const Authentication = ({ children }) => {
   // Preload edit for later
   useHasRelation(Relation.KEYS_EDIT);
 
-  const { isLoading, isFetching, isError } = useUser();
+  const { isLoading, isFetching, isError } = useOrgID();
 
   if (isError) {
     return <Unavailable />;

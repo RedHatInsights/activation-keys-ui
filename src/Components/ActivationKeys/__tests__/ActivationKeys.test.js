@@ -4,14 +4,14 @@ import ActivationKeys from '../index';
 import Authentication from '../../../Components/Authentication';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import useUser from '../../../hooks/useUser';
+import useOrgID from '../../../hooks/useOrgID';
 import { def, get } from 'bdd-lazy-var';
 import useActivationKeys from '../../../hooks/useActivationKeys';
 import '@testing-library/jest-dom';
 import { Relation, useHasRelation } from '../../../hooks/useHasRelation';
 
 jest.mock('../../../hooks/useActivationKeys');
-jest.mock('../../../hooks/useUser');
+jest.mock('../../../hooks/useOrgID');
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: () => ({
@@ -39,21 +39,18 @@ const mockRelation = (map) => {
   }));
 };
 
-const mockAuthenticateUser = (isLoading, isError) => {
-  const user = {
-    accountNumber: '123',
-    orgId: '123'
-  };
-  useUser.mockReturnValue({
+const mockOrgID = (isLoading, isError) => {
+  const orgId = '123';
+  useOrgID.mockReturnValue({
     isLoading: isLoading,
     isFetching: false,
     isSuccess: true,
     isError: isError,
-    data: user
+    data: orgId
   });
 
   if (isError === false) {
-    queryClient.setQueryData(['user'], user);
+    queryClient.setQueryData(['orgId'], orgId);
   }
 };
 
@@ -89,7 +86,7 @@ describe('ActivationKeys', () => {
   beforeEach(() => {
     jest.resetAllMocks();
     mockRelation(get('relations'));
-    mockAuthenticateUser(get('isLoading'), get('isError'));
+    mockOrgID(get('isLoading'), get('isError'));
     useActivationKeys.mockReturnValue({
       isLoading: false,
       isFetching: false,
@@ -109,7 +106,7 @@ describe('ActivationKeys', () => {
 
     it('renders an error message when user call fails', async () => {
       const { container } = render(<PageContainer />);
-      await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(useOrgID).toHaveBeenCalledTimes(1));
       expect(container).toMatchSnapshot();
     });
   });
@@ -121,7 +118,7 @@ describe('ActivationKeys', () => {
 
     it('redirects to not authorized page', async () => {
       const { container } = render(<PageContainer />);
-      await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(useOrgID).toHaveBeenCalledTimes(1));
       expect(container).toMatchSnapshot();
     });
   });
