@@ -15,7 +15,7 @@ import CreateActivationKeyButton from './CreateActivationKeyButton';
 import DeleteActivationKeyConfirmationModal from '../Modals/DeleteActivationKeyConfirmationModal';
 import ActivationKeysDocsPopover from '../ActivationKeysDocsPopover';
 import { Main } from '@redhat-cloud-services/frontend-components/Main';
-import useUser from '../../hooks/useUser';
+import useOrgID from '../../hooks/useOrgID';
 
 const ActivationKeys = () => {
   const { updateDocumentTitle } = useChrome();
@@ -23,7 +23,7 @@ const ActivationKeys = () => {
   const { isLoading, error, data } = useActivationKeys();
   const [isOpen, setisOpen] = useState(false);
   const [currentKeyName, setCurrentKeyName] = useState('');
-  const { data: user } = useUser();
+  const { data: orgId } = useOrgID();
 
   const [isDeleteActivationKeyModalOpen, setIsDeleteActivationKeyModalOpen] = useState(false);
   const handleModalToggle = () => {
@@ -51,7 +51,7 @@ const ActivationKeys = () => {
         </a>
       </Content>
       <Content component="p">
-        To register with an activation key, you will need your organization ID: <b>{user.orgId}</b>
+        To register with an activation key, you will need your organization ID: <b>{orgId}</b>
       </Content>
     </Content>
   );
@@ -91,7 +91,7 @@ const ActivationKeys = () => {
           )}
         </Split>
         <Content>
-          <Content component={ContentVariants.p}>Organization ID: {user.orgId}</Content>
+          <Content component={ContentVariants.p}>Organization ID: {orgId}</Content>
         </Content>
       </PageHeader>
       <Main>

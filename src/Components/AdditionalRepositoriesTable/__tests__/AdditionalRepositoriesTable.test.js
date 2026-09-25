@@ -10,7 +10,6 @@ jest.mock('../../../hooks/useAvailableRepositories');
 jest.mock('uuid', () => {
   return { v4: jest.fn(() => '00000000-0000-0000-0000-000000000000') };
 });
-jest.mock('../../../hooks/useUser');
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useRouteMatch: () => ({ url: '/' })
@@ -56,22 +55,6 @@ describe('AdditionalRepositoriesTable', () => {
       repositoryLabel: 'label-b'
     }
   ];
-
-  jest.mock('../../../hooks/useUser', () => ({
-    __esModule: true,
-    default: jest.fn().mockReturnValue({
-      isLoading: false,
-      isFetching: false,
-      isSuccess: true,
-      isError: false,
-      data: {
-        rbacPermissions: {
-          canReadActivationKeys: true,
-          canWriteActivationKeys: true
-        }
-      }
-    })
-  }));
 
   it('renders correctly', () => {
     const Table = () => (

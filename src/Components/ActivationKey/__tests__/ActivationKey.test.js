@@ -9,11 +9,11 @@ import useActivationKey from '../../../hooks/useActivationKey';
 import '@testing-library/jest-dom';
 import useAvailableRepositories from '../../../hooks/useAvailableRepositories';
 import { Relation, useHasRelation } from '../../../hooks/useHasRelation';
-import useUser from '../../../hooks/useUser';
+import useOrgID from '../../../hooks/useOrgID';
 
 jest.mock('../../../hooks/useAvailableRepositories');
 jest.mock('../../../hooks/useActivationKey');
-jest.mock('../../../hooks/useUser');
+jest.mock('../../../hooks/useOrgID');
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: () => ({
@@ -34,20 +34,17 @@ const PageContainer = () => (
   </QueryClientProvider>
 );
 
-const mockAuthenticateUser = (isLoading, isError) => {
-  const user = {
-    accountNumber: '123',
-    orgId: '123'
-  };
-  useUser.mockReturnValue({
+const mockOrgID = (isLoading, isError) => {
+  const orgId = '123';
+  useOrgID.mockReturnValue({
     isLoading: isLoading,
     isFetching: false,
     isSuccess: true,
     isError: isError,
-    data: user
+    data: orgId
   });
   if (isError === false) {
-    queryClient.setQueryData(['user'], user);
+    queryClient.setQueryData(['orgId'], orgId);
   }
 };
 
@@ -94,7 +91,7 @@ describe('ActivationKey', () => {
 
   beforeEach(() => {
     jest.resetAllMocks();
-    mockAuthenticateUser(get('isLoading'), get('isError'), get('rbacPermissions'));
+    mockOrgID(get('isLoading'), get('isError'));
     mockRelation(get('relations'));
     useActivationKey.mockReturnValue({
       isLoading: false,
@@ -130,7 +127,7 @@ describe('ActivationKey', () => {
 
     it('renders an error message when user call fails', async () => {
       const { container } = render(<PageContainer />);
-      await waitFor(() => expect(useUser).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(useOrgID).toHaveBeenCalledTimes(1));
       expect(container).toMatchSnapshot();
     });
   });
