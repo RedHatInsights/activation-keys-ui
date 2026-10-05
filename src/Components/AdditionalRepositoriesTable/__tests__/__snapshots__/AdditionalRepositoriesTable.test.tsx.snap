@@ -1,0 +1,5783 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`AdditionalRepositoriesTable renders correctly 1`] = `
+<div>
+  <div
+    aria-label="pagination-top"
+    class="pf-v6-c-pagination"
+    data-ouia-component-id="OUIA-Generated-Pagination-top-:r0:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-top-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__total-items"
+    >
+      <b>
+        1
+         - 
+        2
+      </b>
+       
+      of
+       
+      <b>
+        2
+      </b>
+       
+    </div>
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r2:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-top-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            2
+          </b>
+           
+          of
+           
+          <b>
+            2
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r3:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r4:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <table
+    aria-label="ActivationKeys"
+    class="pf-v6-c-table pf-m-grid-md"
+    data-ouia-component-id="OUIA-Generated-Table-:r5:"
+    data-ouia-component-type="PF6/Table"
+    data-ouia-safe="true"
+    role="grid"
+  >
+    <thead
+      class="pf-v6-c-table__thead"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r6:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-40"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Name
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Label
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th"
+          scope="col"
+          tabindex="-1"
+        />
+      </tr>
+    </thead>
+    <tbody
+      class="pf-v6-c-table__tbody"
+      role="rowgroup"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r7:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-a
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r9:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:ra:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-b
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:rc:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    aria-label="pagination-bottom"
+    class="pf-v6-c-pagination pf-m-bottom"
+    data-ouia-component-id="OUIA-Generated-Pagination-bottom-:rd:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-bottom-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:rf:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-bottom-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            2
+          </b>
+           
+          of
+           
+          <b>
+            2
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-first"
+      >
+        <button
+          aria-label="Go to first page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="first"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:rg:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:rh:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-page-select"
+      >
+        <span
+          class="pf-v6-c-form-control pf-m-disabled"
+        >
+          <input
+            aria-invalid="false"
+            aria-label="Current page"
+            data-ouia-component-id="OUIA-Generated-TextInputBase-:rj:"
+            data-ouia-component-type="PF6/TextInput"
+            data-ouia-safe="true"
+            disabled=""
+            max="1"
+            min="1"
+            type="number"
+            value="1"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+        >
+          of
+           
+          1
+        </span>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:rk:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-last"
+      >
+        <button
+          aria-label="Go to last page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="last"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:rl:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`AdditionalRepositoriesTable when row column headings are clicked can sort by label 1`] = `
+<div>
+  <div
+    aria-label="pagination-top"
+    class="pf-v6-c-pagination"
+    data-ouia-component-id="OUIA-Generated-Pagination-top-:r4j:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-top-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__total-items"
+    >
+      <b>
+        1
+         - 
+        3
+      </b>
+       
+      of
+       
+      <b>
+        3
+      </b>
+       
+    </div>
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r4l:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-top-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            3
+          </b>
+           
+          of
+           
+          <b>
+            3
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r4m:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r4n:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <table
+    aria-label="ActivationKeys"
+    class="pf-v6-c-table pf-m-grid-md"
+    data-ouia-component-id="OUIA-Generated-Table-:r3t:"
+    data-ouia-component-type="PF6/Table"
+    data-ouia-safe="true"
+    role="grid"
+  >
+    <thead
+      class="pf-v6-c-table__thead"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r3u:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-40"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Name
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          aria-sort="ascending"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-selected"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Label
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M88 166.059V468c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12V166.059h46.059c21.382 0 32.09-25.851 16.971-40.971l-86.059-86.059c-9.373-9.373-24.569-9.373-33.941 0l-86.059 86.059c-15.119 15.119-4.411 40.971 16.971 40.971H88z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M22.707 8.707a.997.997 0 0 1-1.414 0L17 4.414V30a1 1 0 1 1-2 0V4.414l-4.293 4.293a.999.999 0 1 1-1.414-1.414l5.646-5.647a1.501 1.501 0 0 1 2.121 0l5.646 5.646a.999.999 0 0 1 0 1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th"
+          scope="col"
+          tabindex="-1"
+        />
+      </tr>
+    </thead>
+    <tbody
+      class="pf-v6-c-table__tbody"
+      role="rowgroup"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r3v:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-a
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r41:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r42:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-b
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r44:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r45:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-c
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r47:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    aria-label="pagination-bottom"
+    class="pf-v6-c-pagination pf-m-bottom"
+    data-ouia-component-id="OUIA-Generated-Pagination-bottom-:r4o:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-bottom-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r4q:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-bottom-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            3
+          </b>
+           
+          of
+           
+          <b>
+            3
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-first"
+      >
+        <button
+          aria-label="Go to first page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="first"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r4r:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r4s:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-page-select"
+      >
+        <span
+          class="pf-v6-c-form-control pf-m-disabled"
+        >
+          <input
+            aria-invalid="false"
+            aria-label="Current page"
+            data-ouia-component-id="OUIA-Generated-TextInputBase-:r4u:"
+            data-ouia-component-type="PF6/TextInput"
+            data-ouia-safe="true"
+            disabled=""
+            max="1"
+            min="1"
+            type="number"
+            value="1"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+        >
+          of
+           
+          1
+        </span>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r4v:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-last"
+      >
+        <button
+          aria-label="Go to last page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="last"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r50:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`AdditionalRepositoriesTable when row column headings are clicked can sort by label, reversed 1`] = `
+<div>
+  <div
+    aria-label="pagination-top"
+    class="pf-v6-c-pagination"
+    data-ouia-component-id="OUIA-Generated-Pagination-top-:r6a:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-top-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__total-items"
+    >
+      <b>
+        1
+         - 
+        3
+      </b>
+       
+      of
+       
+      <b>
+        3
+      </b>
+       
+    </div>
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r6c:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-top-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            3
+          </b>
+           
+          of
+           
+          <b>
+            3
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r6d:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r6e:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <table
+    aria-label="ActivationKeys"
+    class="pf-v6-c-table pf-m-grid-md"
+    data-ouia-component-id="OUIA-Generated-Table-:r56:"
+    data-ouia-component-type="PF6/Table"
+    data-ouia-safe="true"
+    role="grid"
+  >
+    <thead
+      class="pf-v6-c-table__thead"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r57:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-40"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Name
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          aria-sort="descending"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-selected"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Label
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="m22.707 24.707-5.646 5.646c-.292.292-.676.438-1.061.438s-.768-.146-1.061-.438l-5.646-5.646a.999.999 0 1 1 1.414-1.414L15 27.586V2a1 1 0 0 1 2 0v25.586l4.293-4.293a.999.999 0 1 1 1.414 1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th"
+          scope="col"
+          tabindex="-1"
+        />
+      </tr>
+    </thead>
+    <tbody
+      class="pf-v6-c-table__tbody"
+      role="rowgroup"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r58:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-c
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r5a:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r5b:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-b
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r5d:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r5e:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-a
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r5g:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    aria-label="pagination-bottom"
+    class="pf-v6-c-pagination pf-m-bottom"
+    data-ouia-component-id="OUIA-Generated-Pagination-bottom-:r6f:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-bottom-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r6h:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-bottom-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            3
+          </b>
+           
+          of
+           
+          <b>
+            3
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-first"
+      >
+        <button
+          aria-label="Go to first page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="first"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r6i:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r6j:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-page-select"
+      >
+        <span
+          class="pf-v6-c-form-control pf-m-disabled"
+        >
+          <input
+            aria-invalid="false"
+            aria-label="Current page"
+            data-ouia-component-id="OUIA-Generated-TextInputBase-:r6l:"
+            data-ouia-component-type="PF6/TextInput"
+            data-ouia-safe="true"
+            disabled=""
+            max="1"
+            min="1"
+            type="number"
+            value="1"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+        >
+          of
+           
+          1
+        </span>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r6m:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-last"
+      >
+        <button
+          aria-label="Go to last page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="last"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r6n:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`AdditionalRepositoriesTable when row column headings are clicked can sort by name 1`] = `
+<div>
+  <div
+    aria-label="pagination-top"
+    class="pf-v6-c-pagination"
+    data-ouia-component-id="OUIA-Generated-Pagination-top-:r1j:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-top-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__total-items"
+    >
+      <b>
+        1
+         - 
+        3
+      </b>
+       
+      of
+       
+      <b>
+        3
+      </b>
+       
+    </div>
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r1l:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-top-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            3
+          </b>
+           
+          of
+           
+          <b>
+            3
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r1m:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r1n:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <table
+    aria-label="ActivationKeys"
+    class="pf-v6-c-table pf-m-grid-md"
+    data-ouia-component-id="OUIA-Generated-Table-:rt:"
+    data-ouia-component-type="PF6/Table"
+    data-ouia-safe="true"
+    role="grid"
+  >
+    <thead
+      class="pf-v6-c-table__thead"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:ru:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <th
+          aria-sort="ascending"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-selected pf-m-width-40"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Name
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M88 166.059V468c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12V166.059h46.059c21.382 0 32.09-25.851 16.971-40.971l-86.059-86.059c-9.373-9.373-24.569-9.373-33.941 0l-86.059 86.059c-15.119 15.119-4.411 40.971 16.971 40.971H88z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M22.707 8.707a.997.997 0 0 1-1.414 0L17 4.414V30a1 1 0 1 1-2 0V4.414l-4.293 4.293a.999.999 0 1 1-1.414-1.414l5.646-5.647a1.501 1.501 0 0 1 2.121 0l5.646 5.646a.999.999 0 0 1 0 1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Label
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th"
+          scope="col"
+          tabindex="-1"
+        />
+      </tr>
+    </thead>
+    <tbody
+      class="pf-v6-c-table__tbody"
+      role="rowgroup"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:rv:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-a
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r11:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r12:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-b
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r14:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r15:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-c
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r17:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    aria-label="pagination-bottom"
+    class="pf-v6-c-pagination pf-m-bottom"
+    data-ouia-component-id="OUIA-Generated-Pagination-bottom-:r1o:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-bottom-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r1q:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-bottom-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            3
+          </b>
+           
+          of
+           
+          <b>
+            3
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-first"
+      >
+        <button
+          aria-label="Go to first page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="first"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r1r:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r1s:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-page-select"
+      >
+        <span
+          class="pf-v6-c-form-control pf-m-disabled"
+        >
+          <input
+            aria-invalid="false"
+            aria-label="Current page"
+            data-ouia-component-id="OUIA-Generated-TextInputBase-:r1u:"
+            data-ouia-component-type="PF6/TextInput"
+            data-ouia-safe="true"
+            disabled=""
+            max="1"
+            min="1"
+            type="number"
+            value="1"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+        >
+          of
+           
+          1
+        </span>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r1v:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-last"
+      >
+        <button
+          aria-label="Go to last page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="last"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r20:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`AdditionalRepositoriesTable when row column headings are clicked can sort by name, reversed 1`] = `
+<div>
+  <div
+    aria-label="pagination-top"
+    class="pf-v6-c-pagination"
+    data-ouia-component-id="OUIA-Generated-Pagination-top-:r3a:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-top-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__total-items"
+    >
+      <b>
+        1
+         - 
+        3
+      </b>
+       
+      of
+       
+      <b>
+        3
+      </b>
+       
+    </div>
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r3c:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-top-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            3
+          </b>
+           
+          of
+           
+          <b>
+            3
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r3d:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r3e:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <table
+    aria-label="ActivationKeys"
+    class="pf-v6-c-table pf-m-grid-md"
+    data-ouia-component-id="OUIA-Generated-Table-:r26:"
+    data-ouia-component-type="PF6/Table"
+    data-ouia-safe="true"
+    role="grid"
+  >
+    <thead
+      class="pf-v6-c-table__thead"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r27:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <th
+          aria-sort="descending"
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-selected pf-m-width-40"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Name
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M168 345.941V44c0-6.627-5.373-12-12-12h-56c-6.627 0-12 5.373-12 12v301.941H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.569 9.373 33.941 0l86.059-86.059c15.119-15.119 4.411-40.971-16.971-40.971H168z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="m22.707 24.707-5.646 5.646c-.292.292-.676.438-1.061.438s-.768-.146-1.061-.438l-5.646-5.646a.999.999 0 1 1 1.414-1.414L15 27.586V2a1 1 0 0 1 2 0v25.586l4.293-4.293a.999.999 0 1 1 1.414 1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Label
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th"
+          scope="col"
+          tabindex="-1"
+        />
+      </tr>
+    </thead>
+    <tbody
+      class="pf-v6-c-table__tbody"
+      role="rowgroup"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r28:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-a
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r2a:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r2b:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-b
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r2d:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r2e:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-c
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r2g:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    aria-label="pagination-bottom"
+    class="pf-v6-c-pagination pf-m-bottom"
+    data-ouia-component-id="OUIA-Generated-Pagination-bottom-:r3f:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-bottom-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r3h:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-bottom-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            3
+          </b>
+           
+          of
+           
+          <b>
+            3
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-first"
+      >
+        <button
+          aria-label="Go to first page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="first"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r3i:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r3j:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-page-select"
+      >
+        <span
+          class="pf-v6-c-form-control pf-m-disabled"
+        >
+          <input
+            aria-invalid="false"
+            aria-label="Current page"
+            data-ouia-component-id="OUIA-Generated-TextInputBase-:r3l:"
+            data-ouia-component-type="PF6/TextInput"
+            data-ouia-safe="true"
+            disabled=""
+            max="1"
+            min="1"
+            type="number"
+            value="1"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+        >
+          of
+           
+          1
+        </span>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r3m:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-last"
+      >
+        <button
+          aria-label="Go to last page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="last"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r3n:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`AdditionalRepositoriesTable when using pagination can change page 1`] = `
+<div>
+  <div
+    aria-label="pagination-top"
+    class="pf-v6-c-pagination"
+    data-ouia-component-id="OUIA-Generated-Pagination-top-:r88:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-top-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__total-items"
+    >
+      <b>
+        11
+         - 
+        12
+      </b>
+       
+      of
+       
+      <b>
+        12
+      </b>
+       
+    </div>
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r8a:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-top-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            11
+             - 
+            12
+          </b>
+           
+          of
+           
+          <b>
+            12
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r8b:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r8c:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <table
+    aria-label="ActivationKeys"
+    class="pf-v6-c-table pf-m-grid-md"
+    data-ouia-component-id="OUIA-Generated-Table-:r6t:"
+    data-ouia-component-type="PF6/Table"
+    data-ouia-safe="true"
+    role="grid"
+  >
+    <thead
+      class="pf-v6-c-table__thead"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r6u:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-40"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Name
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Label
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th"
+          scope="col"
+          tabindex="-1"
+        />
+      </tr>
+    </thead>
+    <tbody
+      class="pf-v6-c-table__tbody"
+      role="rowgroup"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r6v:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-10
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r71:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r72:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-11
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r74:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    aria-label="pagination-bottom"
+    class="pf-v6-c-pagination pf-m-bottom"
+    data-ouia-component-id="OUIA-Generated-Pagination-bottom-:r8d:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-bottom-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:r8f:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-bottom-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            11
+             - 
+            12
+          </b>
+           
+          of
+           
+          <b>
+            12
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-first"
+      >
+        <button
+          aria-label="Go to first page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="first"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r8g:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r8h:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-page-select"
+      >
+        <span
+          class="pf-v6-c-form-control"
+        >
+          <input
+            aria-invalid="false"
+            aria-label="Current page"
+            data-ouia-component-id="OUIA-Generated-TextInputBase-:r8j:"
+            data-ouia-component-type="PF6/TextInput"
+            data-ouia-safe="true"
+            max="2"
+            min="1"
+            type="number"
+            value="2"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+        >
+          of
+           
+          2
+        </span>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r8k:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-last"
+      >
+        <button
+          aria-label="Go to last page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="last"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:r8l:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`AdditionalRepositoriesTable when using pagination can change per page 1`] = `
+<div>
+  <div
+    aria-label="pagination-top"
+    class="pf-v6-c-pagination"
+    data-ouia-component-id="OUIA-Generated-Pagination-top-:rac:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-top-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__total-items"
+    >
+      <b>
+        1
+         - 
+        12
+      </b>
+       
+      of
+       
+      <b>
+        12
+      </b>
+       
+    </div>
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:rae:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-top-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            12
+          </b>
+           
+          of
+           
+          <b>
+            12
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:raf:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:rag:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <table
+    aria-label="ActivationKeys"
+    class="pf-v6-c-table pf-m-grid-md"
+    data-ouia-component-id="OUIA-Generated-Table-:r8r:"
+    data-ouia-component-type="PF6/Table"
+    data-ouia-safe="true"
+    role="grid"
+  >
+    <thead
+      class="pf-v6-c-table__thead"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r8s:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort pf-m-width-40"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Name
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th pf-v6-c-table__sort"
+          scope="col"
+          tabindex="-1"
+        >
+          <button
+            class="pf-v6-c-table__button"
+            type="button"
+          >
+            <div
+              class="pf-v6-c-table__button-content"
+            >
+              <span
+                class="pf-v6-c-table__text"
+              >
+                Label
+              </span>
+              <span
+                class="pf-v6-c-table__sort-indicator"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 256 512"
+                  >
+                    <path
+                      d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M21.293 23.293 17 27.586V4.414l4.293 4.293a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-5.646-5.646a1.5 1.5 0 0 0-2.121 0L9.294 7.293a.999.999 0 1 0 1.414 1.414l4.293-4.293v23.172l-4.293-4.293a.999.999 0 1 0-1.414 1.414l5.646 5.646c.292.293.676.438 1.061.438s.768-.146 1.061-.438l5.646-5.646a.999.999 0 1 0-1.414-1.414Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </div>
+          </button>
+        </th>
+        <th
+          class="pf-v6-c-table__th"
+          scope="col"
+          tabindex="-1"
+        />
+      </tr>
+    </thead>
+    <tbody
+      class="pf-v6-c-table__tbody"
+      role="rowgroup"
+    >
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r8t:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-0
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r8v:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r90:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-1
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r92:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r93:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-2
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r95:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r96:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-3
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r98:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r99:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-4
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r9b:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r9c:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-5
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r9e:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r9f:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-6
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r9h:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r9i:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-7
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r9k:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r9l:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-8
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r9n:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:r9o:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-9
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:r9q:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:rah:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-10
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:raj:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="pf-v6-c-table__tr"
+        data-ouia-component-id="OUIA-Generated-TableRow-:rak:"
+        data-ouia-component-type="PF6/TableRow"
+        data-ouia-safe="true"
+      >
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Name"
+          tabindex="-1"
+        />
+        <td
+          class="pf-v6-c-table__td"
+          data-label="Label"
+          tabindex="-1"
+        >
+          label-11
+        </td>
+        <td
+          class="pf-v6-c-table__td"
+          tabindex="-1"
+        >
+          <div
+            style="display: contents;"
+          >
+            <button
+              aria-label="Action"
+              class="pf-v6-c-button pf-m-plain"
+              data-ouia-component-id="OUIA-Generated-Button-plain-:ram:"
+              data-ouia-component-type="PF6/Button"
+              data-ouia-safe="true"
+              type="button"
+            >
+              <span
+                class="pf-v6-c-button__icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="pf-v6-svg"
+                  fill="currentColor"
+                  height="1em"
+                  role="img"
+                  width="1em"
+                >
+                  <svg
+                    class="pf-v6-icon-default"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+                    />
+                  </svg>
+                  <svg
+                    class="pf-v6-icon-rh-ui"
+                    viewBox="0 0 32 32"
+                  >
+                    <path
+                      d="M16 1C7.729 1 1 7.729 1 16s6.729 15 15 15 15-6.729 15-15S24.271 1 16 1Zm0 28C8.832 29 3 23.168 3 16S8.832 3 16 3s13 5.832 13 13-5.832 13-13 13Zm7-13a1 1 0 0 1-1 1H10a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1Z"
+                    />
+                  </svg>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    aria-label="pagination-bottom"
+    class="pf-v6-c-pagination pf-m-bottom"
+    data-ouia-component-id="OUIA-Generated-Pagination-bottom-:ran:"
+    data-ouia-component-type="PF6/Pagination"
+    data-ouia-safe="true"
+    id="options-menu-bottom-pagination"
+    style="--pf-v6-c-pagination__nav-page-select--c-form-control--width-chars: 2;"
+  >
+    <div
+      class="pf-v6-c-pagination__page-menu"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="pf-v6-c-menu-toggle pf-m-plain pf-m-text"
+        data-ouia-component-id="OUIA-Generated-MenuToggle-plainText-:rap:"
+        data-ouia-component-type="PF6/MenuToggle"
+        data-ouia-safe="true"
+        id="options-menu-bottom-toggle"
+        type="button"
+      >
+        <span
+          class="pf-v6-c-menu-toggle__text"
+        >
+          <b>
+            1
+             - 
+            12
+          </b>
+           
+          of
+           
+          <b>
+            12
+          </b>
+           
+        </span>
+        <span
+          class="pf-v6-c-menu-toggle__controls"
+        >
+          <span
+            class="pf-v6-c-menu-toggle__toggle-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="m17.65 8.76-6.674 5.72a1.496 1.496 0 0 1-.976.365c-.347 0-.694-.122-.978-.366l-6.673-5.72A1 1 0 0 1 3 7h14a1 1 0 0 1 .65 1.76Z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      aria-label="Pagination"
+      class="pf-v6-c-pagination__nav"
+    >
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-first"
+      >
+        <button
+          aria-label="Go to first page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="first"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:raq:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              viewBox="0 0 20 20"
+              width="1em"
+            >
+              <path
+                d="M10 19a.997.997 0 0 1-.707-.293l-7.647-7.646c-.283-.284-.439-.66-.439-1.061s.156-.777.44-1.06l7.646-7.647a1 1 0 1 1 1.414 1.414L3.414 10l7.293 7.293A1 1 0 0 1 10 19Zm8.707-.293a1 1 0 0 0 0-1.414L11.414 10l7.293-7.293a1 1 0 1 0-1.414-1.414L9.646 8.939c-.283.284-.439.66-.439 1.061s.156.777.44 1.06l7.646 7.647a.997.997 0 0 0 1.414 0Z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to previous page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="previous"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:rar:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M21 30a.997.997 0 0 1-.707-.293L7.647 17.061a1.501 1.501 0 0 1 0-2.121L20.293 2.293a.999.999 0 1 1 1.414 1.414L9.414 16l12.293 12.293A.999.999 0 0 1 21 30Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-page-select"
+      >
+        <span
+          class="pf-v6-c-form-control pf-m-disabled"
+        >
+          <input
+            aria-invalid="false"
+            aria-label="Current page"
+            data-ouia-component-id="OUIA-Generated-TextInputBase-:rat:"
+            data-ouia-component-type="PF6/TextInput"
+            data-ouia-safe="true"
+            disabled=""
+            max="1"
+            min="1"
+            type="number"
+            value="1"
+          />
+        </span>
+        <span
+          aria-hidden="true"
+        >
+          of
+           
+          1
+        </span>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control"
+      >
+        <button
+          aria-label="Go to next page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="next"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:rau:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M11 30a.999.999 0 0 1-.707-1.707L22.586 16 10.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121L11.707 29.706a.997.997 0 0 1-.707.293Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div
+        class="pf-v6-c-pagination__nav-control pf-m-last"
+      >
+        <button
+          aria-label="Go to last page"
+          class="pf-v6-c-button pf-m-plain"
+          data-action="last"
+          data-ouia-component-id="OUIA-Generated-Button-plain-:rav:"
+          data-ouia-component-type="PF6/Button"
+          data-ouia-safe="true"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="pf-v6-c-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="pf-v6-svg"
+              fill="currentColor"
+              height="1em"
+              role="img"
+              width="1em"
+            >
+              <svg
+                class="pf-v6-icon-default"
+                viewBox="0 0 448 512"
+              >
+                <path
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+                />
+              </svg>
+              <svg
+                class="pf-v6-icon-rh-ui"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  d="M30.354 17.061 17.708 29.707a.997.997 0 0 1-1.414 0 .999.999 0 0 1 0-1.414L28.587 16 16.293 3.707a.999.999 0 1 1 1.414-1.414l12.646 12.646a1.501 1.501 0 0 1 0 2.121Zm-14-2.122L3.707 2.293a.999.999 0 1 0-1.414 1.414L14.586 16 2.293 28.293a.999.999 0 1 0 1.414 1.414l12.646-12.646a1.501 1.501 0 0 0 0-2.121Z"
+                />
+              </svg>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+`;

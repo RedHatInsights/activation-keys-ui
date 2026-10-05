@@ -23,6 +23,6 @@ module.exports = defineConfig(
     },
   },
   {
-    files: ["src/**/*.js", "src/**/*.jsx"],
+    files: ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   },
 );

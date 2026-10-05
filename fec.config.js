@@ -28,7 +28,7 @@ module.exports = {
       './RootApp': resolve(__dirname, './src/AppEntry'),
       './CreateActivationKeyWizard': resolve(
         __dirname,
-        '/src/Modules/CreateActivationKeyWizardWithContext.js'
+        '/src/Modules/CreateActivationKeyWizardWithContext.tsx'
       ),
     },
   },
