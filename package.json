@@ -55,7 +55,7 @@
     "@unleash/proxy-client-react": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.30.3",
+    "react-router-dom": "^7.0.0",
     "unleash-proxy-client": "^3.7.6",
     "uuid": "^14.0.0"
   },
