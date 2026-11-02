@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { HttpError } from '../utils/errors';
 import type { AdditionalRepository, AuthToken } from './types';
 
 export interface DeleteAdditionalRepositoriesData {
@@ -20,8 +21,10 @@ const deleteAdditionalRepositoriesMutation =
     });
 
     if (!response.ok) {
-      throw new Error(
-        `Status Code ${response.status}. Error deleting additional repository: ${response.statusText}.`
+      throw new HttpError(
+        `Error deleting additional repository: ${response.statusText}`,
+        response.status,
+        response.statusText
       );
     }
   };

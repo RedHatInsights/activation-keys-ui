@@ -9,6 +9,7 @@ import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { FormSelect } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
 import { FormSelectOption } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
 import { Tooltip } from '@patternfly/react-core/dist/dynamic/components/Tooltip';
+import { HttpError } from '../../utils/errors';
 import type { ActivationKey, EusProduct } from '../../hooks/types';
 
 export interface SetWorkloadPageProps {
@@ -23,7 +24,7 @@ export interface SetWorkloadPageProps {
   setExtendedReleaseVersion: (value: string) => void;
   setExtendedReleaseRepositories: (value: string[]) => void;
   isLoading: boolean;
-  /** `useEusVersions` rejects with the HTTP status, so this may be the number 400. */
+  /** Error from `useEusVersions` - may be an HttpError with status 400 if no EUS subscriptions. */
   error?: unknown;
   releaseVersions?: EusProduct[];
   errorInferringProduct: boolean;
@@ -57,7 +58,7 @@ const SetWorkloadPage = ({
       </Content>
       {!isLoading ? (
         workloadOptions.map((wl, i) => {
-          const isDisabled = i === 1 && error === 400;
+          const isDisabled = i === 1 && error instanceof HttpError && error.status === 400;
           return (
             <Tooltip
               key={i}

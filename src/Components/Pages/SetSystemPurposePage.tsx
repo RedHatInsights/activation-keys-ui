@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Title } from '@patternfly/react-core/dist/dynamic/components/Title';
 import { Content } from '@patternfly/react-core/dist/dynamic/components/Content';
 import { ContentVariants } from '@patternfly/react-core/dist/dynamic/components/Content';
+import { Alert } from '@patternfly/react-core/dist/dynamic/components/Alert';
 import { FormGroup } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { Form } from '@patternfly/react-core/dist/dynamic/components/Form';
 import { FormSelect } from '@patternfly/react-core/dist/dynamic/components/FormSelect';
@@ -49,8 +50,27 @@ const SetSystemPurposePage = ({
     </>
   );
   const Placeholder = () => <FormSelectOption label="Not defined" isPlaceholder />;
+
   if (isLoading) return <Loading />;
-  if (isError) return null;
+
+  if (isError) {
+    return (
+      <>
+        <Title headingLevel="h2" className="pf-v6-u-mb-sm">
+          {isEditMode ? 'Edit system purpose' : 'Select system purpose'}
+        </Title>
+        <Alert
+          variant="danger"
+          title="Unable to load system purpose attributes"
+          className="pf-v6-u-mt-md"
+        >
+          There was an error loading the available roles, service levels, and usage options. You can
+          skip this step and continue, or cancel and try again later.
+        </Alert>
+      </>
+    );
+  }
+
   return (
     <>
       <Title headingLevel="h2" className="pf-v6-u-mb-sm">

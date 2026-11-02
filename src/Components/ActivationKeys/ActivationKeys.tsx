@@ -6,6 +6,7 @@ import { Split } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { SplitItem } from '@patternfly/react-core/dist/dynamic/layouts/Split';
 import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 import ActivationKeysTable from '../ActivationKeysTable';
 import NoActivationKeysFound from '../EmptyState';
 import ActivationKeyWizard from '../Modals/ActivationKeyWizard';
@@ -105,6 +106,7 @@ const ActivationKeys = () => {
           {!isLoading && !error && !data!.length && (
             <NoActivationKeysFound handleModalToggle={handleModalToggle} />
           )}
+          {!isLoading && error && <Unavailable />}
         </PageSection>
       </Main>
       <ActivationKeyWizard

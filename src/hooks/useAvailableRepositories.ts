@@ -1,5 +1,6 @@
 import { type QueryClient, useQuery } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { HttpError } from '../utils/errors';
 import type {
   AuthToken,
   AvailableRepositoriesFilters,
@@ -52,7 +53,11 @@ const fetchAdditionalRepositories = async (
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch repositories');
+    throw new HttpError(
+      `Failed to fetch available repositories: ${response.statusText}`,
+      response.status,
+      response.statusText
+    );
   }
 
   const repositoriesData = (await response.json()) as AvailableRepositoriesResponse;

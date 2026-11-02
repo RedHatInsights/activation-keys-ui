@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { HttpError } from '../utils/errors';
 import type { ApiResponse, AuthToken, EusProduct } from './types';
 
 const fetchEusVersions = (token: AuthToken) => async (): Promise<EusProduct[]> => {
@@ -8,7 +9,11 @@ const fetchEusVersions = (token: AuthToken) => async (): Promise<EusProduct[]> =
   });
 
   if (!response.ok) {
-    return Promise.reject(response.status);
+    throw new HttpError(
+      `Failed to fetch EUS versions: ${response.statusText}`,
+      response.status,
+      response.statusText
+    );
   }
 
   const eusVersionsData = (await response.json()) as ApiResponse<EusProduct[]>;
