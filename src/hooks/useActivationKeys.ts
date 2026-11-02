@@ -1,11 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { HttpError } from '../utils/errors';
 import type { ActivationKey, ApiResponse, AuthToken } from './types';
 
 const fetchActivationKeysData = (token: AuthToken) => async (): Promise<ActivationKey[]> => {
   const response = await fetch('/api/rhsm/v2/activation_keys', {
     headers: { Authorization: `Bearer ${await token}` }
   });
+
+  if (!response.ok) {
+    throw new HttpError(
+      `Failed to fetch activation keys: ${response.statusText}`,
+      response.status,
+      response.statusText
+    );
+  }
 
   const activationKeysData = (await response.json()) as ApiResponse<ActivationKey[]>;
 

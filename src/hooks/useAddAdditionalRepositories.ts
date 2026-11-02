@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { HttpError } from '../utils/errors';
 import type { AdditionalRepository, AuthToken } from './types';
 
 export interface AddAdditionalRepositoriesData {
@@ -35,8 +36,12 @@ const additionalRepositoriesMutation =
       }
     );
 
-    if (Math.floor(response.status / 100) !== 2) {
-      throw new Error();
+    if (!response.ok) {
+      throw new HttpError(
+        `Failed to add additional repositories: ${response.statusText}`,
+        response.status,
+        response.statusText
+      );
     }
 
     return response.json();

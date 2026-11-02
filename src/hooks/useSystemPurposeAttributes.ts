@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { HttpError } from '../utils/errors';
 import type { ApiResponse, AuthToken, SystemPurposeAttributes } from './types';
 
 interface OrganizationBody {
@@ -10,6 +11,14 @@ const fetchSystemPurposeAttributes = (token: AuthToken) => async (): Promise<Org
   const response = await fetch('/api/rhsm/v2/organization?include=system_purpose_attributes', {
     headers: { Authorization: `Bearer ${await token}` }
   });
+
+  if (!response.ok) {
+    throw new HttpError(
+      `Failed to fetch system purpose attributes: ${response.statusText}`,
+      response.status,
+      response.statusText
+    );
+  }
 
   const responseData = (await response.json()) as ApiResponse<OrganizationBody>;
 

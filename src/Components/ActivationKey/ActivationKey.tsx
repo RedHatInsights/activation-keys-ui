@@ -11,6 +11,7 @@ import { LevelItem } from '@patternfly/react-core/dist/dynamic/layouts/Level';
 import { DescriptionListGroup } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
 import { DescriptionListTerm } from '@patternfly/react-core/dist/dynamic/components/DescriptionList';
 import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-components/PageHeader';
+import Unavailable from '@redhat-cloud-services/frontend-components/Unavailable';
 import AdditionalRepositoriesCard from './AdditionalRepositoriesCard';
 import NoAccessPopover from '../NoAccessPopover';
 import useActivationKey from '../../hooks/useActivationKey';
@@ -70,31 +71,33 @@ const ActivationKey = () => {
       </PageHeader>
       {(isKeyLoading || canWriteActivationKeysIsLoading) && !keyError ? (
         <Loading />
+      ) : keyError ? (
+        <Main>
+          <Unavailable />
+        </Main>
       ) : (
-        <React.Fragment>
-          <Main>
-            <Grid hasGutter>
-              <GridItem span={12}>
-                <Gallery
-                  hasGutter
-                  minWidths={{
-                    default: '40%'
-                  }}
-                >
-                  <GalleryItem>
-                    <SystemPurposeCard activationKey={activationKey} />
-                  </GalleryItem>
-                  <GalleryItem>
-                    <WorkloadCard activationKey={activationKey} />
-                  </GalleryItem>
-                </Gallery>
-              </GridItem>
-              <GridItem span={12}>
-                <AdditionalRepositoriesCard activationKey={activationKey} />
-              </GridItem>
-            </Grid>
-          </Main>
-        </React.Fragment>
+        <Main>
+          <Grid hasGutter>
+            <GridItem span={12}>
+              <Gallery
+                hasGutter
+                minWidths={{
+                  default: '40%'
+                }}
+              >
+                <GalleryItem>
+                  <SystemPurposeCard activationKey={activationKey} />
+                </GalleryItem>
+                <GalleryItem>
+                  <WorkloadCard activationKey={activationKey} />
+                </GalleryItem>
+              </Gallery>
+            </GridItem>
+            <GridItem span={12}>
+              <AdditionalRepositoriesCard activationKey={activationKey} />
+            </GridItem>
+          </Grid>
+        </Main>
       )}
     </React.Fragment>
   );

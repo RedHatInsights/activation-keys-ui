@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { HttpError } from '../utils/errors';
 import type { AuthToken } from './types';
 
 export interface UpdateActivationKeyData {
@@ -29,8 +30,10 @@ const activationKeyMutation = (token: AuthToken) => async (data: UpdateActivatio
     })
   });
   if (!response.ok) {
-    throw new Error(
-      `Status Code ${response.status}.  Error updating activation key: ${response.statusText}.`
+    throw new HttpError(
+      `Error updating activation key: ${response.statusText}`,
+      response.status,
+      response.statusText
     );
   }
 

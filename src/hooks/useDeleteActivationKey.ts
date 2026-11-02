@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
+import { HttpError } from '../utils/errors';
 import type { AuthToken } from './types';
 
 const deleteActivationKeyMutation =
@@ -13,8 +14,10 @@ const deleteActivationKeyMutation =
       }
     });
     if (!response.ok) {
-      throw new Error(
-        `Status Code ${response.status}.  Error deleting activation key: ${response.statusText}.`
+      throw new HttpError(
+        `Error deleting activation key: ${response.statusText}`,
+        response.status,
+        response.statusText
       );
     }
   };
