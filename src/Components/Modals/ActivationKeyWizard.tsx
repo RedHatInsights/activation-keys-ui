@@ -207,10 +207,6 @@ const ActivationKeyWizard = ({
         queryKey: [`activation_key_${activationKey.name}`]
       });
     }
-    setCurrentStep(0);
-    setShouldConfirmClose(false);
-    setIsConfirmClose(false);
-
     handleModalToggle();
   };
 
