@@ -86,12 +86,14 @@ export const EditAndDeleteDropdown = ({ activationKey, onClick }: EditAndDeleteD
         isOpen={isDeleteActivationKeyModalOpen}
         name={id as string}
       />
-      <ActivationKeyWizard
-        isEditMode={isEditMode}
-        activationKey={activationKey}
-        handleModalToggle={handleEditActivationKeyWizardToggle}
-        isOpen={isEditActivationKeyWizardOpen}
-      />
+      {isEditActivationKeyWizardOpen && (
+        <ActivationKeyWizard
+          isEditMode={isEditMode}
+          activationKey={activationKey}
+          handleModalToggle={handleEditActivationKeyWizardToggle}
+          isOpen={isEditActivationKeyWizardOpen}
+        />
+      )}
     </React.Fragment>
   );
 };
