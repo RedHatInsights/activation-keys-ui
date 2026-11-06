@@ -47,7 +47,7 @@ exports[`ActivationKeys renders correctly 1`] = `
             >
               <button
                 class="pf-v6-c-button pf-m-plain"
-                data-ouia-component-id="OUIA-Generated-Button-plain-:r4:"
+                data-ouia-component-id="OUIA-Generated-Button-plain-:r5:"
                 data-ouia-component-type="PF6/Button"
                 data-ouia-safe="true"
                 style="padding: 0px;"
@@ -92,7 +92,7 @@ exports[`ActivationKeys renders correctly 1`] = `
       >
         <button
           class="pf-v6-c-button pf-m-primary"
-          data-ouia-component-id="OUIA-Generated-Button-primary-:r5:"
+          data-ouia-component-id="OUIA-Generated-Button-primary-:r6:"
           data-ouia-component-type="PF6/Button"
           data-ouia-safe="true"
           type="button"
@@ -107,14 +107,14 @@ exports[`ActivationKeys renders correctly 1`] = `
     </div>
     <div
       class="pf-v6-c-content"
-      data-ouia-component-id="OUIA-Generated-Content-:r6:"
+      data-ouia-component-id="OUIA-Generated-Content-:r7:"
       data-ouia-component-type="PF6/Content"
       data-ouia-safe="true"
       data-pf-content="true"
     >
       <p
         class="pf-v6-c-content--p"
-        data-ouia-component-id="OUIA-Generated-Content-:r7:"
+        data-ouia-component-id="OUIA-Generated-Content-:r8:"
         data-ouia-component-type="PF6/Content"
         data-ouia-safe="true"
         data-pf-content="true"
